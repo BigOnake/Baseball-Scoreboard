@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+*.json
+BaseballScoreboard/obj/Debug/net8.0-windows/BaseballScoreboard.AssemblyInfo.cs
+BaseballScoreboard/obj/Debug/net8.0-windows/BaseballScoreboard.AssemblyInfoInputs.cache
+*.cache
