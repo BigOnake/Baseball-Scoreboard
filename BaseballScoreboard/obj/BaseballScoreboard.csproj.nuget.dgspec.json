@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {}
+    "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {
+    "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+        "projectUniqueName": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
         "projectName": "BaseballScoreboard",
-        "projectPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
-        "packagesPath": "C:\\Users\\urust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\obj\\",
+        "projectPath": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+        "packagesPath": "C:\\Users\\zachl\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\urust\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\zachl\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -63,7 +68,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
