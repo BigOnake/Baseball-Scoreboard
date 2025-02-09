@@ -1,22 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\",
+  "WorkspaceRootPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|c:\\users\\urust\\source\\repos\\c#\\baseballscoreboard\\baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\baseballscoreboard\\baseballscoreboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\baseballscoreboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|c:\\users\\urust\\source\\repos\\c#\\baseballscoreboard\\project\\baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\frmsearchteam.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\baseballscoreboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\baseballscoreboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\baseballscoreboard\\baseballscoreboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{01E7B160-B3B8-450C-9A55-5A2EE7338438}|BaseballScoreboard\\BaseballScoreboard.csproj|solutionrelative:baseballscoreboard\\baseballscoreboard.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,36 +46,36 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "frmSearchTeam.cs",
-              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\frmSearchTeam.cs",
+              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\frmSearchTeam.cs",
               "RelativeDocumentMoniker": "BaseballScoreboard\\frmSearchTeam.cs",
-              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\frmSearchTeam.cs",
-              "RelativeToolTip": "BaseballScoreboard\\frmSearchTeam.cs",
-              "ViewState": "AQIAACcAAAAAAAAAAAAAACwAAAAAAAAA",
+              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\frmSearchTeam.cs*",
+              "RelativeToolTip": "BaseballScoreboard\\frmSearchTeam.cs*",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAjwF4AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-06T20:28:19.766Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "frmSearchTeam.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\frmSearchTeam.cs",
+              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\frmSearchTeam.cs",
               "RelativeDocumentMoniker": "BaseballScoreboard\\frmSearchTeam.cs",
-              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\frmSearchTeam.cs [Design]",
-              "RelativeToolTip": "BaseballScoreboard\\frmSearchTeam.cs [Design]",
+              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\frmSearchTeam.cs [Design]*",
+              "RelativeToolTip": "BaseballScoreboard\\frmSearchTeam.cs [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-06T20:11:59.82Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "BaseballScoreboard.csproj",
-              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj",
               "RelativeDocumentMoniker": "BaseballScoreboard\\BaseballScoreboard.csproj",
-              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj",
               "RelativeToolTip": "BaseballScoreboard\\BaseballScoreboard.csproj",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
@@ -83,15 +83,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\Program.cs",
               "RelativeDocumentMoniker": "BaseballScoreboard\\Program.cs",
-              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\Program.cs",
+              "ToolTip": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\Program.cs",
               "RelativeToolTip": "BaseballScoreboard\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-06T20:06:39.167Z"
+              "WhenOpened": "2025-02-06T20:06:39.167Z",
+              "EditorCaption": ""
             }
           ]
         }

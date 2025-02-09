@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {}
+    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj": {
+    "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+        "projectUniqueName": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj",
         "projectName": "BaseballScoreboard",
-        "projectPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+        "projectPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\BaseballScoreboard.csproj",
         "packagesPath": "C:\\Users\\urust\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\BaseballScoreboard\\obj\\",
+        "outputPath": "C:\\Users\\urust\\source\\repos\\C#\\BaseballScoreboard\\Project\\BaseballScoreboard\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\urust\\AppData\\Roaming\\NuGet\\NuGet.Config",

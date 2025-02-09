@@ -48,6 +48,7 @@
             cBoxGuestPlayers = new ComboBox();
             cBoxGuestBench = new ComboBox();
             cBoxGuestBullpen = new ComboBox();
+            lBoxHomePlayers = new ListBox();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -172,13 +173,14 @@
             // 
             // cBoxHomePlayers
             // 
-            cBoxHomePlayers.DropDownStyle = ComboBoxStyle.Simple;
+            cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Suggest;
             cBoxHomePlayers.FormattingEnabled = true;
             cBoxHomePlayers.Location = new Point(40, 193);
             cBoxHomePlayers.Name = "cBoxHomePlayers";
-            cBoxHomePlayers.Size = new Size(138, 262);
+            cBoxHomePlayers.Size = new Size(138, 28);
             cBoxHomePlayers.Sorted = true;
             cBoxHomePlayers.TabIndex = 5;
+            cBoxHomePlayers.SelectedIndexChanged += cBoxHomePlayers_SelectedIndexChanged;
             cBoxHomePlayers.TextChanged += cBoxHomePlayer_TextChanged;
             // 
             // cBoxHomeBench
@@ -232,11 +234,20 @@
             cBoxGuestBullpen.Sorted = true;
             cBoxGuestBullpen.TabIndex = 5;
             // 
+            // lBoxHomePlayers
+            // 
+            lBoxHomePlayers.FormattingEnabled = true;
+            lBoxHomePlayers.Location = new Point(40, 227);
+            lBoxHomePlayers.Name = "lBoxHomePlayers";
+            lBoxHomePlayers.Size = new Size(138, 104);
+            lBoxHomePlayers.TabIndex = 6;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1101, 500);
+            Controls.Add(lBoxHomePlayers);
             Controls.Add(cBoxGuestBullpen);
             Controls.Add(cBoxHomeBullpen);
             Controls.Add(cBoxGuestBench);
@@ -270,19 +281,13 @@
         private TextBox txtHomeTeam;
         private Label lblGuestTeam;
         private TextBox txtGuestTeam;
-        private ListBox lboxHomePlayers;
         private Label lblHomePlayers;
         private Label lblHomePos;
-        private ListBox lboxGuestPlayer;
         private Label lblGuestPlayer;
         private Label lblGuestPos;
-        private ListBox lboxHomeBench;
         private Label lblHomeBench;
-        private ListBox lboxGuestBench;
         private Label lblGuestBench;
-        private ListBox lboxHomeBullpen;
         private Label lblHomeBullpen;
-        private ListBox lboxGuestBullpen;
         private Label lblGuestBullpen;
         private Label lblDate;
         private TextBox txtDate;
@@ -292,5 +297,6 @@
         private ComboBox cBoxGuestPlayers;
         private ComboBox cBoxGuestBench;
         private ComboBox cBoxGuestBullpen;
+        private ListBox lBoxHomePlayers;
     }
 }
