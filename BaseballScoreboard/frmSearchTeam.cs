@@ -89,5 +89,16 @@ namespace BaseballScoreboard
         {
 
         }
+
+        private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxHomePlayers.SelectedIndex != -1 && cBoxHomePlayers.SelectedItem != null)
+            {
+                if (!lBoxHomePlayers.Items.Contains(cBoxHomePlayers.SelectedItem))
+                {
+                    lBoxHomePlayers.Items.Add(cBoxHomePlayers.SelectedItem);
+                }
+            }
+        }
     }
 }
