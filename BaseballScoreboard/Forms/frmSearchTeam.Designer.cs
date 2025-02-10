@@ -49,6 +49,7 @@
             cBoxGuestBench = new ComboBox();
             cBoxGuestBullpen = new ComboBox();
             lBoxHomePlayers = new ListBox();
+            txtTest = new TextBox();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -243,11 +244,20 @@
             lBoxHomePlayers.Size = new Size(138, 104);
             lBoxHomePlayers.TabIndex = 6;
             // 
+            // txtTest
+            // 
+            txtTest.Location = new Point(747, 12);
+            txtTest.Multiline = true;
+            txtTest.Name = "txtTest";
+            txtTest.Size = new Size(325, 137);
+            txtTest.TabIndex = 7;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1101, 500);
+            Controls.Add(txtTest);
             Controls.Add(lBoxHomePlayers);
             Controls.Add(cBoxGuestBullpen);
             Controls.Add(cBoxHomeBullpen);
@@ -299,5 +309,6 @@
         private ComboBox cBoxGuestBench;
         private ComboBox cBoxGuestBullpen;
         private ListBox lBoxHomePlayers;
+        private TextBox txtTest;
     }
 }

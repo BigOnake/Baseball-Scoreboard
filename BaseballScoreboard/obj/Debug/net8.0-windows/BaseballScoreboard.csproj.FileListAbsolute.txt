@@ -19,7 +19,6 @@ C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\bin
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\bin\Debug\net8.0-windows\BaseballScoreboard.runtimeconfig.json
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\bin\Debug\net8.0-windows\BaseballScoreboard.dll
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\bin\Debug\net8.0-windows\BaseballScoreboard.pdb
-C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.frmSearchTeam.resources
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.csproj.GenerateResource.cache
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.AssemblyInfoInputs.cache
@@ -65,3 +64,4 @@ C:\Users\urust\Programming\C#\Baseball-Scoreboard\BaseballScoreboard\obj\Debug\n
 C:\Users\urust\Programming\C#\Baseball-Scoreboard\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.genruntimeconfig.cache
 C:\Users\urust\Programming\C#\Baseball-Scoreboard\BaseballScoreboard\obj\Debug\net8.0-windows\ref\BaseballScoreboard.dll
 C:\Users\urust\Programming\C#\Baseball-Scoreboard\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.Forms.frmSearchTeam.resources
+C:\Users\urust\source\repos\C#\BaseballScoreboard\Project\BaseballScoreboard\obj\Debug\net8.0-windows\BaseballScoreboard.Forms.frmSearchTeam.resources

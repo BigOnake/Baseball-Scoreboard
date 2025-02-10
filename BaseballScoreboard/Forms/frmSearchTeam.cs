@@ -29,6 +29,9 @@ namespace BaseballScoreboard.Forms
                 playersList.Add(players[i], i);
                 cBoxHomePlayers.Items.Add(players[i]);
             }
+
+            ApiTestt api = new ApiTestt();
+            txtTest.Text = api.getPlayerInfo();
         }
 
         private void cBoxHomePlayer_TextChanged(object sender, EventArgs e)
@@ -62,7 +65,7 @@ namespace BaseballScoreboard.Forms
 
             if (!string.IsNullOrEmpty(cb.Text))
             {
-                autocomplete = cb.Text; 
+                autocomplete = cb.Text;
                 List<string> matchList = GetMatches(fullList, autocomplete.ToUpper());
 
                 if (matchList.Count > 0)
