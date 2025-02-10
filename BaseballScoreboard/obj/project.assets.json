@@ -8,24 +8,19 @@
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\zachl\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\urust\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+      "projectUniqueName": "C:\\Users\\urust\\Programming\\C#\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
       "projectName": "BaseballScoreboard",
-      "projectPath": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
-      "packagesPath": "C:\\Users\\zachl\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\obj\\",
+      "projectPath": "C:\\Users\\urust\\Programming\\C#\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+      "packagesPath": "C:\\Users\\urust\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\urust\\Programming\\C#\\Baseball-Scoreboard\\BaseballScoreboard\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\zachl\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\urust\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -33,7 +28,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -75,16 +69,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

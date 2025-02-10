@@ -1,15 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "F9xGzymALaA=",
+  "dgSpecHash": "3SkH9yaHOxY=",
   "success": true,
-  "projectFilePath": "C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
+  "projectFilePath": "C:\\Users\\urust\\Programming\\C#\\Baseball-Scoreboard\\BaseballScoreboard\\BaseballScoreboard.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\zachl\\Documents\\GitHub\\Baseball-Scoreboard\\BaseballScoreboard\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }

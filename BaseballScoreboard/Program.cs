@@ -1,3 +1,5 @@
+using BaseballScoreboard.Forms;
+
 namespace BaseballScoreboard
 {
     internal static class Program

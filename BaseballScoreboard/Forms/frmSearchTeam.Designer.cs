@@ -1,4 +1,4 @@
-﻿namespace BaseballScoreboard
+﻿namespace BaseballScoreboard.Forms
 {
     partial class frmSearchTeam
     {
@@ -173,8 +173,9 @@
             // 
             // cBoxHomePlayers
             // 
-            cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Suggest;
+            cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Append;
             cBoxHomePlayers.FormattingEnabled = true;
+            cBoxHomePlayers.ImeMode = ImeMode.NoControl;
             cBoxHomePlayers.Location = new Point(40, 193);
             cBoxHomePlayers.Name = "cBoxHomePlayers";
             cBoxHomePlayers.Size = new Size(138, 28);

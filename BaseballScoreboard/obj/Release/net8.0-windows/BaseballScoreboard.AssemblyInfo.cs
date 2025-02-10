@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BaseballScoreboard")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b80d627a6a3ee3e6d20bfec2bc5d03cc066214b0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4da92df9a216de71155743356f86e491c620928d")]
 [assembly: System.Reflection.AssemblyProductAttribute("BaseballScoreboard")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BaseballScoreboard")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
