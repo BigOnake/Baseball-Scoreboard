@@ -6,9 +6,13 @@ namespace BaseballScoreboard.Data
 {
     static internal class Controller
     {
+        /* As of now Controller behaves as a all-knowing singleton.
+         * Not a bad thing, but could be changed to be more MVC/MVP like
+         * Doesn't store any information, resusable information is stored in StorageTest */
+
         static private ApiTest apiTest = new ApiTest();
         static private StorageTest storageTest = new StorageTest();
-
+        
         static public Player ReturnShohei()
         {
             Player player = new();
@@ -16,7 +20,7 @@ namespace BaseballScoreboard.Data
 
             try
             {
-                string jsonStr = apiTest.GetPlayerInfo(personId);
+                string jsonStr = apiTest.GetPlayerInfo(personId); // Calls an api for a specific player
 
                 if (string.IsNullOrEmpty(jsonStr))
                 {
@@ -34,10 +38,10 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
+        // Called at the start of the program in main
         static public void LoadAllTeams()
         {
             string FILE_NAME = "BaseballScoreboard.Resources.AllTeams.txt";
-            string allTeamsJson;
 
             using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(FILE_NAME))
             {
@@ -59,6 +63,8 @@ namespace BaseballScoreboard.Data
             return storageTest.GetAllTeams();
         }
 
+        /* Returns string that can be desrealized in the following way:
+         * Type object = JsonSerializer.Deserialize<Type>(json); */
         static private string ExtractObject(string jsonStr)
         {
             string str = jsonStr;
@@ -73,6 +79,8 @@ namespace BaseballScoreboard.Data
             return str;
         }
 
+        /* Returns string that can be desrealized in the following way:
+         * List<T> list = JsonSerializer.Deserialize<List<T>>(json); */
         static private string ExtractList(string jsonStr)
         {
             string str = jsonStr;
@@ -84,7 +92,7 @@ namespace BaseballScoreboard.Data
                 str = jsonStr.Substring(idxOpen, idxClose - idxOpen + 1);
             }
 
-            return str;
+            return str; 
         }
     }
 }
