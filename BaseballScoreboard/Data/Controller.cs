@@ -63,7 +63,7 @@ namespace BaseballScoreboard.Data
             return storageTest.GetAllTeams();
         }
 
-        /* Returns string that can be desrealized in the following way:
+        /* Returns string that can be parsed in the following way:
          * Type object = JsonSerializer.Deserialize<Type>(json); */
         static private string ExtractObject(string jsonStr)
         {
@@ -79,7 +79,7 @@ namespace BaseballScoreboard.Data
             return str;
         }
 
-        /* Returns string that can be desrealized in the following way:
+        /* Returns string that can be parsed in the following way:
          * List<T> list = JsonSerializer.Deserialize<List<T>>(json); */
         static private string ExtractList(string jsonStr)
         {
