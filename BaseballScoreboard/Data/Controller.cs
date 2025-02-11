@@ -43,18 +43,12 @@ namespace BaseballScoreboard.Data
         {
             string FILE_NAME = "BaseballScoreboard.Resources.AllTeams.txt";
 
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(FILE_NAME))
+            string contents = readFile(FILE_NAME);
+            List<Team> teams = JsonSerializer.Deserialize<List<Team>>(contents);
+
+            if (teams != null)
             {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    string contents = reader.ReadToEnd();
-                    List<Team> teams = JsonSerializer.Deserialize<List<Team>>(contents);
-                    
-                    if(teams != null)
-                    {
-                        storageTest.setAllTeams(teams);
-                    }
-                }
+                storageTest.setAllTeams(teams);
             }
         }
 
@@ -93,6 +87,42 @@ namespace BaseballScoreboard.Data
             }
 
             return str; 
+        }
+
+        static private string GetAccessToken()
+        {
+            string ACCESS_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token/refresh?refreshToken=";
+
+            string[] FILE_INFO = readFile("BaseballScoreboard.Resources.config.txt").Split('\n');
+            string REFRESH_TOKEN = FILE_INFO[0];
+
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = client.PostAsync(ACCESS_URL + REFRESH_TOKEN, null).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                string[] tokens = response.Content.ReadAsStringAsync().Result.Split(',');
+
+                string accessToken = tokens[0];
+                int startIndex = accessToken.IndexOf(":") + 1;
+                accessToken = accessToken.Substring(startIndex, accessToken.Length - startIndex).Trim('\"');
+
+                return accessToken;
+            }
+            else
+            {
+                MessageBox.Show("Error getting access token.");
+                return null;
+            }
+        }
+
+        static string readFile(string fileName)
+        {
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
         }
     }
 }

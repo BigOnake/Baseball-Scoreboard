@@ -16,4 +16,8 @@
     <EmbeddedResource Include="Resources\AllTeams.txt" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Properties\" />
+  </ItemGroup>
+
 </Project>

@@ -34,7 +34,10 @@ namespace BaseballScoreboard.Forms
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
             //teamsList.AddRange(Controller.returnAllTeams());
-            cBoxHomeTeams.Items.AddRange(Controller.ReturnAllTeams());
+            string[] sortedTeams = Controller.ReturnAllTeams();
+            Array.Sort(sortedTeams);
+
+            cBoxHomeTeams.Items.AddRange(sortedTeams);
             for (int i = 0; i < players.Length; i++)
             {
                 playersList.Add(players[i], i);
@@ -89,11 +92,6 @@ namespace BaseballScoreboard.Forms
             SearchName(cBoxHomePlayers, playersList);
         }
 
-        private void cBoxGuestPlayer_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cBoxHomePlayers.SelectedIndex != -1 && cBoxHomePlayers.SelectedItem != null)
@@ -109,11 +107,6 @@ namespace BaseballScoreboard.Forms
         {
             //txtTest.Text = Controller.ReturnShohei().fullName;
             Controller.LoadAllTeams();
-        }
-
-        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

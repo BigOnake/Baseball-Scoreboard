@@ -208,7 +208,6 @@ namespace BaseballScoreboard.Forms
             cBoxGuestPlayers.Size = new Size(138, 262);
             cBoxGuestPlayers.Sorted = true;
             cBoxGuestPlayers.TabIndex = 5;
-            cBoxGuestPlayers.TextChanged += cBoxGuestPlayer_TextChanged;
             // 
             // cBoxGuestBench
             // 
@@ -262,7 +261,6 @@ namespace BaseballScoreboard.Forms
             cBoxHomeTeams.Name = "cBoxHomeTeams";
             cBoxHomeTeams.Size = new Size(151, 28);
             cBoxHomeTeams.TabIndex = 9;
-            cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
             // 
             // frmSearchTeam
             // 
