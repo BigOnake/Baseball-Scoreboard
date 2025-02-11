@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Reflection;
 using System.Text.Json;
 
 namespace BaseballScoreboard.Data
@@ -35,8 +36,22 @@ namespace BaseballScoreboard.Data
 
         static public void LoadAllTeams()
         {
-            //TODO open file to load teams as pairs of id/name from .txt into Storage
-            //Should be called in main at the start of the program
+            string FILE_NAME = "BaseballScoreboard.Resources.AllTeams.txt";
+            string allTeamsJson;
+
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(FILE_NAME))
+            {
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    string contents = reader.ReadToEnd();
+                    List<Team> teams = JsonSerializer.Deserialize<List<Team>>(contents);
+                    
+                    if(teams != null)
+                    {
+                        storageTest.setAllTeams(teams);
+                    }
+                }
+            }
         }
 
         static public string[] ReturnAllTeams()

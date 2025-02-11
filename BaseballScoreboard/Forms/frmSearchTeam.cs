@@ -107,7 +107,8 @@ namespace BaseballScoreboard.Forms
 
         private void AddShohei_Click_1(object sender, EventArgs e)
         {
-            txtTest.Text = Controller.ReturnShohei().fullName;
+            //txtTest.Text = Controller.ReturnShohei().fullName;
+            Controller.LoadAllTeams();
         }
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)

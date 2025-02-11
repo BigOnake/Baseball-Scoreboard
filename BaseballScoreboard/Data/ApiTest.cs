@@ -36,18 +36,16 @@ namespace BaseballScoreboard.Data
     }
 }
 
-        // Rudimentary as of now
-        // Teams should be stored locally, and accessed via storage class
-        /*
-        public string GetAllTeams()
-        {
-            // Returns an object containing list "teams"
-            // Elemnts of "teams" have attributes id, name
-            string queryDetailed = "teams?leagueIds=103&leagueIds=104&fields=teams&fields=name&fields=id";
-            path = BASE_URL + $"{queryDetailed}";
+/* Rudimentary as of now
+ * Teams should be stored locally, and accessed via storage class
 
-            return GetJson(path);
-        }
-        */
+public string GetAllTeams()
+{
+    // Returns an object containing list "teams"
+    // Elemnts of "teams" have attributes id, name
+    string queryDetailed = "teams?leagueIds=103&leagueIds=104&fields=teams&fields=name&fields=id";
+    path = BASE_URL + $"{queryDetailed}";
 
-        
+    return GetJson(path);
+}
+*/        
