@@ -31,7 +31,9 @@ namespace BaseballScoreboard.Forms
             }
 
             ApiTestt api = new ApiTestt();
-            txtTest.Text = api.getPlayerInfo();
+            api.getPlayerInfo();
+
+            txtTest.Text = StorageTest.DisplayList();
         }
 
         private void cBoxHomePlayer_TextChanged(object sender, EventArgs e)

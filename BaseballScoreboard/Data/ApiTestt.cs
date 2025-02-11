@@ -1,4 +1,6 @@
-﻿namespace BaseballScoreboard.Data
+﻿using System.Text.Json;
+
+namespace BaseballScoreboard.Data
 {
     internal class ApiTestt
     {
@@ -14,6 +16,15 @@
             HttpResponseMessage response = client.GetAsync(path).Result;
             string jsonStr = response.Content.ReadAsStringAsync().Result;
 
+            try
+            {
+                PlayerList tList = JsonSerializer.Deserialize<PlayerList>(jsonStr);
+                StorageTest.CopyList(tList);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             return jsonStr;
         }
