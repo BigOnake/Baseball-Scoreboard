@@ -30,7 +30,6 @@ namespace BaseballScoreboard.Forms
         private void InitializeComponent()
         {
             lblHomeTeam = new Label();
-            txtHomeTeam = new TextBox();
             lblGuestTeam = new Label();
             txtGuestTeam = new TextBox();
             lblHomePlayers = new Label();
@@ -52,6 +51,7 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers = new ListBox();
             AddShohei = new Button();
             txtTest = new TextBox();
+            cBoxHomeTeams = new ComboBox();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -62,13 +62,6 @@ namespace BaseballScoreboard.Forms
             lblHomeTeam.Size = new Size(90, 20);
             lblHomeTeam.TabIndex = 0;
             lblHomeTeam.Text = "Home Team";
-            // 
-            // txtHomeTeam
-            // 
-            txtHomeTeam.Location = new Point(40, 59);
-            txtHomeTeam.Name = "txtHomeTeam";
-            txtHomeTeam.Size = new Size(125, 27);
-            txtHomeTeam.TabIndex = 1;
             // 
             // lblGuestTeam
             // 
@@ -262,11 +255,21 @@ namespace BaseballScoreboard.Forms
             txtTest.Size = new Size(144, 27);
             txtTest.TabIndex = 8;
             // 
+            // cBoxHomeTeams
+            // 
+            cBoxHomeTeams.FormattingEnabled = true;
+            cBoxHomeTeams.Location = new Point(40, 58);
+            cBoxHomeTeams.Name = "cBoxHomeTeams";
+            cBoxHomeTeams.Size = new Size(151, 28);
+            cBoxHomeTeams.TabIndex = 9;
+            cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1101, 500);
+            Controls.Add(cBoxHomeTeams);
             Controls.Add(txtTest);
             Controls.Add(AddShohei);
             Controls.Add(lBoxHomePlayers);
@@ -286,7 +289,6 @@ namespace BaseballScoreboard.Forms
             Controls.Add(lblHomePlayers);
             Controls.Add(txtGuestTeam);
             Controls.Add(txtDate);
-            Controls.Add(txtHomeTeam);
             Controls.Add(lblGuestTeam);
             Controls.Add(lblDate);
             Controls.Add(lblHomeTeam);
@@ -300,7 +302,6 @@ namespace BaseballScoreboard.Forms
         #endregion
 
         private Label lblHomeTeam;
-        private TextBox txtHomeTeam;
         private Label lblGuestTeam;
         private TextBox txtGuestTeam;
         private Label lblHomePlayers;
@@ -322,5 +323,6 @@ namespace BaseballScoreboard.Forms
         private ListBox lBoxHomePlayers;
         private Button AddShohei;
         private TextBox txtTest;
+        private ComboBox cBoxHomeTeams;
     }
 }

@@ -5,50 +5,49 @@ namespace BaseballScoreboard.Data
     internal class ApiTest
     {
         const string BASE_URL = "https://statsapi.mlb.com/api/v1/";
-
         static HttpClient client = new HttpClient();
         string? path;
-        string? jsonStr;
 
-
-        //Recieves Json of a player, and stores it as an element of PlayerList
-        public Player GetPlayerInfo(int personId)
+        public string GetPlayerInfo(int personId)
         {
-            Player? player = null;
+            // Returns an object containing list "people"
             string queryDetailed = "?fields=people%2C+fullName%2C+id%2C+primaryNumber";
-
             path = BASE_URL + $"people/{personId}{queryDetailed}";
 
-            try
-            {
-                
-
-                HttpResponseMessage response = client.GetAsync(path).Result;
-                jsonStr = response.Content.ReadAsStringAsync().Result;
-
-                jsonStr = extractObject(jsonStr);
-                player = JsonSerializer.Deserialize<Player>(jsonStr);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            return player;
+            return GetJson(path);
         }
 
-        private string extractObject(string jsonStr)
+        private string GetJson(string path)
         {
-            string str = jsonStr;
+            string jsonStr = string.Empty;
 
-            (int idxOpen, int idxClose) = (jsonStr.IndexOf('['), jsonStr.LastIndexOf(']'));
-
-            if (idxOpen != -1 && idxClose != -1)
+            HttpResponseMessage response = client.GetAsync(path).Result;
+            if (response.IsSuccessStatusCode)
             {
-                str = jsonStr.Substring(idxOpen + 1, idxClose - idxOpen - 1);
+                jsonStr = response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                jsonStr = "Unsuccessful response code";
             }
 
-            return str;
+            return jsonStr;
         }
     }
 }
+
+        // Rudimentary as of now
+        // Teams should be stored locally, and accessed via storage class
+        /*
+        public string GetAllTeams()
+        {
+            // Returns an object containing list "teams"
+            // Elemnts of "teams" have attributes id, name
+            string queryDetailed = "teams?leagueIds=103&leagueIds=104&fields=teams&fields=name&fields=id";
+            path = BASE_URL + $"{queryDetailed}";
+
+            return GetJson(path);
+        }
+        */
+
+        

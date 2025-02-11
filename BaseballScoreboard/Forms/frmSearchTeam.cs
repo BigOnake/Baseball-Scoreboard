@@ -17,6 +17,7 @@ namespace BaseballScoreboard.Forms
     public partial class frmSearchTeam : Form
     {
         Dictionary<string, int> playersList = new Dictionary<string, int>();
+        List<string> teamsList = new List<string>();
         string[] players = { "Nolan Arenado", "Dylan Carlson", "Matt Carpenter", "Steven Matz", "Paul DeJong",
     "Tommy Edman", "Paul Goldschmidt", "Giovanny Gallegos", "Ryan Helsley", "Jordan Hicks",
     "Dakota Hudson", "Tyler O'Neill", "Corey Dickerson", "Adam Wainwright", "Yadier Molina",
@@ -32,6 +33,8 @@ namespace BaseballScoreboard.Forms
 
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
+            //teamsList.AddRange(Controller.returnAllTeams());
+            cBoxHomeTeams.Items.AddRange(Controller.ReturnAllTeams());
             for (int i = 0; i < players.Length; i++)
             {
                 playersList.Add(players[i], i);
@@ -104,7 +107,12 @@ namespace BaseballScoreboard.Forms
 
         private void AddShohei_Click_1(object sender, EventArgs e)
         {
-            txtTest.Text = Controller.returnShohei().fullName;
+            txtTest.Text = Controller.ReturnShohei().fullName;
+        }
+
+        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
