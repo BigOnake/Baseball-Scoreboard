@@ -1,4 +1,4 @@
-﻿namespace BaseballScoreboard
+﻿namespace BaseballScoreboard.Forms
 {
     partial class frmSearchTeam
     {

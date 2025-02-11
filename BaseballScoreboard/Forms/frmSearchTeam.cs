@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
-namespace BaseballScoreboard
+namespace BaseballScoreboard.Forms
 {
     public partial class frmSearchTeam : Form
     {

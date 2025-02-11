@@ -1,4 +1,4 @@
-namespace BaseballScoreboard
+namespace BaseballScoreboard.Main
 {
     internal static class Program
     {
@@ -11,7 +11,7 @@ namespace BaseballScoreboard
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmSearchTeam());
+            Application.Run(new Forms.frmSearchTeam());
         }
     }
 }
