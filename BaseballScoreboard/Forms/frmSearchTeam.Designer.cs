@@ -1,4 +1,5 @@
-﻿namespace BaseballScoreboard.Forms
+﻿
+namespace BaseballScoreboard.Forms
 {
     partial class frmSearchTeam
     {
@@ -49,6 +50,8 @@
             cBoxGuestBench = new ComboBox();
             cBoxGuestBullpen = new ComboBox();
             lBoxHomePlayers = new ListBox();
+            AddShohei = new Button();
+            txtTest = new TextBox();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -242,11 +245,30 @@
             lBoxHomePlayers.Size = new Size(138, 104);
             lBoxHomePlayers.TabIndex = 6;
             // 
+            // AddShohei
+            // 
+            AddShohei.Location = new Point(819, 48);
+            AddShohei.Name = "AddShohei";
+            AddShohei.Size = new Size(144, 29);
+            AddShohei.TabIndex = 7;
+            AddShohei.Text = "Add Shohei";
+            AddShohei.UseVisualStyleBackColor = true;
+            AddShohei.Click += AddShohei_Click_1;
+            // 
+            // txtTest
+            // 
+            txtTest.Location = new Point(819, 94);
+            txtTest.Name = "txtTest";
+            txtTest.Size = new Size(144, 27);
+            txtTest.TabIndex = 8;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1101, 500);
+            Controls.Add(txtTest);
+            Controls.Add(AddShohei);
             Controls.Add(lBoxHomePlayers);
             Controls.Add(cBoxGuestBullpen);
             Controls.Add(cBoxHomeBullpen);
@@ -298,5 +320,7 @@
         private ComboBox cBoxGuestBench;
         private ComboBox cBoxGuestBullpen;
         private ListBox lBoxHomePlayers;
+        private Button AddShohei;
+        private TextBox txtTest;
     }
 }

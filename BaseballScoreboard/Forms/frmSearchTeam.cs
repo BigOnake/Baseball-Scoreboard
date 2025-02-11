@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic.Logging;
+﻿using BaseballScoreboard.Data;
+using Microsoft.VisualBasic.Logging;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -99,6 +100,11 @@ namespace BaseballScoreboard.Forms
                     lBoxHomePlayers.Items.Add(cBoxHomePlayers.SelectedItem);
                 }
             }
+        }
+
+        private void AddShohei_Click_1(object sender, EventArgs e)
+        {
+            txtTest.Text = Controller.returnShohei().fullName;
         }
     }
 }
