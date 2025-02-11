@@ -112,17 +112,21 @@ namespace BaseballScoreboard.Data
             else
             {
                 MessageBox.Show("Error getting access token.");
-                return null;
+                return "";
             }
         }
 
         static string readFile(string fileName)
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName))
-            using (StreamReader reader = new StreamReader(stream))
+            using (Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName))
+            if (stream != null)
             {
-                return reader.ReadToEnd();
+                using (StreamReader? reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
             }
+            else { return ""; }
         }
     }
 }
