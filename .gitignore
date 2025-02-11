@@ -403,5 +403,6 @@ FodyWeavers.xsd
 BaseballScoreboard/obj/Debug/net8.0-windows/BaseballScoreboard.AssemblyInfo.cs
 BaseballScoreboard/obj/Debug/net8.0-windows/BaseballScoreboard.AssemblyInfoInputs.cache
 *.cache
+/.vs
 
 /BaseballScoreboard/Resources/config.txt
