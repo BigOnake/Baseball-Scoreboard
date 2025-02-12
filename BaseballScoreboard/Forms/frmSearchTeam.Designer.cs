@@ -173,7 +173,7 @@ namespace BaseballScoreboard.Forms
             cBoxHomePlayers.FormattingEnabled = true;
             cBoxHomePlayers.Location = new Point(40, 193);
             cBoxHomePlayers.Name = "cBoxHomePlayers";
-            cBoxHomePlayers.Size = new Size(138, 28);
+            cBoxHomePlayers.Size = new Size(156, 28);
             cBoxHomePlayers.Sorted = true;
             cBoxHomePlayers.TabIndex = 5;
             cBoxHomePlayers.SelectedIndexChanged += cBoxHomePlayers_SelectedIndexChanged;
@@ -234,7 +234,7 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.FormattingEnabled = true;
             lBoxHomePlayers.Location = new Point(40, 227);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
-            lBoxHomePlayers.Size = new Size(138, 104);
+            lBoxHomePlayers.Size = new Size(156, 104);
             lBoxHomePlayers.TabIndex = 6;
             // 
             // AddShohei
@@ -259,8 +259,10 @@ namespace BaseballScoreboard.Forms
             cBoxHomeTeams.FormattingEnabled = true;
             cBoxHomeTeams.Location = new Point(40, 58);
             cBoxHomeTeams.Name = "cBoxHomeTeams";
-            cBoxHomeTeams.Size = new Size(151, 28);
+            cBoxHomeTeams.Size = new Size(183, 28);
+            cBoxHomeTeams.Sorted = true;
             cBoxHomeTeams.TabIndex = 9;
+            cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
             // 
             // frmSearchTeam
             // 

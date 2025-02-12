@@ -33,15 +33,11 @@ namespace BaseballScoreboard.Forms
 
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
-            //teamsList.AddRange(Controller.returnAllTeams());
-            string[] sortedTeams = Controller.ReturnAllTeams();
-            Array.Sort(sortedTeams);
-
-            cBoxHomeTeams.Items.AddRange(sortedTeams);
-            for (int i = 0; i < players.Length; i++)
+            StorageTest data = new StorageTest();
+            data.teams = Controller.GetTeams();
+            foreach (KeyValuePair<int, string> team in data.teams)
             {
-                playersList.Add(players[i], i);
-                cBoxHomePlayers.Items.Add(players[i]);
+                cBoxHomeTeams.Items.Add(team.Value);
             }
         }
 
@@ -106,7 +102,19 @@ namespace BaseballScoreboard.Forms
         private void AddShohei_Click_1(object sender, EventArgs e)
         {
             //txtTest.Text = Controller.ReturnShohei().fullName;
-            Controller.LoadAllTeams();
+        }
+
+        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cBoxHomeTeams.SelectedIndex >= 0)
+            {
+                ApiTest rosterCall = new ApiTest();
+                StorageTest data = new StorageTest();
+
+                Controller.GetTeams();
+
+                //data.rosterList = rosterCall.GetRoster();
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Numerics;
+﻿using System.CodeDom.Compiler;
+using System.Numerics;
 using System.Reflection;
 using System.Text.Json;
 
@@ -38,18 +39,22 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
-        // Called at the start of the program in main
-        static public void LoadAllTeams()
+        public static SortedList<int, string> GetTeams()
         {
-            string FILE_NAME = "BaseballScoreboard.Resources.AllTeams.txt";
+            SortedList<int, string>? teams = new SortedList<int, string>();
+            List<Team>? temp = new List<Team>();
 
-            string contents = readFile(FILE_NAME);
-            List<Team> teams = JsonSerializer.Deserialize<List<Team>>(contents);
+            string filePath = "BaseballScoreboard.Resources.AllTeams.txt";
+            string file = ApiTest.readFile(filePath);
 
-            if (teams != null)
+            temp = JsonSerializer.Deserialize<List<Team>>(file);
+
+            foreach (Team t in temp)
             {
-                storageTest.setAllTeams(teams);
+                teams.Add((int)t.id, t.name);
             }
+
+            return teams;
         }
 
         static public string[] ReturnAllTeams()
@@ -87,46 +92,6 @@ namespace BaseballScoreboard.Data
             }
 
             return str; 
-        }
-
-        static private string GetAccessToken()
-        {
-            string ACCESS_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token/refresh?refreshToken=";
-
-            string[] FILE_INFO = readFile("BaseballScoreboard.Resources.config.txt").Split('\n');
-            string REFRESH_TOKEN = FILE_INFO[0];
-
-            HttpClient client = new HttpClient();
-            HttpResponseMessage response = client.PostAsync(ACCESS_URL + REFRESH_TOKEN, null).Result;
-
-            if (response.IsSuccessStatusCode)
-            {
-                string[] tokens = response.Content.ReadAsStringAsync().Result.Split(',');
-
-                string accessToken = tokens[0];
-                int startIndex = accessToken.IndexOf(":") + 1;
-                accessToken = accessToken.Substring(startIndex, accessToken.Length - startIndex).Trim('\"');
-
-                return accessToken;
-            }
-            else
-            {
-                MessageBox.Show("Error getting access token.");
-                return "";
-            }
-        }
-
-        static string readFile(string fileName)
-        {
-            using (Stream? stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(fileName))
-            if (stream != null)
-            {
-                using (StreamReader? reader = new StreamReader(stream))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
-            else { return ""; }
         }
     }
 }
