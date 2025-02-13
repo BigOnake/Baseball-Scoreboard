@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BaseballScoreboard.Forms
@@ -135,6 +136,39 @@ namespace BaseballScoreboard.Forms
                     }
                 }
             }
+        }
+
+        private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
+        {
+            StorageTest data = new StorageTest();
+            data.teams = Controller.GetTeams();
+            string text = cBoxHomeTeams.Text;
+
+            if (text == "")
+            {
+                foreach (KeyValuePair<string, int> team in data.teams)
+                {
+                    if (!cBoxHomeTeams.Items.Contains(team.Key))
+                    {
+                        cBoxHomeTeams.Items.Add(team.Key);
+                    }
+                }
+            }
+            else
+            {
+                cBoxHomeTeams.Items.Clear();
+
+                foreach (KeyValuePair<string, int> team in data.teams)
+                {
+                    if (team.Key.Contains(text))
+                    {
+                        cBoxHomeTeams.Items.Add(team.Key);
+                    }
+                }
+            }
+            cBoxHomeTeams.Select(text.Length, 0);
+            cBoxHomeTeams.DroppedDown = false;
+            cBoxHomeTeams.DroppedDown = true;
         }
     }
 }
