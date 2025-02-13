@@ -249,6 +249,8 @@ namespace BaseballScoreboard.Forms
             // 
             // cBoxHomeTeams
             // 
+            cBoxHomeTeams.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cBoxHomeTeams.FormattingEnabled = true;
             cBoxHomeTeams.Location = new Point(40, 58);
             cBoxHomeTeams.Name = "cBoxHomeTeams";

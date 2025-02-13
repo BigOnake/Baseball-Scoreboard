@@ -140,13 +140,12 @@ namespace BaseballScoreboard.Forms
 
         private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
         {
-            StorageTest data = new StorageTest();
-            data.teams = Controller.GetTeams();
-            string text = cBoxHomeTeams.Text;
+            SortedList<string, int> data = Controller.GetTeams();
 
+            string text = cBoxHomeTeams.Text;
             if (text == "")
             {
-                foreach (KeyValuePair<string, int> team in data.teams)
+                foreach (KeyValuePair<string, int> team in data)
                 {
                     if (!cBoxHomeTeams.Items.Contains(team.Key))
                     {
@@ -157,18 +156,17 @@ namespace BaseballScoreboard.Forms
             else
             {
                 cBoxHomeTeams.Items.Clear();
-
-                foreach (KeyValuePair<string, int> team in data.teams)
+                foreach (KeyValuePair<string, int> team in data)
                 {
-                    if (team.Key.Contains(text))
+                    if (team.Key.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         cBoxHomeTeams.Items.Add(team.Key);
                     }
                 }
             }
             cBoxHomeTeams.Select(text.Length, 0);
-            cBoxHomeTeams.DroppedDown = false;
             cBoxHomeTeams.DroppedDown = true;
+            
         }
     }
 }
