@@ -112,21 +112,28 @@ namespace BaseballScoreboard.Forms
             {
                 StorageTest storageData = new StorageTest();
                 ApiTest rosterData = new ApiTest();
+                int teamId;
 
-                //foreach (KeyValuePair<string, int> t in storageData.teams)
-                //{
-                //    MessageBox.Show($"Key: {t.Key}, Value: {t.Value}");
-                //}
-                int teamId = storageData.teams[(string)cBoxHomeTeams.SelectedItem];
-                storageData.rosterList = rosterData.GetRoster(teamId);
-
-                foreach (People p in storageData.rosterList.roster)
+                try
                 {
-                    if (p.person != null && p.person.fullName != null)
-                        cBoxHomePlayers.Items.Add(p.person.fullName);
+                    teamId = storageData.teams[(string)cBoxHomeTeams.SelectedItem];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{(string)cBoxHomeTeams.SelectedItem} could not be found.");
+                    return;
                 }
 
+                storageData.rosterList = rosterData.GetRoster(teamId);
 
+                if (storageData.rosterList.roster != null)
+                {
+                    foreach (People p in storageData.rosterList.roster)
+                    {
+                        if (p.person != null && p.person.fullName != null)
+                            cBoxHomePlayers.Items.Add(p.person.fullName);
+                    }
+                }
             }
         }
     }
