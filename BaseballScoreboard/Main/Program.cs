@@ -12,7 +12,6 @@ namespace BaseballScoreboard.Main
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
-            Controller.LoadAllTeams();
             ApplicationConfiguration.Initialize();
             Application.Run(new Forms.frmSearchTeam());
         }

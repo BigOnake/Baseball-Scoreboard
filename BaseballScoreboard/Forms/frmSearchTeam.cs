@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BaseballScoreboard.Forms
@@ -33,15 +34,11 @@ namespace BaseballScoreboard.Forms
 
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
-            //teamsList.AddRange(Controller.returnAllTeams());
-            string[] sortedTeams = Controller.ReturnAllTeams();
-            Array.Sort(sortedTeams);
-
-            cBoxHomeTeams.Items.AddRange(sortedTeams);
-            for (int i = 0; i < players.Length; i++)
+            StorageTest data = new StorageTest();
+            data.teams = Controller.GetTeams();
+            foreach (KeyValuePair<string, int> team in data.teams)
             {
-                playersList.Add(players[i], i);
-                cBoxHomePlayers.Items.Add(players[i]);
+                cBoxHomeTeams.Items.Add(team.Key);
             }
         }
 
@@ -106,7 +103,72 @@ namespace BaseballScoreboard.Forms
         private void AddShohei_Click_1(object sender, EventArgs e)
         {
             //txtTest.Text = Controller.ReturnShohei().fullName;
-            Controller.LoadAllTeams();
+        }
+
+        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cBoxHomePlayers.Items.Clear();
+
+            if (cBoxHomeTeams.SelectedIndex >= 0 && cBoxHomeTeams.SelectedItem != null)
+            {
+                StorageTest storageData = new StorageTest();
+                ApiTest rosterData = new ApiTest();
+                int teamId;
+
+                try
+                {
+                    teamId = storageData.teams[(string)cBoxHomeTeams.SelectedItem];
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{(string)cBoxHomeTeams.SelectedItem} could not be found.");
+                    return;
+                }
+
+                storageData.rosterList = rosterData.GetRoster(teamId);
+
+                if (storageData.rosterList.roster != null)
+                {
+                    foreach (People p in storageData.rosterList.roster)
+                    {
+                        if (p.person != null && p.person.fullName != null)
+                            cBoxHomePlayers.Items.Add(p.person.fullName);
+                    }
+                }
+            }
+        }
+
+        private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
+        {
+            StorageTest data = new StorageTest();
+            data.teams = Controller.GetTeams();
+            string text = cBoxHomeTeams.Text;
+
+            if (text == "")
+            {
+                foreach (KeyValuePair<string, int> team in data.teams)
+                {
+                    if (!cBoxHomeTeams.Items.Contains(team.Key))
+                    {
+                        cBoxHomeTeams.Items.Add(team.Key);
+                    }
+                }
+            }
+            else
+            {
+                cBoxHomeTeams.Items.Clear();
+
+                foreach (KeyValuePair<string, int> team in data.teams)
+                {
+                    if (team.Key.Contains(text))
+                    {
+                        cBoxHomeTeams.Items.Add(team.Key);
+                    }
+                }
+            }
+            cBoxHomeTeams.Select(text.Length, 0);
+            cBoxHomeTeams.DroppedDown = false;
+            cBoxHomeTeams.DroppedDown = true;
         }
     }
 }

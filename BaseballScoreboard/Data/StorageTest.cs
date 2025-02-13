@@ -13,6 +13,15 @@ namespace BaseballScoreboard.Data
         private List<Player> playerList = new();
         private List<Team> teamList = new();
 
+        public RosterList rosterList;
+        public SortedList<string, int> teams;
+
+        public StorageTest()
+        {
+            rosterList = new RosterList();
+            teams = Controller.GetTeams();
+        }
+
         public void AddPlayer(Player p)
         {
             playerList.Add(p);
@@ -44,5 +53,25 @@ namespace BaseballScoreboard.Data
     {
         public int? id { get; set; }
         public string? name { get; set; }
+    }
+
+    internal class Person
+    {
+        public int? id { get; set; }
+        public string? fullName { get; set; }
+    }
+
+    internal class People()
+    {
+        public Person? person { get; set; }
+        public string? jerseyNumber { get; set; }
+        public Person? position { get; set; }
+        public Person? status { get; set; }
+        public int? parentTeamId { get; set; }
+    }
+
+    internal class RosterList
+    {
+        public List<People>? roster { get; set; }
     }
 }
