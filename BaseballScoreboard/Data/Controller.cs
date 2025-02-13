@@ -39,9 +39,9 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
-        public static SortedList<int, string> GetTeams()
+        public static SortedList<string, int> GetTeams()
         {
-            SortedList<int, string>? teams = new SortedList<int, string>();
+            SortedList<string, int>? teams = new SortedList<string, int>();
             List<Team>? temp = new List<Team>();
 
             string filePath = "BaseballScoreboard.Resources.AllTeams.txt";
@@ -51,7 +51,8 @@ namespace BaseballScoreboard.Data
 
             foreach (Team t in temp)
             {
-                teams.Add((int)t.id, t.name);
+                if (t.name != null && t.id != null)
+                    teams.Add(t.name, (int)t.id);
             }
 
             return teams;

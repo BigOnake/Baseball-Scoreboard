@@ -37,15 +37,15 @@ namespace BaseballScoreboard.Data
             return jsonStr;
         }
 
-        public List<Roster> GetRoster(int teamId)
+        public RosterList GetRoster(int teamId)
         {
-            List<Roster>? roster = new List<Roster>();
-            path = BASE_URL + $"teams/{teamId}/roster/40Man?fields=roster&fields=person&fields=id&fields=fullName";
+            RosterList players = new RosterList();
+            path = BASE_URL + $"teams/{teamId}/roster/40Man?fields=roster%2Cperson%2Cid%2CfullName";
 
             string result = GetJson(path);
-            roster = JsonSerializer.Deserialize<List<Roster>>(result);
+            players = JsonSerializer.Deserialize<RosterList>(result);
 
-            return roster;
+            return players;
         }
 
         static private string GetAccessToken()

@@ -35,9 +35,9 @@ namespace BaseballScoreboard.Forms
         {
             StorageTest data = new StorageTest();
             data.teams = Controller.GetTeams();
-            foreach (KeyValuePair<int, string> team in data.teams)
+            foreach (KeyValuePair<string, int> team in data.teams)
             {
-                cBoxHomeTeams.Items.Add(team.Value);
+                cBoxHomeTeams.Items.Add(team.Key);
             }
         }
 
@@ -106,14 +106,27 @@ namespace BaseballScoreboard.Forms
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxHomeTeams.SelectedIndex >= 0)
+            cBoxHomePlayers.Items.Clear();
+
+            if (cBoxHomeTeams.SelectedIndex >= 0 && cBoxHomeTeams.SelectedItem != null)
             {
-                ApiTest rosterCall = new ApiTest();
-                StorageTest data = new StorageTest();
+                StorageTest storageData = new StorageTest();
+                ApiTest rosterData = new ApiTest();
 
-                Controller.GetTeams();
+                //foreach (KeyValuePair<string, int> t in storageData.teams)
+                //{
+                //    MessageBox.Show($"Key: {t.Key}, Value: {t.Value}");
+                //}
+                int teamId = storageData.teams[(string)cBoxHomeTeams.SelectedItem];
+                storageData.rosterList = rosterData.GetRoster(teamId);
 
-                //data.rosterList = rosterCall.GetRoster();
+                foreach (People p in storageData.rosterList.roster)
+                {
+                    if (p.person != null && p.person.fullName != null)
+                        cBoxHomePlayers.Items.Add(p.person.fullName);
+                }
+
+
             }
         }
     }
