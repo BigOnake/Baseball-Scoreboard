@@ -51,6 +51,10 @@ namespace BaseballScoreboard.Forms
             cBoxGuestTeams = new ComboBox();
             cBoxGuestPlayers = new ComboBox();
             lBoxGuestPlayers = new ListBox();
+            btnHomePlayersRemove = new Button();
+            btnHomePlayersClear = new Button();
+            btnGuestPlayersRemove = new Button();
+            btnGuestPlayersClear = new Button();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -267,12 +271,60 @@ namespace BaseballScoreboard.Forms
             lBoxGuestPlayers.Size = new Size(156, 204);
             lBoxGuestPlayers.TabIndex = 12;
             // 
+            // btnHomePlayersRemove
+            // 
+            btnHomePlayersRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHomePlayersRemove.Location = new Point(67, 391);
+            btnHomePlayersRemove.Name = "btnHomePlayersRemove";
+            btnHomePlayersRemove.Size = new Size(106, 35);
+            btnHomePlayersRemove.TabIndex = 13;
+            btnHomePlayersRemove.Text = "Remove";
+            btnHomePlayersRemove.UseVisualStyleBackColor = true;
+            btnHomePlayersRemove.Click += btnHomePlayersRemove_Click;
+            // 
+            // btnHomePlayersClear
+            // 
+            btnHomePlayersClear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnHomePlayersClear.Location = new Point(81, 432);
+            btnHomePlayersClear.Name = "btnHomePlayersClear";
+            btnHomePlayersClear.Size = new Size(71, 35);
+            btnHomePlayersClear.TabIndex = 14;
+            btnHomePlayersClear.Text = "Clear";
+            btnHomePlayersClear.UseVisualStyleBackColor = true;
+            btnHomePlayersClear.Click += btnHomePlayersClear_Click;
+            // 
+            // btnGuestPlayersRemove
+            // 
+            btnGuestPlayersRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuestPlayersRemove.Location = new Point(741, 391);
+            btnGuestPlayersRemove.Name = "btnGuestPlayersRemove";
+            btnGuestPlayersRemove.Size = new Size(106, 35);
+            btnGuestPlayersRemove.TabIndex = 15;
+            btnGuestPlayersRemove.Text = "Remove";
+            btnGuestPlayersRemove.UseVisualStyleBackColor = true;
+            btnGuestPlayersRemove.Click += btnGuestPlayersRemove_Click;
+            // 
+            // btnGuestPlayersClear
+            // 
+            btnGuestPlayersClear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuestPlayersClear.Location = new Point(761, 432);
+            btnGuestPlayersClear.Name = "btnGuestPlayersClear";
+            btnGuestPlayersClear.Size = new Size(71, 35);
+            btnGuestPlayersClear.TabIndex = 16;
+            btnGuestPlayersClear.Text = "Clear";
+            btnGuestPlayersClear.UseVisualStyleBackColor = true;
+            btnGuestPlayersClear.Click += btnGuestPlayersClear_Click;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1252, 599);
+            Controls.Add(btnGuestPlayersClear);
+            Controls.Add(btnGuestPlayersRemove);
+            Controls.Add(btnHomePlayersClear);
+            Controls.Add(btnHomePlayersRemove);
             Controls.Add(lBoxGuestPlayers);
             Controls.Add(cBoxGuestPlayers);
             Controls.Add(cBoxGuestTeams);
@@ -326,5 +378,9 @@ namespace BaseballScoreboard.Forms
         private ComboBox cBoxGuestTeams;
         private ComboBox cBoxGuestPlayers;
         private ListBox lBoxGuestPlayers;
+        private Button btnHomePlayersRemove;
+        private Button btnHomePlayersClear;
+        private Button btnGuestPlayersRemove;
+        private Button btnGuestPlayersClear;
     }
 }

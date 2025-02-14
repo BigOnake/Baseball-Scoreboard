@@ -197,5 +197,38 @@ namespace BaseballScoreboard.Forms
         {
             ShowTeams(cBoxGuestTeams);
         }
+
+        private void btnHomePlayersRemove_Click(object sender, EventArgs e)
+        {
+            RemovePlayer(lBoxHomePlayers);
+        }
+
+        private void btnGuestPlayersRemove_Click(object sender, EventArgs e)
+        {
+            RemovePlayer(lBoxGuestPlayers);
+        }
+
+        private void RemovePlayer(ListBox lBox)
+        {
+            if (lBox.SelectedIndex != -1)
+            {
+                lBox.Items.RemoveAt(lBox.SelectedIndex);
+            }
+        }
+
+        private void btnHomePlayersClear_Click(object sender, EventArgs e)
+        {
+            RemovePlayers(lBoxHomePlayers);
+        }
+
+        private void btnGuestPlayersClear_Click(object sender, EventArgs e)
+        {
+            RemovePlayers(lBoxGuestPlayers);
+        }
+
+        private void RemovePlayers(ListBox lBox)
+        {
+            lBox.Items.Clear();
+        }
     }
 }
