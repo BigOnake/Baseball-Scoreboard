@@ -89,14 +89,23 @@ namespace BaseballScoreboard.Forms
         {
             SearchName(cBoxHomePlayers, playersList);
         }
+        private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
+        }
 
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cBoxHomePlayers.SelectedIndex != -1 && cBoxHomePlayers.SelectedItem != null)
+            AddPlayers(cBoxHomePlayers, lBoxHomePlayers);
+        }
+
+        private void AddPlayers(ComboBox cBox, ListBox lBox)
+        {
+            if (cBox.SelectedIndex != -1 && cBox.SelectedItem != null)
             {
-                if (!lBoxHomePlayers.Items.Contains(cBoxHomePlayers.SelectedItem))
+                if (!lBox.Items.Contains(cBox.SelectedItem))
                 {
-                    lBoxHomePlayers.Items.Add(cBoxHomePlayers.SelectedItem);
+                    lBox.Items.Add(cBox.SelectedItem);
                 }
             }
         }

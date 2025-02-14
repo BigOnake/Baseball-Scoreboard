@@ -257,6 +257,7 @@ namespace BaseballScoreboard.Forms
             cBoxGuestPlayers.Size = new Size(156, 28);
             cBoxGuestPlayers.Sorted = true;
             cBoxGuestPlayers.TabIndex = 11;
+            cBoxGuestPlayers.SelectedIndexChanged += cBoxGuestPlayers_SelectedIndexChanged;
             // 
             // lBoxGuestPlayers
             // 
