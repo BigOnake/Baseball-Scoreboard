@@ -31,10 +31,8 @@ namespace BaseballScoreboard.Forms
         {
             lblHomeTeam = new Label();
             lblGuestTeam = new Label();
-            txtGuestTeam = new TextBox();
             lblHomePlayers = new Label();
             lblGuestPlayer = new Label();
-            lblGuestPos = new Label();
             lblHomeBench = new Label();
             lblGuestBench = new Label();
             lblHomeBullpen = new Label();
@@ -44,13 +42,15 @@ namespace BaseballScoreboard.Forms
             cBoxHomePlayers = new ComboBox();
             cBoxHomeBench = new ComboBox();
             cBoxHomeBullpen = new ComboBox();
-            cBoxGuestPlayers = new ComboBox();
             cBoxGuestBench = new ComboBox();
             cBoxGuestBullpen = new ComboBox();
             lBoxHomePlayers = new ListBox();
             AddShohei = new Button();
             txtTest = new TextBox();
             cBoxHomeTeams = new ComboBox();
+            cBoxGuestTeams = new ComboBox();
+            cBoxGuestPlayers = new ComboBox();
+            lBoxGuestPlayers = new ListBox();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -67,18 +67,13 @@ namespace BaseballScoreboard.Forms
             // lblGuestTeam
             // 
             lblGuestTeam.AutoSize = true;
-            lblGuestTeam.Location = new Point(585, 36);
+            lblGuestTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGuestTeam.ForeColor = Color.White;
+            lblGuestTeam.Location = new Point(731, 25);
             lblGuestTeam.Name = "lblGuestTeam";
-            lblGuestTeam.Size = new Size(86, 20);
+            lblGuestTeam.Size = new Size(137, 31);
             lblGuestTeam.TabIndex = 0;
             lblGuestTeam.Text = "Guest Team";
-            // 
-            // txtGuestTeam
-            // 
-            txtGuestTeam.Location = new Point(585, 59);
-            txtGuestTeam.Name = "txtGuestTeam";
-            txtGuestTeam.Size = new Size(125, 27);
-            txtGuestTeam.TabIndex = 1;
             // 
             // lblHomePlayers
             // 
@@ -94,25 +89,18 @@ namespace BaseballScoreboard.Forms
             // lblGuestPlayer
             // 
             lblGuestPlayer.AutoSize = true;
-            lblGuestPlayer.Location = new Point(579, 122);
+            lblGuestPlayer.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblGuestPlayer.ForeColor = Color.White;
+            lblGuestPlayer.Location = new Point(752, 111);
             lblGuestPlayer.Name = "lblGuestPlayer";
-            lblGuestPlayer.Size = new Size(49, 20);
+            lblGuestPlayer.Size = new Size(80, 31);
             lblGuestPlayer.TabIndex = 3;
             lblGuestPlayer.Text = "Player";
-            // 
-            // lblGuestPos
-            // 
-            lblGuestPos.AutoSize = true;
-            lblGuestPos.Location = new Point(679, 122);
-            lblGuestPos.Name = "lblGuestPos";
-            lblGuestPos.Size = new Size(31, 20);
-            lblGuestPos.TabIndex = 4;
-            lblGuestPos.Text = "Pos";
             // 
             // lblHomeBench
             // 
             lblHomeBench.AutoSize = true;
-            lblHomeBench.Location = new Point(216, 122);
+            lblHomeBench.Location = new Point(307, 122);
             lblHomeBench.Name = "lblHomeBench";
             lblHomeBench.Size = new Size(49, 20);
             lblHomeBench.TabIndex = 3;
@@ -121,7 +109,7 @@ namespace BaseballScoreboard.Forms
             // lblGuestBench
             // 
             lblGuestBench.AutoSize = true;
-            lblGuestBench.Location = new Point(756, 122);
+            lblGuestBench.Location = new Point(907, 122);
             lblGuestBench.Name = "lblGuestBench";
             lblGuestBench.Size = new Size(49, 20);
             lblGuestBench.TabIndex = 3;
@@ -130,7 +118,7 @@ namespace BaseballScoreboard.Forms
             // lblHomeBullpen
             // 
             lblHomeBullpen.AutoSize = true;
-            lblHomeBullpen.Location = new Point(382, 122);
+            lblHomeBullpen.Location = new Point(473, 122);
             lblHomeBullpen.Name = "lblHomeBullpen";
             lblHomeBullpen.Size = new Size(59, 20);
             lblHomeBullpen.TabIndex = 3;
@@ -139,7 +127,7 @@ namespace BaseballScoreboard.Forms
             // lblGuestBullpen
             // 
             lblGuestBullpen.AutoSize = true;
-            lblGuestBullpen.Location = new Point(926, 122);
+            lblGuestBullpen.Location = new Point(1077, 122);
             lblGuestBullpen.Name = "lblGuestBullpen";
             lblGuestBullpen.Size = new Size(59, 20);
             lblGuestBullpen.TabIndex = 3;
@@ -148,7 +136,7 @@ namespace BaseballScoreboard.Forms
             // lblDate
             // 
             lblDate.AutoSize = true;
-            lblDate.Location = new Point(350, 36);
+            lblDate.Location = new Point(441, 36);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(41, 20);
             lblDate.TabIndex = 0;
@@ -156,7 +144,7 @@ namespace BaseballScoreboard.Forms
             // 
             // txtDate
             // 
-            txtDate.Location = new Point(307, 59);
+            txtDate.Location = new Point(398, 59);
             txtDate.Name = "txtDate";
             txtDate.Size = new Size(125, 27);
             txtDate.TabIndex = 1;
@@ -176,7 +164,7 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxHomeBench.DropDownStyle = ComboBoxStyle.Simple;
             cBoxHomeBench.FormattingEnabled = true;
-            cBoxHomeBench.Location = new Point(216, 145);
+            cBoxHomeBench.Location = new Point(307, 145);
             cBoxHomeBench.Name = "cBoxHomeBench";
             cBoxHomeBench.Size = new Size(140, 142);
             cBoxHomeBench.Sorted = true;
@@ -186,27 +174,17 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxHomeBullpen.DropDownStyle = ComboBoxStyle.Simple;
             cBoxHomeBullpen.FormattingEnabled = true;
-            cBoxHomeBullpen.Location = new Point(382, 145);
+            cBoxHomeBullpen.Location = new Point(473, 145);
             cBoxHomeBullpen.Name = "cBoxHomeBullpen";
             cBoxHomeBullpen.Size = new Size(140, 262);
             cBoxHomeBullpen.Sorted = true;
             cBoxHomeBullpen.TabIndex = 5;
             // 
-            // cBoxGuestPlayers
-            // 
-            cBoxGuestPlayers.DropDownStyle = ComboBoxStyle.Simple;
-            cBoxGuestPlayers.FormattingEnabled = true;
-            cBoxGuestPlayers.Location = new Point(579, 147);
-            cBoxGuestPlayers.Name = "cBoxGuestPlayers";
-            cBoxGuestPlayers.Size = new Size(138, 262);
-            cBoxGuestPlayers.Sorted = true;
-            cBoxGuestPlayers.TabIndex = 5;
-            // 
             // cBoxGuestBench
             // 
             cBoxGuestBench.DropDownStyle = ComboBoxStyle.Simple;
             cBoxGuestBench.FormattingEnabled = true;
-            cBoxGuestBench.Location = new Point(756, 145);
+            cBoxGuestBench.Location = new Point(907, 145);
             cBoxGuestBench.Name = "cBoxGuestBench";
             cBoxGuestBench.Size = new Size(140, 142);
             cBoxGuestBench.Sorted = true;
@@ -216,7 +194,7 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxGuestBullpen.DropDownStyle = ComboBoxStyle.Simple;
             cBoxGuestBullpen.FormattingEnabled = true;
-            cBoxGuestBullpen.Location = new Point(926, 147);
+            cBoxGuestBullpen.Location = new Point(1077, 147);
             cBoxGuestBullpen.Name = "cBoxGuestBullpen";
             cBoxGuestBullpen.Size = new Size(140, 262);
             cBoxGuestBullpen.Sorted = true;
@@ -227,12 +205,12 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.FormattingEnabled = true;
             lBoxHomePlayers.Location = new Point(42, 181);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
-            lBoxHomePlayers.Size = new Size(156, 104);
+            lBoxHomePlayers.Size = new Size(156, 204);
             lBoxHomePlayers.TabIndex = 6;
             // 
             // AddShohei
             // 
-            AddShohei.Location = new Point(945, 12);
+            AddShohei.Location = new Point(1096, 12);
             AddShohei.Name = "AddShohei";
             AddShohei.Size = new Size(144, 29);
             AddShohei.TabIndex = 7;
@@ -242,7 +220,7 @@ namespace BaseballScoreboard.Forms
             // 
             // txtTest
             // 
-            txtTest.Location = new Point(945, 58);
+            txtTest.Location = new Point(1096, 58);
             txtTest.Name = "txtTest";
             txtTest.Size = new Size(144, 27);
             txtTest.TabIndex = 8;
@@ -258,12 +236,45 @@ namespace BaseballScoreboard.Forms
             cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
             cBoxHomeTeams.TextChanged += cBoxHomeTeams_TextChanged;
             // 
+            // cBoxGuestTeams
+            // 
+            cBoxGuestTeams.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cBoxGuestTeams.FormattingEnabled = true;
+            cBoxGuestTeams.Location = new Point(714, 59);
+            cBoxGuestTeams.Name = "cBoxGuestTeams";
+            cBoxGuestTeams.Size = new Size(183, 28);
+            cBoxGuestTeams.Sorted = true;
+            cBoxGuestTeams.TabIndex = 10;
+            cBoxGuestTeams.SelectedIndexChanged += cBoxGuestTeams_SelectedIndexChanged;
+            cBoxGuestTeams.TextChanged += cBoxGuestTeams_TextChanged;
+            // 
+            // cBoxGuestPlayers
+            // 
+            cBoxGuestPlayers.FormattingEnabled = true;
+            cBoxGuestPlayers.Location = new Point(714, 145);
+            cBoxGuestPlayers.Name = "cBoxGuestPlayers";
+            cBoxGuestPlayers.Size = new Size(156, 28);
+            cBoxGuestPlayers.Sorted = true;
+            cBoxGuestPlayers.TabIndex = 11;
+            // 
+            // lBoxGuestPlayers
+            // 
+            lBoxGuestPlayers.FormattingEnabled = true;
+            lBoxGuestPlayers.Location = new Point(714, 181);
+            lBoxGuestPlayers.Name = "lBoxGuestPlayers";
+            lBoxGuestPlayers.Size = new Size(156, 204);
+            lBoxGuestPlayers.TabIndex = 12;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
-            ClientSize = new Size(1101, 500);
+            ClientSize = new Size(1252, 599);
+            Controls.Add(lBoxGuestPlayers);
+            Controls.Add(cBoxGuestPlayers);
+            Controls.Add(cBoxGuestTeams);
             Controls.Add(cBoxHomeTeams);
             Controls.Add(txtTest);
             Controls.Add(AddShohei);
@@ -272,16 +283,13 @@ namespace BaseballScoreboard.Forms
             Controls.Add(cBoxHomeBullpen);
             Controls.Add(cBoxGuestBench);
             Controls.Add(cBoxHomeBench);
-            Controls.Add(cBoxGuestPlayers);
             Controls.Add(cBoxHomePlayers);
-            Controls.Add(lblGuestPos);
             Controls.Add(lblGuestPlayer);
             Controls.Add(lblGuestBench);
             Controls.Add(lblHomeBench);
             Controls.Add(lblGuestBullpen);
             Controls.Add(lblHomeBullpen);
             Controls.Add(lblHomePlayers);
-            Controls.Add(txtGuestTeam);
             Controls.Add(txtDate);
             Controls.Add(lblGuestTeam);
             Controls.Add(lblDate);
@@ -297,10 +305,8 @@ namespace BaseballScoreboard.Forms
 
         private Label lblHomeTeam;
         private Label lblGuestTeam;
-        private TextBox txtGuestTeam;
         private Label lblHomePlayers;
         private Label lblGuestPlayer;
-        private Label lblGuestPos;
         private Label lblHomeBench;
         private Label lblGuestBench;
         private Label lblHomeBullpen;
@@ -310,12 +316,14 @@ namespace BaseballScoreboard.Forms
         private ComboBox cBoxHomePlayers;
         private ComboBox cBoxHomeBench;
         private ComboBox cBoxHomeBullpen;
-        private ComboBox cBoxGuestPlayers;
         private ComboBox cBoxGuestBench;
         private ComboBox cBoxGuestBullpen;
         private ListBox lBoxHomePlayers;
         private Button AddShohei;
         private TextBox txtTest;
         private ComboBox cBoxHomeTeams;
+        private ComboBox cBoxGuestTeams;
+        private ComboBox cBoxGuestPlayers;
+        private ListBox lBoxGuestPlayers;
     }
 }
