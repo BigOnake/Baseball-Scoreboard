@@ -10,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace BaseballScoreboard.Forms
 {
@@ -162,33 +160,24 @@ namespace BaseballScoreboard.Forms
         {
             SortedList<string, int> data = Controller.GetTeams();
 
+            cBox.Items.Clear();
 
-            string text = cBox.Text;
-            if (text == "")
+            string filter = cBox.Text;
+            if (string.IsNullOrEmpty(filter))
             {
-                foreach (KeyValuePair<string, int> team in data)
-                {
-                    if (!cBox.Items.Contains(team.Key))
-                    {
-                        cBox.Items.Add(team.Key);
-                    }
-                }
+                cBox.Items.AddRange(data.Keys.ToArray());
             }
             else
             {
-                cBox.Items.Clear();
-                foreach (KeyValuePair<string, int> team in data)
-                {
-                    if (team.Key.Contains(text, StringComparison.OrdinalIgnoreCase))
-                    {
-                        cBox.Items.Add(team.Key);
-                    }
-                }
+                string[] filteredItems = data.Keys.Where(x => x.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToArray();
+
+                cBox.Items.AddRange(filteredItems);
             }
 
-            cBox.Select(text.Length, 0);
             cBox.DroppedDown = true;
+            cBox.Select(filter.Length, 0);
         }
+
 
         private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
         {
@@ -231,8 +220,6 @@ namespace BaseballScoreboard.Forms
         private void RemovePlayers(ListBox lBox)
         {
             lBox.Items.Clear();
-            cBoxHomeTeams.Select(text.Length, 0);
-            cBoxHomeTeams.DroppedDown = true;
         }
     }
 }
