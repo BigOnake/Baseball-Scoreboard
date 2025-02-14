@@ -162,6 +162,7 @@ namespace BaseballScoreboard.Forms
         {
             SortedList<string, int> data = Controller.GetTeams();
 
+
             string text = cBox.Text;
             if (text == "")
             {
@@ -178,12 +179,13 @@ namespace BaseballScoreboard.Forms
                 cBox.Items.Clear();
                 foreach (KeyValuePair<string, int> team in data)
                 {
-                    if (team.Key.Contains(text))
+                    if (team.Key.Contains(text, StringComparison.OrdinalIgnoreCase))
                     {
                         cBox.Items.Add(team.Key);
                     }
                 }
             }
+
             cBox.Select(text.Length, 0);
             cBox.DroppedDown = true;
         }
@@ -229,6 +231,8 @@ namespace BaseballScoreboard.Forms
         private void RemovePlayers(ListBox lBox)
         {
             lBox.Items.Clear();
+            cBoxHomeTeams.Select(text.Length, 0);
+            cBoxHomeTeams.DroppedDown = true;
         }
     }
 }
