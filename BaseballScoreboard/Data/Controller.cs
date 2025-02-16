@@ -59,17 +59,9 @@ namespace BaseballScoreboard.Data
             return apiClient.GetRoster(teamId);
         }
 
-        static public int getTeamId(string teamName)
+        static public int GetTeamId(string teamName)
         {
-            try
-            {
-                return storage.getTeamId(teamName);
-            }
-            catch (Exception ex) 
-            {
-                MessageBox.Show($"{teamName} could not be found.");
-                return -1;
-            }
+            return storage.GetTeamId(teamName);
         }
 
         static public string[] ReturnAllTeams()

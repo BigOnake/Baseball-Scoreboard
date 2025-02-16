@@ -5,7 +5,7 @@ namespace BaseballScoreboard.Forms
 {
     public partial class frmSearchTeam : Form
     {
-        Dictionary<string, int> playersList = new Dictionary<string, int>();
+        List<string> playersList = new();
 
         /***********************
          * Event Call Methods  *
@@ -99,12 +99,12 @@ namespace BaseballScoreboard.Forms
          * Utility Methods  *
          ********************/
 
-        private List<string> GetMatches(Dictionary<string, int> fullList, string searchTxt)
+        private List<string> GetMatches(List<string> fullList, string searchTxt)
         {
             List<string> suggestedItems = new List<string>();
             searchTxt = searchTxt.ToUpper();
 
-            foreach (string str in fullList.Keys)
+            foreach (string str in fullList)
             {
                 if (str.ToUpper().Contains(searchTxt))
                 {
@@ -141,20 +141,29 @@ namespace BaseballScoreboard.Forms
             if (src.SelectedIndex >= 0 && src.SelectedItem != null)
             {
                 RosterList rosterList = new();
-                int teamId = Controller.getTeamId((string)src.SelectedItem);
+                int teamId = Controller.GetTeamId((string)src.SelectedItem);
 
                 if (teamId != -1)
-                { rosterList = Controller.getTeamRoster(teamId); }
+                { 
+                    rosterList = Controller.getTeamRoster(teamId); 
+                }
                 else
-                { return; }
+                {
+                    MessageBox.Show($"{(string)src.SelectedItem} could not be found.");
+                    return; 
+                }
 
                 if (rosterList.roster != null)
                 {
                     foreach (People p in rosterList.roster)
                     {
                         if (p.person != null && p.person.fullName != null)
-                            dst.Items.Add(p.person.fullName);
+                        {
+                            playersList.Add(p.person.fullName);
+                        }
                     }
+
+                    dst.Items.AddRange(playersList.ToArray());
                 }
             }
         }
@@ -181,29 +190,37 @@ namespace BaseballScoreboard.Forms
             cBox.Select(filter.Length, 0);
         }
 
-        private void SearchName(ComboBox cb, Dictionary<string, int> fullList)
+        private void SearchName(ComboBox cb, List<string> fullList)
         {
             string? autocomplete;
 
-            if (!string.IsNullOrEmpty(cb.Text))
+            try
             {
-                autocomplete = cb.Text;
-                var matchList = GetMatches(fullList, autocomplete.ToUpper());
-
-                if (matchList.Count > 0)
+                if (!string.IsNullOrEmpty(cb.Text))
                 {
-                    cb.Items.Clear();
-                    cb.Items.AddRange(matchList.ToArray());
-                    cb.Select(autocomplete.Length, 0);
-                    return;
+                    autocomplete = cb.Text;
+                    var matchList = GetMatches(fullList, autocomplete.ToUpper());
+
+                    if (matchList.Count > 0)
+                    {
+                        cb.DroppedDown = true;
+                        cb.Items.Clear();
+                        cb.Items.AddRange(matchList.ToArray());
+                        cb.Select(autocomplete.Length, 0);
+                        return;
+                    }
+                    else
+                    { cb.SelectionStart = autocomplete.Length; }
                 }
                 else
-                { cb.SelectionStart = autocomplete.Length; }
+                {
+                    cb.Items.Clear();
+                    cb.Items.AddRange(fullList.ToArray());
+                }
             }
-            else
+            catch (Exception ex) 
             {
-                cb.Items.Clear();
-                cb.Items.AddRange(fullList.Keys.ToArray());
+            MessageBox.Show(ex.Message.ToString());
             }
         }
 

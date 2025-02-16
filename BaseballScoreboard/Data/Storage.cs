@@ -31,16 +31,23 @@
             return teams.ToArray();
         }
 
-        public void setAllTeams(List<Team> t) { teamList = t; }
+        public void SetAllTeams(List<Team> t) { teamList = t; }
 
-        public void setRosterList(RosterList rl)
+        public void SetRosterList(RosterList rl)
         {
             rosterList = rl;
         }
 
-        public int getTeamId(string teamName)
+        public int GetTeamId(string teamName)
         {
-            return teams[teamName];
+            if (teams.ContainsKey(teamName))
+            { 
+                return teams[teamName]; 
+            }
+            else
+            {
+                return -1; 
+            }
         }
     }
 

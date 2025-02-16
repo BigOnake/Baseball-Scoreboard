@@ -5,6 +5,7 @@ namespace BaseballScoreboard.Data
 {
     internal class ApiClient
     {
+        static string ACCESS_TOKEN = GetAccessToken();
         const string BASE_URL = "https://statsapi.mlb.com/api/v1/";
         static HttpClient client = new HttpClient();
         string? path;
