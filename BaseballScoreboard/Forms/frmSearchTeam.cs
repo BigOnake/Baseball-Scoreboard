@@ -36,6 +36,7 @@ namespace BaseballScoreboard.Forms
             SearchName(cBoxHomePlayers, playersList);
         }
 
+
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
@@ -117,7 +118,7 @@ namespace BaseballScoreboard.Forms
 
         private void AddPlayers(ComboBox cBox, ListBox lBox)
         {
-            if (cBox.SelectedIndex != -1 && cBox.SelectedItem != null)
+            if (cBox.SelectedItem != null && cBox.SelectedIndex > -1)
             {
                 if (!lBox.Items.Contains(cBox.SelectedItem))
                 {
@@ -137,6 +138,7 @@ namespace BaseballScoreboard.Forms
         private void DisplayPlayers(ComboBox src, ComboBox dst)
         {
             dst.Items.Clear();
+            playersList.Clear();
 
             if (src.SelectedIndex >= 0 && src.SelectedItem != null)
             {
@@ -144,13 +146,13 @@ namespace BaseballScoreboard.Forms
                 int teamId = Controller.GetTeamId((string)src.SelectedItem);
 
                 if (teamId != -1)
-                { 
-                    rosterList = Controller.getTeamRoster(teamId); 
+                {
+                    rosterList = Controller.getTeamRoster(teamId);
                 }
                 else
                 {
                     MessageBox.Show($"{(string)src.SelectedItem} could not be found.");
-                    return; 
+                    return;
                 }
 
                 if (rosterList.roster != null)
@@ -178,6 +180,7 @@ namespace BaseballScoreboard.Forms
             if (string.IsNullOrEmpty(filter))
             {
                 cBox.Items.AddRange(data.Keys.ToArray());
+                cBox.DroppedDown = false;
             }
             else
             {
@@ -217,9 +220,9 @@ namespace BaseballScoreboard.Forms
                     cb.Items.AddRange(fullList.ToArray());
                 }
             }
-            catch (Exception ex) 
+            catch (Exception ex)
             {
-            MessageBox.Show(ex.Message.ToString());
+                MessageBox.Show(ex.Message.ToString());
             }
         }
 

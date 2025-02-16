@@ -233,10 +233,10 @@ namespace BaseballScoreboard.Forms
             // 
             // cBoxHomeTeams
             // 
-            cBoxHomeTeams.AutoCompleteMode = AutoCompleteMode.Append;
-            cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
             cBoxHomeTeams.FormattingEnabled = true;
+            cBoxHomeTeams.IntegralHeight = false;
             cBoxHomeTeams.Location = new Point(40, 58);
+            cBoxHomeTeams.MaxDropDownItems = 10;
             cBoxHomeTeams.Name = "cBoxHomeTeams";
             cBoxHomeTeams.Size = new Size(183, 28);
             cBoxHomeTeams.Sorted = true;
@@ -260,7 +260,9 @@ namespace BaseballScoreboard.Forms
             // cBoxGuestPlayers
             // 
             cBoxGuestPlayers.FormattingEnabled = true;
+            cBoxGuestPlayers.IntegralHeight = false;
             cBoxGuestPlayers.Location = new Point(714, 145);
+            cBoxGuestPlayers.MaxDropDownItems = 10;
             cBoxGuestPlayers.Name = "cBoxGuestPlayers";
             cBoxGuestPlayers.Size = new Size(156, 28);
             cBoxGuestPlayers.Sorted = true;
