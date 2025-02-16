@@ -156,7 +156,9 @@ namespace BaseballScoreboard.Forms
             // cBoxHomePlayers
             // 
             cBoxHomePlayers.FormattingEnabled = true;
+            cBoxHomePlayers.IntegralHeight = false;
             cBoxHomePlayers.Location = new Point(42, 147);
+            cBoxHomePlayers.MaxDropDownItems = 10;
             cBoxHomePlayers.Name = "cBoxHomePlayers";
             cBoxHomePlayers.Size = new Size(156, 28);
             cBoxHomePlayers.Sorted = true;

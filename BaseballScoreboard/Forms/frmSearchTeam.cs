@@ -203,7 +203,6 @@ namespace BaseballScoreboard.Forms
 
                     if (matchList.Count > 0)
                     {
-                        cb.DroppedDown = true;
                         cb.Items.Clear();
                         cb.Items.AddRange(matchList.ToArray());
                         cb.Select(autocomplete.Length, 0);
