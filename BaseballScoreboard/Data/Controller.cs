@@ -14,10 +14,9 @@ namespace BaseballScoreboard.Data
         static private ApiTest apiTest = new ApiTest();
         static private StorageTest storageTest = new StorageTest();
         
-        static public Player ReturnShohei()
+        static public Player GetPlayer(int personId)
         {
             Player player = new();
-            int personId = 660271; //Shohei Otani player id
 
             try
             {
@@ -39,7 +38,7 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
-        public static SortedList<string, int> GetTeams()
+        static  public SortedList<string, int> GetTeams()
         {
             SortedList<string, int>? teams = new SortedList<string, int>();
             List<Team>? temp = new List<Team>();
@@ -56,6 +55,24 @@ namespace BaseballScoreboard.Data
             }
 
             return teams;
+        }
+
+        static public RosterList getTeamRoster(int teamId)
+        {
+            return apiTest.GetRoster(teamId);
+        }
+
+        static public int getTeamId(string teamName)
+        {
+            try
+            {
+                return storageTest.getTeamId(teamName);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show($"{teamName} could not be found.");
+                return -1;
+            }
         }
 
         static public string[] ReturnAllTeams()

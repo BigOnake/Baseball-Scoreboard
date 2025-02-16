@@ -16,14 +16,12 @@ namespace BaseballScoreboard.Forms
     public partial class frmSearchTeam : Form
     {
         Dictionary<string, int> playersList = new Dictionary<string, int>();
-        List<string> teamsList = new List<string>();
-        string[] players = { "Nolan Arenado", "Dylan Carlson", "Matt Carpenter", "Steven Matz", "Paul DeJong",
-    "Tommy Edman", "Paul Goldschmidt", "Giovanny Gallegos", "Ryan Helsley", "Jordan Hicks",
-    "Dakota Hudson", "Tyler O'Neill", "Corey Dickerson", "Adam Wainwright", "Yadier Molina",
-    "Harrison Bader", "Juan Yepez", "Lars Nootbaar", "Miles Mikolas", "Jack Flaherty",
-    "Alex Reyes", "Génesis Cabrera", "Andrew Knizner", "Edmundo Sosa", "Kodi Whitley",
-    "Drew VerHagen", "Nick Wittgren", "Zack Thompson", "Brendan Donovan", "Nolan Gorman",
-    "Andre Pallante", "Packy Naughton", "Jake Woodford", "Aaron Brooks", "Conner Capel"};
+
+        /***********************
+         * Event Call Methods  *
+         ***********************/
+
+        // Forms Methods
 
         public frmSearchTeam()
         {
@@ -32,61 +30,22 @@ namespace BaseballScoreboard.Forms
 
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
-            StorageTest data = new StorageTest();
-            data.teams = Controller.GetTeams();
-            foreach (KeyValuePair<string, int> team in data.teams)
+            SortedList<string, int> data = Controller.GetTeams();
+
+            foreach (KeyValuePair<string, int> team in data)
             {
                 cBoxHomeTeams.Items.Add(team.Key);
                 cBoxGuestTeams.Items.Add(team.Key);
             }
         }
 
-        private void SearchName(ComboBox cb, Dictionary<string, int> fullList)
-        {
-            string? autocomplete;
-
-            if (!string.IsNullOrEmpty(cb.Text))
-            {
-                autocomplete = cb.Text;
-                var matchList = GetMatches(fullList, autocomplete.ToUpper());
-
-                if (matchList.Count > 0)
-                {
-                    cb.Items.Clear();
-                    cb.Items.AddRange(matchList.ToArray());
-                    cb.Select(autocomplete.Length, 0);
-                    return;
-                }
-                else
-                { cb.SelectionStart = autocomplete.Length; }
-            }
-            else
-            {
-                cb.Items.Clear();
-                cb.Items.AddRange(fullList.Keys.ToArray());
-            }
-        }
-
-        private List<string> GetMatches(Dictionary<string, int> fullList, string searchTxt)
-        {
-            List<string> suggestedItems = new List<string>();
-            searchTxt = searchTxt.ToUpper();
-
-            foreach (string str in fullList.Keys)
-            {
-                if (str.ToUpper().Contains(searchTxt))
-                {
-                    suggestedItems.Add(str);
-                }
-            }
-
-            return suggestedItems;
-        }
+        // Combo Box Methods
 
         private void cBoxHomePlayer_TextChanged(object sender, EventArgs e)
         {
             SearchName(cBoxHomePlayers, playersList);
         }
+
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
@@ -95,17 +54,6 @@ namespace BaseballScoreboard.Forms
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxHomePlayers, lBoxHomePlayers);
-        }
-
-        private void AddPlayers(ComboBox cBox, ListBox lBox)
-        {
-            if (cBox.SelectedIndex != -1 && cBox.SelectedItem != null)
-            {
-                if (!lBox.Items.Contains(cBox.SelectedItem))
-                {
-                    lBox.Items.Add(cBox.SelectedItem);
-                }
-            }
         }
 
         private void AddShohei_Click_1(object sender, EventArgs e)
@@ -123,31 +71,96 @@ namespace BaseballScoreboard.Forms
             DisplayPlayers(cBoxHomeTeams, cBoxHomePlayers);
         }
 
+        private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
+        {
+            ShowTeams(cBoxHomeTeams);
+        }
+
+        private void cBoxGuestTeams_TextChanged(object sender, EventArgs e)
+        {
+            ShowTeams(cBoxGuestTeams);
+        }
+
+        // Button moethods
+
+        private void btnHomePlayersRemove_Click(object sender, EventArgs e)
+        {
+            RemovePlayer(lBoxHomePlayers);
+        }
+
+        private void btnGuestPlayersRemove_Click(object sender, EventArgs e)
+        {
+            RemovePlayer(lBoxGuestPlayers);
+        }
+
+        private void btnHomePlayersClear_Click(object sender, EventArgs e)
+        {
+            RemovePlayers(lBoxHomePlayers);
+        }
+
+        private void btnGuestPlayersClear_Click(object sender, EventArgs e)
+        {
+            RemovePlayers(lBoxGuestPlayers);
+        }
+
+        //*****************************************************************************************************
+
+        /********************
+         * Utility Methods  *
+         ********************/
+
+        private List<string> GetMatches(Dictionary<string, int> fullList, string searchTxt)
+        {
+            List<string> suggestedItems = new List<string>();
+            searchTxt = searchTxt.ToUpper();
+
+            foreach (string str in fullList.Keys)
+            {
+                if (str.ToUpper().Contains(searchTxt))
+                {
+                    suggestedItems.Add(str);
+                }
+            }
+
+            return suggestedItems;
+        }
+
+        private void AddPlayers(ComboBox cBox, ListBox lBox)
+        {
+            if (cBox.SelectedIndex != -1 && cBox.SelectedItem != null)
+            {
+                if (!lBox.Items.Contains(cBox.SelectedItem))
+                {
+                    lBox.Items.Add(cBox.SelectedItem);
+                }
+            }
+        }
+
+        private void RemovePlayer(ListBox lBox)
+        {
+            if (lBox.SelectedIndex != -1)
+            {
+                lBox.Items.RemoveAt(lBox.SelectedIndex);
+            }
+        }
+
         private void DisplayPlayers(ComboBox src, ComboBox dst)
         {
             dst.Items.Clear();
 
             if (src.SelectedIndex >= 0 && src.SelectedItem != null)
             {
-                StorageTest storageData = new StorageTest();
-                ApiTest rosterData = new ApiTest();
-                int teamId;
+                RosterList rosterList = new();
+                int teamId = Controller.getTeamId((string)src.SelectedItem);
 
-                try
-                {
-                    teamId = storageData.teams[(string)src.SelectedItem];
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"{(string)src.SelectedItem} could not be found.");
-                    return;
-                }
+                if (teamId != -1)
+                { rosterList = Controller.getTeamRoster(teamId); }
+                else
+                { return; }
 
-                storageData.rosterList = rosterData.GetRoster(teamId);
-
-                if (storageData.rosterList.roster != null)
+                if (rosterList.roster != null)
                 {
-                    foreach (People p in storageData.rosterList.roster)
+                    foreach (People p in rosterList.roster)
                     {
                         if (p.person != null && p.person.fullName != null)
                             dst.Items.Add(p.person.fullName);
@@ -178,48 +191,37 @@ namespace BaseballScoreboard.Forms
             cBox.Select(filter.Length, 0);
         }
 
-
-        private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
+        private void SearchName(ComboBox cb, Dictionary<string, int> fullList)
         {
-            ShowTeams(cBoxHomeTeams);
-        }
+            string? autocomplete;
 
-        private void cBoxGuestTeams_TextChanged(object sender, EventArgs e)
-        {
-            ShowTeams(cBoxGuestTeams);
-        }
-
-        private void btnHomePlayersRemove_Click(object sender, EventArgs e)
-        {
-            RemovePlayer(lBoxHomePlayers);
-        }
-
-        private void btnGuestPlayersRemove_Click(object sender, EventArgs e)
-        {
-            RemovePlayer(lBoxGuestPlayers);
-        }
-
-        private void RemovePlayer(ListBox lBox)
-        {
-            if (lBox.SelectedIndex != -1)
+            if (!string.IsNullOrEmpty(cb.Text))
             {
-                lBox.Items.RemoveAt(lBox.SelectedIndex);
+                autocomplete = cb.Text;
+                var matchList = GetMatches(fullList, autocomplete.ToUpper());
+
+                if (matchList.Count > 0)
+                {
+                    cb.Items.Clear();
+                    cb.Items.AddRange(matchList.ToArray());
+                    cb.Select(autocomplete.Length, 0);
+                    return;
+                }
+                else
+                { cb.SelectionStart = autocomplete.Length; }
             }
-        }
-
-        private void btnHomePlayersClear_Click(object sender, EventArgs e)
-        {
-            RemovePlayers(lBoxHomePlayers);
-        }
-
-        private void btnGuestPlayersClear_Click(object sender, EventArgs e)
-        {
-            RemovePlayers(lBoxGuestPlayers);
+            else
+            {
+                cb.Items.Clear();
+                cb.Items.AddRange(fullList.Keys.ToArray());
+            }
         }
 
         private void RemovePlayers(ListBox lBox)
         {
             lBox.Items.Clear();
         }
+
+        //*****************************************************************************************************
     }
 }

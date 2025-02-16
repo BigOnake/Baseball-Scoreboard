@@ -13,8 +13,8 @@ namespace BaseballScoreboard.Data
         private List<Player> playerList = new();
         private List<Team> teamList = new();
 
-        public RosterList rosterList;
-        public SortedList<string, int> teams;
+        private RosterList rosterList;
+        private SortedList<string, int> teams;
 
         public StorageTest()
         {
@@ -40,6 +40,16 @@ namespace BaseballScoreboard.Data
         }
 
         public void setAllTeams(List<Team> t) { teamList = t; }
+
+        public void setRosterList(RosterList rl)
+        {
+            rosterList = rl;
+        }
+
+        public int getTeamId(string teamName)
+        {
+            return teams[teamName];
+        }
     }
 
     internal class Player
