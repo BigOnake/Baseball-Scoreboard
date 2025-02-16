@@ -1,7 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Numerics;
-using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace BaseballScoreboard.Data
 {
@@ -11,8 +8,8 @@ namespace BaseballScoreboard.Data
          * Not a bad thing, but could be changed to be more MVC/MVP like
          * Doesn't store any information, resusable information is stored in StorageTest */
 
-        static private ApiTest apiTest = new ApiTest();
-        static private StorageTest storageTest = new StorageTest();
+        static private ApiClient apiClient = new ApiClient();
+        static private Storage storage = new Storage();
         
         static public Player GetPlayer(int personId)
         {
@@ -20,7 +17,7 @@ namespace BaseballScoreboard.Data
 
             try
             {
-                string jsonStr = apiTest.GetPlayerInfo(personId); // Calls an api for a specific player
+                string jsonStr = apiClient.GetPlayerInfo(personId); // Calls an api for a specific player
 
                 if (string.IsNullOrEmpty(jsonStr))
                 {
@@ -44,7 +41,7 @@ namespace BaseballScoreboard.Data
             List<Team>? temp = new List<Team>();
 
             string filePath = "BaseballScoreboard.Resources.AllTeams.txt";
-            string file = ApiTest.readFile(filePath);
+            string file = ApiClient.readFile(filePath);
 
             temp = JsonSerializer.Deserialize<List<Team>>(file);
 
@@ -59,14 +56,14 @@ namespace BaseballScoreboard.Data
 
         static public RosterList getTeamRoster(int teamId)
         {
-            return apiTest.GetRoster(teamId);
+            return apiClient.GetRoster(teamId);
         }
 
         static public int getTeamId(string teamName)
         {
             try
             {
-                return storageTest.getTeamId(teamName);
+                return storage.getTeamId(teamName);
             }
             catch (Exception ex) 
             {
@@ -77,7 +74,7 @@ namespace BaseballScoreboard.Data
 
         static public string[] ReturnAllTeams()
         {
-            return storageTest.GetAllTeams();
+            return storage.GetAllTeams();
         }
 
         /* Returns string that can be parsed in the following way:

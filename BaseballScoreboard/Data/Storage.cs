@@ -1,14 +1,6 @@
-﻿using BaseballScoreboard.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace BaseballScoreboard.Data
+﻿namespace BaseballScoreboard.Data
 {
-    internal class StorageTest
+    internal class Storage
     {
         private List<Player> playerList = new();
         private List<Team> teamList = new();
@@ -16,7 +8,7 @@ namespace BaseballScoreboard.Data
         private RosterList rosterList;
         private SortedList<string, int> teams;
 
-        public StorageTest()
+        public Storage()
         {
             rosterList = new RosterList();
             teams = Controller.GetTeams();
