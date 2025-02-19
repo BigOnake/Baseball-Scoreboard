@@ -35,7 +35,7 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
-        static  public SortedList<string, int> GetTeams()
+        static public SortedList<string, int> GetTeams()
         {
             SortedList<string, int>? teams = new SortedList<string, int>();
             List<Team>? temp = new List<Team>();

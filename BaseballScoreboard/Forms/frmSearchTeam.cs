@@ -20,6 +20,8 @@ namespace BaseballScoreboard.Forms
 
         private void frmSearchTeam_Load(object sender, EventArgs e)
         {
+            lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+
             SortedList<string, int> data = Controller.GetTeams();
 
             foreach (KeyValuePair<string, int> team in data)

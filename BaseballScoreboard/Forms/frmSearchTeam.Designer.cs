@@ -37,8 +37,6 @@ namespace BaseballScoreboard.Forms
             lblGuestBench = new Label();
             lblHomeBullpen = new Label();
             lblGuestBullpen = new Label();
-            lblDate = new Label();
-            txtDate = new TextBox();
             cBoxHomePlayers = new ComboBox();
             cBoxHomeBench = new ComboBox();
             cBoxHomeBullpen = new ComboBox();
@@ -55,6 +53,7 @@ namespace BaseballScoreboard.Forms
             btnHomePlayersClear = new Button();
             btnGuestPlayersRemove = new Button();
             btnGuestPlayersClear = new Button();
+            lblDate = new Label();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -137,22 +136,6 @@ namespace BaseballScoreboard.Forms
             lblGuestBullpen.TabIndex = 3;
             lblGuestBullpen.Text = "Bullpen";
             // 
-            // lblDate
-            // 
-            lblDate.AutoSize = true;
-            lblDate.Location = new Point(441, 36);
-            lblDate.Name = "lblDate";
-            lblDate.Size = new Size(41, 20);
-            lblDate.TabIndex = 0;
-            lblDate.Text = "Date";
-            // 
-            // txtDate
-            // 
-            txtDate.Location = new Point(398, 59);
-            txtDate.Name = "txtDate";
-            txtDate.Size = new Size(125, 27);
-            txtDate.TabIndex = 1;
-            // 
             // cBoxHomePlayers
             // 
             cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Append;
@@ -212,7 +195,7 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.FormattingEnabled = true;
             lBoxHomePlayers.Location = new Point(42, 181);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
-            lBoxHomePlayers.Size = new Size(206, 204);
+            lBoxHomePlayers.Size = new Size(206, 184);
             lBoxHomePlayers.TabIndex = 6;
             // 
             // AddShohei
@@ -326,12 +309,23 @@ namespace BaseballScoreboard.Forms
             btnGuestPlayersClear.UseVisualStyleBackColor = true;
             btnGuestPlayersClear.Click += btnGuestPlayersClear_Click;
             // 
+            // lblDate
+            // 
+            lblDate.AutoSize = true;
+            lblDate.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblDate.ForeColor = Color.White;
+            lblDate.Location = new Point(307, 56);
+            lblDate.Name = "lblDate";
+            lblDate.Size = new Size(0, 38);
+            lblDate.TabIndex = 17;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1315, 679);
+            Controls.Add(lblDate);
             Controls.Add(btnGuestPlayersClear);
             Controls.Add(btnGuestPlayersRemove);
             Controls.Add(btnHomePlayersClear);
@@ -354,9 +348,7 @@ namespace BaseballScoreboard.Forms
             Controls.Add(lblGuestBullpen);
             Controls.Add(lblHomeBullpen);
             Controls.Add(lblHomePlayers);
-            Controls.Add(txtDate);
             Controls.Add(lblGuestTeam);
-            Controls.Add(lblDate);
             Controls.Add(lblHomeTeam);
             Name = "frmSearchTeam";
             Text = "Search Team";
@@ -375,8 +367,6 @@ namespace BaseballScoreboard.Forms
         private Label lblGuestBench;
         private Label lblHomeBullpen;
         private Label lblGuestBullpen;
-        private Label lblDate;
-        private TextBox txtDate;
         private ComboBox cBoxHomePlayers;
         private ComboBox cBoxHomeBench;
         private ComboBox cBoxHomeBullpen;
@@ -393,5 +383,6 @@ namespace BaseballScoreboard.Forms
         private Button btnHomePlayersClear;
         private Button btnGuestPlayersRemove;
         private Button btnGuestPlayersClear;
+        private Label lblDate;
     }
 }
