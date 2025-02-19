@@ -192,11 +192,14 @@ namespace BaseballScoreboard.Forms
             // 
             // lBoxHomePlayers
             // 
+            lBoxHomePlayers.DrawMode = DrawMode.OwnerDrawFixed;
+            lBoxHomePlayers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lBoxHomePlayers.FormattingEnabled = true;
             lBoxHomePlayers.Location = new Point(42, 181);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
             lBoxHomePlayers.Size = new Size(206, 184);
             lBoxHomePlayers.TabIndex = 6;
+            lBoxHomePlayers.DrawItem += lBoxHomePlayers_DrawItem;
             // 
             // AddShohei
             // 
@@ -259,11 +262,14 @@ namespace BaseballScoreboard.Forms
             // 
             // lBoxGuestPlayers
             // 
+            lBoxGuestPlayers.DrawMode = DrawMode.OwnerDrawFixed;
+            lBoxGuestPlayers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lBoxGuestPlayers.FormattingEnabled = true;
             lBoxGuestPlayers.Location = new Point(713, 179);
             lBoxGuestPlayers.Name = "lBoxGuestPlayers";
             lBoxGuestPlayers.Size = new Size(208, 204);
             lBoxGuestPlayers.TabIndex = 12;
+            lBoxGuestPlayers.DrawItem += lBoxGuestPlayers_DrawItem;
             // 
             // btnHomePlayersRemove
             // 

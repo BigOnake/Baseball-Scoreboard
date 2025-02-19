@@ -1,5 +1,6 @@
 ﻿using BaseballScoreboard.Data;
 using System.Data;
+using System.Windows.Forms;
 
 namespace BaseballScoreboard.Forms
 {
@@ -143,6 +144,34 @@ namespace BaseballScoreboard.Forms
         private void RemovePlayers(ListBox lBox)
         {
             lBox.Items.Clear();
+        }
+
+        private void lBoxHomePlayers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            drawPlayerItems(lBoxHomePlayers, e);
+        }
+
+        private void lBoxGuestPlayers_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            drawPlayerItems(lBoxGuestPlayers, e);
+        }
+
+        private void drawPlayerItems(ListBox lBox, DrawItemEventArgs e)
+        {
+            StringFormat format = new StringFormat();
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+
+            if ((e.Index % 2) == 0)
+            {
+                e.Graphics.FillRectangle(Brushes.LightGray, e.Bounds);
+            }
+            else
+            {
+                e.Graphics.FillRectangle(Brushes.White, e.Bounds);
+            }
+
+            e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
         }
 
         //*****************************************************************************************************
