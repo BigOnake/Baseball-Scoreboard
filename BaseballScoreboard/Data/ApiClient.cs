@@ -39,7 +39,7 @@ namespace BaseballScoreboard.Data
         public RosterList GetRoster(int teamId)
         {
             RosterList players = new RosterList();
-            path = BASE_URL + $"teams/{teamId}/roster/40Man?fields=roster%2Cperson%2Cid%2CfullName";
+            path = BASE_URL + $"teams/{teamId}/roster/40Man";
 
             string result = GetJson(path);
             players = JsonSerializer.Deserialize<RosterList>(result);

@@ -84,22 +84,6 @@ namespace BaseballScoreboard.Forms
          * Utility Methods  *
          ********************/
 
-        private List<string> GetMatches(List<string> fullList, string searchTxt)
-        {
-            List<string> suggestedItems = new List<string>();
-            searchTxt = searchTxt.ToUpper();
-
-            foreach (string str in fullList)
-            {
-                if (str.ToUpper().Contains(searchTxt))
-                {
-                    suggestedItems.Add(str);
-                }
-            }
-
-            return suggestedItems;
-        }
-
         private void AddPlayers(ComboBox cBox, ListBox lBox)
         {
             if (cBox.SelectedItem != null && cBox.SelectedIndex > -1)
@@ -143,9 +127,9 @@ namespace BaseballScoreboard.Forms
                 {
                     foreach (People p in rosterList.roster)
                     {
-                        if (p.person != null && p.person.fullName != null)
+                        if (p.person != null && p.person.fullName != null && p.position != null && p.position.abbreviation != null)
                         {
-                            playersList.Add(p.person.fullName);
+                            playersList.Add($"{p.person.fullName} - {p.position.abbreviation}");
                         }
                     }
 

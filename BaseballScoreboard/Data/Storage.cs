@@ -70,12 +70,26 @@
         public string? fullName { get; set; }
     }
 
+    internal class Position
+    {
+        public string? code { get; set; }
+        public string? name { get; set; }
+        public string? type { get; set; }
+        public string? abbreviation { get; set; }
+    }
+
+    internal class Status
+    {
+        public string? code { get; set; }
+        public string? description { get; set; }
+    }
+
     internal class People()
     {
         public Person? person { get; set; }
         public string? jerseyNumber { get; set; }
-        public Person? position { get; set; }
-        public Person? status { get; set; }
+        public Position? position { get; set; }
+        public Status? status { get; set; }
         public int? parentTeamId { get; set; }
     }
 
