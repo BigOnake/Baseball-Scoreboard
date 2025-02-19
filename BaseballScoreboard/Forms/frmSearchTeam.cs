@@ -31,12 +31,6 @@ namespace BaseballScoreboard.Forms
 
         // Combo Box Methods
 
-        private void cBoxHomePlayer_TextChanged(object sender, EventArgs e)
-        {
-            SearchName(cBoxHomePlayers, playersList);
-        }
-
-
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
@@ -62,17 +56,7 @@ namespace BaseballScoreboard.Forms
             DisplayPlayers(cBoxHomeTeams, cBoxHomePlayers);
         }
 
-        private void cBoxHomeTeams_TextChanged(object sender, EventArgs e)
-        {
-            ShowTeams(cBoxHomeTeams);
-        }
-
-        private void cBoxGuestTeams_TextChanged(object sender, EventArgs e)
-        {
-            ShowTeams(cBoxGuestTeams);
-        }
-
-        // Button moethods
+        // Button Methods
 
         private void btnHomePlayersRemove_Click(object sender, EventArgs e)
         {
@@ -167,62 +151,6 @@ namespace BaseballScoreboard.Forms
 
                     dst.Items.AddRange(playersList.ToArray());
                 }
-            }
-        }
-
-        private void ShowTeams(ComboBox cBox)
-        {
-            SortedList<string, int> data = Controller.GetTeams();
-
-            cBox.Items.Clear();
-
-            string filter = cBox.Text;
-            if (string.IsNullOrEmpty(filter))
-            {
-                cBox.Items.AddRange(data.Keys.ToArray());
-                cBox.DroppedDown = false;
-            }
-            else
-            {
-                string[] filteredItems = data.Keys.Where(x => x.Contains(filter, StringComparison.OrdinalIgnoreCase)).ToArray();
-
-                cBox.Items.AddRange(filteredItems);
-            }
-
-            cBox.DroppedDown = true;
-            cBox.Select(filter.Length, 0);
-        }
-
-        private void SearchName(ComboBox cb, List<string> fullList)
-        {
-            string? autocomplete;
-
-            try
-            {
-                if (!string.IsNullOrEmpty(cb.Text))
-                {
-                    autocomplete = cb.Text;
-                    var matchList = GetMatches(fullList, autocomplete.ToUpper());
-
-                    if (matchList.Count > 0)
-                    {
-                        cb.Items.Clear();
-                        cb.Items.AddRange(matchList.ToArray());
-                        cb.Select(autocomplete.Length, 0);
-                        return;
-                    }
-                    else
-                    { cb.SelectionStart = autocomplete.Length; }
-                }
-                else
-                {
-                    cb.Items.Clear();
-                    cb.Items.AddRange(fullList.ToArray());
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message.ToString());
             }
         }
 

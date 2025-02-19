@@ -155,6 +155,8 @@ namespace BaseballScoreboard.Forms
             // 
             // cBoxHomePlayers
             // 
+            cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxHomePlayers.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxHomePlayers.FormattingEnabled = true;
             cBoxHomePlayers.IntegralHeight = false;
             cBoxHomePlayers.Location = new Point(42, 147);
@@ -164,7 +166,6 @@ namespace BaseballScoreboard.Forms
             cBoxHomePlayers.Sorted = true;
             cBoxHomePlayers.TabIndex = 5;
             cBoxHomePlayers.SelectedIndexChanged += cBoxHomePlayers_SelectedIndexChanged;
-            cBoxHomePlayers.TextChanged += cBoxHomePlayer_TextChanged;
             // 
             // cBoxHomeBench
             // 
@@ -233,6 +234,8 @@ namespace BaseballScoreboard.Forms
             // 
             // cBoxHomeTeams
             // 
+            cBoxHomeTeams.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxHomeTeams.FormattingEnabled = true;
             cBoxHomeTeams.IntegralHeight = false;
             cBoxHomeTeams.Location = new Point(40, 58);
@@ -242,23 +245,25 @@ namespace BaseballScoreboard.Forms
             cBoxHomeTeams.Sorted = true;
             cBoxHomeTeams.TabIndex = 9;
             cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
-            cBoxHomeTeams.TextChanged += cBoxHomeTeams_TextChanged;
             // 
             // cBoxGuestTeams
             // 
             cBoxGuestTeams.AutoCompleteMode = AutoCompleteMode.Append;
-            cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestTeams.FormattingEnabled = true;
+            cBoxGuestTeams.IntegralHeight = false;
             cBoxGuestTeams.Location = new Point(714, 59);
+            cBoxGuestTeams.MaxDropDownItems = 10;
             cBoxGuestTeams.Name = "cBoxGuestTeams";
             cBoxGuestTeams.Size = new Size(183, 28);
             cBoxGuestTeams.Sorted = true;
             cBoxGuestTeams.TabIndex = 10;
             cBoxGuestTeams.SelectedIndexChanged += cBoxGuestTeams_SelectedIndexChanged;
-            cBoxGuestTeams.TextChanged += cBoxGuestTeams_TextChanged;
             // 
             // cBoxGuestPlayers
             // 
+            cBoxGuestPlayers.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxGuestPlayers.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestPlayers.FormattingEnabled = true;
             cBoxGuestPlayers.IntegralHeight = false;
             cBoxGuestPlayers.Location = new Point(714, 145);
