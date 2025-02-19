@@ -1,7 +1,4 @@
-﻿using System.CodeDom.Compiler;
-using System.Numerics;
-using System.Reflection;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace BaseballScoreboard.Data
 {
@@ -11,17 +8,16 @@ namespace BaseballScoreboard.Data
          * Not a bad thing, but could be changed to be more MVC/MVP like
          * Doesn't store any information, resusable information is stored in StorageTest */
 
-        static private ApiTest apiTest = new ApiTest();
-        static private StorageTest storageTest = new StorageTest();
+        static private ApiClient apiClient = new ApiClient();
+        static private Storage storage = new Storage();
         
-        static public Player ReturnShohei()
+        static public Player GetPlayer(int personId)
         {
             Player player = new();
-            int personId = 660271; //Shohei Otani player id
 
             try
             {
-                string jsonStr = apiTest.GetPlayerInfo(personId); // Calls an api for a specific player
+                string jsonStr = apiClient.GetPlayerInfo(personId); // Calls an api for a specific player
 
                 if (string.IsNullOrEmpty(jsonStr))
                 {
@@ -39,13 +35,13 @@ namespace BaseballScoreboard.Data
             return player;
         }
 
-        public static SortedList<string, int> GetTeams()
+        static  public SortedList<string, int> GetTeams()
         {
             SortedList<string, int>? teams = new SortedList<string, int>();
             List<Team>? temp = new List<Team>();
 
             string filePath = "BaseballScoreboard.Resources.AllTeams.txt";
-            string file = ApiTest.readFile(filePath);
+            string file = ApiClient.readFile(filePath);
 
             temp = JsonSerializer.Deserialize<List<Team>>(file);
 
@@ -58,9 +54,19 @@ namespace BaseballScoreboard.Data
             return teams;
         }
 
+        static public RosterList getTeamRoster(int teamId)
+        {
+            return apiClient.GetRoster(teamId);
+        }
+
+        static public int GetTeamId(string teamName)
+        {
+            return storage.GetTeamId(teamName);
+        }
+
         static public string[] ReturnAllTeams()
         {
-            return storageTest.GetAllTeams();
+            return storage.GetAllTeams();
         }
 
         /* Returns string that can be parsed in the following way:

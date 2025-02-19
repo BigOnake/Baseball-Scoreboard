@@ -1,10 +1,9 @@
 ﻿using System.Reflection;
-using System.Security.Policy;
 using System.Text.Json;
 
 namespace BaseballScoreboard.Data
 {
-    internal class ApiTest
+    internal class ApiClient
     {
         static string ACCESS_TOKEN = GetAccessToken();
         const string BASE_URL = "https://statsapi.mlb.com/api/v1/";
@@ -40,7 +39,7 @@ namespace BaseballScoreboard.Data
         public RosterList GetRoster(int teamId)
         {
             RosterList players = new RosterList();
-            path = BASE_URL + $"teams/{teamId}/roster/40Man?fields=roster%2Cperson%2Cid%2CfullName";
+            path = BASE_URL + $"teams/{teamId}/roster/40Man";
 
             string result = GetJson(path);
             players = JsonSerializer.Deserialize<RosterList>(result);

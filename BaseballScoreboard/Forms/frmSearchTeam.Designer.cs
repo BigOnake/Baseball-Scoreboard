@@ -62,7 +62,7 @@ namespace BaseballScoreboard.Forms
             lblHomeTeam.AutoSize = true;
             lblHomeTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHomeTeam.ForeColor = Color.White;
-            lblHomeTeam.Location = new Point(57, 27);
+            lblHomeTeam.Location = new Point(75, 27);
             lblHomeTeam.Name = "lblHomeTeam";
             lblHomeTeam.Size = new Size(141, 31);
             lblHomeTeam.TabIndex = 0;
@@ -73,7 +73,7 @@ namespace BaseballScoreboard.Forms
             lblGuestTeam.AutoSize = true;
             lblGuestTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGuestTeam.ForeColor = Color.White;
-            lblGuestTeam.Location = new Point(731, 25);
+            lblGuestTeam.Location = new Point(748, 25);
             lblGuestTeam.Name = "lblGuestTeam";
             lblGuestTeam.Size = new Size(137, 31);
             lblGuestTeam.TabIndex = 0;
@@ -84,7 +84,7 @@ namespace BaseballScoreboard.Forms
             lblHomePlayers.AutoSize = true;
             lblHomePlayers.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHomePlayers.ForeColor = Color.White;
-            lblHomePlayers.Location = new Point(81, 113);
+            lblHomePlayers.Location = new Point(103, 113);
             lblHomePlayers.Name = "lblHomePlayers";
             lblHomePlayers.Size = new Size(80, 31);
             lblHomePlayers.TabIndex = 3;
@@ -95,7 +95,7 @@ namespace BaseballScoreboard.Forms
             lblGuestPlayer.AutoSize = true;
             lblGuestPlayer.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGuestPlayer.ForeColor = Color.White;
-            lblGuestPlayer.Location = new Point(752, 111);
+            lblGuestPlayer.Location = new Point(777, 109);
             lblGuestPlayer.Name = "lblGuestPlayer";
             lblGuestPlayer.Size = new Size(80, 31);
             lblGuestPlayer.TabIndex = 3;
@@ -113,7 +113,7 @@ namespace BaseballScoreboard.Forms
             // lblGuestBench
             // 
             lblGuestBench.AutoSize = true;
-            lblGuestBench.Location = new Point(907, 122);
+            lblGuestBench.Location = new Point(973, 120);
             lblGuestBench.Name = "lblGuestBench";
             lblGuestBench.Size = new Size(49, 20);
             lblGuestBench.TabIndex = 3;
@@ -131,7 +131,7 @@ namespace BaseballScoreboard.Forms
             // lblGuestBullpen
             // 
             lblGuestBullpen.AutoSize = true;
-            lblGuestBullpen.Location = new Point(1077, 122);
+            lblGuestBullpen.Location = new Point(1143, 120);
             lblGuestBullpen.Name = "lblGuestBullpen";
             lblGuestBullpen.Size = new Size(59, 20);
             lblGuestBullpen.TabIndex = 3;
@@ -155,14 +155,17 @@ namespace BaseballScoreboard.Forms
             // 
             // cBoxHomePlayers
             // 
+            cBoxHomePlayers.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxHomePlayers.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxHomePlayers.FormattingEnabled = true;
+            cBoxHomePlayers.IntegralHeight = false;
             cBoxHomePlayers.Location = new Point(42, 147);
+            cBoxHomePlayers.MaxDropDownItems = 10;
             cBoxHomePlayers.Name = "cBoxHomePlayers";
-            cBoxHomePlayers.Size = new Size(156, 28);
+            cBoxHomePlayers.Size = new Size(206, 28);
             cBoxHomePlayers.Sorted = true;
             cBoxHomePlayers.TabIndex = 5;
             cBoxHomePlayers.SelectedIndexChanged += cBoxHomePlayers_SelectedIndexChanged;
-            cBoxHomePlayers.TextChanged += cBoxHomePlayer_TextChanged;
             // 
             // cBoxHomeBench
             // 
@@ -188,7 +191,7 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxGuestBench.DropDownStyle = ComboBoxStyle.Simple;
             cBoxGuestBench.FormattingEnabled = true;
-            cBoxGuestBench.Location = new Point(907, 145);
+            cBoxGuestBench.Location = new Point(973, 143);
             cBoxGuestBench.Name = "cBoxGuestBench";
             cBoxGuestBench.Size = new Size(140, 142);
             cBoxGuestBench.Sorted = true;
@@ -198,7 +201,7 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxGuestBullpen.DropDownStyle = ComboBoxStyle.Simple;
             cBoxGuestBullpen.FormattingEnabled = true;
-            cBoxGuestBullpen.Location = new Point(1077, 147);
+            cBoxGuestBullpen.Location = new Point(1143, 145);
             cBoxGuestBullpen.Name = "cBoxGuestBullpen";
             cBoxGuestBullpen.Size = new Size(140, 262);
             cBoxGuestBullpen.Sorted = true;
@@ -209,12 +212,12 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.FormattingEnabled = true;
             lBoxHomePlayers.Location = new Point(42, 181);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
-            lBoxHomePlayers.Size = new Size(156, 204);
+            lBoxHomePlayers.Size = new Size(206, 204);
             lBoxHomePlayers.TabIndex = 6;
             // 
             // AddShohei
             // 
-            AddShohei.Location = new Point(1096, 12);
+            AddShohei.Location = new Point(1095, 10);
             AddShohei.Name = "AddShohei";
             AddShohei.Size = new Size(144, 29);
             AddShohei.TabIndex = 7;
@@ -224,7 +227,7 @@ namespace BaseballScoreboard.Forms
             // 
             // txtTest
             // 
-            txtTest.Location = new Point(1096, 58);
+            txtTest.Location = new Point(1095, 56);
             txtTest.Name = "txtTest";
             txtTest.Size = new Size(144, 27);
             txtTest.TabIndex = 8;
@@ -232,35 +235,41 @@ namespace BaseballScoreboard.Forms
             // cBoxHomeTeams
             // 
             cBoxHomeTeams.AutoCompleteMode = AutoCompleteMode.Append;
-            cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxHomeTeams.FormattingEnabled = true;
+            cBoxHomeTeams.IntegralHeight = false;
             cBoxHomeTeams.Location = new Point(40, 58);
+            cBoxHomeTeams.MaxDropDownItems = 10;
             cBoxHomeTeams.Name = "cBoxHomeTeams";
-            cBoxHomeTeams.Size = new Size(183, 28);
+            cBoxHomeTeams.Size = new Size(208, 28);
             cBoxHomeTeams.Sorted = true;
             cBoxHomeTeams.TabIndex = 9;
             cBoxHomeTeams.SelectedIndexChanged += cBoxHomeTeams_SelectedIndexChanged;
-            cBoxHomeTeams.TextChanged += cBoxHomeTeams_TextChanged;
             // 
             // cBoxGuestTeams
             // 
             cBoxGuestTeams.AutoCompleteMode = AutoCompleteMode.Append;
-            cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestTeams.FormattingEnabled = true;
-            cBoxGuestTeams.Location = new Point(714, 59);
+            cBoxGuestTeams.IntegralHeight = false;
+            cBoxGuestTeams.Location = new Point(713, 59);
+            cBoxGuestTeams.MaxDropDownItems = 10;
             cBoxGuestTeams.Name = "cBoxGuestTeams";
-            cBoxGuestTeams.Size = new Size(183, 28);
+            cBoxGuestTeams.Size = new Size(208, 28);
             cBoxGuestTeams.Sorted = true;
             cBoxGuestTeams.TabIndex = 10;
             cBoxGuestTeams.SelectedIndexChanged += cBoxGuestTeams_SelectedIndexChanged;
-            cBoxGuestTeams.TextChanged += cBoxGuestTeams_TextChanged;
             // 
             // cBoxGuestPlayers
             // 
+            cBoxGuestPlayers.AutoCompleteMode = AutoCompleteMode.Append;
+            cBoxGuestPlayers.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestPlayers.FormattingEnabled = true;
-            cBoxGuestPlayers.Location = new Point(714, 145);
+            cBoxGuestPlayers.IntegralHeight = false;
+            cBoxGuestPlayers.Location = new Point(713, 143);
+            cBoxGuestPlayers.MaxDropDownItems = 10;
             cBoxGuestPlayers.Name = "cBoxGuestPlayers";
-            cBoxGuestPlayers.Size = new Size(156, 28);
+            cBoxGuestPlayers.Size = new Size(208, 28);
             cBoxGuestPlayers.Sorted = true;
             cBoxGuestPlayers.TabIndex = 11;
             cBoxGuestPlayers.SelectedIndexChanged += cBoxGuestPlayers_SelectedIndexChanged;
@@ -268,15 +277,15 @@ namespace BaseballScoreboard.Forms
             // lBoxGuestPlayers
             // 
             lBoxGuestPlayers.FormattingEnabled = true;
-            lBoxGuestPlayers.Location = new Point(714, 181);
+            lBoxGuestPlayers.Location = new Point(713, 179);
             lBoxGuestPlayers.Name = "lBoxGuestPlayers";
-            lBoxGuestPlayers.Size = new Size(156, 204);
+            lBoxGuestPlayers.Size = new Size(208, 204);
             lBoxGuestPlayers.TabIndex = 12;
             // 
             // btnHomePlayersRemove
             // 
             btnHomePlayersRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHomePlayersRemove.Location = new Point(67, 391);
+            btnHomePlayersRemove.Location = new Point(42, 391);
             btnHomePlayersRemove.Name = "btnHomePlayersRemove";
             btnHomePlayersRemove.Size = new Size(106, 35);
             btnHomePlayersRemove.TabIndex = 13;
@@ -287,9 +296,9 @@ namespace BaseballScoreboard.Forms
             // btnHomePlayersClear
             // 
             btnHomePlayersClear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHomePlayersClear.Location = new Point(81, 432);
+            btnHomePlayersClear.Location = new Point(152, 391);
             btnHomePlayersClear.Name = "btnHomePlayersClear";
-            btnHomePlayersClear.Size = new Size(71, 35);
+            btnHomePlayersClear.Size = new Size(96, 35);
             btnHomePlayersClear.TabIndex = 14;
             btnHomePlayersClear.Text = "Clear";
             btnHomePlayersClear.UseVisualStyleBackColor = true;
@@ -298,7 +307,7 @@ namespace BaseballScoreboard.Forms
             // btnGuestPlayersRemove
             // 
             btnGuestPlayersRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuestPlayersRemove.Location = new Point(741, 391);
+            btnGuestPlayersRemove.Location = new Point(713, 389);
             btnGuestPlayersRemove.Name = "btnGuestPlayersRemove";
             btnGuestPlayersRemove.Size = new Size(106, 35);
             btnGuestPlayersRemove.TabIndex = 15;
@@ -309,9 +318,9 @@ namespace BaseballScoreboard.Forms
             // btnGuestPlayersClear
             // 
             btnGuestPlayersClear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuestPlayersClear.Location = new Point(761, 432);
+            btnGuestPlayersClear.Location = new Point(825, 389);
             btnGuestPlayersClear.Name = "btnGuestPlayersClear";
-            btnGuestPlayersClear.Size = new Size(71, 35);
+            btnGuestPlayersClear.Size = new Size(96, 35);
             btnGuestPlayersClear.TabIndex = 16;
             btnGuestPlayersClear.Text = "Clear";
             btnGuestPlayersClear.UseVisualStyleBackColor = true;
@@ -322,7 +331,7 @@ namespace BaseballScoreboard.Forms
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
-            ClientSize = new Size(1252, 599);
+            ClientSize = new Size(1315, 679);
             Controls.Add(btnGuestPlayersClear);
             Controls.Add(btnGuestPlayersRemove);
             Controls.Add(btnHomePlayersClear);

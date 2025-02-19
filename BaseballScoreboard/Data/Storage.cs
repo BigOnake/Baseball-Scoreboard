@@ -1,22 +1,14 @@
-﻿using BaseballScoreboard.Data;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace BaseballScoreboard.Data
+﻿namespace BaseballScoreboard.Data
 {
-    internal class StorageTest
+    internal class Storage
     {
         private List<Player> playerList = new();
         private List<Team> teamList = new();
 
-        public RosterList rosterList;
-        public SortedList<string, int> teams;
+        private RosterList rosterList;
+        private SortedList<string, int> teams;
 
-        public StorageTest()
+        public Storage()
         {
             rosterList = new RosterList();
             teams = Controller.GetTeams();
@@ -39,7 +31,24 @@ namespace BaseballScoreboard.Data
             return teams.ToArray();
         }
 
-        public void setAllTeams(List<Team> t) { teamList = t; }
+        public void SetAllTeams(List<Team> t) { teamList = t; }
+
+        public void SetRosterList(RosterList rl)
+        {
+            rosterList = rl;
+        }
+
+        public int GetTeamId(string teamName)
+        {
+            if (teams.ContainsKey(teamName))
+            { 
+                return teams[teamName]; 
+            }
+            else
+            {
+                return -1; 
+            }
+        }
     }
 
     internal class Player
@@ -61,12 +70,26 @@ namespace BaseballScoreboard.Data
         public string? fullName { get; set; }
     }
 
+    internal class Position
+    {
+        public string? code { get; set; }
+        public string? name { get; set; }
+        public string? type { get; set; }
+        public string? abbreviation { get; set; }
+    }
+
+    internal class Status
+    {
+        public string? code { get; set; }
+        public string? description { get; set; }
+    }
+
     internal class People()
     {
         public Person? person { get; set; }
         public string? jerseyNumber { get; set; }
-        public Person? position { get; set; }
-        public Person? status { get; set; }
+        public Position? position { get; set; }
+        public Status? status { get; set; }
         public int? parentTeamId { get; set; }
     }
 
