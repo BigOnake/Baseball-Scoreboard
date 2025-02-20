@@ -30,6 +30,15 @@ namespace BaseballScoreboard.Forms
                 cBoxHomeTeams.Items.Add(team.Key);
                 cBoxGuestTeams.Items.Add(team.Key);
             }
+
+            testGamePk();
+        }
+
+        // Returns gamePk of the game with the closest starting time to the current time
+        private void testGamePk()
+        {
+            int gamePk = Controller.GetGameId("2024-04-30", 138);
+            MessageBox.Show($"{gamePk}");
         }
 
         // Combo Box Methods
