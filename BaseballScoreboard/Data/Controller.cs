@@ -64,6 +64,11 @@ namespace BaseballScoreboard.Data
             return storage.GetTeamId(teamName);
         }
 
+        static public Umpires GetUmpires(int gamePk)
+        {
+            return apiClient.GetUmpires(gamePk);
+        }
+
         static public string[] ReturnAllTeams()
         {
             return storage.GetAllTeams();

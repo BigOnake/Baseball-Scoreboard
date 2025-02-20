@@ -1,6 +1,7 @@
 ﻿using BaseballScoreboard.Data;
 using System.Data;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BaseballScoreboard.Forms
 {
@@ -30,15 +31,6 @@ namespace BaseballScoreboard.Forms
                 cBoxHomeTeams.Items.Add(team.Key);
                 cBoxGuestTeams.Items.Add(team.Key);
             }
-
-            testGamePk();
-        }
-
-        // Returns gamePk of the game with the closest starting time to the current time
-        private void testGamePk()
-        {
-            int gamePk = Controller.GetGameId("2024-04-30", 138);
-            MessageBox.Show($"{gamePk}");
         }
 
         // Combo Box Methods
@@ -58,9 +50,34 @@ namespace BaseballScoreboard.Forms
             //txtTest.Text = Controller.ReturnShohei().fullName;
         }
 
+        // Guest filled out second, we can get game data now; Can we assume game will always be Cards?
         private void cBoxGuestTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
             DisplayPlayers(cBoxGuestTeams, cBoxGuestPlayers);
+
+            fillUmpires();
+        }
+
+        private void fillUmpires()
+        {
+            // Ideally, this works during season (when schedules for the season get filled - currently doesn't exist)
+            //int teamId = Controller.GetTeams()[cBoxGuestTeams.Text];
+            //int gamePk = Controller.GetGameId(DateTime.Now.ToString("yyyy-MM-dd"), teamId); => or hardcode '138' for teamId for Cards
+
+            int gamePk = Controller.GetGameId("2024-04-30", 138);
+
+            Umpires ump = Controller.GetUmpires(gamePk);
+            if (ump?.officials != null)
+            {
+                foreach (GameInfo gi in ump.officials)
+                {
+                    if (gi?.official != null && gi?.officialType != null)
+                    {
+                        string data = $"{gi.officialType[0]}{gi.officialType[gi.officialType.IndexOf(' ') + 1]} - {gi.official.fullName}";
+                        lBoxUmpires.Items.Add(data);
+                    }
+                }
+            }
         }
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,6 +180,10 @@ namespace BaseballScoreboard.Forms
         private void lBoxGuestPlayers_DrawItem(object sender, DrawItemEventArgs e)
         {
             drawPlayerItems(lBoxGuestPlayers, e);
+        }
+        private void lBoxUmpires_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            drawPlayerItems(lBoxUmpires, e);
         }
 
         private void drawPlayerItems(ListBox lBox, DrawItemEventArgs e)

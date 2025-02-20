@@ -81,6 +81,17 @@ namespace BaseballScoreboard.Data
             return gameId;
         }
 
+        public Umpires GetUmpires(int gamePk)
+        {
+            Umpires ump = new Umpires();
+            path = BASE_URL + $"game/{gamePk}/boxscore?fields=officials%2Cofficial%2Cid%2CfullName%2CofficialType";
+
+            string result = GetJson(path);
+            ump = JsonSerializer.Deserialize<Umpires>(result);
+
+            return ump;
+        }
+
         static private string GetAccessToken()
         {
             string ACCESS_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token/refresh?refreshToken=";
