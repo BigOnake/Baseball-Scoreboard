@@ -69,6 +69,11 @@ namespace BaseballScoreboard.Data
             return storage.GetAllTeams();
         }
 
+        static public int GetGameId(string date, int teamId)
+        {
+            return apiClient.GetGamePk(date, teamId);
+        }
+
         /* Returns string that can be parsed in the following way:
          * Type object = JsonSerializer.Deserialize<Type>(json); */
         static private string ExtractObject(string jsonStr)

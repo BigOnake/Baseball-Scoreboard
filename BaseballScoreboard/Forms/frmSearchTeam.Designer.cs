@@ -54,6 +54,8 @@ namespace BaseballScoreboard.Forms
             btnGuestPlayersRemove = new Button();
             btnGuestPlayersClear = new Button();
             lblDate = new Label();
+            listBox1 = new ListBox();
+            lblUmpire = new Label();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -61,7 +63,7 @@ namespace BaseballScoreboard.Forms
             lblHomeTeam.AutoSize = true;
             lblHomeTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblHomeTeam.ForeColor = Color.White;
-            lblHomeTeam.Location = new Point(75, 27);
+            lblHomeTeam.Location = new Point(299, 55);
             lblHomeTeam.Name = "lblHomeTeam";
             lblHomeTeam.Size = new Size(141, 31);
             lblHomeTeam.TabIndex = 0;
@@ -72,7 +74,7 @@ namespace BaseballScoreboard.Forms
             lblGuestTeam.AutoSize = true;
             lblGuestTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGuestTeam.ForeColor = Color.White;
-            lblGuestTeam.Location = new Point(748, 25);
+            lblGuestTeam.Location = new Point(976, 27);
             lblGuestTeam.Name = "lblGuestTeam";
             lblGuestTeam.Size = new Size(137, 31);
             lblGuestTeam.TabIndex = 0;
@@ -103,7 +105,7 @@ namespace BaseballScoreboard.Forms
             // lblHomeBench
             // 
             lblHomeBench.AutoSize = true;
-            lblHomeBench.Location = new Point(307, 122);
+            lblHomeBench.Location = new Point(299, 124);
             lblHomeBench.Name = "lblHomeBench";
             lblHomeBench.Size = new Size(49, 20);
             lblHomeBench.TabIndex = 3;
@@ -154,7 +156,7 @@ namespace BaseballScoreboard.Forms
             // 
             cBoxHomeBench.DropDownStyle = ComboBoxStyle.Simple;
             cBoxHomeBench.FormattingEnabled = true;
-            cBoxHomeBench.Location = new Point(307, 145);
+            cBoxHomeBench.Location = new Point(299, 147);
             cBoxHomeBench.Name = "cBoxHomeBench";
             cBoxHomeBench.Size = new Size(140, 142);
             cBoxHomeBench.Sorted = true;
@@ -195,15 +197,15 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.DrawMode = DrawMode.OwnerDrawFixed;
             lBoxHomePlayers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lBoxHomePlayers.FormattingEnabled = true;
-            lBoxHomePlayers.Location = new Point(42, 181);
+            lBoxHomePlayers.Location = new Point(713, 179);
             lBoxHomePlayers.Name = "lBoxHomePlayers";
-            lBoxHomePlayers.Size = new Size(206, 184);
+            lBoxHomePlayers.Size = new Size(206, 204);
             lBoxHomePlayers.TabIndex = 6;
             lBoxHomePlayers.DrawItem += lBoxHomePlayers_DrawItem;
             // 
             // AddShohei
             // 
-            AddShohei.Location = new Point(1095, 10);
+            AddShohei.Location = new Point(1109, 541);
             AddShohei.Name = "AddShohei";
             AddShohei.Size = new Size(144, 29);
             AddShohei.TabIndex = 7;
@@ -213,7 +215,7 @@ namespace BaseballScoreboard.Forms
             // 
             // txtTest
             // 
-            txtTest.Location = new Point(1095, 56);
+            txtTest.Location = new Point(1109, 587);
             txtTest.Name = "txtTest";
             txtTest.Size = new Size(144, 27);
             txtTest.TabIndex = 8;
@@ -224,7 +226,7 @@ namespace BaseballScoreboard.Forms
             cBoxHomeTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxHomeTeams.FormattingEnabled = true;
             cBoxHomeTeams.IntegralHeight = false;
-            cBoxHomeTeams.Location = new Point(40, 58);
+            cBoxHomeTeams.Location = new Point(264, 86);
             cBoxHomeTeams.MaxDropDownItems = 10;
             cBoxHomeTeams.Name = "cBoxHomeTeams";
             cBoxHomeTeams.Size = new Size(208, 28);
@@ -238,7 +240,7 @@ namespace BaseballScoreboard.Forms
             cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestTeams.FormattingEnabled = true;
             cBoxGuestTeams.IntegralHeight = false;
-            cBoxGuestTeams.Location = new Point(713, 59);
+            cBoxGuestTeams.Location = new Point(941, 61);
             cBoxGuestTeams.MaxDropDownItems = 10;
             cBoxGuestTeams.Name = "cBoxGuestTeams";
             cBoxGuestTeams.Size = new Size(208, 28);
@@ -265,7 +267,7 @@ namespace BaseballScoreboard.Forms
             lBoxGuestPlayers.DrawMode = DrawMode.OwnerDrawFixed;
             lBoxGuestPlayers.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lBoxGuestPlayers.FormattingEnabled = true;
-            lBoxGuestPlayers.Location = new Point(713, 179);
+            lBoxGuestPlayers.Location = new Point(40, 179);
             lBoxGuestPlayers.Name = "lBoxGuestPlayers";
             lBoxGuestPlayers.Size = new Size(208, 204);
             lBoxGuestPlayers.TabIndex = 12;
@@ -274,7 +276,7 @@ namespace BaseballScoreboard.Forms
             // btnHomePlayersRemove
             // 
             btnHomePlayersRemove.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHomePlayersRemove.Location = new Point(42, 391);
+            btnHomePlayersRemove.Location = new Point(40, 389);
             btnHomePlayersRemove.Name = "btnHomePlayersRemove";
             btnHomePlayersRemove.Size = new Size(106, 35);
             btnHomePlayersRemove.TabIndex = 13;
@@ -285,7 +287,7 @@ namespace BaseballScoreboard.Forms
             // btnHomePlayersClear
             // 
             btnHomePlayersClear.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnHomePlayersClear.Location = new Point(152, 391);
+            btnHomePlayersClear.Location = new Point(152, 389);
             btnHomePlayersClear.Name = "btnHomePlayersClear";
             btnHomePlayersClear.Size = new Size(96, 35);
             btnHomePlayersClear.TabIndex = 14;
@@ -320,17 +322,43 @@ namespace BaseballScoreboard.Forms
             lblDate.AutoSize = true;
             lblDate.Font = new Font("Segoe UI", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblDate.ForeColor = Color.White;
-            lblDate.Location = new Point(307, 56);
+            lblDate.Location = new Point(574, 46);
             lblDate.Name = "lblDate";
             lblDate.Size = new Size(0, 38);
             lblDate.TabIndex = 17;
+            lblDate.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // listBox1
+            // 
+            listBox1.DrawMode = DrawMode.OwnerDrawFixed;
+            listBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            listBox1.FormattingEnabled = true;
+            listBox1.Location = new Point(272, 465);
+            listBox1.Name = "listBox1";
+            listBox1.Size = new Size(206, 124);
+            listBox1.TabIndex = 19;
+            // 
+            // lblUmpire
+            // 
+            lblUmpire.BackColor = Color.Gold;
+            lblUmpire.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblUmpire.ForeColor = Color.White;
+            lblUmpire.Location = new Point(272, 432);
+            lblUmpire.Name = "lblUmpire";
+            lblUmpire.Padding = new Padding(20, 0, 20, 0);
+            lblUmpire.Size = new Size(206, 36);
+            lblUmpire.TabIndex = 20;
+            lblUmpire.Text = "UMPIRES";
+            lblUmpire.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
-            ClientSize = new Size(1315, 679);
+            ClientSize = new Size(1315, 627);
+            Controls.Add(lblUmpire);
+            Controls.Add(listBox1);
             Controls.Add(lblDate);
             Controls.Add(btnGuestPlayersClear);
             Controls.Add(btnGuestPlayersRemove);
@@ -390,5 +418,7 @@ namespace BaseballScoreboard.Forms
         private Button btnGuestPlayersRemove;
         private Button btnGuestPlayersClear;
         private Label lblDate;
+        private ListBox listBox1;
+        private Label lblUmpire;
     }
 }

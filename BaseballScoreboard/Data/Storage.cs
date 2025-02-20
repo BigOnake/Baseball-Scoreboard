@@ -97,4 +97,20 @@
     {
         public List<People>? roster { get; set; }
     }
+
+    internal class Game
+    {
+        public List<Dates>? dates { get; set; }
+    }
+
+    internal class Dates
+    {
+        public List<Games>? games { get; set; }
+    }
+
+    internal class Games
+    {
+        public int? gamePk { get; set; }
+        public string? gameDate { get; set; }
+    }
 }

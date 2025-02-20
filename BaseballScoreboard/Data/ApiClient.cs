@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Globalization;
+using System.Reflection;
 using System.Text.Json;
 
 namespace BaseballScoreboard.Data
@@ -45,6 +46,39 @@ namespace BaseballScoreboard.Data
             players = JsonSerializer.Deserialize<RosterList>(result);
 
             return players;
+        }
+
+        // Date Format: YYYY-MM-DD
+        public int GetGamePk(string date, int teamId)
+        {
+            Game? g = new Game();
+            path = BASE_URL + $"schedule?teamId={teamId}&sportId=1&date={date}&fields=dates%2C+games%2C+gamePk%2C+gameDate";
+            string result = GetJson(path);
+            g = JsonSerializer.Deserialize<Game>(result);
+
+            DateTime currentUtcTime = DateTimeOffset.UtcNow.UtcDateTime;
+            TimeSpan smallestTs = TimeSpan.MaxValue;
+            int gameId = -1;
+
+            if (g?.dates?[0]?.games != null)
+            {
+                foreach (Games gm in g.dates[0].games)
+                {
+                    if (gm?.gameDate != null && gm?.gamePk != null)
+                    {
+                        DateTime currentGameTime = DateTime.ParseExact(gm.gameDate, "yyyy-MM-ddTHH:mm:ssZ", CultureInfo.InvariantCulture, DateTimeStyles.AdjustToUniversal | DateTimeStyles.AssumeUniversal);
+                        TimeSpan currentDifference = currentGameTime - currentUtcTime;
+
+                        if (Math.Abs((decimal)currentDifference.TotalSeconds) < Math.Abs((decimal)smallestTs.TotalSeconds))
+                        {
+                            smallestTs = currentDifference;
+                            gameId = (int)gm.gamePk;
+                        }
+                    }
+                }
+            }
+
+            return gameId;
         }
 
         static private string GetAccessToken()
