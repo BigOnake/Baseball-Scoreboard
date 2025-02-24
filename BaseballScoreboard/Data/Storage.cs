@@ -113,4 +113,21 @@
         public int? gamePk { get; set; }
         public string? gameDate { get; set; }
     }
+
+    internal class Umpires
+    {
+        public List<GameInfo>? officials { get; set; }
+    }
+
+    internal class GameInfo
+    {
+        public Official? official { get; set; }
+        public string? officialType { get; set; }
+    }
+
+    internal class Official
+    {
+        public int? id { get; set; }
+        public string? fullName { get; set; }
+    }
 }
