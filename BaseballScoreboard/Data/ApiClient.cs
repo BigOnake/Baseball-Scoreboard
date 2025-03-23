@@ -1,6 +1,10 @@
-﻿using System.Globalization;
+﻿using System.Drawing.Imaging;
+using System.Globalization;
+using System.Net.Http.Headers;
 using System.Reflection;
+using System.Text;
 using System.Text.Json;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BaseballScoreboard.Data
 {
@@ -92,12 +96,40 @@ namespace BaseballScoreboard.Data
             return ump;
         }
 
+        static private string GetRefreshToken()
+        {
+            string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";
+
+            string[] FILE_INFO = readFile("BaseballScoreboard.Resources.config.txt").Split('\n');
+
+            HttpClient client = new HttpClient();
+            string encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{FILE_INFO[0].Trim()}:{FILE_INFO[1].Trim()}"));
+
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Basic", encoded);
+
+            HttpResponseMessage response = client.PostAsync(REQUEST_URL, null).Result;
+            if (response.IsSuccessStatusCode)
+            {
+                string[] tokens = response.Content.ReadAsStringAsync().Result.Split(',');
+
+                string refreshToken = tokens[1];
+                int startIndex = refreshToken.IndexOf(":") + 1;
+                refreshToken = refreshToken.Substring(startIndex, refreshToken.Length - startIndex).Trim('\"');
+
+                return refreshToken;
+            }
+            else
+            {
+                MessageBox.Show("Error getting refresh token.");
+                return "";
+            }
+        }
+
         static private string GetAccessToken()
         {
             string ACCESS_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token/refresh?refreshToken=";
 
-            string[] FILE_INFO = readFile("BaseballScoreboard.Resources.config.txt").Split('\n');
-            string REFRESH_TOKEN = FILE_INFO[0];
+            string REFRESH_TOKEN = GetRefreshToken();
 
             HttpClient client = new HttpClient();
             HttpResponseMessage response = client.PostAsync(ACCESS_URL + REFRESH_TOKEN, null).Result;
