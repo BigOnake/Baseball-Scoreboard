@@ -56,6 +56,8 @@ namespace BaseballScoreboard.Forms
             lblDate = new Label();
             lBoxUmpires = new ListBox();
             lblUmpire = new Label();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -352,12 +354,31 @@ namespace BaseballScoreboard.Forms
             lblUmpire.Text = "UMPIRES";
             lblUmpire.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // button1
+            // 
+            button1.Location = new Point(0, 0);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(763, 499);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 21;
+            button2.Text = "First Pitch Test";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1315, 627);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(lblUmpire);
             Controls.Add(lBoxUmpires);
             Controls.Add(lblDate);
@@ -421,5 +442,7 @@ namespace BaseballScoreboard.Forms
         private Label lblDate;
         private ListBox lBoxUmpires;
         private Label lblUmpire;
+        private Button button1;
+        private Button button2;
     }
 }

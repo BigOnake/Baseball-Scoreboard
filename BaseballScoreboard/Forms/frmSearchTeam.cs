@@ -2,6 +2,7 @@
 using System.Data;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.AxHost;
 
 namespace BaseballScoreboard.Forms
 {
@@ -202,6 +203,16 @@ namespace BaseballScoreboard.Forms
             }
 
             e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Test PlayerID
+            FirstPitch stat = Controller.GetFirstPitch(663457);
+
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            MessageBox.Show(stat.splits[0].stats.hitting.tracking.hitProbability.averageValue.ToString());
         }
 
         //*****************************************************************************************************

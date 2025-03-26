@@ -1,5 +1,6 @@
 ﻿using System.Drawing.Imaging;
 using System.Globalization;
+using System.Net;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Text;
@@ -39,6 +40,24 @@ namespace BaseballScoreboard.Data
             }
 
             return jsonStr;
+        }
+
+        public string GetOAuthJsonRequest(string endpoint)
+        {
+            string result = String.Empty;
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ACCESS_TOKEN);
+            HttpResponseMessage response = client.GetAsync(endpoint).Result;
+
+            if (response.IsSuccessStatusCode)
+            {
+                result = response.Content.ReadAsStringAsync().Result;
+            }
+            else
+            {
+                result = "Failure - OAuth2.0 Get Request";
+            }
+
+            return result;
         }
 
         public RosterList GetRoster(int teamId)
@@ -96,6 +115,29 @@ namespace BaseballScoreboard.Data
             return ump;
         }
 
+
+        /****************************************************************
+         * 
+         *                 START OF STAT CALLS
+         * 
+         ****************************************************************/
+
+        public FirstPitch GetFirstPitch(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&sitCodes=fip&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,hitting,standard,ops,avg,tracking,hitProbability,averageValue";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            FirstPitch stat = new FirstPitch();
+            stat = JsonSerializer.Deserialize<FirstPitch>(result);
+
+            return stat;
+        }
+
         static private string GetRefreshToken()
         {
             string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";
@@ -120,7 +162,7 @@ namespace BaseballScoreboard.Data
             }
             else
             {
-                MessageBox.Show("Error getting refresh token.");
+                MessageBox.Show("ERROR - Could not fetch Refresh Token.");
                 return "";
             }
         }
@@ -146,7 +188,7 @@ namespace BaseballScoreboard.Data
             }
             else
             {
-                MessageBox.Show("Error getting access token.");
+                MessageBox.Show("ERROR - Could not fetch Access Token.");
                 return "";
             }
         }

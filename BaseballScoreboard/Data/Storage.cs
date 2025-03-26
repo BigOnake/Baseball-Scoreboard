@@ -1,4 +1,7 @@
-﻿namespace BaseballScoreboard.Data
+﻿using System.ComponentModel;
+using System.ComponentModel.Design;
+
+namespace BaseballScoreboard.Data
 {
     internal class Storage
     {
@@ -130,4 +133,44 @@
         public int? id { get; set; }
         public string? fullName { get; set; }
     }
+
+
+
+    internal class FirstPitch
+    {
+        public List<Split>? splits { get; set; }
+    }
+
+    internal class Split
+    {
+        public Stats? stats { get; set; }
+    }
+
+    internal class Stats
+    {
+        public Hitting? hitting { get; set; }
+    }
+
+    internal class Hitting
+    {
+        public Standard? standard { get; set; }
+        public Tracking? tracking { get; set; }
+    }
+
+    internal class Standard
+    {
+        public string? avg { get; set; }
+        public string? ops { get; set; }
+    }
+
+    internal class Tracking
+    {
+        public HitProbability? hitProbability { get; set; }
+    }
+
+    internal class HitProbability
+    {
+        public double? averageValue { get; set; }
+    }
+    
 }
