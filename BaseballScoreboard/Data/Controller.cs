@@ -104,6 +104,11 @@ namespace BaseballScoreboard.Data
             return apiClient.Get7Plus(playerId);
         }
 
+        static public HitterStat GetHitterStats(int playerId)
+        {
+            return apiClient.GetHitterStats(playerId);
+        }
+
         /****************************************************************/
 
         static public string[] ReturnAllTeams()

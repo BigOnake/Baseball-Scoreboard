@@ -215,6 +215,21 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public HitterStat GetHitterStats(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds=663457&gameTypes=S&group=hitting&groupBy=season,player&" +
+                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons=2025&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,intentionalWalks,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            HitterStat stat = new HitterStat();
+            stat = JsonSerializer.Deserialize<HitterStat>(result);
+
+            return stat;
+        }
+
         /****************************************************************/
 
         static private string GetRefreshToken()

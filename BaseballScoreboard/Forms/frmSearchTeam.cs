@@ -244,11 +244,30 @@ namespace BaseballScoreboard.Forms
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            */
 
+            Test 7+
             Plus7 stat = Controller.Get7Plus(663457);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            */
+
+            HitterStat stat = Controller.GetHitterStats(663457);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.runs.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.doubles.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.triples.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.strikeOuts.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.intentionalWalks.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.caughtStealing.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.stolenBases.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.rbi.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.babip);
+
+
+
 
         }
 

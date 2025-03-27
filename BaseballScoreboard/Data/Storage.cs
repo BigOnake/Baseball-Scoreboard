@@ -134,7 +134,11 @@ namespace BaseballScoreboard.Data
         public string? fullName { get; set; }
     }
 
-
+    /****************************************
+    * 
+    *          START OF STAT CLASSES
+    * 
+    ****************************************/
 
     internal class FirstPitch
     {
@@ -173,7 +177,7 @@ namespace BaseballScoreboard.Data
         public double? averageValue { get; set; }
     }
 
-
+    /****************************************/
     internal class RISP
     {
         public List<SplitsRISP>? splits { get; set; }
@@ -201,6 +205,8 @@ namespace BaseballScoreboard.Data
         public string? avg { get; set; }
         public int? atBats { get; set; }
     }
+
+    /****************************************/
 
     internal class VSLeftRight
     {
@@ -231,7 +237,7 @@ namespace BaseballScoreboard.Data
         public string? ops { get; set; }
     }
 
-
+    /****************************************/
     internal class Plus7
     {
         public List<Splits7>? splits { get; set; }
@@ -257,4 +263,44 @@ namespace BaseballScoreboard.Data
         public string? avg { get; set; }
         public string? ops { get; set; }
     }
+
+    /****************************************/
+    internal class HitterStat
+    {
+        public List<SplitsHitter>? splits { get; set; }
+    }
+
+    internal class SplitsHitter
+    {
+        public StatsHitter? stats { get; set; }
+    }
+
+    internal class StatsHitter
+    {
+        public HittingH? hitting { get; set; }
+    }
+
+    internal class HittingH
+    {
+        public StandardHitter? standard { get; set; }
+    }
+
+    internal class StandardHitter
+    {
+        public int? runs { get; set; }
+        public int? doubles { get; set; }
+        public int? triples { get; set; }
+        public int? homeRuns { get; set; }
+        public int? strikeOuts { get; set; }
+        public int? intentionalWalks { get; set; }
+        public string? avg { get; set; }
+        public string? ops { get; set; }
+        public int? caughtStealing { get; set; }
+        public int? stolenBases { get; set; }
+        public int? groundIntoDoublePlay { get; set; }
+        public int? rbi { get; set; }
+        public string? babip { get; set; }
+    }
+
+    /****************************************/
 }
