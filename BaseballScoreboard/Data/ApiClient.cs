@@ -155,6 +155,21 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public RISP GetRISP2O(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=o2,risp&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            RISP stat = new RISP();
+            stat = JsonSerializer.Deserialize<RISP>(result);
+
+            return stat;
+        }
+
         static private string GetRefreshToken()
         {
             string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";

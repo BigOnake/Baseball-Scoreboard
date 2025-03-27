@@ -207,19 +207,26 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Test PlayerID
+            // Test First Pitch
             //FirstPitch stat = Controller.GetFirstPitch(663457);
 
             //MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             //MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
             //MessageBox.Show(stat.splits[0].stats.hitting.tracking.hitProbability.averageValue.ToString());
 
-            RISP stat = Controller.GetRISP(663457);
+            // Test RISP
+            //RISP stat = Controller.GetRISP(663457);
+            //MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
+            //MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
+            //MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            //MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+
+            // Test RISP2O
+            RISP stat = Controller.GetRISP2O(663457);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
-
 
         }
 
