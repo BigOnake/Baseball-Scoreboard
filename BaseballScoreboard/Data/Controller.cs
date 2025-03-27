@@ -69,6 +69,11 @@ namespace BaseballScoreboard.Data
             return apiClient.GetUmpires(gamePk);
         }
 
+        static public FirstPitch GetFirstPitch(int playerId)
+        {
+            return apiClient.GetFirstPitch(playerId);
+        }
+
         static public string[] ReturnAllTeams()
         {
             return storage.GetAllTeams();
