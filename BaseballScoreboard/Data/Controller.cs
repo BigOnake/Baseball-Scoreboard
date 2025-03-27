@@ -99,6 +99,11 @@ namespace BaseballScoreboard.Data
             return apiClient.GetVSRight(playerId);
         }
 
+        static public Plus7 Get7Plus(int playerId)
+        {
+            return apiClient.Get7Plus(playerId);
+        }
+
         /****************************************************************/
 
         static public string[] ReturnAllTeams()

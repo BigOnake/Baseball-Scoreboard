@@ -236,13 +236,18 @@ namespace BaseballScoreboard.Forms
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            */
 
+            Test vsRH
             VSLeftRight stat = Controller.GetVSRight(663457);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            */
+
+            Plus7 stat = Controller.Get7Plus(663457);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
 
         }

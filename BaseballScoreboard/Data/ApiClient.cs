@@ -200,6 +200,23 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public Plus7 Get7Plus(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+                $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
+                $"limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=ig07&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,avg,ops";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            Plus7 stat = new Plus7();
+            stat = JsonSerializer.Deserialize<Plus7>(result);
+
+            return stat;
+        }
+
+        /****************************************************************/
+
         static private string GetRefreshToken()
         {
             string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";
@@ -267,6 +284,8 @@ namespace BaseballScoreboard.Data
             }
             else { return ""; }
         }
+
+        /****************************************************************/
     }
 }
 

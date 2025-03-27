@@ -230,4 +230,31 @@ namespace BaseballScoreboard.Data
         public int? atBats { get; set; }
         public string? ops { get; set; }
     }
+
+
+    internal class Plus7
+    {
+        public List<Splits7>? splits { get; set; }
+    }
+
+    internal class Splits7
+    {
+        public Stats7? stats { get; set; }
+    }
+
+    internal class Stats7
+    {
+        public Hitting7? hitting { get; set; }
+    }
+
+    internal class Hitting7
+    {
+        public Standard7? standard { get; set; }
+    }
+
+    internal class Standard7
+    {
+        public string? avg { get; set; }
+        public string? ops { get; set; }
+    }
 }
