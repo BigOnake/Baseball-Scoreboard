@@ -207,11 +207,13 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PitchersTop stat = Controller.GetPitcherTopStats(672405);
+            PitcherStats stat = Controller.GetPitcherStats(672405);
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.gamesPlayed.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.gamesStarted.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.groundOuts.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.homeRuns.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.strikeOuts.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.baseOnBalls.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.intentionalWalks.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.hits.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.avg);
@@ -222,6 +224,7 @@ namespace BaseballScoreboard.Forms
             MessageBox.Show(stat.splits[0].stats.pitching.standard.losses.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.saves.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.saveOpportunities.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.holds.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.blownSaves.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.earnedRuns.ToString());
             MessageBox.Show(stat.splits[0].stats.pitching.standard.whip);

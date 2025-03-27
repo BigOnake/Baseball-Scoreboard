@@ -218,7 +218,7 @@ namespace BaseballScoreboard.Data
         public HitterStat GetHitterStats(int playerId)
         {
             string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&groupBy=season,player&" +
-                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons=2025&sportIds=1&" +
+                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,intentionalWalks,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
 
@@ -230,18 +230,17 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
-        public PitchersTop GetPitcherTopStats(int playerId)
+        public PitcherStats GetPitcherStats(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&" +
-                $"groupBy=season,team,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
-                $"limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
-                $"fields=splits,stats,pitching,standard,gamesStarted,groundOuts,homeRuns,strikeOuts," +
-                $"intentionalWalks,hits,avg,groundIntoDoublePlay,era,inningsPitched,wins,losses,saves,saveOpportunities,blownSaves,earnedRuns,whip";
+            string endpoint = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=season,team,player&" +
+                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&fields=splits,stats,pitching,standard,gamesStarted,groundOuts," +
+                $"homeRuns,strikeOuts,intentionalWalks,hits,avg,groundIntoDoublePlay,era,inningsPitched,wins,losses,saves,saveOpportunities,blownSaves,earnedRuns,whip,gamesPlayed,baseOnBalls,inningsPitched,holds";
 
             string result = GetOAuthJsonRequest(endpoint);
 
-            PitchersTop stat = new PitchersTop();
-            stat = JsonSerializer.Deserialize<PitchersTop>(result);
+            PitcherStats stat = new PitcherStats();
+            stat = JsonSerializer.Deserialize<PitcherStats>(result);
 
             return stat;
         }

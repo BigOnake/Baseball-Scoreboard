@@ -304,7 +304,7 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class PitchersTop
+    internal class PitcherStats
     {
         public List<SplitsPitchersTop>? splits { get; set; }
     }
@@ -326,13 +326,14 @@ namespace BaseballScoreboard.Data
 
     internal class StandardPitchersTop
     {
+        public int? gamesPlayed { get; set; }
         public int? gamesStarted { get; set; }
         public int? groundOuts { get; set; }
         public int? homeRuns { get; set; }
         public int? strikeOuts { get; set; }
+        public int? baseOnBalls { get; set; }
         public int? intentionalWalks { get; set; }
         public int? hits { get; set; }
-
         public string? avg { get; set; }
         public int? groundIntoDoublePlay { get; set; }
         public string? era { get; set; }
@@ -341,10 +342,9 @@ namespace BaseballScoreboard.Data
         public int? losses { get; set; }
         public int? saves { get; set; }
         public int? saveOpportunities { get; set; }
+        public int? holds { get; set; }
         public int? blownSaves { get; set; }
         public int? earnedRuns { get; set; }
-
         public string? whip { get; set; }
-
     }
 }
