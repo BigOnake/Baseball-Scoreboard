@@ -45,6 +45,8 @@ namespace BaseballScoreboard.Data
         public string GetOAuthJsonRequest(string endpoint)
         {
             string result = String.Empty;
+
+            ACCESS_TOKEN = GetAccessToken();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ACCESS_TOKEN);
             HttpResponseMessage response = client.GetAsync(endpoint).Result;
 
@@ -134,6 +136,21 @@ namespace BaseballScoreboard.Data
 
             FirstPitch stat = new FirstPitch();
             stat = JsonSerializer.Deserialize<FirstPitch>(result);
+
+            return stat;
+        }
+
+        public RISP GetRISP(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=risp&sportIds=&" +
+                $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            RISP stat = new RISP();
+            stat = JsonSerializer.Deserialize<RISP>(result);
 
             return stat;
         }

@@ -138,39 +138,68 @@ namespace BaseballScoreboard.Data
 
     internal class FirstPitch
     {
-        public List<Split>? splits { get; set; }
+        public List<SplitFP>? splits { get; set; }
     }
 
-    internal class Split
+    internal class SplitFP
     {
-        public Stats? stats { get; set; }
+        public StatsFP? stats { get; set; }
     }
 
-    internal class Stats
+    internal class StatsFP
     {
-        public Hitting? hitting { get; set; }
+        public HittingFP? hitting { get; set; }
     }
 
-    internal class Hitting
+    internal class HittingFP
     {
-        public Standard? standard { get; set; }
-        public Tracking? tracking { get; set; }
+        public StandardFP? standard { get; set; }
+        public TrackingFP? tracking { get; set; }
     }
 
-    internal class Standard
+    internal class StandardFP
     {
         public string? avg { get; set; }
         public string? ops { get; set; }
     }
 
-    internal class Tracking
+    internal class TrackingFP
     {
-        public HitProbability? hitProbability { get; set; }
+        public HitProbabilityFP? hitProbability { get; set; }
     }
 
-    internal class HitProbability
+    internal class HitProbabilityFP
     {
         public double? averageValue { get; set; }
+    }
+
+
+    internal class RISP
+    {
+        public List<SplitsRISP>? splits { get; set; }
+    }
+
+    internal class SplitsRISP
+    {
+        public StatsRISP? stats { get; set; }
+    }
+
+    internal class StatsRISP
+    {
+        public HittingRISP? hitting { get; set; }
+    }
+
+    internal class HittingRISP
+    {
+        public StandardRISP? standard { get; set; }
+    }
+
+    internal class StandardRISP
+    {
+        public int? homeRuns { get; set; }
+        public int? hits { get; set; }
+        public string? avg { get; set; }
+        public int? atBats { get; set; }
     }
     
 }
