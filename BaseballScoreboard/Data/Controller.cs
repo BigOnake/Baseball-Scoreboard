@@ -74,6 +74,11 @@ namespace BaseballScoreboard.Data
             return apiClient.GetFirstPitch(playerId);
         }
 
+        static public RISP GetRISP(int playerId)
+        {
+            return apiClient.GetRISP(playerId);
+        }
+
         static public string[] ReturnAllTeams()
         {
             return storage.GetAllTeams();
