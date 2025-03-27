@@ -201,5 +201,33 @@ namespace BaseballScoreboard.Data
         public string? avg { get; set; }
         public int? atBats { get; set; }
     }
+
+    internal class VSLeftRight
+    {
+        public List<SplitsVSLR>? splits { get; set; }
+    }
+
+    internal class SplitsVSLR
+    {
+        public StatsVSLR? stats { get; set; }
+    }
+
+    internal class StatsVSLR
+    {
+        public HittingVSLR? hitting { get; set; }
+    }
+
+    internal class HittingVSLR
+    {
+        public StandardVSLR standard { get; set; }
+    }
     
+    internal class StandardVSLR
+    {
+        public int? homeRuns { get; set; }
+        public int? hits { get; set; }
+        public string? avg { get; set; }
+        public int? atBats { get; set; }
+        public string? ops { get; set; }
+    }
 }

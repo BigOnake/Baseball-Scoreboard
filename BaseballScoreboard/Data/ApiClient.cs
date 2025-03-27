@@ -170,6 +170,36 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public VSLeftRight GetVSLeft(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+                $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
+                $"limit=50&pitchHand=L&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            VSLeftRight stat = new VSLeftRight();
+            stat = JsonSerializer.Deserialize<VSLeftRight>(result);
+
+            return stat;
+        }
+
+        public VSLeftRight GetVSRight(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+                $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
+                $"limit=50&pitchHand=R&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            VSLeftRight stat = new VSLeftRight();
+            stat = JsonSerializer.Deserialize<VSLeftRight>(result);
+
+            return stat;
+        }
+
         static private string GetRefreshToken()
         {
             string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";

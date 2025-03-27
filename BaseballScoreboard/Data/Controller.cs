@@ -69,6 +69,12 @@ namespace BaseballScoreboard.Data
             return apiClient.GetUmpires(gamePk);
         }
 
+        /****************************************************************
+        * 
+        *                 START OF STAT CALLS
+        * 
+        ****************************************************************/
+
         static public FirstPitch GetFirstPitch(int playerId)
         {
             return apiClient.GetFirstPitch(playerId);
@@ -83,6 +89,17 @@ namespace BaseballScoreboard.Data
         {
             return apiClient.GetRISP2O(playerId);
         }
+
+        static public VSLeftRight GetVSLeft(int playerId)
+        {
+            return apiClient.GetVSLeft(playerId);
+        }
+        static public VSLeftRight GetVSRight(int playerId)
+        {
+            return apiClient.GetVSRight(playerId);
+        }
+
+        /****************************************************************/
 
         static public string[] ReturnAllTeams()
         {

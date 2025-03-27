@@ -207,26 +207,43 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Test First Pitch
-            //FirstPitch stat = Controller.GetFirstPitch(663457);
+            /*
+            Test First Pitch
+            FirstPitch stat = Controller.GetFirstPitch(663457);
 
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            //MessageBox.Show(stat.splits[0].stats.hitting.tracking.hitProbability.averageValue.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            MessageBox.Show(stat.splits[0].stats.hitting.tracking.hitProbability.averageValue.ToString());
 
-            // Test RISP
-            //RISP stat = Controller.GetRISP(663457);
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            //MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+            Test RISP
+            RISP stat = Controller.GetRISP(663457);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
 
-            // Test RISP2O
+            Test RISP2O
             RISP stat = Controller.GetRISP2O(663457);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
             MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
             MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+
+            Test vsLH
+            VSLeftRight stat = Controller.GetVSLeft(663457);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
+            */
+
+            VSLeftRight stat = Controller.GetVSRight(663457);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
 
         }
 

@@ -367,7 +367,7 @@ namespace BaseballScoreboard.Forms
             button2.Name = "button2";
             button2.Size = new Size(94, 29);
             button2.TabIndex = 21;
-            button2.Text = "First Pitch Test";
+            button2.Text = "Test";
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
