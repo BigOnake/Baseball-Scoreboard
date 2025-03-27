@@ -207,67 +207,24 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            /*
-            Test First Pitch
-            FirstPitch stat = Controller.GetFirstPitch(663457);
-
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            MessageBox.Show(stat.splits[0].stats.hitting.tracking.hitProbability.averageValue.ToString());
-
-            Test RISP
-            RISP stat = Controller.GetRISP(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
-
-            Test RISP2O
-            RISP stat = Controller.GetRISP2O(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
-
-            Test vsLH
-            VSLeftRight stat = Controller.GetVSLeft(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-
-            Test vsRH
-            VSLeftRight stat = Controller.GetVSRight(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.hits.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.atBats.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-
-            Test 7+
-            Plus7 stat = Controller.Get7Plus(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            */
-
-            HitterStat stat = Controller.GetHitterStats(663457);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.runs.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.doubles.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.triples.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.homeRuns.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.strikeOuts.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.intentionalWalks.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.avg);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.ops);
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.caughtStealing.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.stolenBases.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.rbi.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.babip);
-
-
-
+            PitchersTop stat = Controller.GetPitcherTopStats(672405);
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.gamesStarted.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.groundOuts.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.homeRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.strikeOuts.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.intentionalWalks.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.hits.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.avg);
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.groundIntoDoublePlay.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.era);
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.inningsPitched);
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.wins.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.losses.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.saves.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.saveOpportunities.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.blownSaves.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.earnedRuns.ToString());
+            MessageBox.Show(stat.splits[0].stats.pitching.standard.whip);
 
         }
 

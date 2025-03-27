@@ -303,4 +303,48 @@ namespace BaseballScoreboard.Data
     }
 
     /****************************************/
+
+    internal class PitchersTop
+    {
+        public List<SplitsPitchersTop>? splits { get; set; }
+    }
+
+    internal class SplitsPitchersTop
+    {
+        public StatsPitchersTop? stats { get; set; }
+    }
+
+    internal class StatsPitchersTop
+    {
+        public PitchingTop? pitching { get; set; }
+    }
+
+    internal class PitchingTop
+    {
+        public StandardPitchersTop? standard { get; set; }
+    }
+
+    internal class StandardPitchersTop
+    {
+        public int? gamesStarted { get; set; }
+        public int? groundOuts { get; set; }
+        public int? homeRuns { get; set; }
+        public int? strikeOuts { get; set; }
+        public int? intentionalWalks { get; set; }
+        public int? hits { get; set; }
+
+        public string? avg { get; set; }
+        public int? groundIntoDoublePlay { get; set; }
+        public string? era { get; set; }
+        public string? inningsPitched { get; set; }
+        public int? wins { get; set; }
+        public int? losses { get; set; }
+        public int? saves { get; set; }
+        public int? saveOpportunities { get; set; }
+        public int? blownSaves { get; set; }
+        public int? earnedRuns { get; set; }
+
+        public string? whip { get; set; }
+
+    }
 }
