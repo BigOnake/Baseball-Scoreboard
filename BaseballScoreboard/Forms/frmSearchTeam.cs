@@ -36,6 +36,18 @@ namespace BaseballScoreboard.Forms
 
         // Combo Box Methods
 
+        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayPlayers(cBoxHomeTeams, cBoxHomePlayers);
+        }
+
+        private void cBoxGuestTeams_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DisplayPlayers(cBoxGuestTeams, cBoxGuestPlayers);
+
+            fillUmpires();
+        }
+
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
@@ -44,19 +56,6 @@ namespace BaseballScoreboard.Forms
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddPlayers(cBoxHomePlayers, lBoxHomePlayers);
-        }
-
-        private void AddShohei_Click_1(object sender, EventArgs e)
-        {
-            //txtTest.Text = Controller.ReturnShohei().fullName;
-        }
-
-        // Guest filled out second, we can get game data now; Can we assume game will always be Cards?
-        private void cBoxGuestTeams_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DisplayPlayers(cBoxGuestTeams, cBoxGuestPlayers);
-
-            fillUmpires();
         }
 
         private void fillUmpires()
@@ -79,11 +78,6 @@ namespace BaseballScoreboard.Forms
                     }
                 }
             }
-        }
-
-        private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DisplayPlayers(cBoxHomeTeams, cBoxHomePlayers);
         }
 
         // Button Methods

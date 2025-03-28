@@ -43,8 +43,6 @@ namespace BaseballScoreboard.Forms
             cBoxGuestBench = new ComboBox();
             cBoxGuestBullpen = new ComboBox();
             lBoxHomePlayers = new ListBox();
-            AddShohei = new Button();
-            txtTest = new TextBox();
             cBoxHomeTeams = new ComboBox();
             cBoxGuestTeams = new ComboBox();
             cBoxGuestPlayers = new ComboBox();
@@ -56,7 +54,6 @@ namespace BaseballScoreboard.Forms
             lblDate = new Label();
             lBoxUmpires = new ListBox();
             lblUmpire = new Label();
-            button1 = new Button();
             button2 = new Button();
             SuspendLayout();
             // 
@@ -205,23 +202,6 @@ namespace BaseballScoreboard.Forms
             lBoxHomePlayers.TabIndex = 6;
             lBoxHomePlayers.DrawItem += lBoxHomePlayers_DrawItem;
             // 
-            // AddShohei
-            // 
-            AddShohei.Location = new Point(1109, 541);
-            AddShohei.Name = "AddShohei";
-            AddShohei.Size = new Size(144, 29);
-            AddShohei.TabIndex = 7;
-            AddShohei.Text = "Add Shohei";
-            AddShohei.UseVisualStyleBackColor = true;
-            AddShohei.Click += AddShohei_Click_1;
-            // 
-            // txtTest
-            // 
-            txtTest.Location = new Point(1109, 587);
-            txtTest.Name = "txtTest";
-            txtTest.Size = new Size(144, 27);
-            txtTest.TabIndex = 8;
-            // 
             // cBoxHomeTeams
             // 
             cBoxHomeTeams.AutoCompleteMode = AutoCompleteMode.Append;
@@ -354,13 +334,6 @@ namespace BaseballScoreboard.Forms
             lblUmpire.Text = "UMPIRES";
             lblUmpire.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button1
-            // 
-            button1.Location = new Point(0, 0);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 0;
-            // 
             // button2
             // 
             button2.Location = new Point(763, 499);
@@ -378,7 +351,6 @@ namespace BaseballScoreboard.Forms
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1315, 627);
             Controls.Add(button2);
-            Controls.Add(button1);
             Controls.Add(lblUmpire);
             Controls.Add(lBoxUmpires);
             Controls.Add(lblDate);
@@ -390,8 +362,6 @@ namespace BaseballScoreboard.Forms
             Controls.Add(cBoxGuestPlayers);
             Controls.Add(cBoxGuestTeams);
             Controls.Add(cBoxHomeTeams);
-            Controls.Add(txtTest);
-            Controls.Add(AddShohei);
             Controls.Add(lBoxHomePlayers);
             Controls.Add(cBoxGuestBullpen);
             Controls.Add(cBoxHomeBullpen);
@@ -429,8 +399,6 @@ namespace BaseballScoreboard.Forms
         private ComboBox cBoxGuestBench;
         private ComboBox cBoxGuestBullpen;
         private ListBox lBoxHomePlayers;
-        private Button AddShohei;
-        private TextBox txtTest;
         private ComboBox cBoxHomeTeams;
         private ComboBox cBoxGuestTeams;
         private ComboBox cBoxGuestPlayers;
@@ -442,7 +410,6 @@ namespace BaseballScoreboard.Forms
         private Label lblDate;
         private ListBox lBoxUmpires;
         private Label lblUmpire;
-        private Button button1;
         private Button button2;
     }
 }

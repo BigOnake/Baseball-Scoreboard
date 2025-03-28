@@ -16,15 +16,6 @@ namespace BaseballScoreboard.Data
         static HttpClient client = new HttpClient();
         string? path;
 
-        public string GetPlayerInfo(int personId)
-        {
-            // Returns an object containing list "people"
-            string queryDetailed = "?fields=people%2C+fullName%2C+id%2C+primaryNumber";
-            path = BASE_URL + $"people/{personId}{queryDetailed}";
-
-            return GetJson(path);
-        }
-
         private string GetJson(string path)
         {
             string jsonStr = string.Empty;
@@ -60,6 +51,15 @@ namespace BaseballScoreboard.Data
             }
 
             return result;
+        }
+
+        public string GetPlayerInfo(int personId)
+        {
+            // Returns an object containing list "people"
+            string queryDetailed = "?fields=people%2C+fullName%2C+id%2C+primaryNumber";
+            path = BASE_URL + $"people/{personId}{queryDetailed}";
+
+            return GetJson(path);
         }
 
         public RosterList GetRoster(int teamId)
@@ -108,11 +108,10 @@ namespace BaseballScoreboard.Data
 
         public Umpires GetUmpires(int gamePk)
         {
-            Umpires ump = new Umpires();
             path = BASE_URL + $"game/{gamePk}/boxscore?fields=officials%2Cofficial%2Cid%2CfullName%2CofficialType";
 
             string result = GetJson(path);
-            ump = JsonSerializer.Deserialize<Umpires>(result);
+            Umpires ump = JsonSerializer.Deserialize<Umpires>(result);
 
             return ump;
         }
@@ -126,136 +125,127 @@ namespace BaseballScoreboard.Data
 
         public FirstPitch GetFirstPitch(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&" +
                 $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&sitCodes=fip&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,ops,avg,tracking,hitProbability,averageValue";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            FirstPitch stat = new FirstPitch();
-            stat = JsonSerializer.Deserialize<FirstPitch>(result);
+            FirstPitch stat = JsonSerializer.Deserialize<FirstPitch>(result);
 
             return stat;
         }
 
         public RISP GetRISP(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&" +
                 $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=risp&sportIds=&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            RISP stat = new RISP();
-            stat = JsonSerializer.Deserialize<RISP>(result);
+            RISP stat = JsonSerializer.Deserialize<RISP>(result);
 
             return stat;
         }
 
         public RISP GetRISP2O(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&" +
                 $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=o2,risp&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            RISP stat = new RISP();
-            stat = JsonSerializer.Deserialize<RISP>(result);
+            RISP stat = JsonSerializer.Deserialize<RISP>(result);
 
             return stat;
         }
 
         public VSLeftRight GetVSLeft(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&pitchHand=L&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            VSLeftRight stat = new VSLeftRight();
-            stat = JsonSerializer.Deserialize<VSLeftRight>(result);
+            VSLeftRight stat = JsonSerializer.Deserialize<VSLeftRight>(result);
 
             return stat;
         }
 
         public VSLeftRight GetVSRight(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&pitchHand=R&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            VSLeftRight stat = new VSLeftRight();
-            stat = JsonSerializer.Deserialize<VSLeftRight>(result);
+            VSLeftRight stat = JsonSerializer.Deserialize<VSLeftRight>(result);
 
             return stat;
         }
 
         public Plus7 Get7Plus(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=ig07&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,avg,ops";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            Plus7 stat = new Plus7();
-            stat = JsonSerializer.Deserialize<Plus7>(result);
+            Plus7 stat = JsonSerializer.Deserialize<Plus7>(result);
 
             return stat;
         }
 
         public HitterStat GetHitterStats(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&groupBy=season,player&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&groupBy=season,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,intentionalWalks,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            HitterStat stat = new HitterStat();
-            stat = JsonSerializer.Deserialize<HitterStat>(result);
+            HitterStat stat = JsonSerializer.Deserialize<HitterStat>(result);
 
             return stat;
         }
 
         public PitcherStats GetPitcherStats(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=season,team,player&" +
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=season,team,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,pitching,standard,gamesStarted,groundOuts," +
                 $"homeRuns,strikeOuts,intentionalWalks,hits,avg,groundIntoDoublePlay,era,inningsPitched,wins,losses,saves,saveOpportunities,blownSaves,earnedRuns,whip,gamesPlayed,baseOnBalls,inningsPitched,holds";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            PitcherStats stat = new PitcherStats();
-            stat = JsonSerializer.Deserialize<PitcherStats>(result);
+            PitcherStats stat = JsonSerializer.Deserialize<PitcherStats>(result);
 
             return stat;
         }
 
         public PitchTypes GetPitchTypes(int playerId)
         {
-            string endpoint = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&" +
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&" +
                 $"groupBy=pitchType,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,pitching,standard,hits,atBats,tracking,exitVelocity,averageValue,pitchType,code";
 
-            string result = GetOAuthJsonRequest(endpoint);
+            string result = GetOAuthJsonRequest(path);
 
-            PitchTypes stat = new PitchTypes();
-            stat = JsonSerializer.Deserialize<PitchTypes>(result);
+            PitchTypes stat = JsonSerializer.Deserialize<PitchTypes>(result);
 
             return stat;
         }
