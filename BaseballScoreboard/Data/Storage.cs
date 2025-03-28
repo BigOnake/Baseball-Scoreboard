@@ -306,25 +306,25 @@ namespace BaseballScoreboard.Data
 
     internal class PitcherStats
     {
-        public List<SplitsPitchersTop>? splits { get; set; }
+        public List<SplitsPitchers>? splits { get; set; }
     }
 
-    internal class SplitsPitchersTop
+    internal class SplitsPitchers
     {
-        public StatsPitchersTop? stats { get; set; }
+        public StatsPitchers? stats { get; set; }
     }
 
-    internal class StatsPitchersTop
+    internal class StatsPitchers
     {
-        public PitchingTop? pitching { get; set; }
+        public Pitching? pitching { get; set; }
     }
 
-    internal class PitchingTop
+    internal class Pitching
     {
-        public StandardPitchersTop? standard { get; set; }
+        public StandardPitchers? standard { get; set; }
     }
 
-    internal class StandardPitchersTop
+    internal class StandardPitchers
     {
         public int? gamesPlayed { get; set; }
         public int? gamesStarted { get; set; }
@@ -346,5 +346,49 @@ namespace BaseballScoreboard.Data
         public int? blownSaves { get; set; }
         public int? earnedRuns { get; set; }
         public string? whip { get; set; }
+    }
+
+    internal class PitchTypes
+    {
+        public List<SplitsPitchType>? splits { get; set; }
+    }
+
+    internal class SplitsPitchType
+    {
+        public StatsPitchType? stats { get; set; }
+
+        public PitchType? pitchType { get; set; }
+    }
+
+    internal class StatsPitchType
+    {
+        public PitchingType? pitching { get; set; }
+    }
+
+    internal class PitchingType
+    {
+        public StandardType? standard { get; set; }
+        public TrackingType? tracking { get; set; }
+    }
+
+    internal class StandardType
+    {
+        public int? hits { get; set; }
+        public int? atBats { get; set; }
+    }
+
+    internal class TrackingType
+    {
+        public ExitVelocity? exitVelocity { get; set; }
+    }
+
+    internal class ExitVelocity
+    {
+        public double? averageValue { get; set; }
+    }
+
+    internal class PitchType
+    {
+        public string? code { get; set; }
     }
 }

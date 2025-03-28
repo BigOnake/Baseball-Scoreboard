@@ -245,6 +245,21 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public PitchTypes GetPitchTypes(int playerId)
+        {
+            string endpoint = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&" +
+                $"groupBy=pitchType,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
+                $"limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,pitching,standard,hits,atBats,tracking,exitVelocity,averageValue,pitchType,code";
+
+            string result = GetOAuthJsonRequest(endpoint);
+
+            PitchTypes stat = new PitchTypes();
+            stat = JsonSerializer.Deserialize<PitchTypes>(result);
+
+            return stat;
+        }
+
         /****************************************************************/
 
         static private string GetRefreshToken()
