@@ -250,6 +250,19 @@ namespace BaseballScoreboard.Data
             return stat;
         }
 
+        public SB GetSB(int teamId)
+        {
+            path = BASE_URL + $"stats/search?gameTypes=R&group=hitting&groupBy=team&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
+                $"teamIds={teamId}&fields=splits,stats,hitting,standard,caughtStealing,stolenBases,groundIntoDoublePlay";
+
+            string result = GetOAuthJsonRequest(path);
+
+            SB stat = JsonSerializer.Deserialize<SB>(result);
+
+            return stat;
+        }
+
         /****************************************************************/
 
         static private string GetRefreshToken()

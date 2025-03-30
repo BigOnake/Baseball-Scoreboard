@@ -391,4 +391,31 @@ namespace BaseballScoreboard.Data
     {
         public string? code { get; set; }
     }
+
+    internal class SB
+    {
+        public List<SplitsSB>? splits { get; set; }
+    }
+
+    internal class SplitsSB
+    {
+        public StatsSB? stats { get; set; }
+    }
+
+    internal class StatsSB
+    {
+        public HittingSB? hitting { get; set; }
+    }
+
+    internal class HittingSB
+    {
+        public StandardSB? standard { get; set; }
+    }
+
+    internal class StandardSB
+    {
+        public int? caughtStealing { get; set; }
+        public int? stolenBases { get; set; }
+        public int? groundIntoDoublePlay { get; set; }
+    }
 }

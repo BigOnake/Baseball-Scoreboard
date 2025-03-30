@@ -202,15 +202,12 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PitchTypes stat = Controller.GetPitchTypes(672405);
+            SB stat = Controller.GetSB(137);
 
-            foreach (SplitsPitchType t in stat?.splits)
-            {
-                MessageBox.Show(t?.stats?.pitching?.standard?.hits.ToString());
-                MessageBox.Show(t?.stats?.pitching?.standard?.atBats.ToString());
-                MessageBox.Show(t?.stats?.pitching?.tracking?.exitVelocity?.averageValue.ToString());
-                MessageBox.Show(t?.pitchType?.code);
-            }
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.caughtStealing.ToString());
+            MessageBox.Show(stat.splits[0].stats.hitting.standard.stolenBases.ToString());
+
         }
 
         private void button1_Click(object sender, EventArgs e)

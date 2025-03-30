@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Diagnostics;
+using System.Text.Json;
 
 namespace BaseballScoreboard.Data
 {
@@ -117,6 +118,11 @@ namespace BaseballScoreboard.Data
         static public PitchTypes GetPitchTypes(int playerId)
         {
             return apiClient.GetPitchTypes(playerId);
+        }
+
+        static public SB GetSB(int teamId)
+        {
+            return apiClient.GetSB(teamId);
         }
 
         /****************************************************************/
