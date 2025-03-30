@@ -22,4 +22,8 @@
     <Folder Include="Properties\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\frmScoreCard\frmScoreCard.csproj" />
+  </ItemGroup>
+
 </Project>

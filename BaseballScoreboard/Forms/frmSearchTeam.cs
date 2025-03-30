@@ -1,4 +1,5 @@
 ﻿using BaseballScoreboard.Data;
+using frmScoreCard;
 using System.Data;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -210,6 +211,13 @@ namespace BaseballScoreboard.Forms
                 MessageBox.Show(t?.stats?.pitching?.tracking?.exitVelocity?.averageValue.ToString());
                 MessageBox.Show(t?.pitchType?.code);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var wpfWindow = new frmScoreCard.MainWindow();
+            
+            wpfWindow.Show();
         }
 
         //*****************************************************************************************************

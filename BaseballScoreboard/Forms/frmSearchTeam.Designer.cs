@@ -55,6 +55,7 @@ namespace BaseballScoreboard.Forms
             lBoxUmpires = new ListBox();
             lblUmpire = new Label();
             button2 = new Button();
+            button1 = new Button();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -344,12 +345,23 @@ namespace BaseballScoreboard.Forms
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(897, 499);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 29);
+            button1.TabIndex = 22;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // frmSearchTeam
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1315, 627);
+            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(lblUmpire);
             Controls.Add(lBoxUmpires);
@@ -411,5 +423,6 @@ namespace BaseballScoreboard.Forms
         private ListBox lBoxUmpires;
         private Label lblUmpire;
         private Button button2;
+        private Button button1;
     }
 }
