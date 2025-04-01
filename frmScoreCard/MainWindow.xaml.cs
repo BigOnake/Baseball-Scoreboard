@@ -20,5 +20,10 @@ namespace frmScoreCard
         {
             InitializeComponent();
         }
+
+        private void MainWindow_Loaded(object sender, EventArgs e)
+        {
+            TEST.Text = (string)this.Tag;
+        }
     }
 }

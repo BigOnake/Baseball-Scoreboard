@@ -5,6 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frmScoreCard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid/>
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="MainWindow_Loaded">
+    <Grid>
+        <TextBlock Name="TEST" HorizontalAlignment="Left" TextWrapping="Wrap" Text="here" VerticalAlignment="Top" Height="115" Width="222"/>
+    </Grid>
 </Window>

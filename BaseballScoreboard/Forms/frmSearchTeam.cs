@@ -212,11 +212,13 @@ namespace BaseballScoreboard.Forms
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var wpfWindow = new frmScoreCard.MainWindow();
-            
+            var wpfWindow = new MainWindow();
+            wpfWindow.Tag = "hello";
+
             wpfWindow.Show();
         }
 
-        //*****************************************************************************************************
-    }
+
+    //*****************************************************************************************************
+}
 }

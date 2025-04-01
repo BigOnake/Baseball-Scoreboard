@@ -9,5 +9,6 @@ namespace frmScoreCard;
 /// </summary>
 public partial class App : Application
 {
+    
 }
 
