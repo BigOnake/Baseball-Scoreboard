@@ -70,6 +70,11 @@ namespace BaseballScoreboard.Data
             return apiClient.GetUmpires(gamePk);
         }
 
+        static public Venues GetVenueId(int gamePk)
+        {
+            return apiClient.GetVenueId(gamePk);
+        }
+
         /****************************************************************
         * 
         *                 START OF STAT CALLS
@@ -123,6 +128,11 @@ namespace BaseballScoreboard.Data
         static public SB GetSB(int teamId)
         {
             return apiClient.GetSB(teamId);
+        }
+
+        static public StadiumData GetStadiumData(int venueId)
+        {
+            return apiClient.GetStadiumData(venueId);
         }
 
         /****************************************************************/

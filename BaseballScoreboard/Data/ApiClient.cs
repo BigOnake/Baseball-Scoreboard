@@ -102,7 +102,7 @@ namespace BaseballScoreboard.Data
                     }
                 }
             }
-
+            MessageBox.Show(gameId.ToString());
             return gameId;
         }
 
@@ -114,6 +114,15 @@ namespace BaseballScoreboard.Data
             Umpires ump = JsonSerializer.Deserialize<Umpires>(result);
 
             return ump;
+        }
+
+        public Venues GetVenueId(int gamePk)
+        {
+            path = BASE_URL + $"schedule?gamePk={gamePk}&fields=dates,games,venue,id";
+
+            string result = GetJson(path);
+
+            return JsonSerializer.Deserialize<Venues>(result);
         }
 
 
@@ -261,6 +270,17 @@ namespace BaseballScoreboard.Data
             SB stat = JsonSerializer.Deserialize<SB>(result);
 
             return stat;
+        }
+
+        public StadiumData GetStadiumData(int venueId)
+        {
+            path = BASE_URL + $"stats/search?gameTypes=R&group=pitching&groupBy=venue,pitchType,season&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&statFields=standard,advanced,expected,tracking&venueIds={venueId}&" +
+                $"fields=splits,stats,pitching,standard,avg,ops,tracking,releaseSpeed,averageValue,pitchType,code";
+
+            string result = GetOAuthJsonRequest(path);
+
+            return JsonSerializer.Deserialize<StadiumData>(result);
         }
 
         /****************************************************************/

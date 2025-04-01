@@ -134,6 +134,26 @@ namespace BaseballScoreboard.Data
         public string? fullName { get; set; }
     }
 
+    internal class Venues
+    {
+        public List<DatesVenue>? dates { get; set; }
+    }
+
+    internal class DatesVenue
+    {
+        public List<GamesVenue>? games { get; set; }
+    }
+
+    internal class GamesVenue
+    {
+        public Venue? venue { get; set; }
+    }
+
+    internal class Venue
+    {
+        public int? id { get; set; }
+    }
+
     /****************************************
     * 
     *          START OF STAT CLASSES
@@ -348,6 +368,7 @@ namespace BaseballScoreboard.Data
         public string? whip { get; set; }
     }
 
+    /****************************************/
     internal class PitchTypes
     {
         public List<SplitsPitchType>? splits { get; set; }
@@ -392,6 +413,7 @@ namespace BaseballScoreboard.Data
         public string? code { get; set; }
     }
 
+    /****************************************/
     internal class SB
     {
         public List<SplitsSB>? splits { get; set; }
@@ -417,5 +439,48 @@ namespace BaseballScoreboard.Data
         public int? caughtStealing { get; set; }
         public int? stolenBases { get; set; }
         public int? groundIntoDoublePlay { get; set; }
+    }
+    /****************************************/
+    internal class StadiumData
+    {
+        public List<SplitsStadium>? splits { get; set; }
+    }
+
+    internal class SplitsStadium
+    {
+        public StatsStadium? stats { get; set; }
+        public PitchTypeStadium? pitchType { get; set; }
+    }
+
+    internal class StatsStadium
+    {
+        public PitchingStadium? pitching { get; set; }
+    }
+
+    internal class PitchingStadium
+    {
+        public StandardStadium? standard { get; set; }
+        public TrackingStadium? tracking { get; set; }
+    }
+
+    internal class StandardStadium
+    {
+        public string? avg { get; set; }
+        public string? ops { get; set; }
+    }
+
+    internal class TrackingStadium
+    {
+        public ReleaseSpeedStadium? releaseSpeed { get; set; }
+    }
+
+    internal class ReleaseSpeedStadium
+    {
+        public double? averageValue { get; set; }
+    }
+
+    internal class PitchTypeStadium
+    {
+        public string? code { get; set; }
     }
 }

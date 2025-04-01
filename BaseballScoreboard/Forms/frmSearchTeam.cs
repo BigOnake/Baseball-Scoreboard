@@ -61,9 +61,10 @@ namespace BaseballScoreboard.Forms
 
         private void fillUmpires()
         {
+            lBoxUmpires.Items.Clear();
             // Ideally, this works during season (when schedules for the season get filled - currently doesn't exist)
             //int teamId = Controller.GetTeams()[cBoxGuestTeams.Text];
-            //int gamePk = Controller.GetGameId(DateTime.Now.ToString("yyyy-MM-dd"), teamId); => or hardcode '138' for teamId for Cards
+            //int gamePk = Controller.GetGameId(DateTime.Now.ToString("yyyy-MM-dd"), teamId);
 
             int gamePk = Controller.GetGameId("2024-04-30", 138);
 
@@ -202,11 +203,12 @@ namespace BaseballScoreboard.Forms
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SB stat = Controller.GetSB(137);
+            StadiumData sd = Controller.GetStadiumData(2889);
 
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.caughtStealing.ToString());
-            MessageBox.Show(stat.splits[0].stats.hitting.standard.stolenBases.ToString());
+            MessageBox.Show(sd.splits[0].stats.pitching.standard.avg);
+            MessageBox.Show(sd.splits[0].stats.pitching.standard.ops);
+            MessageBox.Show(sd.splits[0].stats.pitching.tracking.releaseSpeed.averageValue.ToString());
+            MessageBox.Show(sd.splits[0].pitchType.code);
 
         }
 
