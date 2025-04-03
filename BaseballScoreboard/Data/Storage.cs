@@ -99,9 +99,9 @@ namespace BaseballScoreboard.Data
 
             if (teamType == "home")
             {
-                if (homeTeamRoster?.roster != null)
+                foreach (PlayerInfo p in homeTeamRoster.roster)
                 {
-                    foreach (PlayerInfo p in homeTeamRoster.roster)
+                    if (p.person.fullName == playerName)
                     {
                         id = (int)p.person.id;
                         break;
@@ -110,11 +110,11 @@ namespace BaseballScoreboard.Data
             }
             else
             {
-                if (guestTeamRoster?.roster != null)
+                foreach (PlayerInfo p in guestTeamRoster.roster)
                 {
-                    foreach (PlayerInfo p in guestTeamRoster.roster)
+                    if (p.person.fullName == playerName)
                     {
-                        id = (int)p.person.id;
+                        return (int)p.person.id;
                         break;
                     }
                 }
@@ -125,20 +125,10 @@ namespace BaseballScoreboard.Data
 
         public void AddSelectedPlayer(string teamType, int playerId, PlayerStats p)
         {
-            try
-            {
-                if (teamType == "home" && data?.homeTeamSelectedPlayers != null)
-                    data.homeTeamSelectedPlayers[playerId] = p;
-                else if (teamType == "guest" && data?.guestTeamSelectedPlayers != null)
-                    data.guestTeamSelectedPlayers[playerId] = p;
-                else
-                    return;
-            }
-            catch
-            {
-                MessageBox.Show("Player already added!", "ERROR");
-                return;
-            }
+            if (teamType == "home")
+                data.homeTeamSelectedPlayers[playerId] = p;
+            else
+                data.guestTeamSelectedPlayers[playerId] = p;
         }
 
         public void RemoveSelectedPlayer(string teamType, int playerId)

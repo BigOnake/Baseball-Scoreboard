@@ -32,7 +32,7 @@ namespace frmScoreCard
 
         private void MainWindow_Loaded(object sender, EventArgs e)
         {
-            //TEST.Text = stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();
+
         }
     }
 }

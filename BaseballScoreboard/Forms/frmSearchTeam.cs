@@ -120,7 +120,7 @@ namespace BaseballScoreboard.Forms
 
         private string ParseName(string name)
         {
-            return name.Substring(0, name.IndexOf("-"));
+            return name.Substring(0, name.IndexOf("-")).TrimEnd();
         }
 
         private void btnHomePlayersRemove_Click(object sender, EventArgs e)

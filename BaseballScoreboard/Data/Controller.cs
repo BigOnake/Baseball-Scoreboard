@@ -74,6 +74,7 @@ namespace BaseballScoreboard.Data
         {
             PlayerStats info = new PlayerStats();
             int playerId = GetPlayerId(teamType, playerName);
+            MessageBox.Show(playerId.ToString());
 
             info.name = playerName;
             info.fp = await GetFirstPitch(playerId);
