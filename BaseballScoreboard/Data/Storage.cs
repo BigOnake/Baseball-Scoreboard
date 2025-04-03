@@ -220,6 +220,7 @@ namespace BaseballScoreboard.Data
 
     public class PlayerStats
     {
+        public string? name { get; set; }
         public FirstPitch? fp { get; set; }
         public RISP? risp { get; set; }
         public RISP? risp2o { get; set; }
