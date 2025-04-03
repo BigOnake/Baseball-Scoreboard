@@ -105,6 +105,28 @@ namespace BaseballScoreboard.Data
 
         /**********************************************************/
 
+        static public Venues GetVenues(int gamePk)
+        {
+            return apiClient.GetVenues(gamePk);
+        }
+
+        static public void SetVenues(int gamePk)
+        {
+            storage.SetVenues(GetVenues(gamePk));
+        }
+
+        static public async Task<StadiumData> GetStadiumData(int venueId)
+        {
+            return await apiClient.GetStadiumData(venueId);
+        }
+
+        static public async void SetStadiumData()
+        {
+            storage.SetStadiumData(await GetStadiumData(storage.GetVenueId()));
+        }
+
+        /**********************************************************/
+
         static public Master GetMaster()
         {
             return storage.GetMaster();
@@ -112,15 +134,6 @@ namespace BaseballScoreboard.Data
 
         /**********************************************************/
 
-        static public async Task<StadiumData> GetStadiumData(int venueId)
-        {
-            return await apiClient.GetStadiumData(venueId);
-        }
-
-        static public Venues GetVenueId(int gamePk)
-        {
-            return apiClient.GetVenueId(gamePk);
-        }
 
 
         /****************************************************************

@@ -157,6 +157,31 @@ namespace BaseballScoreboard.Data
                 data.guestTeamSB = s;
         }
 
+        public Venues GetVenues()
+        {
+            return data.venue;
+        }
+
+        public void SetVenues(Venues v)
+        {
+            data.venue = v;
+        }
+
+        public int GetVenueId()
+        {
+            return (int)data.venue.dates[0].games[0].venue.id;
+        }
+
+        public StadiumData GetStadiumData()
+        {
+            return data.stadium;
+        }
+
+        public void SetStadiumData(StadiumData s)
+        {
+            data.stadium = s;
+        }
+
         public Master GetMaster()
         {
             return data;
@@ -175,6 +200,9 @@ namespace BaseballScoreboard.Data
 
         public Umpires? umps { get; set; }
 
+        public Venues? venue { get; set; }
+        public StadiumData? stadium { get; set; }
+
         public Master()
         {
             homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
@@ -184,6 +212,9 @@ namespace BaseballScoreboard.Data
             guestTeamSB = new SB();
 
             umps = new Umpires();
+
+            venue = new Venues();
+            stadium = new StadiumData();
         }
     }
 
@@ -343,28 +374,69 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-
-
-
-
-    internal class Venues
+    public class Venues
     {
         public List<DatesVenue>? dates { get; set; }
     }
 
-    internal class DatesVenue
+    public class DatesVenue
     {
         public List<GamesVenue>? games { get; set; }
     }
 
-    internal class GamesVenue
+    public class GamesVenue
     {
         public Venue? venue { get; set; }
     }
 
-    internal class Venue
+    public class Venue
     {
         public int? id { get; set; }
+    }
+
+    /****************************************/
+
+    public class StadiumData
+    {
+        public List<SplitsStadium>? splits { get; set; }
+    }
+
+    public class SplitsStadium
+    {
+        public StatsStadium? stats { get; set; }
+        public PitchTypeStadium? pitchType { get; set; }
+    }
+
+    public class StatsStadium
+    {
+        public PitchingStadium? pitching { get; set; }
+    }
+
+    public class PitchingStadium
+    {
+        public StandardStadium? standard { get; set; }
+        public TrackingStadium? tracking { get; set; }
+    }
+
+    public class StandardStadium
+    {
+        public string? avg { get; set; }
+        public string? ops { get; set; }
+    }
+
+    public class TrackingStadium
+    {
+        public ReleaseSpeedStadium? releaseSpeed { get; set; }
+    }
+
+    public class ReleaseSpeedStadium
+    {
+        public double? averageValue { get; set; }
+    }
+
+    public class PitchTypeStadium
+    {
+        public string? code { get; set; }
     }
 
     /****************************************/
@@ -660,47 +732,4 @@ namespace BaseballScoreboard.Data
     }
 
     /****************************************/
-
-    internal class StadiumData
-    {
-        public List<SplitsStadium>? splits { get; set; }
-    }
-
-    internal class SplitsStadium
-    {
-        public StatsStadium? stats { get; set; }
-        public PitchTypeStadium? pitchType { get; set; }
-    }
-
-    internal class StatsStadium
-    {
-        public PitchingStadium? pitching { get; set; }
-    }
-
-    internal class PitchingStadium
-    {
-        public StandardStadium? standard { get; set; }
-        public TrackingStadium? tracking { get; set; }
-    }
-
-    internal class StandardStadium
-    {
-        public string? avg { get; set; }
-        public string? ops { get; set; }
-    }
-
-    internal class TrackingStadium
-    {
-        public ReleaseSpeedStadium? releaseSpeed { get; set; }
-    }
-
-    internal class ReleaseSpeedStadium
-    {
-        public double? averageValue { get; set; }
-    }
-
-    internal class PitchTypeStadium
-    {
-        public string? code { get; set; }
-    }
 }

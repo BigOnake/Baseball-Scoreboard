@@ -345,6 +345,27 @@ namespace frmScoreCard.Data
     }
 
     /****************************************/
+    public class Venues
+    {
+        public List<DatesVenue>? dates { get; set; }
+    }
+
+    public class DatesVenue
+    {
+        public List<GamesVenue>? games { get; set; }
+    }
+
+    public class GamesVenue
+    {
+        public Venue? venue { get; set; }
+    }
+
+    public class Venue
+    {
+        public int? id { get; set; }
+    }
+
+    /****************************************/
 
     public class StadiumData
     {

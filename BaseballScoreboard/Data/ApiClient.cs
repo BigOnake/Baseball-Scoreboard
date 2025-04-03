@@ -215,9 +215,7 @@ namespace BaseballScoreboard.Data
 
         /**********************************************************/
 
-
-
-        public Venues GetVenueId(int gamePk)
+        public Venues GetVenues(int gamePk)
         {
             path = BASE_URL + $"schedule?gamePk={gamePk}&fields=dates,games,venue,id";
 
@@ -226,12 +224,22 @@ namespace BaseballScoreboard.Data
             return JsonSerializer.Deserialize<Venues>(result);
         }
 
+        public async Task<StadiumData> GetStadiumData(int venueId)
+        {
+            path = BASE_URL + $"stats/search?gameTypes=R&group=pitching&groupBy=venue,pitchType,season&hydrate=person(currentTeam),team&" +
+                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&statFields=standard,advanced,expected,tracking&venueIds={venueId}&" +
+                $"fields=splits,stats,pitching,standard,avg,ops,tracking,releaseSpeed,averageValue,pitchType,code";
 
-         /****************************************
-         * 
-         *          START OF STAT CALLS
-         * 
-         ****************************************/
+            string result = await GetOAuthJsonRequest(path);
+
+            return JsonSerializer.Deserialize<StadiumData>(result);
+        }
+
+        /****************************************
+        * 
+        *          START OF STAT CALLS
+        * 
+        ****************************************/
 
         public async Task<FirstPitch> GetFirstPitch(int playerId)
         {
@@ -347,17 +355,6 @@ namespace BaseballScoreboard.Data
         }
 
         /**********************************************************/
-
-        public async Task<StadiumData> GetStadiumData(int venueId)
-        {
-            path = BASE_URL + $"stats/search?gameTypes=R&group=pitching&groupBy=venue,pitchType,season&hydrate=person(currentTeam),team&" +
-                $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&statFields=standard,advanced,expected,tracking&venueIds={venueId}&" +
-                $"fields=splits,stats,pitching,standard,avg,ops,tracking,releaseSpeed,averageValue,pitchType,code";
-
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<StadiumData>(result);
-        }
 
         public async Task<Coaches> GetCoaches(int teamId)
         {

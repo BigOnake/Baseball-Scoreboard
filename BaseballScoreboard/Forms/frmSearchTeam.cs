@@ -55,6 +55,8 @@ namespace BaseballScoreboard.Forms
                 Controller.SetRoster(Controller.GetTeamId(source.SelectedItem.ToString()), teamType);
                 Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
+                Controller.SetVenues(Controller.GetGamePk());
+                Controller.SetStadiumData();
 
                 destination.Items.Clear();
                 destination.Items.AddRange(Controller.GetRoster(teamType).roster.ToArray());
