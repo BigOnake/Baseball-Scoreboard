@@ -1,63 +1,25 @@
 ﻿using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace BaseballScoreboard.Data
 {
     static internal class Controller
     {
-        /* As of now Controller behaves as a all-knowing singleton.
-         * Not a bad thing, but could be changed to be more MVC/MVP like
-         * Doesn't store any information, resusable information is stored in StorageTest */
-
         static private ApiClient apiClient = new ApiClient();
         static private Storage storage = new Storage();
-        
-        static public Player GetPlayer(int personId)
+
+        /*****************************************************/
+
+        static public Teams GetTeams()
         {
-            Player player = new();
-
-            try
-            {
-                string jsonStr = apiClient.GetPlayerInfo(personId); // Calls an api for a specific player
-
-                if (string.IsNullOrEmpty(jsonStr))
-                {
-                    MessageBox.Show("Json returned empty");
-                }
-
-                jsonStr = ExtractObject(jsonStr);
-                player = JsonSerializer.Deserialize<Player>(jsonStr);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-
-            return player;
+            return storage.GetTeams();
         }
 
-        static public SortedList<string, int> GetTeams()
+        static public void SetTeams()
         {
-            SortedList<string, int>? teams = new SortedList<string, int>();
-            List<Team>? temp = new List<Team>();
-
-            string filePath = "BaseballScoreboard.Resources.AllTeams.txt";
-            string file = ApiClient.readFile(filePath);
-
-            temp = JsonSerializer.Deserialize<List<Team>>(file);
-
-            foreach (Team t in temp)
-            {
-                if (t.name != null && t.id != null)
-                    teams.Add(t.name, (int)t.id);
-            }
-
-            return teams;
-        }
-
-        static public RosterList getTeamRoster(int teamId)
-        {
-            return apiClient.GetRoster(teamId);
+            storage.SetTeams(apiClient.GetTeams());
         }
 
         static public int GetTeamId(string teamName)
@@ -65,9 +27,94 @@ namespace BaseballScoreboard.Data
             return storage.GetTeamId(teamName);
         }
 
-        static public Umpires GetUmpires(int gamePk)
+        /**********************************************************/
+
+        static public Roster GetRoster(string teamType)
         {
-            return apiClient.GetUmpires(gamePk);
+            return storage.GetRoster(teamType);
+        }
+
+        static public void SetRoster(int teamId, string teamType)
+        {
+           storage.SetRoster(apiClient.GetRoster(teamId), teamType);
+        }
+
+        /**********************************************************/
+
+        static public int GetGamePk()
+        {
+            return storage.GetGamePk();
+        }
+
+        static public void SetGamePk(int teamId)
+        {
+            storage.SetGamePk(apiClient.GetGamePk(teamId));
+        }
+
+        /**********************************************************/
+
+        static public Umpires GetUmpires()
+        {
+            return storage.GetUmpires();
+        }
+
+        static public void SetUmpires()
+        {
+            storage.SetUmpires(apiClient.GetUmpires(storage.GetGamePk()));
+        }
+
+        /**********************************************************/
+
+        static public int GetPlayerId(string teamType, string playerName)
+        {
+            return storage.GetPlayerId(teamType, playerName);
+        }
+
+        static public async void AddSelectedPlayer(string teamType, string playerName)
+        {
+            PlayerStats info = new PlayerStats();
+            int playerId = GetPlayerId(teamType, playerName);
+
+            info.fp = await GetFirstPitch(playerId);
+            info.risp = await GetRISP(playerId);
+            info.risp2o = await GetRISP2O(playerId);
+            info.vsLeft = await GetVSLeft(playerId);
+            info.vsRight = await GetVSRight(playerId);
+            info.plus7 = await Get7Plus(playerId);
+            info.hitterStats = await GetHitterStats(playerId);
+            info.pitcherStats = await GetPitcherStats(playerId);
+            info.pitchTypes = await GetPitchTypes(playerId);
+
+            storage.AddSelectedPlayer(teamType, playerId, info);
+        }
+
+        static public void RemoveSelectedPlayer(string teamType, string playerName)
+        {
+            storage.RemoveSelectedPlayer(teamType, GetPlayerId(teamType, playerName));
+        }
+
+        static public async Task<SB> GetSB(int teamId)
+        {
+            return await apiClient.GetSB(teamId);
+        }
+
+        static public async void SetSB(string teamType, int teamId)
+        {
+            storage.SetSB(await GetSB(teamId), teamType);
+        }
+
+        /**********************************************************/
+
+        static public Master GetMaster()
+        {
+            return storage.GetMaster();
+        }
+
+        /**********************************************************/
+
+        static public async Task<StadiumData> GetStadiumData(int venueId)
+        {
+            return await apiClient.GetStadiumData(venueId);
         }
 
         static public Venues GetVenueId(int gamePk)
@@ -75,108 +122,56 @@ namespace BaseballScoreboard.Data
             return apiClient.GetVenueId(gamePk);
         }
 
+
         /****************************************************************
         * 
         *                 START OF STAT CALLS
         * 
         ****************************************************************/
 
-        static public FirstPitch GetFirstPitch(int playerId)
+        static private async Task<FirstPitch> GetFirstPitch(int playerId)
         {
-            return apiClient.GetFirstPitch(playerId);
+            return await apiClient.GetFirstPitch(playerId);
         }
 
-        static public RISP GetRISP(int playerId)
+        static private async Task<RISP> GetRISP(int playerId)
         {
-            return apiClient.GetRISP(playerId);
+            return await apiClient.GetRISP(playerId);
         }
 
-        static public RISP GetRISP2O(int playerId)
+        static private async Task<RISP> GetRISP2O(int playerId)
         {
-            return apiClient.GetRISP2O(playerId);
+            return await apiClient.GetRISP2O(playerId);
         }
 
-        static public VSLeftRight GetVSLeft(int playerId)
+        static private async Task<VSLeftRight> GetVSLeft(int playerId)
         {
-            return apiClient.GetVSLeft(playerId);
+            return await apiClient.GetVSLeft(playerId);
         }
-        static public VSLeftRight GetVSRight(int playerId)
+        
+        static private async Task<VSLeftRight> GetVSRight(int playerId)
         {
-            return apiClient.GetVSRight(playerId);
-        }
-
-        static public Plus7 Get7Plus(int playerId)
-        {
-            return apiClient.Get7Plus(playerId);
+            return await apiClient.GetVSRight(playerId);
         }
 
-        static public HitterStat GetHitterStats(int playerId)
+        static private async Task<Plus7> Get7Plus(int playerId)
         {
-            return apiClient.GetHitterStats(playerId);
+            return await apiClient.Get7Plus(playerId);
         }
 
-        static public PitcherStats GetPitcherStats(int playerId)
+        static private async Task<HitterStats> GetHitterStats(int playerId)
         {
-            return apiClient.GetPitcherStats(playerId);
+            return await apiClient.GetHitterStats(playerId);
         }
 
-        static public PitchTypes GetPitchTypes(int playerId)
+        static private async Task<PitcherStats> GetPitcherStats(int playerId)
         {
-            return apiClient.GetPitchTypes(playerId);
+            return await apiClient.GetPitcherStats(playerId);
         }
 
-        static public SB GetSB(int teamId)
+        static private async Task<PitchTypes> GetPitchTypes(int playerId)
         {
-            return apiClient.GetSB(teamId);
-        }
-
-        static public StadiumData GetStadiumData(int venueId)
-        {
-            return apiClient.GetStadiumData(venueId);
-        }
-
-        /****************************************************************/
-
-        static public string[] ReturnAllTeams()
-        {
-            return storage.GetAllTeams();
-        }
-
-        static public int GetGameId(string date, int teamId)
-        {
-            return apiClient.GetGamePk(date, teamId);
-        }
-
-        /* Returns string that can be parsed in the following way:
-         * Type object = JsonSerializer.Deserialize<Type>(json); */
-        static private string ExtractObject(string jsonStr)
-        {
-            string str = jsonStr;
-
-            (int idxOpen, int idxClose) = (jsonStr.IndexOf('['), jsonStr.LastIndexOf(']'));
-
-            if (idxOpen != -1 && idxClose != -1)
-            {
-                str = jsonStr.Substring(idxOpen + 1, idxClose - idxOpen - 1);
-            }
-
-            return str;
-        }
-
-        /* Returns string that can be parsed in the following way:
-         * List<T> list = JsonSerializer.Deserialize<List<T>>(json); */
-        static private string ExtractList(string jsonStr)
-        {
-            string str = jsonStr;
-
-            (int idxOpen, int idxClose) = (jsonStr.IndexOf('['), jsonStr.LastIndexOf(']'));
-
-            if (idxOpen != -1 && idxClose != -1)
-            {
-                str = jsonStr.Substring(idxOpen, idxClose - idxOpen + 1);
-            }
-
-            return str; 
+            return await apiClient.GetPitchTypes(playerId);
         }
     }
 }

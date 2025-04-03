@@ -9,12 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\AllTeams.txt" />
     <None Remove="Resources\config.txt" />
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\AllTeams.txt" />
     <EmbeddedResource Include="Resources\config.txt" />
   </ItemGroup>
 

@@ -1,22 +1,15 @@
 ﻿using BaseballScoreboard.Data;
 using frmScoreCard;
 using System.Data;
+using System.Numerics;
+using System.Text.Json;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.AxHost;
+
 
 namespace BaseballScoreboard.Forms
 {
     public partial class frmSearchTeam : Form
     {
-        List<string> playersList = new();
-
-        /***********************
-         * Event Call Methods  *
-         ***********************/
-
-        // Forms Methods
-
         public frmSearchTeam()
         {
             InitializeComponent();
@@ -26,148 +19,149 @@ namespace BaseballScoreboard.Forms
         {
             lblDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
 
-            SortedList<string, int> data = Controller.GetTeams();
+            Controller.SetTeams();
+            Teams team = Controller.GetTeams();
 
-            foreach (KeyValuePair<string, int> team in data)
+            if (team?.teams != null)
             {
-                cBoxHomeTeams.Items.Add(team.Key);
-                cBoxGuestTeams.Items.Add(team.Key);
+                foreach (Team t in team.teams)
+                {
+                    cBoxHomeTeams.Items.Add(t);
+                    cBoxGuestTeams.Items.Add(t);
+                }
             }
         }
 
-        // Combo Box Methods
+        /*****************************************************/
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayPlayers(cBoxHomeTeams, cBoxHomePlayers);
+            AddRoster(cBoxHomeTeams, cBoxHomePlayers, "home");
+
+            AddUmpires();
         }
 
         private void cBoxGuestTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DisplayPlayers(cBoxGuestTeams, cBoxGuestPlayers);
+            AddRoster(cBoxGuestTeams, cBoxGuestPlayers, "guest");
 
-            fillUmpires();
+            AddUmpires();
+        }
+
+        private void AddRoster(ComboBox source, ComboBox destination, string teamType)
+        {
+            if (source?.SelectedItem != null)
+            {
+                Controller.SetRoster(Controller.GetTeamId(source.SelectedItem.ToString()), teamType);
+                Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
+                Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
+
+                destination.Items.Clear();
+                destination.Items.AddRange(Controller.GetRoster(teamType).roster.ToArray());
+            }
+            else
+            {
+                MessageBox.Show("Error - Invalid Team Selection.", "ERROR");
+                return;
+            }
+        }
+
+        private void AddUmpires()
+        {
+            Controller.SetUmpires();
+
+            lBoxUmpires.Items.Clear();
+
+            if (Controller.GetUmpires().officials != null)
+            {
+                foreach (Umpire u in Controller.GetUmpires().officials)
+                {
+                    lBoxUmpires.Items.Add(u);
+                }
+            }
+        }
+
+        /*****************************************************/
+
+        private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddPlayer(cBoxHomePlayers, "home");
         }
 
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AddPlayers(cBoxGuestPlayers, lBoxGuestPlayers);
+            AddPlayer(cBoxGuestPlayers, "guest");
         }
 
-        private void cBoxHomePlayers_SelectedIndexChanged(object sender, EventArgs e)
+        private void AddPlayer(ComboBox source, string teamType)
         {
-            AddPlayers(cBoxHomePlayers, lBoxHomePlayers);
-        }
-
-        private void fillUmpires()
-        {
-            lBoxUmpires.Items.Clear();
-            // Ideally, this works during season (when schedules for the season get filled - currently doesn't exist)
-            //int teamId = Controller.GetTeams()[cBoxGuestTeams.Text];
-            //int gamePk = Controller.GetGameId(DateTime.Now.ToString("yyyy-MM-dd"), teamId);
-
-            int gamePk = Controller.GetGameId("2024-04-30", 138);
-
-            Umpires ump = Controller.GetUmpires(gamePk);
-            if (ump?.officials != null)
+            if (source?.SelectedItem != null)
             {
-                foreach (GameInfo gi in ump.officials)
+                if (teamType == "home")
                 {
-                    if (gi?.official != null && gi?.officialType != null)
+                    if (!lBoxHomePlayers.Items.Contains(source.SelectedItem.ToString()))
                     {
-                        string data = $"{gi.officialType[0]}{gi.officialType[gi.officialType.IndexOf(' ') + 1]} - {gi.official.fullName}";
-                        lBoxUmpires.Items.Add(data);
+                        lBoxHomePlayers.Items.Add(source.SelectedItem.ToString());
+                        Controller.AddSelectedPlayer("home", ParseName(source.SelectedItem.ToString()));
+                    }
+                }
+                else
+                {
+                    if (!lBoxGuestPlayers.Items.Contains(source.SelectedItem.ToString()))
+                    {
+                        lBoxGuestPlayers.Items.Add(source.SelectedItem.ToString());
+                        Controller.AddSelectedPlayer("guest", ParseName(source.SelectedItem.ToString()));
                     }
                 }
             }
         }
 
-        // Button Methods
+        private string ParseName(string name)
+        {
+            return name.Substring(0, name.IndexOf("-"));
+        }
 
         private void btnHomePlayersRemove_Click(object sender, EventArgs e)
         {
-            RemovePlayer(lBoxHomePlayers);
+            RemovePlayer(lBoxHomePlayers, "home");
         }
 
         private void btnGuestPlayersRemove_Click(object sender, EventArgs e)
         {
-            RemovePlayer(lBoxGuestPlayers);
+            RemovePlayer(lBoxGuestPlayers, "guest");
         }
 
-        private void btnHomePlayersClear_Click(object sender, EventArgs e)
-        {
-            RemovePlayers(lBoxHomePlayers);
-        }
-
-        private void btnGuestPlayersClear_Click(object sender, EventArgs e)
-        {
-            RemovePlayers(lBoxGuestPlayers);
-        }
-
-        //*****************************************************************************************************
-
-        /********************
-         * Utility Methods  *
-         ********************/
-
-        private void AddPlayers(ComboBox cBox, ListBox lBox)
-        {
-            if (cBox.SelectedItem != null && cBox.SelectedIndex > -1)
-            {
-                if (!lBox.Items.Contains(cBox.SelectedItem))
-                {
-                    lBox.Items.Add(cBox.SelectedItem);
-                }
-            }
-        }
-
-        private void RemovePlayer(ListBox lBox)
+        private void RemovePlayer(ListBox lBox, string teamType)
         {
             if (lBox.SelectedIndex != -1)
             {
+                Controller.RemoveSelectedPlayer(teamType, ParseName(lBox.SelectedItem.ToString()));
+
                 lBox.Items.RemoveAt(lBox.SelectedIndex);
             }
         }
 
-        private void DisplayPlayers(ComboBox src, ComboBox dst)
+        private void btnHomePlayersClear_Click(object sender, EventArgs e)
         {
-            dst.Items.Clear();
-            playersList.Clear();
-
-            if (src.SelectedIndex >= 0 && src.SelectedItem != null)
-            {
-                RosterList rosterList = new();
-                int teamId = Controller.GetTeamId((string)src.SelectedItem);
-
-                if (teamId != -1)
-                {
-                    rosterList = Controller.getTeamRoster(teamId);
-                }
-                else
-                {
-                    MessageBox.Show($"{(string)src.SelectedItem} could not be found.");
-                    return;
-                }
-
-                if (rosterList.roster != null)
-                {
-                    foreach (People p in rosterList.roster)
-                    {
-                        if (p.person != null && p.person.fullName != null && p.position != null && p.position.abbreviation != null)
-                        {
-                            playersList.Add($"{p.person.fullName} - {p.position.abbreviation}");
-                        }
-                    }
-
-                    dst.Items.AddRange(playersList.ToArray());
-                }
-            }
+            RemoveAllPlayers(lBoxHomePlayers, "home");
         }
 
-        private void RemovePlayers(ListBox lBox)
+        private void btnGuestPlayersClear_Click(object sender, EventArgs e)
         {
+            RemoveAllPlayers(lBoxGuestPlayers, "guest");
+        }
+
+        private void RemoveAllPlayers(ListBox lBox, string teamType)
+        {
+            foreach (string name in lBox.Items)
+            {
+                Controller.RemoveSelectedPlayer(teamType, ParseName(name));
+            }
+
             lBox.Items.Clear();
         }
+
+        /*****************************************************/
 
         private void lBoxHomePlayers_DrawItem(object sender, DrawItemEventArgs e)
         {
@@ -178,6 +172,7 @@ namespace BaseballScoreboard.Forms
         {
             drawPlayerItems(lBoxGuestPlayers, e);
         }
+
         private void lBoxUmpires_DrawItem(object sender, DrawItemEventArgs e)
         {
             drawPlayerItems(lBoxUmpires, e);
@@ -198,29 +193,28 @@ namespace BaseballScoreboard.Forms
                 e.Graphics.FillRectangle(Brushes.White, e.Bounds);
             }
 
-            e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
+            if ((e.State & DrawItemState.Selected) == DrawItemState.Selected)
+            {
+                e.Graphics.FillRectangle(SystemBrushes.Highlight, e.Bounds);
+
+                e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, SystemBrushes.HighlightText, e.Bounds, format);
+            }
+            else
+            {
+                e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
+            }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        /*****************************************************/
+
+        private void btnScoreboard_Click(object sender, EventArgs e)
         {
-            StadiumData sd = Controller.GetStadiumData(2889);
+            string json = JsonSerializer.Serialize(Controller.GetMaster());
+            MessageBox.Show(json);
 
-            MessageBox.Show(sd.splits[0].stats.pitching.standard.avg);
-            MessageBox.Show(sd.splits[0].stats.pitching.standard.ops);
-            MessageBox.Show(sd.splits[0].stats.pitching.tracking.releaseSpeed.averageValue.ToString());
-            MessageBox.Show(sd.splits[0].pitchType.code);
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var wpfWindow = new MainWindow();
-            wpfWindow.Tag = "hello";
+            var wpfWindow = new frmScoreCard.MainWindow(json);
 
             wpfWindow.Show();
         }
-
-
-    //*****************************************************************************************************
-}
+    }
 }

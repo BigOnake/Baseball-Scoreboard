@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using frmScoreCard.Data;
+using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,14 +18,21 @@ namespace frmScoreCard
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private Master stats;
+
+        public MainWindow(string json)
         {
             InitializeComponent();
+
+            if (!string.IsNullOrEmpty(json))
+            {
+                stats = JsonSerializer.Deserialize<Master>(json);
+            }
         }
 
         private void MainWindow_Loaded(object sender, EventArgs e)
         {
-            TEST.Text = (string)this.Tag;
+            //TEST.Text = stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();
         }
     }
 }

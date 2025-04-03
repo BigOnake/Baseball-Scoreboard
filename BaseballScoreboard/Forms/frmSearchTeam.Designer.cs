@@ -54,8 +54,7 @@ namespace BaseballScoreboard.Forms
             lblDate = new Label();
             lBoxUmpires = new ListBox();
             lblUmpire = new Label();
-            button2 = new Button();
-            button1 = new Button();
+            btnScoreboard = new Button();
             SuspendLayout();
             // 
             // lblHomeTeam
@@ -74,7 +73,7 @@ namespace BaseballScoreboard.Forms
             lblGuestTeam.AutoSize = true;
             lblGuestTeam.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblGuestTeam.ForeColor = Color.White;
-            lblGuestTeam.Location = new Point(976, 27);
+            lblGuestTeam.Location = new Point(976, 55);
             lblGuestTeam.Name = "lblGuestTeam";
             lblGuestTeam.Size = new Size(137, 31);
             lblGuestTeam.TabIndex = 0;
@@ -223,7 +222,7 @@ namespace BaseballScoreboard.Forms
             cBoxGuestTeams.AutoCompleteSource = AutoCompleteSource.ListItems;
             cBoxGuestTeams.FormattingEnabled = true;
             cBoxGuestTeams.IntegralHeight = false;
-            cBoxGuestTeams.Location = new Point(941, 61);
+            cBoxGuestTeams.Location = new Point(941, 89);
             cBoxGuestTeams.MaxDropDownItems = 10;
             cBoxGuestTeams.Name = "cBoxGuestTeams";
             cBoxGuestTeams.Size = new Size(208, 28);
@@ -335,25 +334,16 @@ namespace BaseballScoreboard.Forms
             lblUmpire.Text = "UMPIRES";
             lblUmpire.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // btnScoreboard
             // 
-            button2.Location = new Point(763, 499);
-            button2.Name = "button2";
-            button2.Size = new Size(94, 29);
-            button2.TabIndex = 21;
-            button2.Text = "Test";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(897, 499);
-            button1.Name = "button1";
-            button1.Size = new Size(94, 29);
-            button1.TabIndex = 22;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btnScoreboard.Font = new Font("Calibri", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnScoreboard.Location = new Point(1035, 499);
+            btnScoreboard.Name = "btnScoreboard";
+            btnScoreboard.Size = new Size(134, 46);
+            btnScoreboard.TabIndex = 22;
+            btnScoreboard.Text = "Scorecard";
+            btnScoreboard.UseVisualStyleBackColor = true;
+            btnScoreboard.Click += btnScoreboard_Click;
             // 
             // frmSearchTeam
             // 
@@ -361,8 +351,7 @@ namespace BaseballScoreboard.Forms
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(196, 30, 58);
             ClientSize = new Size(1315, 627);
-            Controls.Add(button1);
-            Controls.Add(button2);
+            Controls.Add(btnScoreboard);
             Controls.Add(lblUmpire);
             Controls.Add(lBoxUmpires);
             Controls.Add(lblDate);
@@ -423,6 +412,6 @@ namespace BaseballScoreboard.Forms
         private ListBox lBoxUmpires;
         private Label lblUmpire;
         private Button button2;
-        private Button button1;
+        private Button btnScoreboard;
     }
 }

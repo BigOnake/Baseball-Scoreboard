@@ -1,168 +1,11 @@
-﻿using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.DirectoryServices;
-using System.Reflection.Metadata.Ecma335;
-using System.Security.Policy;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace BaseballScoreboard.Data
+namespace frmScoreCard.Data
 {
-    internal class Storage
-    {
-        private Teams teams;
-        private int gamePk;
-
-        private Roster homeTeamRoster;
-        private Roster guestTeamRoster;
-
-        private Master data;
-        
-
-        public Storage()
-        {
-            teams = new Teams();
-            gamePk = -1;
-
-            homeTeamRoster = new Roster();
-            guestTeamRoster = new Roster();
-
-            data = new Master();
-        }
-
-        public Teams GetTeams()
-        {
-            return teams;
-        }
-
-        public void SetTeams(Teams t)
-        {
-            teams = t;
-        }
-
-        public int GetTeamId(string teamName)
-        {
-            int teamId = -1;
-
-            if (teams?.teams != null)
-            {
-                foreach (Team t in teams.teams)
-                {
-                    if (t?.id != null && t.name == teamName)
-                    {
-                        teamId = (int)t.id;
-                        break;
-                    }
-                }
-            }
-
-            return teamId;
-        }
-
-        public Roster GetRoster(string teamType)
-        {
-            if (teamType == "home")
-                return homeTeamRoster;
-            else
-                return guestTeamRoster;
-        }
-
-        public void SetRoster(Roster r, string teamType)
-        {
-            if (teamType == "home")
-                homeTeamRoster = r;
-            else
-                guestTeamRoster = r;
-        }
-
-        public int GetGamePk()
-        {
-            return gamePk;
-        }
-
-        public void SetGamePk(int gameId)
-        {
-            gamePk = gameId;
-        }
-
-        public Umpires GetUmpires()
-        {
-            return data.umps;
-        }
-
-        public void SetUmpires(Umpires u)
-        {
-            data.umps = u;
-        }
-
-        public int GetPlayerId(string teamType, string playerName)
-        {
-            int id = -1;
-
-            if (teamType == "home")
-            {
-                if (homeTeamRoster?.roster != null)
-                {
-                    foreach (PlayerInfo p in homeTeamRoster.roster)
-                    {
-                        id = (int)p.person.id;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                if (guestTeamRoster?.roster != null)
-                {
-                    foreach (PlayerInfo p in guestTeamRoster.roster)
-                    {
-                        id = (int)p.person.id;
-                        break;
-                    }
-                }
-            }
-
-            return id;
-        }
-
-        public void AddSelectedPlayer(string teamType, int playerId, PlayerStats p)
-        {
-            try
-            {
-                if (teamType == "home" && data?.homeTeamSelectedPlayers != null)
-                    data.homeTeamSelectedPlayers[playerId] = p;
-                else if (teamType == "guest" && data?.guestTeamSelectedPlayers != null)
-                    data.guestTeamSelectedPlayers[playerId] = p;
-                else
-                    return;
-            }
-            catch
-            {
-                MessageBox.Show("Player already added!", "ERROR");
-                return;
-            }
-        }
-
-        public void RemoveSelectedPlayer(string teamType, int playerId)
-        {
-            if (teamType == "home")
-                data.homeTeamSelectedPlayers.Remove(playerId);
-            else
-                data.homeTeamSelectedPlayers.Remove(playerId);
-        }
-
-        public void SetSB(SB s, string teamType)
-        {
-            if (teamType == "home")
-                data.homeTeamSB = s;
-            else
-                data.guestTeamSB = s;
-        }
-
-        public Master GetMaster()
-        {
-            return data;
-        }
-    }
-
     /****************************************/
 
     public class Master
@@ -174,17 +17,6 @@ namespace BaseballScoreboard.Data
         public SB? guestTeamSB { get; set; }
 
         public Umpires? umps { get; set; }
-
-        public Master()
-        {
-            homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
-            homeTeamSB = new SB();
-
-            guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
-            guestTeamSB = new SB();
-
-            umps = new Umpires();
-        }
     }
 
     public class PlayerStats
@@ -198,91 +30,6 @@ namespace BaseballScoreboard.Data
         public HitterStats? hitterStats { get; set; }
         public PitcherStats? pitcherStats { get; set; }
         public PitchTypes? pitchTypes { get; set; }
-    }
-
-    /****************************************/
-
-    internal class Teams
-    {
-        public List<Team>? teams { get; set; }
-    }
-
-    internal class Team
-    {
-        public int? id { get; set; }
-
-        public string? name { get; set; }
-
-        public override string ToString()
-        {
-            if (name != null)
-                return name;
-            else
-                return "";
-        }
-    }
-
-    /****************************************/
-
-    internal class Roster
-    {
-        public List<PlayerInfo>? roster { get; set; }
-    }
-
-    internal class PlayerInfo
-    {
-        public Person? person { get; set; }
-        public string? jerseyNumber { get; set; }
-        public Position? position { get; set;}
-        public Status? status { get; set; }
-        public int? parentTeamId { get; set; }
-
-        public override string ToString()
-        {
-            if (person?.fullName != null && position?.abbreviation != null)
-                return $"{person.fullName} - {position.abbreviation}";
-            else
-                return "";
-        }
-    }
-
-    internal class Person
-    {
-        public int? id { get; set; }
-        public string? fullName { get; set; }
-        public string? link { get; set; }
-    }
-
-    internal class Position
-    {
-        public string? code { get; set; }
-        public string? name { get; set; }
-        public string? type { get; set; }
-        public string? abbreviation { get; set; }
-    }
-
-    internal class Status
-    {
-        public string? code { get; set; }
-        public string? description { get; set; }
-    }
-
-    /****************************************/
-
-    internal class Game
-    {
-        public List<Dates>? dates { get; set; }
-    }
-
-    internal class Dates
-    {
-        public List<Games>? games { get; set; }
-    }
-
-    internal class Games
-    {
-        public int? gamePk { get; set; }
-        public string? gameDate { get; set; }
     }
 
     /****************************************/
@@ -312,8 +59,6 @@ namespace BaseballScoreboard.Data
         public string? fullName { get; set; }
     }
 
-    /****************************************/
-
     public class SB
     {
         public List<SplitsSB>? splits { get; set; }
@@ -342,66 +87,6 @@ namespace BaseballScoreboard.Data
     }
 
     /****************************************/
-
-
-
-
-
-    internal class Venues
-    {
-        public List<DatesVenue>? dates { get; set; }
-    }
-
-    internal class DatesVenue
-    {
-        public List<GamesVenue>? games { get; set; }
-    }
-
-    internal class GamesVenue
-    {
-        public Venue? venue { get; set; }
-    }
-
-    internal class Venue
-    {
-        public int? id { get; set; }
-    }
-
-    /****************************************/
-
-    internal class Coaches
-    {
-        public string? copyright { get; set; }
-        public List<CoachRoster>? roster { get; set; }
-    }
-
-    internal class CoachRoster
-    {
-        public CoachPerson? person { get; set; }
-        public string? jerseyNumber { get; set; }
-        public string? job { get; set; }
-        public string? jobId { get; set; }
-        public string? title { get; set; }
-    }
-
-    internal class CoachPerson
-    {
-        public int? id { get; set; }
-        public string? fullName { get; set; }
-        public string? link { get; set; }
-    }
-
-
-
-
-
-
-
-    /****************************************
-    * 
-    *          START OF STAT CLASSES
-    * 
-    ****************************************/
 
     public class FirstPitch
     {
@@ -661,45 +346,45 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class StadiumData
+    public class StadiumData
     {
         public List<SplitsStadium>? splits { get; set; }
     }
 
-    internal class SplitsStadium
+    public class SplitsStadium
     {
         public StatsStadium? stats { get; set; }
         public PitchTypeStadium? pitchType { get; set; }
     }
 
-    internal class StatsStadium
+    public class StatsStadium
     {
         public PitchingStadium? pitching { get; set; }
     }
 
-    internal class PitchingStadium
+    public class PitchingStadium
     {
         public StandardStadium? standard { get; set; }
         public TrackingStadium? tracking { get; set; }
     }
 
-    internal class StandardStadium
+    public class StandardStadium
     {
         public string? avg { get; set; }
         public string? ops { get; set; }
     }
 
-    internal class TrackingStadium
+    public class TrackingStadium
     {
         public ReleaseSpeedStadium? releaseSpeed { get; set; }
     }
 
-    internal class ReleaseSpeedStadium
+    public class ReleaseSpeedStadium
     {
         public double? averageValue { get; set; }
     }
 
-    internal class PitchTypeStadium
+    public class PitchTypeStadium
     {
         public string? code { get; set; }
     }
