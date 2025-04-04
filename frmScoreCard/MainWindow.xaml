@@ -5,9 +5,124 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frmScoreCard"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="800" Width="1000"
         Loaded="MainWindow_Loaded">
     <Grid>
-        <TextBlock Name="TEST" HorizontalAlignment="Left" TextWrapping="Wrap" Text="here" VerticalAlignment="Top" Height="115" Width="222"/>
+
+        <!-- Busch Stadium -->
+        <DataGrid x:Name="DataGridBuschStadium" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" Height="98" Margin="735,10,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Busch Stadium" Binding="{Binding col1}" Width="100"/>
+                <DataGridTextColumn Header="Date:" Binding="{Binding col2}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col3}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col4}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col5}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col6}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Bench -->
+        <DataGrid x:Name="DataGridBench" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" Height="104" Margin="735,116,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Bench" Binding="{Binding col1}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col2}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col3}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col4}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col5}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col6}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Pitchers Top -->
+        <DataGrid x:Name="DataGridPitchersTop" HorizontalAlignment="Left" VerticalAlignment="Top" Width="457" Height="210" Margin="273,10,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Pitcher" Binding="{Binding col1}" Width="100"/>
+                <DataGridTextColumn Header="GS" Binding="{Binding col2}" Width="100"/>
+                <DataGridTextColumn Header="W-L" Binding="{Binding col3}" Width="100"/>
+                <DataGridTextColumn Header="ERA" Binding="{Binding col4}" Width="100"/>
+                <DataGridTextColumn Header="IP" Binding="{Binding col5}" Width="100"/>
+                <DataGridTextColumn Header="H" Binding="{Binding col6}" Width="100"/>
+                <DataGridTextColumn Header="ER" Binding="{Binding col7}" Width="100"/>
+                <DataGridTextColumn Header="BB" Binding="{Binding col8}" Width="100"/>
+                <DataGridTextColumn Header="K" Binding="{Binding col9}" Width="100"/>
+                <DataGridTextColumn Header="HR" Binding="{Binding col10}" Width="100"/>
+                <DataGridTextColumn Header="AVG" Binding="{Binding col11}" Width="100"/>
+                <DataGridTextColumn Header="WHIP" Binding="{Binding col12}" Width="100"/>
+                <DataGridTextColumn Header="GB%" Binding="{Binding col13}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Hitters & Umpires -->
+        <DataGrid x:Name="DataGridHitters" HorizontalAlignment="Left" VerticalAlignment="Top" Width="980" Height="262" Margin="10,225,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" " Binding="{Binding col1}" Width="100"/>
+                <DataGridTextColumn Header=" " Binding="{Binding col2}" Width="50"/>
+                <DataGridTextColumn Header="AVG" Binding="{Binding col3}" Width="100"/>
+                <DataGridTextColumn Header="K" Binding="{Binding col4}" Width="100"/>
+                <DataGridTextColumn Header="2B" Binding="{Binding col5}" Width="100"/>
+                <DataGridTextColumn Header="HR" Binding="{Binding col6}" Width="100"/>
+                <DataGridTextColumn Header="Runs" Binding="{Binding col7}" Width="100"/>
+                <DataGridTextColumn Header="SB-SBA" Binding="{Binding col8}" Width="100"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Score -->
+        <DataGrid x:Name="DataGridScore" HorizontalAlignment="Left" VerticalAlignment="Top" Width="978" Height="73" Margin="10,492,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" " Binding="{Binding col1}" Width="150"/>
+                <DataGridTextColumn Header="1" Binding="{Binding col2}" Width="50"/>
+                <DataGridTextColumn Header="2" Binding="{Binding col3}" Width="50"/>
+                <DataGridTextColumn Header="3" Binding="{Binding col4}" Width="50"/>
+                <DataGridTextColumn Header="4" Binding="{Binding col5}" Width="50"/>
+                <DataGridTextColumn Header="5" Binding="{Binding col6}" Width="50"/>
+                <DataGridTextColumn Header="6" Binding="{Binding col7}" Width="50"/>
+                <DataGridTextColumn Header="7" Binding="{Binding col8}" Width="50"/>
+                <DataGridTextColumn Header="8" Binding="{Binding col9}" Width="50"/>
+                <DataGridTextColumn Header="9" Binding="{Binding col10}" Width="50"/>
+                <DataGridTextColumn Header="10" Binding="{Binding col11}" Width="50"/>
+                <DataGridTextColumn Header="11" Binding="{Binding col12}" Width="50"/>
+                <DataGridTextColumn Header="12" Binding="{Binding col13}" Width="50"/>
+                <DataGridTextColumn Header="R" Binding="{Binding col14}" Width="50"/>
+                <DataGridTextColumn Header="H" Binding="{Binding col15}" Width="50"/>
+                <DataGridTextColumn Header="E" Binding="{Binding col16}" Width="50"/>
+                <DataGridTextColumn Header="LOB" Binding="{Binding col17}" Width="50"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Managers -->
+        <DataGrid x:Name="DataGridManagers" HorizontalAlignment="Left" VerticalAlignment="Top" Width="255" Height="204" Margin="735,570,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Coaching Staff" Binding="{Binding col1}" Width="150"/>
+                <DataGridTextColumn Header="Name" Binding="{Binding col2}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Pitchers Bottom -->
+        <DataGrid x:Name="DataGridPitchersBottom" HorizontalAlignment="Left" VerticalAlignment="Top" Width="717" Height="204" Margin="13,570,0,0">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header=" " Binding="{Binding col1}" Width="150"/>
+                <DataGridTextColumn Header="G" Binding="{Binding col2}" Width="70"/>
+                <DataGridTextColumn Header="S/Holds" Binding="{Binding col3}" Width="70"/>
+                <DataGridTextColumn Header="W-L" Binding="{Binding col4}" Width="70"/>
+                <DataGridTextColumn Header="ERA" Binding="{Binding col5}" Width="70"/>
+                <DataGridTextColumn Header="IP" Binding="{Binding col6}" Width="70"/>
+                <DataGridTextColumn Header="K" Binding="{Binding col7}" Width="70"/>
+                <DataGridTextColumn Header="BB" Binding="{Binding col8}" Width="70"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Diamond -->
+        <Rectangle HorizontalAlignment="Left" Height="210" Margin="10,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="258"/>
+        <Rectangle HorizontalAlignment="Left" Height="52" Margin="111,101,0,0" Stroke="Black" VerticalAlignment="Top" Width="52" RenderTransformOrigin="0.5,0.5">
+            <Rectangle.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-45.92"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+
     </Grid>
 </Window>
