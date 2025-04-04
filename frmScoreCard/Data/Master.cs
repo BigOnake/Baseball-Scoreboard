@@ -12,9 +12,13 @@ namespace frmScoreCard.Data
     {
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
+        public Coaches? homeTeamCoaches { get; set; }
+
 
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
+        public Coaches? guestTeamCoaches { get; set; }
+
 
         public Umpires? umps { get; set; }
     }
@@ -59,6 +63,8 @@ namespace frmScoreCard.Data
         public int? id { get; set; }
         public string? fullName { get; set; }
     }
+
+    /****************************************/
 
     public class SB
     {
@@ -410,4 +416,29 @@ namespace frmScoreCard.Data
     {
         public string? code { get; set; }
     }
+
+    /****************************************/
+
+    public class Coaches
+    {
+        public string? copyright { get; set; }
+        public List<CoachRoster>? roster { get; set; }
+    }
+
+    public class CoachRoster
+    {
+        public CoachPerson? person { get; set; }
+        public string? jerseyNumber { get; set; }
+        public string? job { get; set; }
+        public string? jobId { get; set; }
+        public string? title { get; set; }
+    }
+
+    public class CoachPerson
+    {
+        public int? id { get; set; }
+        public string? fullName { get; set; }
+        public string? link { get; set; }
+    }
+
 }

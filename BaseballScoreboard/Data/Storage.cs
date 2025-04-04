@@ -172,6 +172,22 @@ namespace BaseballScoreboard.Data
             data.stadium = s;
         }
 
+        public Coaches GetCoaches(string teamType)
+        {
+            if (teamType == "home")
+                return data.homeTeamCoaches;
+            else
+                return data.guestTeamCoaches;
+        }
+
+        public void SetCoaches(Coaches c, string teamType)
+        {
+            if (teamType == "home")
+                data.homeTeamCoaches = c;
+            else
+                data.guestTeamCoaches = c;
+        }
+
         public Master GetMaster()
         {
             return data;
@@ -184,9 +200,13 @@ namespace BaseballScoreboard.Data
     {
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
+        public Coaches? homeTeamCoaches { get; set; }
+
 
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
+        public Coaches? guestTeamCoaches { get; set; }
+
 
         public Umpires? umps { get; set; }
 
@@ -197,9 +217,11 @@ namespace BaseballScoreboard.Data
         {
             homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             homeTeamSB = new SB();
+            homeTeamCoaches = new Coaches();
 
             guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             guestTeamSB = new SB();
+            homeTeamCoaches = new Coaches();
 
             umps = new Umpires();
 
@@ -432,13 +454,13 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class Coaches
+    public class Coaches
     {
         public string? copyright { get; set; }
         public List<CoachRoster>? roster { get; set; }
     }
 
-    internal class CoachRoster
+    public class CoachRoster
     {
         public CoachPerson? person { get; set; }
         public string? jerseyNumber { get; set; }
@@ -447,18 +469,12 @@ namespace BaseballScoreboard.Data
         public string? title { get; set; }
     }
 
-    internal class CoachPerson
+    public class CoachPerson
     {
         public int? id { get; set; }
         public string? fullName { get; set; }
         public string? link { get; set; }
     }
-
-
-
-
-
-
 
     /****************************************
     * 

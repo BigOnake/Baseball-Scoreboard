@@ -27,6 +27,16 @@ namespace BaseballScoreboard.Data
             return storage.GetTeamId(teamName);
         }
 
+        static public async Task<Coaches> GetCoaches(int teamId)
+        {
+            return await apiClient.GetCoaches(teamId);
+        }
+
+        static public async void SetCoaches(string teamType, int teamId)
+        {
+            storage.SetCoaches(await GetCoaches(teamId), teamType);
+        }
+
         /**********************************************************/
 
         static public Roster GetRoster(string teamType)
@@ -134,8 +144,6 @@ namespace BaseballScoreboard.Data
         }
 
         /**********************************************************/
-
-
 
         /****************************************************************
         * 
