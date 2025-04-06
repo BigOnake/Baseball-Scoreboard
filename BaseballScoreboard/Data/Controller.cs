@@ -86,6 +86,7 @@ namespace BaseballScoreboard.Data
             int playerId = GetPlayerId(teamType, playerName);
 
             info.name = playerName;
+            info.position = GetRoster(teamType).roster[0].position.abbreviation;
             info.fp = await GetFirstPitch(playerId);
             info.risp = await GetRISP(playerId);
             info.risp2o = await GetRISP2O(playerId);
