@@ -21,6 +21,9 @@ namespace frmScoreCard.Data
 
 
         public Umpires? umps { get; set; }
+
+        public Venues? venue { get; set; }
+        public StadiumData? stadium { get; set; }
     }
 
     public class PlayerStats
