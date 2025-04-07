@@ -103,55 +103,57 @@ namespace frmScoreCard
 
             tableRow umpireRowOne = new tableRow();
 
-            umpireRowOne.col1 = "Umpire Name";
+            umpireRowOne.col1 = stats.umps.officials[0].official.fullName;           
             umpireRowOne.col2 = "R";
             umpireRowOne.col3 = " ";
             umpireRowOne.col4 = " ";
             umpireRowOne.col5 = " ";
             umpireRowOne.col6 = " ";
             umpireRowOne.col7 = "Home Team";
-            umpireRowOne.col8 = "X Y";           // SB-SBA stat Total for selected Home team
+            umpireRowOne.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();           // SB-SBA stat Total for selected Home team
 
             DataGridHitters.Items.Add(umpireRowOne);
             
             tableRow umpireRowTwo = new tableRow();
 
-            umpireRowTwo.col1 = "Umpire Name";
+            umpireRowTwo.col1 = stats.umps.officials[1].official.fullName;
             umpireRowTwo.col2 = "H";
             umpireRowTwo.col3 = " ";
             umpireRowTwo.col4 = " ";
             umpireRowTwo.col5 = " ";
             umpireRowTwo.col6 = " ";
             umpireRowTwo.col7 = " ";
-            umpireRowTwo.col8 = "X";             // DP stat Total for selected Home team
+            umpireRowTwo.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             // DP stat Total for selected Home team
 
             DataGridHitters.Items.Add(umpireRowTwo);
 
             tableRow umpireRowThree = new tableRow();
 
-            umpireRowThree.col1 = "Umpire Name";
+            umpireRowThree.col1 = stats.umps.officials[2].official.fullName;
             umpireRowThree.col2 = "E";
             umpireRowThree.col3 = " ";
             umpireRowThree.col4 = " ";
             umpireRowThree.col5 = " ";
             umpireRowThree.col6 = " ";
             umpireRowThree.col7 = "Opp Team";
-            umpireRowThree.col8 = "X Y";          // SB-SBA stat Total for selected Opponent team
+            umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          // SB-SBA stat Total for selected Opponent team
 
             DataGridHitters.Items.Add(umpireRowThree);
 
             tableRow umpireRowFour = new tableRow();
 
-            umpireRowFour.col1 = "Umpire Name";
+            umpireRowFour.col1 = stats.umps.officials[3].official.fullName;
             umpireRowFour.col2 = "LOB";
             umpireRowFour.col3 = " ";
             umpireRowFour.col4 = " ";
             umpireRowFour.col5 = " ";
             umpireRowFour.col6 = " ";
             umpireRowFour.col7 = " ";
-            umpireRowFour.col8 = "X";             // SB-SBA stat Total for selected Opponent team
+            umpireRowFour.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             // SB-SBA stat Total for selected Opponent team
 
             DataGridHitters.Items.Add(umpireRowFour);
+
+            
 
             //*****************************************************************************************************
             //  PITCHERS TOP TABLE
