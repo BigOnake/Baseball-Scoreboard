@@ -36,6 +36,8 @@ namespace BaseballScoreboard.Forms
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RemoveAllPlayers(lBoxHomePlayers, "home");
+
             AddRoster(cBoxHomeTeams, cBoxHomePlayers, "home");
 
             AddUmpires();
@@ -43,6 +45,8 @@ namespace BaseballScoreboard.Forms
 
         private void cBoxGuestTeams_SelectedIndexChanged(object sender, EventArgs e)
         {
+            RemoveAllPlayers(lBoxGuestPlayers, "guest");
+
             AddRoster(cBoxGuestTeams, cBoxGuestPlayers, "guest");
 
             AddUmpires();

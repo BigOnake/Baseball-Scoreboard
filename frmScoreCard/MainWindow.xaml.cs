@@ -46,53 +46,61 @@ namespace frmScoreCard
             
             DataGridHitters.Items.Add(hitterRowOne);
 
-            // Loop to populate each hitter's stats(each hitter has 3 rows of stats)
-            for (int i = 0; i < 9; i++)
+            if (stats.homeTeamSelectedPlayers.Values != null || stats.homeTeamSelectedPlayers.Values.Count > 0)
             {
-                tableRow hitterRowFirst = new tableRow();                
+                foreach (PlayerStats p in stats.homeTeamSelectedPlayers.Values)
+                {
+                    tableRow hitterRowFirst = new tableRow();
 
-                hitterRowFirst.col1 = "Hitter Name";
-                hitterRowFirst.col2 = "POS";
-                hitterRowFirst.col3 = "1stP: A B C";   
-                hitterRowFirst.col4 = "RISP: A-B C D";
-                hitterRowFirst.col5 = "RISP2o: A-B C D";
-                hitterRowFirst.col6 = "vsLH: A-B C D E";
-                hitterRowFirst.col7 = "vsRH: A-B C D E";
-                hitterRowFirst.col8 = "7+: A B";
+                    hitterRowFirst.col1 = p.name;
+                    hitterRowFirst.col2 = p.position;
 
-                DataGridHitters.Items.Add(hitterRowFirst);
+                    if (p?.fp?.splits != null && p.fp.splits.Count > 0)
+                        hitterRowFirst.col3 = $"1stP: {p.fp.splits[0].stats?.hitting?.standard?.avg} {p.fp.splits[0].stats?.hitting?.standard?.ops} " +
+                        $"{p.fp.splits[0].stats?.hitting?.tracking?.hitProbability?.averageValue}";
+                    else
+                        hitterRowFirst.col3 = "~";
 
-                tableRow hitterRowSecond = new tableRow();
+                    if (p?.risp?.splits != null && p.risp.splits.Count > 0)
+                        hitterRowFirst.col4 = $"RISP: {p.risp.splits[0].stats?.hitting?.standard?.homeRuns} {p.risp.splits[0].stats?.hitting?.standard?.hits} " +
+                        $"{p.risp.splits[0].stats?.hitting?.standard?.avg} {p.risp.splits[0].stats?.hitting?.standard?.atBats}";
+                    else
+                        hitterRowFirst.col4 = "~";
 
-                hitterRowSecond.col1 = " ";
-                hitterRowSecond.col2 = " ";
-                hitterRowSecond.col3 = "X";
-                hitterRowSecond.col4 = "X";
-                hitterRowSecond.col5 = "X";
-                hitterRowSecond.col6 = "X";
-                hitterRowSecond.col7 = "X";
-                hitterRowSecond.col8 = "X Y";
+                    if (p?.risp2o?.splits != null && p.risp2o.splits.Count > 0)
+                        hitterRowFirst.col5 = $"RISP2o: {p.risp2o.splits[0].stats?.hitting?.standard?.homeRuns} {p.risp2o.splits[0].stats?.hitting?.standard?.hits} " +
+                        $"{p.risp2o.splits[0].stats?.hitting?.standard?.avg} {p.risp2o.splits[0].stats?.hitting?.standard?.atBats}";
+                    else
+                        hitterRowFirst.col5 = "~";
 
-                DataGridHitters.Items.Add(hitterRowSecond);
+                    if (p?.vsLeft?.splits != null && p.vsLeft.splits.Count > 0)
+                        hitterRowFirst.col6 = $"vsLH: {p.vsLeft.splits[0].stats?.hitting?.standard?.homeRuns} {p.vsLeft.splits[0].stats?.hitting?.standard?.hits} " +
+                        $"{p.vsLeft.splits[0].stats?.hitting?.standard?.avg} " + $"{p.vsLeft.splits[0].stats?.hitting?.standard?.atBats} " +
+                        $"{p.vsLeft.splits[0].stats?.hitting?.standard?.ops}";
+                    else
+                        hitterRowFirst.col6 = "~";
 
-                tableRow hitterRowThird = new tableRow();
+                    if (p?.vsRight?.splits != null && p.vsRight.splits.Count > 0)
+                        hitterRowFirst.col7 = $"vsRH: {p.vsRight.splits[0].stats?.hitting?.standard?.homeRuns} {p.vsRight.splits[0].stats?.hitting?.standard?.hits} " +
+                        $"{p.vsRight.splits[0].stats?.hitting?.standard?.avg} " + $"{p.vsRight.splits[0].stats?.hitting?.standard?.atBats} " +
+                        $"{p.vsRight.splits[0].stats?.hitting?.standard?.ops}";
+                    else
+                        hitterRowFirst.col7 = "~";
 
-                hitterRowThird.col1 = " ";
-                hitterRowThird.col2 = " ";
-                hitterRowThird.col3 = "X";
-                hitterRowThird.col4 = "X";
-                hitterRowThird.col5 = "X";
-                hitterRowThird.col6 = "X";
-                hitterRowThird.col7 = "X";
-                hitterRowThird.col8 = "X";
+                    if (p?.plus7?.splits != null && p.plus7.splits.Count > 0)
+                        hitterRowFirst.col8 = $"7+: {p.plus7.splits[0].stats?.hitting?.standard?.avg} {p.plus7.splits[0].stats?.hitting?.standard?.ops}";
+                    else
+                        hitterRowFirst.col8 = "~";
 
-                DataGridHitters.Items.Add(hitterRowThird);
+                    DataGridHitters.Items.Add(hitterRowFirst);
+                }
             }
+            
 
             //*****************************************************************************************************
             //  UMPIRES & SB/SBA + DP TOTAL PER TEAM TABLE
             //*****************************************************************************************************
-            
+
             tableRow umpireRowOne = new tableRow();
 
             umpireRowOne.col1 = "Umpire Name";
