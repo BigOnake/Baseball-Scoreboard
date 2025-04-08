@@ -406,6 +406,7 @@ namespace BaseballScoreboard.Data
     public class Venue
     {
         public int? id { get; set; }
+        public string? name { get; set; }
     }
 
     /****************************************/

@@ -217,7 +217,7 @@ namespace BaseballScoreboard.Data
 
         public Venues GetVenues(int gamePk)
         {
-            path = BASE_URL + $"schedule?gamePk={gamePk}&fields=dates,games,venue,id";
+            path = BASE_URL + $"schedule?gamePk={gamePk}&fields=dates,games,venue,id,name";
 
             string result = GetJson(path);
 
