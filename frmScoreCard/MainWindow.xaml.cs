@@ -311,23 +311,43 @@ namespace frmScoreCard
             //  BUSCH STADIUM TABLE
             //*****************************************************************************************************
 
-            for (int i = 0; i < 5; i++)
+            if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0)
             {
-                tableRow buschRow = new tableRow();
+                for (int i = 0; i < stats.stadium.splits.Count(); i++)
+                {
+                    tableRow buschRow = new tableRow();
 
-                buschRow.col1 = "X";
-                buschRow.col2 = "X";
-                buschRow.col3 = "X";
-                buschRow.col4 = "X";
-                buschRow.col5 = "X";
-                buschRow.col6 = "X";
+                    if (stats.stadium.splits[i].pitchType != null && stats.stadium.splits[i].pitchType.code != null)
+                        buschRow.col1 = stats.stadium.splits[i].pitchType.code.ToString();
+                    else
+                        buschRow.col1 = "~";
+                    
+                    buschRow.col2 = " ";                                           // Blank column(Mike requested) 
+                    
+                    if (stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed != null && stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue != null)
+                        buschRow.col3 = stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
+                    else
+                        buschRow.col3 = "~";
 
-                DataGridBuschStadium.Items.Add(buschRow);
+                    buschRow.col4 = " ";                                           // Blank column(Mike requested)
+                    
+                    if (stats.stadium.splits[i].stats.pitching.standard.avg != null)
+                        buschRow.col5 = stats.stadium.splits[i].stats.pitching.standard.avg.ToString();
+                    else
+                        buschRow.col5 = "~";
+
+                    if (stats.stadium.splits[i].stats.pitching.standard.ops != null)
+                        buschRow.col6 = stats.stadium.splits[i].stats.pitching.standard.ops.ToString();
+                    else
+                        buschRow.col6 = "~";
+
+                    DataGridBuschStadium.Items.Add(buschRow);
+                }
             }
-
+            
             //*****************************************************************************************************
             //  BENCH TABLE
-            //*****************************************************************************************************
+            //*****************************************************************************************************            
 
             for (int i = 0; i < 5; i++)
             {                
@@ -345,17 +365,27 @@ namespace frmScoreCard
 
             //*****************************************************************************************************
             //  COACHES TABLE
-            //*****************************************************************************************************
+            //*****************************************************************************************************           
+            
+            if (stats.homeTeamCoaches != null && stats.homeTeamCoaches.roster != null && stats.homeTeamCoaches.roster.Count() > 0)
+            {
+                for (int i = 0; i < stats.homeTeamCoaches.roster.Count(); i++)
+                {
+                    tableRow coachRow = new tableRow();
+                    
+                    if (stats.homeTeamCoaches.roster[i].job != null)
+                        coachRow.col1 = stats.homeTeamCoaches.roster[i].job.ToString();
+                    else
+                        coachRow.col1 = "~";
 
-            for (int i = 0; i < 8; i++)
-            {                
-                tableRow coachRow = new tableRow();
+                    if (stats.homeTeamCoaches.roster[i].person.fullName != null)
+                        coachRow.col2 = stats.homeTeamCoaches.roster[i].person.fullName.ToString();
+                    else
+                        coachRow.col2 = "~";
 
-                coachRow.col1 = "X";
-                coachRow.col2 = "X";
-                
-                DataGridManagers.Items.Add(coachRow);
-            }
+                    DataGridManagers.Items.Add(coachRow);
+                }
+            }            
 
             //*****************************************************************************************************
             //  SCORE TABLE
