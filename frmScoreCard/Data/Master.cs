@@ -253,7 +253,7 @@ namespace frmScoreCard.Data
         public int? triples { get; set; }
         public int? homeRuns { get; set; }
         public int? strikeOuts { get; set; }
-        public int? intentionalWalks { get; set; }
+        public int? baseOnBalls { get; set; }
         public string? avg { get; set; }
         public string? ops { get; set; }
         public int? caughtStealing { get; set; }

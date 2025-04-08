@@ -145,7 +145,7 @@ namespace frmScoreCard
                     else
                         hitterRowThird.col3 = "~";
                     if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
-                        hitterRowThird.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.intentionalWalks.ToString();     // Needs to be changed to baseOnBalls
+                        hitterRowThird.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.baseOnBalls.ToString();     // Needs to be changed to baseOnBalls
                     else
                         hitterRowThird.col4 = "~";
                     if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)

@@ -319,7 +319,7 @@ namespace BaseballScoreboard.Data
             path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&groupBy=season,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
-                $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,intentionalWalks,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
+                $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,baseOnBalls,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
 
             string result = await GetOAuthJsonRequest(path);
 
