@@ -1,4 +1,5 @@
 ﻿using frmScoreCard.Data;
+using System.Configuration;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -59,101 +60,208 @@ namespace frmScoreCard
                         hitterRowFirst.col3 = $"1stP: {p.fp.splits[0].stats?.hitting?.standard?.avg} {p.fp.splits[0].stats?.hitting?.standard?.ops} " +
                         $"{p.fp.splits[0].stats?.hitting?.tracking?.hitProbability?.averageValue}";
                     else
-                        hitterRowFirst.col3 = "~";
+                        hitterRowFirst.col3 = "1stP: ~";
 
                     if (p?.risp?.splits != null && p.risp.splits.Count > 0)
                         hitterRowFirst.col4 = $"RISP: {p.risp.splits[0].stats?.hitting?.standard?.homeRuns} {p.risp.splits[0].stats?.hitting?.standard?.hits} " +
                         $"{p.risp.splits[0].stats?.hitting?.standard?.avg} {p.risp.splits[0].stats?.hitting?.standard?.atBats}";
                     else
-                        hitterRowFirst.col4 = "~";
+                        hitterRowFirst.col4 = "RISP: ~";
 
                     if (p?.risp2o?.splits != null && p.risp2o.splits.Count > 0)
                         hitterRowFirst.col5 = $"RISP2o: {p.risp2o.splits[0].stats?.hitting?.standard?.homeRuns} {p.risp2o.splits[0].stats?.hitting?.standard?.hits} " +
                         $"{p.risp2o.splits[0].stats?.hitting?.standard?.avg} {p.risp2o.splits[0].stats?.hitting?.standard?.atBats}";
                     else
-                        hitterRowFirst.col5 = "~";
+                        hitterRowFirst.col5 = "RISP2o: ~";
 
                     if (p?.vsLeft?.splits != null && p.vsLeft.splits.Count > 0)
                         hitterRowFirst.col6 = $"vsLH: {p.vsLeft.splits[0].stats?.hitting?.standard?.homeRuns} {p.vsLeft.splits[0].stats?.hitting?.standard?.hits} " +
                         $"{p.vsLeft.splits[0].stats?.hitting?.standard?.avg} " + $"{p.vsLeft.splits[0].stats?.hitting?.standard?.atBats} " +
                         $"{p.vsLeft.splits[0].stats?.hitting?.standard?.ops}";
                     else
-                        hitterRowFirst.col6 = "~";
+                        hitterRowFirst.col6 = "vsLH: ~";
 
                     if (p?.vsRight?.splits != null && p.vsRight.splits.Count > 0)
                         hitterRowFirst.col7 = $"vsRH: {p.vsRight.splits[0].stats?.hitting?.standard?.homeRuns} {p.vsRight.splits[0].stats?.hitting?.standard?.hits} " +
                         $"{p.vsRight.splits[0].stats?.hitting?.standard?.avg} " + $"{p.vsRight.splits[0].stats?.hitting?.standard?.atBats} " +
                         $"{p.vsRight.splits[0].stats?.hitting?.standard?.ops}";
                     else
-                        hitterRowFirst.col7 = "~";
+                        hitterRowFirst.col7 = "vsRH: ~";
 
                     if (p?.plus7?.splits != null && p.plus7.splits.Count > 0)
                         hitterRowFirst.col8 = $"7+: {p.plus7.splits[0].stats?.hitting?.standard?.avg} {p.plus7.splits[0].stats?.hitting?.standard?.ops}";
                     else
-                        hitterRowFirst.col8 = "~";
+                        hitterRowFirst.col8 = "7+ ~";
 
                     DataGridHitters.Items.Add(hitterRowFirst);
+
+                    // Second Row for each player includes the AVG, K, 2B, HR, R, SB-SBA stats
+                    tableRow hitterRowSecond = new tableRow();
+
+                    hitterRowSecond.col1 = " ";
+                    hitterRowSecond.col2 = " ";
+                   
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col3 = p.hitterStats.splits[0].stats?.hitting?.standard?.avg.ToString();                        
+                    else
+                        hitterRowSecond.col3 = "~";
+
+                    
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.strikeOuts.ToString();
+                    else
+                        hitterRowSecond.col4 = "~";
+
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col5 = p.hitterStats.splits[0].stats?.hitting?.standard?.doubles.ToString();
+                    else
+                        hitterRowSecond.col5 = "~";
+
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col6 = p.hitterStats.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                    else
+                        hitterRowSecond.col6 = "~";
+
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col7 = p.hitterStats.splits[0].stats?.hitting?.standard?.runs.ToString();
+                    else
+                        hitterRowSecond.col7 = "~";
+
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowSecond.col8 = $"{p.hitterStats.splits[0].stats?.hitting?.standard?.stolenBases} - {p.hitterStats.splits[0].stats?.hitting?.standard?.caughtStealing}";
+                    else
+                        hitterRowSecond.col8 = "~";                                     
+
+                    DataGridHitters.Items.Add(hitterRowSecond);                                       
+
+                    // Third Row for each player includes the OPS BB 3B RBI BACON DP stats
+                    tableRow hitterRowThird = new tableRow();
+
+                    hitterRowThird.col1 = " ";
+                    hitterRowThird.col2 = " ";
+
+                    if (p?.hitterStats?.splits != null && p.fp.splits.Count > 0)
+                        hitterRowThird.col3 = p.hitterStats.splits[0].stats?.hitting?.standard?.ops.ToString();
+                    else
+                        hitterRowThird.col3 = "~";
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowThird.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.intentionalWalks.ToString();     // Needs to be changed to baseOnBalls
+                    else
+                        hitterRowThird.col4 = "~";
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowThird.col5 = p.hitterStats.splits[0].stats?.hitting?.standard?.triples.ToString();
+                    else
+                        hitterRowThird.col5 = "~";
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowThird.col6 = p.hitterStats.splits[0].stats?.hitting?.standard?.rbi.ToString();
+                    else
+                        hitterRowThird.col6 = "~";
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowThird.col7 = p.hitterStats.splits[0].stats?.hitting?.standard?.babip.ToString();
+                    else
+                        hitterRowThird.col7 = "~";
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
+                        hitterRowThird.col8 = p.hitterStats.splits[0].stats?.hitting?.standard?.groundIntoDoublePlay.ToString();
+                    else
+                        hitterRowThird.col8 = "~";                   
+
+                    DataGridHitters.Items.Add(hitterRowThird);
+                    
                 }
             }
-            
+
 
             //*****************************************************************************************************
             //  UMPIRES & SB/SBA + DP TOTAL PER TEAM TABLE
             //*****************************************************************************************************
 
+            // Adding the first row and SB-SBA stats for the Home team
             tableRow umpireRowOne = new tableRow();
 
-            umpireRowOne.col1 = stats.umps.officials[0].official.fullName;           
+            if (stats.umps!= null && stats.umps.officials != null && stats.umps.officials.Count > 0)
+                umpireRowOne.col1 = stats.umps.officials[0].official.fullName;
+            else
+                umpireRowOne.col1 = "Umpire: ~~~";
+
             umpireRowOne.col2 = "R";
             umpireRowOne.col3 = " ";
             umpireRowOne.col4 = " ";
             umpireRowOne.col5 = " ";
             umpireRowOne.col6 = " ";
             umpireRowOne.col7 = "Home Team";
-            umpireRowOne.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();           // SB-SBA stat Total for selected Home team
+
+            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+                umpireRowOne.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();           
+            else
+                umpireRowOne.col8 = "~   ~";
 
             DataGridHitters.Items.Add(umpireRowOne);
-            
+
+            // Adding the second row and DP stats for the Home team
             tableRow umpireRowTwo = new tableRow();
 
-            umpireRowTwo.col1 = stats.umps.officials[1].official.fullName;
+            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
+                umpireRowTwo.col1 = stats.umps.officials[1].official.fullName;
+            else
+                umpireRowTwo.col1 = "Umpire: ~~~";
+            
             umpireRowTwo.col2 = "H";
             umpireRowTwo.col3 = " ";
             umpireRowTwo.col4 = " ";
             umpireRowTwo.col5 = " ";
             umpireRowTwo.col6 = " ";
             umpireRowTwo.col7 = " ";
-            umpireRowTwo.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             // DP stat Total for selected Home team
+
+            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+                umpireRowTwo.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
+            else
+                umpireRowTwo.col8 = "~";
 
             DataGridHitters.Items.Add(umpireRowTwo);
 
+            // Adding the third row and SB-SBA stats for the Opponent team
             tableRow umpireRowThree = new tableRow();
 
-            umpireRowThree.col1 = stats.umps.officials[2].official.fullName;
+            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
+                umpireRowThree.col1 = stats.umps.officials[2].official.fullName;
+            else
+                umpireRowThree.col1 = "Umpire: ~~~";
+
             umpireRowThree.col2 = "E";
             umpireRowThree.col3 = " ";
             umpireRowThree.col4 = " ";
             umpireRowThree.col5 = " ";
             umpireRowThree.col6 = " ";
             umpireRowThree.col7 = "Opp Team";
-            umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          // SB-SBA stat Total for selected Opponent team
+
+            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+                umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          
+            else 
+                umpireRowThree.col8 = "~   ~";
 
             DataGridHitters.Items.Add(umpireRowThree);
 
+            // Adding the fourth row and DP stats for the Opponent team
             tableRow umpireRowFour = new tableRow();
 
-            umpireRowFour.col1 = stats.umps.officials[3].official.fullName;
+            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
+                umpireRowFour.col1 = stats.umps.officials[3].official.fullName;
+            else
+                umpireRowFour.col1 = "Umpire: ~~~";
+
             umpireRowFour.col2 = "LOB";
             umpireRowFour.col3 = " ";
             umpireRowFour.col4 = " ";
             umpireRowFour.col5 = " ";
             umpireRowFour.col6 = " ";
             umpireRowFour.col7 = " ";
-            umpireRowFour.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             // SB-SBA stat Total for selected Opponent team
 
-            DataGridHitters.Items.Add(umpireRowFour);
-
+            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+                umpireRowFour.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
+            else
+                umpireRowFour.col8 = "~";
             
+            DataGridHitters.Items.Add(umpireRowFour);
 
             //*****************************************************************************************************
             //  PITCHERS TOP TABLE
