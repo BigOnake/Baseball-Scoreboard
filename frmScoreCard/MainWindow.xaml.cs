@@ -145,7 +145,7 @@ namespace frmScoreCard
                     else
                         hitterRowThird.col3 = "~";
                     if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
-                        hitterRowThird.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.baseOnBalls.ToString();     // Needs to be changed to baseOnBalls
+                        hitterRowThird.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.baseOnBalls.ToString();     
                     else
                         hitterRowThird.col4 = "~";
                     if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
@@ -311,12 +311,26 @@ namespace frmScoreCard
             //  BUSCH STADIUM TABLE
             //*****************************************************************************************************
 
+            tableRow buschRowOne = new tableRow();
+            
+            if (stats.venue != null && stats.venue.dates != null)
+                buschRowOne.col1 = stats.venue.dates[0].games[0].venue.name;
+            else
+                buschRowOne.col1 = "~~~~";
+
+            buschRowOne.col2 = " ";
+            buschRowOne.col3 = " ";
+            buschRowOne.col4 = " ";
+            buschRowOne.col5 = " ";
+            buschRowOne.col6 = " ";
+
+            DataGridBuschStadium.Items.Add(buschRowOne);
+
             if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0)
             {
                 for (int i = 0; i < stats.stadium.splits.Count(); i++)
                 {
                     tableRow buschRow = new tableRow();
-
                     if (stats.stadium.splits[i].pitchType != null && stats.stadium.splits[i].pitchType.code != null)
                         buschRow.col1 = stats.stadium.splits[i].pitchType.code.ToString();
                     else
@@ -393,7 +407,11 @@ namespace frmScoreCard
                         
             tableRow scoreRowOne = new tableRow();
             
-            scoreRowOne.col1 = "Team Name";
+            if(stats.homeTeamName != null)
+                scoreRowOne.col1 = stats.homeTeamName;
+            else 
+                scoreRowOne.col1 = " ";
+            
             scoreRowOne.col2 = " ";
             scoreRowOne.col3 = " ";
             scoreRowOne.col4 = " ";
@@ -415,7 +433,11 @@ namespace frmScoreCard
 
             tableRow scoreRowTwo = new tableRow();
 
-            scoreRowTwo.col1 = "Opp Name";
+            if (stats.guestTeamName != null)
+                scoreRowTwo.col1 = stats.guestTeamName;
+            else 
+                scoreRowTwo.col1 = " ";
+            
             scoreRowTwo.col2 = " ";
             scoreRowTwo.col3 = " ";
             scoreRowTwo.col4 = " ";
