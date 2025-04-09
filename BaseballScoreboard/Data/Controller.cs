@@ -49,6 +49,11 @@ namespace BaseballScoreboard.Data
            storage.SetRoster(apiClient.GetRoster(teamId), teamType);
         }
 
+        static public void SetTeamName(string teamName, string teamType)
+        {
+            storage.SetTeamName(teamName, teamType);
+        }
+
         /**********************************************************/
 
         static public int GetGamePk()

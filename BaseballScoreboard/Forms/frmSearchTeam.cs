@@ -58,6 +58,7 @@ namespace BaseballScoreboard.Forms
             {
                 Controller.SetRoster(Controller.GetTeamId(source.SelectedItem.ToString()), teamType);
                 Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
+                Controller.SetTeamName(source.SelectedItem.ToString(), teamType);
                 if (Controller.GetGamePk() == -1)
                     return;
 

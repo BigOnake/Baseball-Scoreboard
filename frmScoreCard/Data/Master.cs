@@ -10,11 +10,12 @@ namespace frmScoreCard.Data
 
     public class Master
     {
+        public string? homeTeamName { get; set; }
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
 
-
+        public string? guestTeamName { get; set; }
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }

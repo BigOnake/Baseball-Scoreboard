@@ -78,6 +78,16 @@ namespace BaseballScoreboard.Data
             return gamePk;
         }
 
+        public void SetTeamName(string teamName, string teamType)
+        {
+            if (teamType == "home")
+                data.homeTeamName = teamName;
+            else
+                data.guestTeamName = teamName;
+
+            MessageBox.Show(teamName);
+        }
+
         public void SetGamePk(int gameId)
         {
             gamePk = gameId;
@@ -198,11 +208,12 @@ namespace BaseballScoreboard.Data
 
     public class Master
     {
+        public string? homeTeamName { get; set; }
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
 
-
+        public string? guestTeamName { get; set; }
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }
