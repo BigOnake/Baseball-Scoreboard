@@ -62,6 +62,7 @@ namespace BaseballScoreboard.Forms
                 if (Controller.GetGamePk() == -1)
                     return;
 
+                Controller.SetLiveData(Controller.GetGamePk(), teamType);
                 Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetVenues(Controller.GetGamePk());
                 Controller.SetStadiumData();

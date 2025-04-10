@@ -54,6 +54,16 @@ namespace BaseballScoreboard.Data
             storage.SetTeamName(teamName, teamType);
         }
 
+        static public async Task<LiveData> GetLiveData(int gamePk)
+        {
+            return await apiClient.GetLiveData(gamePk);
+        }
+
+        static public async void SetLiveData(int gamePk, string teamType)
+        {
+            storage.SetLiveData(await GetLiveData(gamePk), teamType);
+        }
+
         /**********************************************************/
 
         static public int GetGamePk()

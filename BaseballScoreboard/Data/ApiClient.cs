@@ -366,5 +366,14 @@ namespace BaseballScoreboard.Data
         }
 
         /**********************************************************/
+
+        public async Task<LiveData> GetLiveData(int gamePk)
+        {
+            path = $"https://statsapi.mlb.com/api/v1.1/game/{gamePk}/feed/live?&fields=liveData,boxscore,teams";
+
+            string result = await GetOAuthJsonRequest(path);
+
+            return JsonSerializer.Deserialize<LiveData>(result);
+        }
     }
 }   

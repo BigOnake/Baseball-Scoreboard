@@ -1,8 +1,10 @@
-﻿using System.ComponentModel;
+﻿using frmScoreCard.Data;
+using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.DirectoryServices;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Policy;
+using System.Text.Json;
 
 namespace BaseballScoreboard.Data
 {
@@ -196,6 +198,14 @@ namespace BaseballScoreboard.Data
                 data.guestTeamCoaches = c;
         }
 
+        public void SetLiveData(LiveData l, string teamType)
+        {
+            if (teamType == "home")
+                data.homeTeamLive = l;
+            else
+                data.guestTeamLive = l;
+        }
+
         public Master GetMaster()
         {
             return data;
@@ -210,11 +220,13 @@ namespace BaseballScoreboard.Data
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
+        public LiveData? homeTeamLive { get; set; }
 
         public string? guestTeamName { get; set; }
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }
+        public LiveData? guestTeamLive { get; set; }
 
 
         public Umpires? umps { get; set; }
@@ -227,15 +239,19 @@ namespace BaseballScoreboard.Data
             homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             homeTeamSB = new SB();
             homeTeamCoaches = new Coaches();
+            homeTeamLive = new LiveData();
 
             guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             guestTeamSB = new SB();
             homeTeamCoaches = new Coaches();
+            guestTeamLive = new LiveData();
 
             umps = new Umpires();
 
             venue = new Venues();
             stadium = new StadiumData();
+
+            
         }
     }
 
@@ -749,5 +765,43 @@ namespace BaseballScoreboard.Data
         public string? code { get; set; }
     }
 
-    /****************************************/
+    /****************************************
+    * 
+    *       START OF LIVE DATA CLASSES
+    * 
+    ****************************************/
+
+    public class LiveData
+    {
+        public Live? liveData { get; set; }
+    }
+
+    public class Live
+    {
+        public Boxscore? boxscore { get; set; }
+    }
+
+    public class Boxscore
+    {
+        public TeamsLiveData? teams { get; set; }
+    }
+
+    public class TeamsLiveData
+    {
+        public AwayLiveData? away { get; set; }
+        public HomeLiveData? home { get; set; }
+
+    }
+
+    public class AwayLiveData
+    {
+        public List<int>? bench { get; set; }
+        public List<int>? bullpen { get; set; }
+    }
+
+    public class HomeLiveData
+    {
+        public List<int>? bench { get; set; }
+        public List<int>? bullpen { get; set; }
+    }
 }
