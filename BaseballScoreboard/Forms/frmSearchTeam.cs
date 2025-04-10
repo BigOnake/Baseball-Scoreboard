@@ -221,7 +221,7 @@ namespace BaseballScoreboard.Forms
         private void btnScoreboard_Click(object sender, EventArgs e)
         {
             string json = JsonSerializer.Serialize(Controller.GetMaster());
-            MessageBox.Show(json);
+            //MessageBox.Show(json);
 
             var wpfWindow = new frmScoreCard.MainWindow(json);
 

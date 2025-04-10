@@ -140,7 +140,7 @@ namespace frmScoreCard
                     hitterRowThird.col1 = " ";
                     hitterRowThird.col2 = " ";
 
-                    if (p?.hitterStats?.splits != null && p.fp.splits.Count > 0)
+                    if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
                         hitterRowThird.col3 = p.hitterStats.splits[0].stats?.hitting?.standard?.ops.ToString();
                     else
                         hitterRowThird.col3 = "~";
@@ -234,8 +234,8 @@ namespace frmScoreCard
             umpireRowThree.col6 = " ";
             umpireRowThree.col7 = "Opp Team";
 
-            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
-                umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          
+            if (stats.guestTeamSB != null && stats.guestTeamSB.splits != null && stats.guestTeamSB.splits.Count > 0)
+                umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats?.hitting?.standard?.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          
             else 
                 umpireRowThree.col8 = "~   ~";
 
@@ -256,7 +256,7 @@ namespace frmScoreCard
             umpireRowFour.col6 = " ";
             umpireRowFour.col7 = " ";
 
-            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+            if (stats.guestTeamSB != null && stats.guestTeamSB.splits != null && stats.guestTeamSB.splits.Count > 0)
                 umpireRowFour.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
             else
                 umpireRowFour.col8 = "~";

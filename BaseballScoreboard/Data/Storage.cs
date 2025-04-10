@@ -84,8 +84,6 @@ namespace BaseballScoreboard.Data
                 data.homeTeamName = teamName;
             else
                 data.guestTeamName = teamName;
-
-            MessageBox.Show(teamName);
         }
 
         public void SetGamePk(int gameId)
