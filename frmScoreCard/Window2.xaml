@@ -38,6 +38,11 @@
                     <RowDefinition Height="0.85*"/>
                 </Grid.RowDefinitions>
 
+                <Grid Grid.Row="1">
+
+                    <!-- Diamonds Here -->
+
+                </Grid>
             </Grid>
 
             <Grid Grid.Column="1" ShowGridLines="True">
@@ -923,6 +928,18 @@
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Text="P"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Text="Umpire Name"/>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
 
