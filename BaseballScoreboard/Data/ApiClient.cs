@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace BaseballScoreboard.Data
@@ -240,6 +241,15 @@ namespace BaseballScoreboard.Data
         *          START OF STAT CALLS
         * 
         ****************************************/
+
+        public Side GetSide(int playerId)
+        {
+            path = BASE_URL + $"people?personIds={playerId}&fields=people,batSide,code,description,pitchHand,code,description";
+
+            string result = GetJson(path);
+
+            return JsonSerializer.Deserialize<Side>(result);
+        }
 
         public async Task<FirstPitch> GetFirstPitch(int playerId)
         {

@@ -259,6 +259,7 @@ namespace BaseballScoreboard.Data
     {
         public string? name { get; set; }
         public string? position { get; set; }
+        public Side? sides { get; set; }
         public FirstPitch? fp { get; set; }
         public RISP? risp { get; set; }
         public RISP? risp2o { get; set; }
@@ -340,9 +341,9 @@ namespace BaseballScoreboard.Data
     /****************************************/
 
     internal class Game
-    {
-        public List<Dates>? dates { get; set; }
-    }
+        {
+            public List<Dates>? dates { get; set; }
+        }
 
     internal class Dates
     {
@@ -508,6 +509,29 @@ namespace BaseballScoreboard.Data
     *          START OF STAT CLASSES
     * 
     ****************************************/
+
+    public class Side
+    {
+        public List<People>? people { get; set; }
+    }
+
+    public class People
+    {
+        public BatSide? batSide { get; set; }
+        public PitchHandSide? pitchHand { get; set; }
+    }
+
+    public class BatSide
+    {
+        public string? description { get; set; }
+    }
+
+    public class PitchHandSide
+    {
+        public string? description { get; set; }
+    }
+
+    /****************************************/
 
     public class FirstPitch
     {

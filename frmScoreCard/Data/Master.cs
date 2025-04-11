@@ -25,7 +25,6 @@ namespace frmScoreCard.Data
 
 
         public Umpires? umps { get; set; }
-
         public Venues? venue { get; set; }
         public StadiumData? stadium { get; set; }
     }
@@ -34,6 +33,7 @@ namespace frmScoreCard.Data
     {
         public string? name { get; set; }
         public string? position { get; set; }
+        public Side? sides { get; set; }
         public FirstPitch? fp { get; set; }
         public RISP? risp { get; set; }
         public RISP? risp2o { get; set; }
@@ -99,6 +99,29 @@ namespace frmScoreCard.Data
         public int? caughtStealing { get; set; }
         public int? stolenBases { get; set; }
         public int? groundIntoDoublePlay { get; set; }
+    }
+
+    /****************************************/
+
+    public class Side
+    {
+        public List<People>? people { get; set; }
+    }
+
+    public class People
+    {
+        public BatSide? batSide { get; set; }
+        public PitchHandSide? pitchHand { get; set; }
+    }
+
+    public class BatSide
+    {
+        public string? description { get; set; }
+    }
+
+    public class PitchHandSide
+    {
+        public string? description { get; set; }
     }
 
     /****************************************/

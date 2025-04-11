@@ -102,6 +102,7 @@ namespace BaseballScoreboard.Data
 
             info.name = playerName;
             info.position = GetRoster(teamType).roster[0].position.abbreviation;
+            info.sides = GetSide(playerId);
             info.fp = await GetFirstPitch(playerId);
             info.risp = await GetRISP(playerId);
             info.risp2o = await GetRISP2O(playerId);
@@ -113,6 +114,11 @@ namespace BaseballScoreboard.Data
             info.pitchTypes = await GetPitchTypes(playerId);
 
             storage.AddSelectedPlayer(teamType, playerId, info);
+        }
+
+        static public Side GetSide(int playerId)
+        {
+            return apiClient.GetSide(playerId);
         }
 
         static public void RemoveSelectedPlayer(string teamType, string playerName)
