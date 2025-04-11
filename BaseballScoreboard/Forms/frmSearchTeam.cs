@@ -225,9 +225,11 @@ namespace BaseballScoreboard.Forms
             string json = JsonSerializer.Serialize(Controller.GetMaster());
             //MessageBox.Show(json);
 
-            var wpfWindow = new frmScoreCard.MainWindow(json);
+            //var wpfWindow = new frmScoreCard.MainWindow(json);
 
-            wpfWindow.Show();
+            var wpfWindow2 = new frmScoreCard.Window2(json);
+
+            wpfWindow2.Show();
         }
     }
 }
