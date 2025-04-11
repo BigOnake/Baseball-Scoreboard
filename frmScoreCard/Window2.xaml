@@ -931,13 +931,13 @@
 
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="P"/>
+                            <TextBlock Name = "umpireOfficialType1" Text="P"/>
                         </Viewbox>
                     </Grid>
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="Umpire Name"/>
+                            <TextBlock Name="umpireName1" Text="Umpire Name"/>
                         </Viewbox>
                     </Grid>
                 </Grid>
@@ -966,6 +966,18 @@
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name = "umpireOfficialType2" Text="P"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name="umpireName2" Text="Umpire Name"/>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
 
@@ -992,6 +1004,18 @@
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name = "umpireOfficialType3" Text="P"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name="umpireName3" Text="Umpire Name"/>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
 
@@ -1018,6 +1042,18 @@
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name = "umpireOfficialType4" Text="P"/>
+                        </Viewbox>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Viewbox Stretch="Uniform">
+                            <TextBlock Name="umpireName4" Text="Umpire Name"/>
+                        </Viewbox>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
