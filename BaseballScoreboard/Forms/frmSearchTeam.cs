@@ -213,7 +213,8 @@ namespace BaseballScoreboard.Forms
             }
             else
             {
-                e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
+                if (lBox.Items.Count > 0)
+                    e.Graphics.DrawString(lBox.Items[e.Index].ToString(), e.Font, Brushes.Black, e.Bounds, format);
             }
         }
 
