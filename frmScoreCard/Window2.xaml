@@ -12,12 +12,14 @@
 
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
-            <RowDefinition Height="1.75*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2.25*"/>
         </Grid.RowDefinitions>
-
+        
+        <!-- Title for ScoreCard -->
         <Grid Grid.Row="0" ShowGridLines="True">
             <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
                 <TextBlock Name ="Team" Text="St. Louis Cardinals"/>
@@ -91,13 +93,9 @@
             </Grid>
         </Grid>
 
-        <!-- Hitters & Umpires, Team SB-SBA, DP totals -->
+        <!-- Hitters, Team SB-SBA, DP totals -->
         <Grid Grid.Row="2" ShowGridLines="True">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -122,10 +120,6 @@
             <!-- First Row -->
             <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -904,9 +898,19 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
             </Grid>
+        </Grid>
+
+        <!-- Umpires -->
+        <Grid Grid.Row="3" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
             <!-- Umpire 1 -->
-            <Grid Grid.Row="19" ShowGridLines="True">
+            <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -944,7 +948,7 @@
             </Grid>
 
             <!-- Umpire 2 -->
-            <Grid Grid.Row="20" ShowGridLines="True">
+            <Grid Grid.Row="1" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -982,7 +986,7 @@
             </Grid>
 
             <!-- Umpire 3 -->
-            <Grid Grid.Row="21" ShowGridLines="True">
+            <Grid Grid.Row="2" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1020,7 +1024,7 @@
             </Grid>
 
             <!-- Umpire 4 -->
-            <Grid Grid.Row="22" ShowGridLines="True">
+            <Grid Grid.Row="3" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1057,9 +1061,9 @@
                 </Grid>
             </Grid>
         </Grid>
-
+        
         <!-- Team Scores -->
-        <Grid Grid.Row ="3" ShowGridLines="True">
+        <Grid Grid.Row ="4" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -1134,7 +1138,7 @@
         </Grid>
 
         <!-- Pitchers Bottom, Managers -->
-        <Grid Grid.Row="4" ShowGridLines="True">
+        <Grid Grid.Row="5" ShowGridLines="True">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
