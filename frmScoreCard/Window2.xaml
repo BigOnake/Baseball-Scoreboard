@@ -11,6 +11,18 @@
         <Style x:Key ="TextStyle" TargetType="TextBlock">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Padding" Value="1"/>
+
+            <Style.Triggers>
+                <!-- Turns red if the letter is 'K' -->
+                <Trigger Property="Text" Value="K">
+                    <Setter Property="Foreground" Value="Red"/>
+                </Trigger>
+
+                <!-- Turns red if the letter is 'BB' -->
+                <Trigger Property="Text" Value="BB">
+                    <Setter Property="Foreground" Value="Blue"/>
+                </Trigger>
+            </Style.Triggers>
         </Style>
 
         <Style x:Key="BorderStyle" TargetType="Border">
@@ -25,10 +37,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.5*"/>
-            <RowDefinition Height="2.25*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="0.75*"/>
+            <RowDefinition Height="0.50*"/>
+            <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         
         <!-- Title for ScoreCard -->
@@ -841,30 +853,32 @@
         <!-- Hitters, Team SB-SBA, DP totals -->
         <Grid Grid.Row="2" ShowGridLines="True">
             <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
             <!-- First Row -->
             <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -876,9 +890,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -886,12 +898,150 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                
+                <!-- Column (1-13) have 'Padding = "5"' property that 
+                overwrites padding in the parent stylying method -->
+                
+                <Grid Grid.Column="1">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="POS" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="1" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="2" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="3" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="4" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="5" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="6" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="7" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="8" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="9" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="10" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                        <TextBlock Text="STREAK" Padding ="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="AVG" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="OPS" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+                </Grid>
 
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="K" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="BB" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="16" ShowGridLines="True">
@@ -899,6 +1049,22 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="2B" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="3B" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="17" ShowGridLines="True">
@@ -906,6 +1072,22 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="HR" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="RBI" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="18" ShowGridLines="True">
@@ -913,6 +1095,22 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="Runs" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="BACON" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
                 </Grid>
 
                 <Grid Grid.Column="19" ShowGridLines="True">
@@ -920,19 +1118,30 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                </Grid>
 
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="SB-SBA" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock Text="DP" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
                 </Grid>
             </Grid>
 
             <!-- Hitter 1 -->
             <Grid Grid.Row="1"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -944,9 +1153,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -954,6 +1161,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
 
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -984,13 +1198,6 @@
                 </Grid>
 
                 <Grid Grid.Column="19" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
-
-                <Grid Grid.Column="20" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1000,19 +1207,76 @@
 
             <Grid Grid.Row="2"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 2 -->
             <Grid Grid.Row="3"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1024,9 +1288,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1034,6 +1296,14 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1068,30 +1338,81 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                 </Grid>
-
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
+               
             </Grid>
 
             <Grid Grid.Row="4"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 3 -->
             <Grid Grid.Row="5"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1103,9 +1424,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1113,6 +1432,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
 
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1149,29 +1475,80 @@
                     </Grid.RowDefinitions>
                 </Grid>
 
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="6"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 4 -->
             <Grid Grid.Row="7"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1183,9 +1560,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1194,6 +1569,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1228,30 +1610,81 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                 </Grid>
-
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
+              
             </Grid>
 
             <Grid Grid.Row="8"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 5 -->
             <Grid Grid.Row="9"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1263,9 +1696,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1274,6 +1705,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1308,30 +1746,81 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                 </Grid>
-
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
+               
             </Grid>
 
             <Grid Grid.Row="10"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-            </Grid>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+        </Grid>
 
             <!-- Hitter 6 -->
             <Grid Grid.Row="11"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1343,9 +1832,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1353,6 +1840,13 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
 
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1389,29 +1883,80 @@
                     </Grid.RowDefinitions>
                 </Grid>
 
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="12"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 7 -->
             <Grid Grid.Row="13"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1423,9 +1968,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1434,6 +1977,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1469,29 +2019,80 @@
                     </Grid.RowDefinitions>
                 </Grid>
 
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="14"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 8 -->
             <Grid Grid.Row="15"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1503,9 +2104,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1514,6 +2113,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1549,29 +2155,80 @@
                     </Grid.RowDefinitions>
                 </Grid>
 
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
             </Grid>
 
             <Grid Grid.Row="16"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
 
             <!-- Hitter 9 -->
             <Grid Grid.Row="17"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1583,9 +2240,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -1593,6 +2248,14 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="14" ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -1627,25 +2290,74 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                 </Grid>
-
-                <Grid Grid.Column="20" ShowGridLines="True">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                </Grid>
+             
             </Grid>
 
             <Grid Grid.Row="18"  ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.515*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="0.75*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="2" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="4" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="5" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Grid Grid.Column="6" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
             </Grid>
         </Grid>
 
