@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xaml;
 using frmScoreCard.Data;
 
 namespace frmScoreCard
@@ -31,21 +32,28 @@ namespace frmScoreCard
                 stats = JsonSerializer.Deserialize<Master>(json);
             }
 
-            Title.Text = "St. Louis Cardinals";
+            scoreCardTitle();
+            venueTable();
+            benchTable();
+        }
 
+        private void scoreCardTitle()                                            // Title for the ScoreCard
+        {                       
+            Title.Text = "St. Louis Cardinals";            
+        }
+
+        private void venueTable()                                                // Data for Venue Table
+        {
             VenueName.Text = "Busch Stadium";
-
             GameDate.Text = "1/10/2025";
 
-            string[] columnTexts = { "P", "C", "1B", "2B", "3B", "SS" };
-
-            // Loop through each child of the main TestGrid
-            for (int i = 1; i < TestGrid.Children.Count; i++)   // Skipping first row
+            // Loop through each child of the main VenueGrid (skipping first row)
+            for (int i = 1; i < VenueGrid.Children.Count; i++)   
             {
                 // Each child is a Grid.Row placed in a Grid
-                if (TestGrid.Children[i] is Grid rowGrid)
+                if (VenueGrid.Children[i] is Grid rowGrid)
                 {
-                    for (int j = 0; j < rowGrid.Children.Count; j++)       
+                    for (int j = 0; j < rowGrid.Children.Count; j++)
                     {
                         if (rowGrid.Children[j] is Grid columnGrid)
                         {
@@ -58,8 +66,8 @@ namespace frmScoreCard
                                     // Inside the Viewbox is the actual TextBlock
                                     if (viewbox.Child is TextBlock textBlock)
                                     {
-                                        // Assign new text from the array
-                                        textBlock.Text = columnTexts[j];
+                                        // Assign stats here
+                                        textBlock.Text = "XX";
                                     }
                                 }
                             }
@@ -68,6 +76,37 @@ namespace frmScoreCard
                 }
             }
         }
-    }
 
+        private void benchTable()                                                // Data for Bench Table
+        {
+            // XX is a team name(title)
+            BenchName.Text = "XX BENCH";
+
+            for (int i = 1; i < BenchGrid.Children.Count; i++)
+            {
+                if (BenchGrid.Children[i] is Grid rowGrid)
+                {
+                    for (int j = 0; j < rowGrid.Children.Count; j++)
+                    {
+                        if (rowGrid.Children[j] is Grid columnGrid)
+                        {
+                            foreach (var element in columnGrid.Children)
+                            {                               
+                                if (element is Viewbox viewbox)
+                                {                                   
+                                    if (viewbox.Child is TextBlock textBlock)
+                                    {
+                                        //Assign stats here
+                                        textBlock.Text = "XX";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
 }

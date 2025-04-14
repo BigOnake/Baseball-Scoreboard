@@ -265,8 +265,8 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-
-                <Grid x:Name = "TestGrid" Grid.Row="0" ShowGridLines="True">
+                <!-- Venue -->
+                <Grid x:Name = "VenueGrid" Grid.Row="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height ="1.5*"/>
                         <RowDefinition/>
@@ -278,7 +278,7 @@
                     
                     <!-- Venue Name and Game Date -->
                     <Grid Grid.Row="0">
-
+                        
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -289,8 +289,6 @@
                             <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
                                 <TextBlock x:Name ="VenueName" Text="Venue" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
-
-                            <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
 
                         <!-- Game Date-->
@@ -298,13 +296,13 @@
                             <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
                                 <TextBlock x:Name ="GameDate" Text="Date" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
-
-                            <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                     
                     <!-- Venue Data (5 Rows Below) -->
-                    <Grid Grid.Row="1" ShowGridLines="True">
+                    <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -359,7 +357,7 @@
                         
                     </Grid>
 
-                    <Grid Grid.Row="2" ShowGridLines="True">
+                    <Grid Grid.Row="2">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -414,7 +412,7 @@
 
                     </Grid>
 
-                    <Grid Grid.Row="3" ShowGridLines="True">
+                    <Grid Grid.Row="3">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -469,7 +467,7 @@
 
                     </Grid>
 
-                    <Grid Grid.Row="4" ShowGridLines="True">
+                    <Grid Grid.Row="4">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -524,7 +522,7 @@
 
                     </Grid>
 
-                    <Grid Grid.Row="5" ShowGridLines="True">
+                    <Grid Grid.Row="5">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
@@ -579,9 +577,11 @@
 
                     </Grid>
 
+                    <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-
-                <Grid Grid.Row="1" ShowGridLines="True">
+                
+                <!-- Bench --> 
+                <Grid x:Name ="BenchGrid" Grid.Row="1" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -589,7 +589,251 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
+                    
+                    <!-- Bench Title -->
+                    <Grid Grid.Row="0">
+                        <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                            <TextBlock x:Name ="BenchName" Text="BENCH" Style="{StaticResource TextStyle}"/>
+                        </Viewbox>
 
+                        <Border Style="{StaticResource BorderStyle}"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="4">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="5">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+                    </Grid>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="4">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="5">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+                    </Grid>
+                    
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="4">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="5">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+                    </Grid>
+                    
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.25*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                            <ColumnDefinition Width="0.5*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="2">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="3">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="4">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+
+                        <Grid Grid.Column="5">
+                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
+                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                            </Viewbox>
+
+                            <Border Style="{StaticResource BorderStyle}"/>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
         </Grid>
