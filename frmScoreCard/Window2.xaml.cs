@@ -28,6 +28,7 @@ namespace frmScoreCard
             scoreCardTitle();
             venueTable();
             benchTable();
+            hitterTable();
         }
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
@@ -100,7 +101,36 @@ namespace frmScoreCard
             }
         }
 
-        
+        private void hitterTable()
+        {
+            // Loop to populate player names and positions, skipping first child
+            for (int i = 1; i < HitterGrid.Children.Count; i++)
+            {
+                // Each child is a row
+                if (HitterGrid.Children[i] is Grid rowGrid)
+                {
+                    // Loop through the rows in HitterGrid
+                    for (int j = 0; j < rowGrid.Children.Count; j+=2)
+                    {
+                        // Each child is a column
+                        if (rowGrid.Children[j] is Grid columnGrid)
+                        {
+                            // Loop through first and second column
+                            for (int k = 0; k < 2; k++)
+                            {
+                                if (columnGrid.Children[k] is Viewbox viewBox)
+                                {
+                                    if (viewBox.Child is TextBlock textBlock)
+                                    {
+                                        textBlock.Text = "AA";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
         // Trying to figure out a way on how to change color based on left,right,switch hand
         /*

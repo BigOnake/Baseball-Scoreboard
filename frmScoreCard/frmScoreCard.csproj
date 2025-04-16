@@ -9,10 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\config.txt" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Remove="Main\App.xaml" />
   </ItemGroup>
 
@@ -22,6 +18,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\config.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
 
 </Project>

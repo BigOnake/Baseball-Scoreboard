@@ -865,8 +865,8 @@
             </Grid>
         </Grid>
 
-        <!-- Hitters, Team SB-SBA, DP totals -->
-        <Grid Grid.Row="2" ShowGridLines="True">
+        <!-- Hitters -->
+        <Grid x:Name ="HitterGrid" Grid.Row="2" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="1.75*"/>
