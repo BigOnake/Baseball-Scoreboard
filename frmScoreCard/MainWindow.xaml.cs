@@ -1,16 +1,7 @@
-﻿using frmScoreCard.Data;
-using System.Configuration;
-using System.Text;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
+using frmScoreCard.Data;
 
 namespace frmScoreCard
 {
@@ -19,7 +10,7 @@ namespace frmScoreCard
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Master stats;
+        private Storage stats;
 
         public MainWindow(string json)
         {
@@ -27,7 +18,9 @@ namespace frmScoreCard
 
             if (!string.IsNullOrEmpty(json))
             {
-                stats = JsonSerializer.Deserialize<Master>(json);
+                stats = JsonSerializer.Deserialize<Storage>(json);
+
+                
             }
 
             //*****************************************************************************************************
@@ -47,9 +40,9 @@ namespace frmScoreCard
             
             DataGridHitters.Items.Add(hitterRowOne);
 
-            if (stats.homeTeamSelectedPlayers.Values != null || stats.homeTeamSelectedPlayers.Values.Count > 0)
+            if (stats.data.homeTeamSelectedPlayers.Values != null || stats.data.homeTeamSelectedPlayers.Values.Count > 0)
             {
-                foreach (PlayerStats p in stats.homeTeamSelectedPlayers.Values)
+                foreach (PlayerStats p in stats.data.homeTeamSelectedPlayers.Values)
                 {
                     tableRow hitterRowFirst = new tableRow();
 
@@ -106,7 +99,6 @@ namespace frmScoreCard
                     else
                         hitterRowSecond.col3 = "~";
 
-                    
                     if (p?.hitterStats?.splits != null && p.hitterStats.splits.Count > 0)
                         hitterRowSecond.col4 = p.hitterStats.splits[0].stats?.hitting?.standard?.strikeOuts.ToString();
                     else
@@ -178,8 +170,8 @@ namespace frmScoreCard
             // Adding the first row and SB-SBA stats for the Home team
             tableRow umpireRowOne = new tableRow();
 
-            if (stats.umps!= null && stats.umps.officials != null && stats.umps.officials.Count > 0)
-                umpireRowOne.col1 = stats.umps.officials[0].official.fullName;
+            if (stats.data.umps!= null && stats.data.umps.officials != null && stats.data.umps.officials.Count > 0)
+                umpireRowOne.col1 = stats.data.umps.officials[0].official.fullName;
             else
                 umpireRowOne.col1 = "Umpire: ~~~";
 
@@ -190,8 +182,8 @@ namespace frmScoreCard
             umpireRowOne.col6 = " ";
             umpireRowOne.col7 = "Home Team";
 
-            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
-                umpireRowOne.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();           
+            if (stats.data.homeTeamSB != null && stats.data.homeTeamSB.splits != null && stats.data.homeTeamSB.splits.Count > 0)
+                umpireRowOne.col8 = stats.data.homeTeamSB.splits[0].stats.hitting.standard.stolenBases.ToString() + "   " + stats.data.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();           
             else
                 umpireRowOne.col8 = "~   ~";
 
@@ -200,8 +192,8 @@ namespace frmScoreCard
             // Adding the second row and DP stats for the Home team
             tableRow umpireRowTwo = new tableRow();
 
-            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
-                umpireRowTwo.col1 = stats.umps.officials[1].official.fullName;
+            if (stats.data.umps != null && stats.data.umps.officials != null && stats.data.umps.officials.Count > 0)
+                umpireRowTwo.col1 = stats.data.umps.officials[1].official.fullName;
             else
                 umpireRowTwo.col1 = "Umpire: ~~~";
             
@@ -212,8 +204,8 @@ namespace frmScoreCard
             umpireRowTwo.col6 = " ";
             umpireRowTwo.col7 = " ";
 
-            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
-                umpireRowTwo.col8 = stats.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
+            if (stats.data.homeTeamSB != null && stats.data.homeTeamSB.splits != null && stats.data.homeTeamSB.splits.Count > 0)
+                umpireRowTwo.col8 = stats.data.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
             else
                 umpireRowTwo.col8 = "~";
 
@@ -222,8 +214,8 @@ namespace frmScoreCard
             // Adding the third row and SB-SBA stats for the Opponent team
             tableRow umpireRowThree = new tableRow();
 
-            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
-                umpireRowThree.col1 = stats.umps.officials[2].official.fullName;
+            if (stats.data.umps != null && stats.data.umps.officials != null && stats.data.umps.officials.Count > 0)
+                umpireRowThree.col1 = stats.data.umps.officials[2].official.fullName;
             else
                 umpireRowThree.col1 = "Umpire: ~~~";
 
@@ -234,8 +226,8 @@ namespace frmScoreCard
             umpireRowThree.col6 = " ";
             umpireRowThree.col7 = "Opp Team";
 
-            if (stats.guestTeamSB != null && stats.guestTeamSB.splits != null && stats.guestTeamSB.splits.Count > 0)
-                umpireRowThree.col8 = stats.guestTeamSB.splits[0].stats?.hitting?.standard?.stolenBases.ToString() + "   " + stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          
+            if (stats.data.guestTeamSB != null && stats.data.guestTeamSB.splits != null && stats.data.guestTeamSB.splits.Count > 0)
+                umpireRowThree.col8 = stats.data.guestTeamSB.splits[0].stats?.hitting?.standard?.stolenBases.ToString() + "   " + stats.data.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing.ToString();          
             else 
                 umpireRowThree.col8 = "~   ~";
 
@@ -244,8 +236,8 @@ namespace frmScoreCard
             // Adding the fourth row and DP stats for the Opponent team
             tableRow umpireRowFour = new tableRow();
 
-            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
-                umpireRowFour.col1 = stats.umps.officials[3].official.fullName;
+            if (stats.data.umps != null && stats.data.umps.officials != null && stats.data.umps.officials.Count > 0)
+                umpireRowFour.col1 = stats.data.umps.officials[3].official.fullName;
             else
                 umpireRowFour.col1 = "Umpire: ~~~";
 
@@ -256,8 +248,8 @@ namespace frmScoreCard
             umpireRowFour.col6 = " ";
             umpireRowFour.col7 = " ";
 
-            if (stats.guestTeamSB != null && stats.guestTeamSB.splits != null && stats.guestTeamSB.splits.Count > 0)
-                umpireRowFour.col8 = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
+            if (stats.data.guestTeamSB != null && stats.data.guestTeamSB.splits != null && stats.data.guestTeamSB.splits.Count > 0)
+                umpireRowFour.col8 = stats.data.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();             
             else
                 umpireRowFour.col8 = "~";
             
@@ -313,8 +305,8 @@ namespace frmScoreCard
 
             tableRow buschRowOne = new tableRow();
             
-            if (stats.venue != null && stats.venue.dates != null)
-                buschRowOne.col1 = stats.venue.dates[0].games[0].venue.name;
+            if (stats.data.venue != null && stats.data.venue.dates != null)
+                buschRowOne.col1 = stats.data.venue.dates[0].games[0].venue.name;
             else
                 buschRowOne.col1 = "~~~~";
 
@@ -326,32 +318,32 @@ namespace frmScoreCard
 
             DataGridBuschStadium.Items.Add(buschRowOne);
 
-            if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0)
+            if (stats.data.stadium != null && stats.data.stadium.splits != null && stats.data.stadium.splits.Count() > 0)
             {
-                for (int i = 0; i < stats.stadium.splits.Count(); i++)
+                for (int i = 0; i < stats.data.stadium.splits.Count(); i++)
                 {
                     tableRow buschRow = new tableRow();
-                    if (stats.stadium.splits[i].pitchType != null && stats.stadium.splits[i].pitchType.code != null)
-                        buschRow.col1 = stats.stadium.splits[i].pitchType.code.ToString();
+                    if (stats.data.stadium.splits[i].pitchType != null && stats.data.stadium.splits[i].pitchType.code != null)
+                        buschRow.col1 = stats.data.stadium.splits[i].pitchType.code.ToString();
                     else
                         buschRow.col1 = "~";
                     
                     buschRow.col2 = " ";                                           // Blank column(Mike requested) 
                     
-                    if (stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed != null && stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue != null)
-                        buschRow.col3 = stats.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
+                    if (stats.data.stadium.splits[i].stats.pitching.tracking.releaseSpeed != null && stats.data.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue != null)
+                        buschRow.col3 = stats.data.stadium.splits[i].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
                     else
                         buschRow.col3 = "~";
 
                     buschRow.col4 = " ";                                           // Blank column(Mike requested)
                     
-                    if (stats.stadium.splits[i].stats.pitching.standard.avg != null)
-                        buschRow.col5 = stats.stadium.splits[i].stats.pitching.standard.avg.ToString();
+                    if (stats.data.stadium.splits[i].stats.pitching.standard.avg != null)
+                        buschRow.col5 = stats.data.stadium.splits[i].stats.pitching.standard.avg.ToString();
                     else
                         buschRow.col5 = "~";
 
-                    if (stats.stadium.splits[i].stats.pitching.standard.ops != null)
-                        buschRow.col6 = stats.stadium.splits[i].stats.pitching.standard.ops.ToString();
+                    if (stats.data.stadium.splits[i].stats.pitching.standard.ops != null)
+                        buschRow.col6 = stats.data.stadium.splits[i].stats.pitching.standard.ops.ToString();
                     else
                         buschRow.col6 = "~";
 
@@ -381,19 +373,19 @@ namespace frmScoreCard
             //  COACHES TABLE
             //*****************************************************************************************************           
             
-            if (stats.homeTeamCoaches != null && stats.homeTeamCoaches.roster != null && stats.homeTeamCoaches.roster.Count() > 0)
+            if (stats.data.homeTeamCoaches != null && stats.data.homeTeamCoaches.roster != null && stats.data.homeTeamCoaches.roster.Count() > 0)
             {
-                for (int i = 0; i < stats.homeTeamCoaches.roster.Count(); i++)
+                for (int i = 0; i < stats.data.homeTeamCoaches.roster.Count(); i++)
                 {
                     tableRow coachRow = new tableRow();
                     
-                    if (stats.homeTeamCoaches.roster[i].job != null)
-                        coachRow.col1 = stats.homeTeamCoaches.roster[i].job.ToString();
+                    if (stats.data.homeTeamCoaches.roster[i].job != null)
+                        coachRow.col1 = stats.data.homeTeamCoaches.roster[i].job.ToString();
                     else
                         coachRow.col1 = "~";
 
-                    if (stats.homeTeamCoaches.roster[i].person.fullName != null)
-                        coachRow.col2 = stats.homeTeamCoaches.roster[i].person.fullName.ToString();
+                    if (stats.data.homeTeamCoaches.roster[i].person.fullName != null)
+                        coachRow.col2 = stats.data.homeTeamCoaches.roster[i].person.fullName.ToString();
                     else
                         coachRow.col2 = "~";
 
@@ -407,8 +399,8 @@ namespace frmScoreCard
                         
             tableRow scoreRowOne = new tableRow();
             
-            if(stats.homeTeamName != null)
-                scoreRowOne.col1 = stats.homeTeamName;
+            if(stats.data.homeTeamName != null)
+                scoreRowOne.col1 = stats.data.homeTeamName;
             else 
                 scoreRowOne.col1 = " ";
             
@@ -433,8 +425,8 @@ namespace frmScoreCard
 
             tableRow scoreRowTwo = new tableRow();
 
-            if (stats.guestTeamName != null)
-                scoreRowTwo.col1 = stats.guestTeamName;
+            if (stats.data.guestTeamName != null)
+                scoreRowTwo.col1 = stats.data.guestTeamName;
             else 
                 scoreRowTwo.col1 = " ";
             

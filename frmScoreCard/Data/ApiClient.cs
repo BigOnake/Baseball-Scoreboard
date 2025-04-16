@@ -1,15 +1,18 @@
 ﻿using System.Drawing.Imaging;
 using System.Globalization;
+using System.IO;
 using System.Net;
+using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows;
 
-namespace BaseballScoreboard.Data
+namespace frmScoreCard.Data
 {
     internal class ApiClient
     {
@@ -30,7 +33,7 @@ namespace BaseballScoreboard.Data
         {
             string REQUEST_URL = "https://statsapi.mlb.com/api/v1/authentication/okta/token";
 
-            string[] FILE_INFO = readFile("BaseballScoreboard.Resources.config.txt").Split('\n');
+            string[] FILE_INFO = readFile("frmScoreCard.Resources.config.txt").Split('\n');
 
             HttpClient client = new HttpClient();
             string encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes($"{FILE_INFO[0].Trim()}:{FILE_INFO[1].Trim()}"));
@@ -50,7 +53,7 @@ namespace BaseballScoreboard.Data
             }
             else
             {
-                MessageBox.Show("ERROR - Could not fetch Refresh Token.");
+                System.Windows.MessageBox.Show("ERROR - Could not fetch Refresh Token.");
                 return "";
             }
         }
@@ -76,7 +79,7 @@ namespace BaseballScoreboard.Data
             }
             else
             {
-                MessageBox.Show("ERROR - Could not fetch Access Token.");
+                System.Windows.MessageBox.Show("ERROR - Could not fetch Access Token.");
                 return "";
             }
         }
@@ -185,7 +188,7 @@ namespace BaseballScoreboard.Data
             }
             catch
             {
-                MessageBox.Show("No games today.", "ERROR");
+                System.Windows.MessageBox.Show("No games today.", "ERROR");
             }
 
             return gameId;

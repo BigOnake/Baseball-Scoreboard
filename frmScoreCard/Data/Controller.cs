@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace BaseballScoreboard.Data
+namespace frmScoreCard.Data
 {
     static internal class Controller
     {

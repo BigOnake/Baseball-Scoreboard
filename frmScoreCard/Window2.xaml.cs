@@ -1,19 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
+using System;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using System.Xaml;
+
 using frmScoreCard.Data;
 
 namespace frmScoreCard
@@ -23,14 +12,14 @@ namespace frmScoreCard
     /// </summary>
     public partial class Window2 : Window
     {
-        private Master stats;
+        private Storage stats;
         public Window2(string json)
         {
             InitializeComponent();
 
             if (!string.IsNullOrEmpty(json))
             {
-                stats = JsonSerializer.Deserialize<Master>(json);
+                stats = JsonSerializer.Deserialize<Storage>(json);
             }
 
             //HandType.Hand = false;
@@ -43,7 +32,7 @@ namespace frmScoreCard
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
         {                       
-            Title.Text = "St. Louis Cardinals";            
+            Blob.Text = "St. Louis Cardinals";            
         }
 
         private void venueTable()                                                // Data for Venue Table

@@ -1,22 +1,21 @@
-﻿using frmScoreCard.Data;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.DirectoryServices;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Policy;
 using System.Text.Json;
 
-namespace BaseballScoreboard.Data
+namespace frmScoreCard.Data
 {
-    internal class Storage
+    public class Storage
     {
-        private Teams teams;
-        private int gamePk;
+        public Teams teams;
+        public int gamePk;
 
-        private Roster homeTeamRoster;
-        private Roster guestTeamRoster;
+        public Roster homeTeamRoster;
+        public Roster guestTeamRoster;
 
-        private Master data;
+        public Master data;
         
 
         public Storage()
@@ -273,12 +272,12 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class Teams
+    public class Teams
     {
         public List<Team>? teams { get; set; }
     }
 
-    internal class Team
+    public class Team
     {
         public int? id { get; set; }
 
@@ -295,12 +294,12 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class Roster
+    public class Roster
     {
         public List<PlayerInfo>? roster { get; set; }
     }
 
-    internal class PlayerInfo
+    public class PlayerInfo
     {
         public Person? person { get; set; }
         public string? jerseyNumber { get; set; }
@@ -317,14 +316,14 @@ namespace BaseballScoreboard.Data
         }
     }
 
-    internal class Person
+    public class Person
     {
         public int? id { get; set; }
         public string? fullName { get; set; }
         public string? link { get; set; }
     }
 
-    internal class Position
+    public class Position
     {
         public string? code { get; set; }
         public string? name { get; set; }
@@ -332,7 +331,7 @@ namespace BaseballScoreboard.Data
         public string? abbreviation { get; set; }
     }
 
-    internal class Status
+    public class Status
     {
         public string? code { get; set; }
         public string? description { get; set; }
@@ -340,17 +339,17 @@ namespace BaseballScoreboard.Data
 
     /****************************************/
 
-    internal class Game
+    public class Game
         {
             public List<Dates>? dates { get; set; }
         }
 
-    internal class Dates
+    public class Dates
     {
         public List<Games>? games { get; set; }
     }
 
-    internal class Games
+    public class Games
     {
         public int? gamePk { get; set; }
         public string? gameDate { get; set; }
