@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
@@ -31,6 +32,9 @@ namespace frmScoreCard
             {
                 stats = JsonSerializer.Deserialize<Master>(json);
             }
+
+            //HandType.Hand = false;
+            //HandType.Instance.Hand = true;
 
             scoreCardTitle();
             venueTable();
@@ -107,6 +111,50 @@ namespace frmScoreCard
             }
         }
 
+        
 
+        // Trying to figure out a way on how to change color based on left,right,switch hand
+        /*
+        private void playerHand(string stat)
+        {            
+            if (stat == "left")
+                HandType.Hand = true;
+            else if (stat == "rightHand")
+                HandType.Hand = false;
+        }
+        */
     }
+    
+    /*
+    public static class HandType
+    {
+        public static bool Hand { get; set; } = false; 
+    }
+    
+
+    public static class HandType
+    {
+        public static HandTypeNotifier Instance { get; } = new HandTypeNotifier();
+    }
+
+    public class HandTypeNotifier : INotifyPropertyChanged
+    {
+        private bool _hand;
+        public bool Hand
+        {
+            get => _hand;
+            set
+            {
+                if (_hand != value)
+                {
+                    _hand = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Hand)));
+                }
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+    }
+
+    */
 }
