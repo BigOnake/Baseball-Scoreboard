@@ -102,34 +102,49 @@ namespace frmScoreCard
         }
 
         private void hitterTable()
-        {
-            // Loop to populate player names and positions, skipping first child
+        {         
+            // Loop to populate player names and positions, skipping first row
             for (int i = 1; i < HitterGrid.Children.Count; i++)
             {
-                // Each child is a row
+                // Each child is a row 
                 if (HitterGrid.Children[i] is Grid rowGrid)
                 {
-                    // Loop through the rows in HitterGrid
-                    for (int j = 0; j < rowGrid.Children.Count; j+=2)
+                    // Loop through the rows 1,3,5,7,9,11,13,15,17  in HitterGrid
+                    for (int j = 0; j < rowGrid.Children.Count; j += 2)
                     {
-                        // Each child is a column
-                        if (rowGrid.Children[j] is Grid columnGrid)
+                        // First child(column 1), Player Name
+                        if (rowGrid.Children[0] is Grid columnGrid1)
                         {
-                            // Loop through first and second column
-                            for (int k = 0; k < 2; k++)
+                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
+                            // Border is a second child therefore index is only set to 0.
+                            if (columnGrid1.Children[0] is Viewbox viewbox)
                             {
-                                if (columnGrid.Children[k] is Viewbox viewBox)
+                                if (viewbox.Child is TextBlock textBlock)
                                 {
-                                    if (viewBox.Child is TextBlock textBlock)
-                                    {
-                                        textBlock.Text = "AA";
-                                    }
+                                    textBlock.Text = "X-PLAYER NAME";                                // Player Names and Numbers
                                 }
                             }
                         }
+
+                        // Second child(column 2), Player Position
+                        if (rowGrid.Children[1] is Grid columnGrid2)
+                        {
+                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
+                            // Border is a second child therefore index is only set to 0.
+                            if (columnGrid2.Children[0] is Viewbox viewbox)
+                            {
+                                if (viewbox.Child is TextBlock textBlock)
+                                {
+                                    textBlock.Text = "X";                                            // Player Positions
+                                }
+                            }
+                        }
+
+
                     }
                 }
             }
+             
         }
 
         // Trying to figure out a way on how to change color based on left,right,switch hand
