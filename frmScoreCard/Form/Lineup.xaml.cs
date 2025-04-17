@@ -230,12 +230,11 @@ namespace frmScoreCard.Form
         private void btnScorecard_Click(object sender, RoutedEventArgs e)
         {
             string json = JsonSerializer.Serialize(Controller.GetMaster());
-            //MessageBox.Show(json);
+            MessageBox.Show(json);
 
             //var wpfWindow = new frmScoreCard.MainWindow(json);
 
-            var wpfWindow2 = new frmScoreCard.Window2(json);
-
+            var wpfWindow2 = new frmScoreCard.Window2();
             wpfWindow2.Show();
         }
     }

@@ -39,6 +39,28 @@ namespace frmScoreCard.Data
             teams = t;
         }
 
+        public string GetPosition(string teamType, int playerId)
+        {
+            if (teamType == "home")
+            {
+                foreach (PlayerInfo pi in homeTeamRoster.roster)
+                {
+                    if (pi.person.id == playerId)
+                        return pi.position.abbreviation;
+                }
+            }
+            else
+            {
+                foreach (PlayerInfo pi in guestTeamRoster.roster)
+                {
+                    if (pi.person.id == playerId)
+                        return pi.position.abbreviation;
+                }
+            }
+
+            return "";
+        }
+
         public int GetTeamId(string teamName)
         {
             int teamId = -1;

@@ -12,15 +12,13 @@ namespace frmScoreCard
     /// </summary>
     public partial class Window2 : Window
     {
-        private Storage stats;
-        public Window2(string json)
+        public Master stats;
+
+        public Window2()
         {
             InitializeComponent();
 
-            if (!string.IsNullOrEmpty(json))
-            {
-                stats = JsonSerializer.Deserialize<Storage>(json);
-            }
+            stats = Controller.GetMaster();
 
             //HandType.Hand = false;
             //HandType.Instance.Hand = true;
@@ -102,93 +100,46 @@ namespace frmScoreCard
         }
 
         private void hitterTable()
-        {         
-            // Loop to populate player names and positions, skipping first row
+        {
+            if (stats?.homeTeamSelectedPlayers == null || stats.homeTeamSelectedPlayers.Count == 0)
+                return;
+
+            var players = stats.homeTeamSelectedPlayers.Values.ToList();
+            int idx = 0;
+
             for (int i = 1; i < HitterGrid.Children.Count; i++)
             {
-                // Each child is a row 
+                if (idx >= players.Count)
+                    return;
+
+                MessageBox.Show(players[idx].name);
+                MessageBox.Show(players[idx].position);
+
                 if (HitterGrid.Children[i] is Grid rowGrid)
                 {
-                    // Loop through the rows 1,3,5,7,9,11,13,15,17  in HitterGrid
-                    for (int j = 0; j < rowGrid.Children.Count; j += 2)
+                    if (rowGrid.Children[0] is Grid columnGrid1 && columnGrid1.Children[0] is Viewbox viewbox
+                        && viewbox.Child is TextBlock textBlock)
                     {
-                        // First child(column 1), Player Name
-                        if (rowGrid.Children[0] is Grid columnGrid1)
-                        {
-                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
-                            // Border is a second child therefore index is only set to 0.
-                            if (columnGrid1.Children[0] is Viewbox viewbox)
-                            {
-                                if (viewbox.Child is TextBlock textBlock)
-                                {
-                                    textBlock.Text = "X-PLAYER NAME";                                // Player Names and Numbers
-                                }
-                            }
-                        }
+                        if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Left")
+                            textBlock.Foreground = System.Windows.Media.Brushes.Red;
+                        else if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Right")
+                            textBlock.Foreground = System.Windows.Media.Brushes.Blue;
+                        else
+                            textBlock.Foreground = System.Windows.Media.Brushes.Black;
 
-                        // Second child(column 2), Player Position
-                        if (rowGrid.Children[1] is Grid columnGrid2)
-                        {
-                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
-                            // Border is a second child therefore index is only set to 0.
-                            if (columnGrid2.Children[0] is Viewbox viewbox)
-                            {
-                                if (viewbox.Child is TextBlock textBlock)
-                                {
-                                    textBlock.Text = "X";                                            // Player Positions
-                                }
-                            }
-                        }
+                        textBlock.Text = players[idx].name;
+                    }
 
-
+                    if (rowGrid.Children[1] is Grid columnGrid2 && columnGrid2.Children[0] is Viewbox viewbox2
+                        && viewbox2.Child is TextBlock textBlock2)
+                    {
+                            textBlock2.Text = players[idx].position;
                     }
                 }
+
+                idx++;
             }
              
         }
-
-        // Trying to figure out a way on how to change color based on left,right,switch hand
-        /*
-        private void playerHand(string stat)
-        {            
-            if (stat == "left")
-                HandType.Hand = true;
-            else if (stat == "rightHand")
-                HandType.Hand = false;
-        }
-        */
     }
-    
-    /*
-    public static class HandType
-    {
-        public static bool Hand { get; set; } = false; 
-    }
-    
-
-    public static class HandType
-    {
-        public static HandTypeNotifier Instance { get; } = new HandTypeNotifier();
-    }
-
-    public class HandTypeNotifier : INotifyPropertyChanged
-    {
-        private bool _hand;
-        public bool Hand
-        {
-            get => _hand;
-            set
-            {
-                if (_hand != value)
-                {
-                    _hand = value;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(Hand)));
-                }
-            }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-    }
-
-    */
 }

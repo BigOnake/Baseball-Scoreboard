@@ -101,7 +101,7 @@ namespace frmScoreCard.Data
             int playerId = GetPlayerId(teamType, playerName);
 
             info.name = playerName;
-            info.position = GetRoster(teamType).roster[0].position.abbreviation;
+            info.position = GetPosition(teamType, playerId);
             info.sides = GetSide(playerId);
             info.fp = await GetFirstPitch(playerId);
             info.risp = await GetRISP(playerId);
@@ -114,6 +114,11 @@ namespace frmScoreCard.Data
             info.pitchTypes = await GetPitchTypes(playerId);
 
             storage.AddSelectedPlayer(teamType, playerId, info);
+        }
+
+        static public string GetPosition(string teamType, int playerId)
+        {
+            return storage.GetPosition(teamType, playerId);
         }
 
         static public Side GetSide(int playerId)
