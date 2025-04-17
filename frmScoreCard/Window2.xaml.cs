@@ -148,18 +148,149 @@ namespace frmScoreCard
                 // 1stP, RISP, RISP2o, vsLH, vsRH, 7+.
                 if (HitterGrid.Children[j] is Grid rowGrid2)
                 {
-                    // Why k is 0? Because 0 is not the first column, it is the first DEFINED column 
-                    for (int k = 0; k < rowGrid2.Children.Count; k++)
+                    // 1stP
+                    if (players[idx]?.fp?.splits != null && players[idx].fp.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[k] is Grid columnGrid3)
+                        if (rowGrid2.Children[0] is Grid columnGrid1stP)
                         {
-                            for (int y = 1; y < columnGrid3.Children.Count; y++)
+                            if (columnGrid1stP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
                             {
-                                if (columnGrid3.Children[y] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
-                                    && viewbox3.Child is TextBlock textBlock3)
-                                {
-                                    textBlock3.Text = "a";
-                                }    
+                                textBlock3.Text = players[idx].fp.splits[0].stats?.hitting?.tracking?.hitProbability?.averageValue.ToString();                 
+                            }
+                            if (columnGrid1stP.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].fp.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGrid1stP.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
+                                && viewbox5.Child is TextBlock textBlock5)
+                            {
+                                textBlock5.Text = players[idx].fp.splits[0].stats?.hitting?.standard?.ops;
+                            }
+                        }
+                    }
+
+                    // RISP
+                    if (players[idx]?.risp?.splits != null && players[idx].risp.splits.Count > 0)
+                    {
+                        if (rowGrid2.Children[1] is Grid columnGridRISP)
+                        {
+                            if (columnGridRISP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
+                            {
+                                textBlock3.Text = $"{players[idx].risp.splits[0].stats?.hitting?.standard?.hits}-" +
+                                    $"{players[idx].risp.splits[0].stats?.hitting?.standard?.atBats}";
+                            }
+                            if (columnGridRISP.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].risp.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGridRISP.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
+                                && viewbox5.Child is TextBlock textBlock5)
+                            {
+                                textBlock5.Text = players[idx].risp.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                            }
+                        }
+                    }
+
+                    // RISP2o
+                    if (players[idx]?.risp2o?.splits != null && players[idx].risp2o.splits.Count > 0)
+                    {
+                        if (rowGrid2.Children[2] is Grid columnGridRISP2o)
+                        {
+                            if (columnGridRISP2o.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
+                            {
+                                textBlock3.Text = $"{players[idx].risp2o.splits[0].stats?.hitting?.standard?.hits}-" +
+                                    $"{players[idx].risp2o.splits[0].stats?.hitting?.standard?.atBats}";
+                            }
+                            if (columnGridRISP2o.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].risp2o.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGridRISP2o.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
+                                && viewbox5.Child is TextBlock textBlock5)
+                            {
+                                textBlock5.Text = players[idx].risp2o.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                            }
+                        }
+                    }
+
+                    // vsLH
+                    if (players[idx]?.vsLeft?.splits != null && players[idx].vsLeft.splits.Count > 0)
+                    {
+                        if (rowGrid2.Children[3] is Grid columnGridvsLH)
+                        {
+                            if (columnGridvsLH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
+                            {
+                                textBlock3.Text = $"{players[idx].vsLeft.splits[0].stats?.hitting?.standard?.hits}-" +
+                                    $"{players[idx].vsLeft.splits[0].stats?.hitting?.standard?.atBats}";
+                            }
+                            if (columnGridvsLH.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                            }
+                            if (columnGridvsLH.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
+                                && viewbox5.Child is TextBlock textBlock5)
+                            {
+                                textBlock5.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGridvsLH.Children[4] is Grid columnGrid7 && columnGrid7.Children[0] is Viewbox viewbox6
+                                && viewbox6.Child is TextBlock textBlock6)
+                            {
+                                textBlock6.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.ops;
+                            }
+                        }
+                    }
+
+                    // vsRH
+                    if (players[idx]?.vsRight?.splits != null && players[idx].vsRight.splits.Count > 0)
+                    {
+                        if (rowGrid2.Children[4] is Grid columnGridvsRH)
+                        {
+                            if (columnGridvsRH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
+                            {
+                                textBlock3.Text = $"{players[idx].vsRight.splits[0].stats?.hitting?.standard?.hits}-" +
+                                    $"{players[idx].vsRight.splits[0].stats?.hitting?.standard?.atBats}";
+                            }
+                            if (columnGridvsRH.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                            }
+                            if (columnGridvsRH.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
+                                && viewbox5.Child is TextBlock textBlock5)
+                            {
+                                textBlock5.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGridvsRH.Children[4] is Grid columnGrid7 && columnGrid7.Children[0] is Viewbox viewbox6
+                                && viewbox6.Child is TextBlock textBlock6)
+                            {
+                                textBlock6.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.ops;
+                            }
+                        }
+                    }
+
+                    // 7+
+                    if (players[idx]?.plus7?.splits != null && players[idx].plus7.splits.Count > 0)
+                    {
+                        if (rowGrid2.Children[5] is Grid columnGridvs7Plus)
+                        {
+                            if (columnGridvs7Plus.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
+                                && viewbox3.Child is TextBlock textBlock3)
+                            {
+                                textBlock3.Text = players[idx].plus7.splits[0].stats?.hitting?.standard?.avg;
+                            }
+                            if (columnGridvs7Plus.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
+                                && viewbox4.Child is TextBlock textBlock4)
+                            {
+                                textBlock4.Text = players[idx].plus7.splits[0].stats?.hitting?.standard?.ops;
                             }
                         }
                     }
