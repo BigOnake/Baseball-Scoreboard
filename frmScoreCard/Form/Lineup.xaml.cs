@@ -104,12 +104,14 @@ namespace frmScoreCard.Form
 
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            AddPlayer(cBoxHomePlayers, "home");
+            if (Controller.GetMaster().homeTeamSelectedPlayers.Count != 9)
+                AddPlayer(cBoxHomePlayers, "home");
         }
 
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            AddPlayer(cBoxGuestPlayers, "guest");
+            if (Controller.GetMaster().guestTeamSelectedPlayers.Count != 9)
+                AddPlayer(cBoxGuestPlayers, "guest");
         }
 
         private void AddPlayer(ComboBox source, string teamType)
