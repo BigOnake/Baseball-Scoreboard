@@ -347,10 +347,6 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -361,10 +357,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -402,10 +395,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -416,10 +406,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -457,10 +444,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -471,10 +455,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -512,10 +493,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -526,10 +504,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -567,10 +542,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -581,10 +553,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                                <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
-                            </Viewbox>
-
+                            
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">

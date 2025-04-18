@@ -31,41 +31,58 @@ namespace frmScoreCard
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
         {                       
-            Blob.Text = "St. Louis Cardinals";            
+            Blob.Text = stats.homeTeamName;            
         }
 
         private void venueTable()                                                // Data for Venue Table
         {
-            VenueName.Text = "Busch Stadium";
-            GameDate.Text = "1/10/2025";
+            if (stats.venue != null && stats.venue.dates != null)
+            { 
+                VenueName.Text = stats.venue.dates[0].games[0].venue.name;
+                GameDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+            }
+
+            int idx = 0;
 
             // Loop through each child of the main VenueGrid (skipping first row)
             for (int i = 1; i < VenueGrid.Children.Count; i++)   
             {
-                // Each child is a Grid.Row placed in a Grid
-                if (VenueGrid.Children[i] is Grid rowGrid)
-                {
-                    for (int j = 0; j < rowGrid.Children.Count; j++)
+                // Null check for standard and tracking is added too, because 
+                // some stadium have null values in those for some reason. Just to be safe.
+                if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0  
+                    && stats.stadium.splits[idx].stats.pitching.standard != null 
+                    && stats.stadium.splits[idx].stats.pitching.tracking != null)
+                { 
+                    // Pitch Type
+                    if (VenueGrid.Children[i] is Grid rowGrid1 && rowGrid1.Children[0] is Grid columnGridPT
+                        && columnGridPT.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textblockPT)
                     {
-                        if (rowGrid.Children[j] is Grid columnGrid)
-                        {
-                            // Loop through the children of that column Grid
-                            foreach (var element in columnGrid.Children)
-                            {
-                                // Look for the Viewbox inside
-                                if (element is Viewbox viewbox)
-                                {
-                                    // Inside the Viewbox is the actual TextBlock
-                                    if (viewbox.Child is TextBlock textBlock)
-                                    {
-                                        // Assign stats here
-                                        textBlock.Text = "XX";
-                                    }
-                                }
-                            }
-                        }
+                        textblockPT.Text = stats.stadium.splits[idx].pitchType.code.ToString();
+                    }
+
+                    // Velocity
+                    if (VenueGrid.Children[i] is Grid rowGrid2 && rowGrid2.Children[2] is Grid columnGrid
+                        && columnGrid.Children[0] is Viewbox viewbox && viewbox.Child is TextBlock textblock)
+                    {
+                        textblock.Text = stats.stadium.splits[idx].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
+                    }
+
+                    // Batting avg
+                    if (VenueGrid.Children[i] is Grid rowGrid3 && rowGrid3.Children[4] is Grid columnGridAvg
+                        && columnGridAvg.Children[0] is Viewbox viewboxAvg && viewboxAvg.Child is TextBlock textblockAvg)
+                    {
+                        textblockAvg.Text = stats.stadium.splits[idx].stats.pitching.standard.avg.ToString();
+                    }
+
+                    // Ops
+                    if (VenueGrid.Children[i] is Grid rowGrid4 && rowGrid4.Children[5] is Grid columnGridOps
+                        && columnGridOps.Children[0] is Viewbox viewboxOps && viewboxOps.Child is TextBlock textblockOps)
+                    {
+                        textblockOps.Text = stats.stadium.splits[idx].stats.pitching.standard.ops.ToString();
                     }
                 }
+
+                idx++;
             }
         }
 
@@ -109,7 +126,7 @@ namespace frmScoreCard
 
             MessageBox.Show(players.Count.ToString());
 
-            // 1,3,5,7,9,11,13,15,17. (hidden 9 player check is here)
+            // 1,3,5,7,9,11,13,15,17
             for (int i = 1; i < HitterGrid.Children.Count; i += 2)
             {
                 // 2,4,6,8,10,12,14,16,18
@@ -145,6 +162,7 @@ namespace frmScoreCard
                         textBlockPos.Text = players[idx].position;
                     }
 
+                    // Stats
                     if (players[idx]?.hitterStats?.splits != null && players[idx].hitterStats.splits.Count > 0)
                     {
 
