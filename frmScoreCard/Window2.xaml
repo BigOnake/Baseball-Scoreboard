@@ -61,7 +61,7 @@
         <!-- Title for ScoreCard -->
         <Grid Grid.Row="0">
             <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
-                <TextBlock x:Name ="Blob" Text="Title" Style="{StaticResource TextStyle}"/>
+                <TextBlock x:Name = "Blob" Text="Title" Style="{StaticResource TextStyle}"/>
             </Viewbox>
 
             <Border Style="{StaticResource BorderStyle}"/>
@@ -587,7 +587,7 @@
                     </Grid.RowDefinitions>
                     
                     <!-- Bench Title -->
-                    <Grid Grid.Row="0">
+                    <Grid Grid.Row="0" Background="LightGray">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
                             <TextBlock x:Name ="BenchName" Text="BENCH" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
@@ -988,7 +988,7 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
-                <Grid Grid.Column="14" ShowGridLines="True">
+                <Grid Grid.Column="14" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1011,7 +1011,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="15" ShowGridLines="True">
+                <Grid Grid.Column="15" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1034,7 +1034,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="16" ShowGridLines="True">
+                <Grid Grid.Column="16" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1057,7 +1057,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="17" ShowGridLines="True">
+                <Grid Grid.Column="17" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1080,7 +1080,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="18" ShowGridLines="True">
+                <Grid Grid.Column="18" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -1103,7 +1103,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="19" ShowGridLines="True">
+                <Grid Grid.Column="19" Background="LightGray" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -5333,7 +5333,7 @@
                     </Grid.ColumnDefinitions>
                     
                     <!-- Umpire Type -->
-                    <Grid Grid.Column="0">
+                    <Grid Grid.Column="0" Background="LightGray">
                         <Viewbox Stretch="Uniform">
                             <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
@@ -5351,7 +5351,7 @@
                     </Grid>
                 </Grid>
 
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Background="LightGray">
                     <Viewbox Stretch="Uniform">
                         <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
@@ -5401,7 +5401,7 @@
 
                 <Grid Grid.Column="12"/>
 
-                <Grid Grid.Column="13">
+                <Grid Grid.Column="13" Background="LightGray">
                     <Viewbox Stretch="Uniform">
                         <TextBlock Text="Home Total" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
@@ -5445,7 +5445,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Umpire Type -->
-                    <Grid Grid.Column="0">
+                    <Grid Grid.Column="0" Background="LightGray">
                         <Viewbox Stretch="Uniform">
                             <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
@@ -5464,9 +5464,9 @@
                     
                 </Grid>
 
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Background="LightGray">
                     <Viewbox Stretch="Uniform">
-                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="H" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5555,7 +5555,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Umpire Type -->
-                    <Grid Grid.Column="0">
+                    <Grid Grid.Column="0" Background="LightGray">
                         <Viewbox Stretch="Uniform">
                             <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
@@ -5574,9 +5574,9 @@
                     
                 </Grid>
 
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Background="LightGray">
                     <Viewbox Stretch="Uniform">
-                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="E" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5624,7 +5624,7 @@
 
                 <Grid Grid.Column="12"/>
 
-                <Grid Grid.Column="13">
+                <Grid Grid.Column="13" Background="LightGray">
                     <Viewbox Stretch="Uniform">
                         <TextBlock Text="Opp Total" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
@@ -5668,7 +5668,7 @@
                     </Grid.ColumnDefinitions>
 
                     <!-- Umpire Type -->
-                    <Grid Grid.Column="0">
+                    <Grid Grid.Column="0" Background="LightGray">
                         <Viewbox Stretch="Uniform">
                             <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
@@ -5687,9 +5687,9 @@
                     
                 </Grid>
 
-                <Grid Grid.Column="1">
+                <Grid Grid.Column="1" Background="LightGray">
                     <Viewbox Stretch="Uniform">
-                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="LOB" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5762,6 +5762,7 @@
 
             <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -5778,12 +5779,141 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.715*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="1" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="1" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="2" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="3" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="4" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="5" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="6" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="7" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="8" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="9" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="10" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="11" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="12" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="H" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="15" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="E" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="16" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="LOB" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
             </Grid>
 
             <Grid Grid.Row="1" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -5800,12 +5930,22 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.715*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock x:Name = "HomeTeam" Text="Home Team" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
             </Grid>
 
             <Grid Grid.Row="2" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.75*"/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -5822,8 +5962,17 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.715*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" Background="LightGray">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock x:Name = "GuestTeam" Text="Guest Team" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
             </Grid>
         </Grid>
 

@@ -25,8 +25,8 @@ namespace frmScoreCard
             benchTable();
             hitterTable();
             umpsTeamsSBTable();
+            scoreTable();
 
-            // Umpire Obj; cout << obj prints Umpire Type
         }
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
@@ -173,7 +173,7 @@ namespace frmScoreCard
                         else
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
 
-                        textBlockPlayer.Text = players[idx].name;
+                        textBlockPlayer.Text = $"{players[idx].jerseyNumber}-{players[idx].name}";
                     }
 
                     // Position
@@ -443,7 +443,7 @@ namespace frmScoreCard
              
         }
 
-        private void umpsTeamsSBTable()
+        private void umpsTeamsSBTable()                                          // Data for Umpires  
         {
             // Populate Umpires
             if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
@@ -455,7 +455,8 @@ namespace frmScoreCard
                         if (columnGrid.Children[0] is Grid columnGridUmpType && columnGridUmpType.Children[0] is Viewbox viewboxUmpType
                             && viewboxUmpType.Child is TextBlock textBlockUmpType)
                         {
-                            textBlockUmpType.Text = stats.umps.officials[i].officialType;
+                            textBlockUmpType.Text = $"{stats.umps.officials[i].officialType[0]}" +
+                                $"{stats.umps.officials[i].officialType[stats.umps.officials[i].officialType.IndexOf(' ') + 1]}";
                         }
 
                         if (columnGrid.Children[1] is Grid columnGridUmpName && columnGridUmpName.Children[0] is Viewbox viewboxUmpName
@@ -514,5 +515,13 @@ namespace frmScoreCard
             }
         }
 
+        private void scoreTable()                                                // Data for Score Table
+        {
+            if (stats.homeTeamName != null)
+                HomeTeam.Text = stats.homeTeamName;
+
+            if (stats.guestTeamName != null)
+                GuestTeam.Text = stats.guestTeamName;
+        }                                                    
     }
 }
