@@ -20,9 +20,6 @@ namespace frmScoreCard
 
             stats = Controller.GetMaster();
 
-            //HandType.Hand = false;
-            //HandType.Instance.Hand = true;
-
             scoreCardTitle();
             venueTable();
             benchTable();
@@ -87,36 +84,57 @@ namespace frmScoreCard
         }
 
         private void benchTable()                                                // Data for Bench Table
-        {
-            // XX is a team name(title)
-            BenchName.Text = "XX BENCH";
+        {           
+            BenchName.Text = $"{stats.homeTeamName} BENCH";
+
+            int idx = 0;
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
                 if (BenchGrid.Children[i] is Grid rowGrid)
                 {
-                    for (int j = 0; j < rowGrid.Children.Count; j++)
+                    if (rowGrid.Children[0] is Grid columnGridNum && columnGridNum.Children[0] is Viewbox viewboxNum
+                        && viewboxNum.Child is TextBlock textBlockNum)
                     {
-                        if (rowGrid.Children[j] is Grid columnGrid)
-                        {
-                            foreach (var element in columnGrid.Children)
-                            {                               
-                                if (element is Viewbox viewbox)
-                                {                                   
-                                    if (viewbox.Child is TextBlock textBlock)
-                                    {
-                                        //Assign stats here
-                                        textBlock.Text = "XX";
-                                    }
-                                }
-                            }
-                        }
+                        textBlockNum.Text = "0";
+                    }
+
+                    if (rowGrid.Children[1] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
+                        && viewboxName.Child is TextBlock textBlockName)
+                    {
+                        textBlockName.Text = "Player";
+                    }
+
+                    if (rowGrid.Children[2] is Grid columnGridAvg && columnGridAvg.Children[0] is Viewbox viewboxAvg
+                        && viewboxAvg.Child is TextBlock textBlockAvg)
+                    {
+                        textBlockAvg.Text = "0";
+                    }
+
+                    if (rowGrid.Children[3] is Grid columnGridHR && columnGridHR.Children[0] is Viewbox viewboxHR
+                        && viewboxHR.Child is TextBlock textBlockHR)
+                    {
+                        textBlockHR.Text = "0";
+                    }
+
+                    if (rowGrid.Children[4] is Grid columnGridRbi && columnGridRbi.Children[0] is Viewbox viewboxRbi
+                        && viewboxRbi.Child is TextBlock textBlockRbi)
+                    {
+                        textBlockRbi.Text = "0";
+                    }
+
+                    if (rowGrid.Children[5] is Grid columnGridOps && columnGridOps.Children[0] is Viewbox viewboxOps
+                        && viewboxOps.Child is TextBlock textBlockOps)
+                    {
+                        textBlockOps.Text = "0";
                     }
                 }
+
+                idx++;
             }
         }
 
-        private void hitterTable()
+        private void hitterTable()                                               // Data for Hitter Table
         {
             if (stats?.homeTeamSelectedPlayers == null || stats.homeTeamSelectedPlayers.Count == 0)
                 return;
@@ -420,55 +438,9 @@ namespace frmScoreCard
                 idx++;
             }
              
-        }
+        }                          
 
-        /*
-        private void hitterTable()
-        {         
-            // Loop to populate player names and positions, skipping first row
-            for (int i = 1; i < HitterGrid.Children.Count; i++)
-            {
-                // Each child is a row 
-                if (HitterGrid.Children[i] is Grid rowGrid)
-                {
-                    // Loop through the rows 1,3,5,7,9,11,13,15,17  in HitterGrid
-                    for (int j = 0; j < rowGrid.Children.Count; j += 2)
-                    {
-                        // First child(column 1), Player Name
-                        if (rowGrid.Children[0] is Grid columnGrid1)
-                        {
-                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
-                            // Border is a second child therefore index is only set to 0.
-                            if (columnGrid1.Children[0] is Viewbox viewbox)
-                            {
-                                if (viewbox.Child is TextBlock textBlock)
-                                {
-                                    textBlock.Text = "X-PLAYER NAME";                                // Player Names and Numbers
-                                }
-                            }
-                        }
+        
 
-                        // Second child(column 2), Player Position
-                        if (rowGrid.Children[1] is Grid columnGrid2)
-                        {
-                            // Change the first child(Viewbox->Textblock) in column 1 and 2.
-                            // Border is a second child therefore index is only set to 0.
-                            if (columnGrid2.Children[0] is Viewbox viewbox)
-                            {
-                                if (viewbox.Child is TextBlock textBlock)
-                                {
-                                    textBlock.Text = "X";                                            // Player Positions
-                                }
-                            }
-                        }
-
-
-                    }
-                }
-            }
-             
-        }
-
-        */
     }
 }
