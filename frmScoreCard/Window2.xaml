@@ -882,10 +882,11 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
-                <!-- Column (1-13) have 'Padding = "5"' property that 
-                overwrites padding in the parent stylying method -->
-                
+                                
+                <Grid Grid.Column="0">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
                         <TextBlock Text="POS" Padding ="5" Style="{StaticResource TextStyle}"/>
@@ -971,6 +972,10 @@
                         <TextBlock Text="10" Padding ="5" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
 
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
@@ -1161,7 +1166,55 @@
 
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
+
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
                 
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1317,8 +1370,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
-                
-                
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -1575,6 +1630,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1731,6 +1834,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -1986,6 +2093,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -2143,6 +2298,10 @@
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
@@ -2397,6 +2556,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -2553,6 +2760,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -2808,6 +3019,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -2964,6 +3223,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -3219,6 +3482,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -3376,6 +3687,10 @@
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
 
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
@@ -3630,6 +3945,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -3786,6 +4149,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -4041,6 +4408,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -4197,6 +4612,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
@@ -4452,6 +4871,54 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
                 <!-- AVG OPS -->
                 <Grid Grid.Column="14" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -4608,6 +5075,10 @@
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="0.5*"/>
                 </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" ShowGridLines="True">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
 
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">

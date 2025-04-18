@@ -167,7 +167,7 @@ namespace frmScoreCard
                     {
 
                         // AVG, OPS                   
-                        if (rowGrid.Children[2] is Grid columnGrid3)
+                        if (rowGrid.Children[14] is Grid columnGrid3)
                         {
                             if (columnGrid3.Children[0] is Grid rowGridAvg && rowGridAvg.Children[0] is Viewbox viewboxAvg
                                 && viewboxAvg.Child is TextBlock textBlockAvg)
@@ -183,7 +183,7 @@ namespace frmScoreCard
                         }
 
                         // K, BB
-                        if (rowGrid.Children[3] is Grid columnGrid4)
+                        if (rowGrid.Children[15] is Grid columnGrid4)
                         {
                             if (columnGrid4.Children[0] is Grid rowGridK && rowGridK.Children[0] is Viewbox viewboxK
                                 && viewboxK.Child is TextBlock textBlockK)
@@ -199,7 +199,7 @@ namespace frmScoreCard
                         }
 
                         // 2B, 3B
-                        if (rowGrid.Children[4] is Grid columnGrid5)
+                        if (rowGrid.Children[16] is Grid columnGrid5)
                         {
                             if (columnGrid5.Children[0] is Grid rowGrid2b && rowGrid2b.Children[0] is Viewbox viewbox2b
                                 && viewbox2b.Child is TextBlock textBlock2b)
@@ -215,7 +215,7 @@ namespace frmScoreCard
                         }
 
                         // HR, RBI
-                        if (rowGrid.Children[5] is Grid columnGrid6)
+                        if (rowGrid.Children[17] is Grid columnGrid6)
                         {
                             if (columnGrid6.Children[0] is Grid rowGridHr && rowGridHr.Children[0] is Viewbox viewboxHr
                                 && viewboxHr.Child is TextBlock textBlockHr)
@@ -231,7 +231,7 @@ namespace frmScoreCard
                         }
 
                         // Runs, BACON
-                        if (rowGrid.Children[6] is Grid columnGrid7)
+                        if (rowGrid.Children[18] is Grid columnGrid7)
                         {
                             if (columnGrid7.Children[0] is Grid rowGridRuns && rowGridRuns.Children[0] is Viewbox viewboxRuns
                                 && viewboxRuns.Child is TextBlock textBlockRuns)
@@ -247,7 +247,7 @@ namespace frmScoreCard
                         }
 
                         // SB-SBA, DP
-                        if (rowGrid.Children[7] is Grid columnGrid8)
+                        if (rowGrid.Children[19] is Grid columnGrid8)
                         {
                             if (columnGrid8.Children[0] is Grid rowGridSb && rowGridSb.Children[0] is Viewbox viewboxSb
                                 && viewboxSb.Child is TextBlock textBlockSb)
@@ -272,7 +272,7 @@ namespace frmScoreCard
                     // 1stP
                     if (players[idx]?.fp?.splits != null && players[idx].fp.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[0] is Grid columnGrid1stP)
+                        if (rowGrid2.Children[1] is Grid columnGrid1stP)
                         {
                             if (columnGrid1stP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
@@ -295,7 +295,7 @@ namespace frmScoreCard
                     // RISP
                     if (players[idx]?.risp?.splits != null && players[idx].risp.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[1] is Grid columnGridRISP)
+                        if (rowGrid2.Children[2] is Grid columnGridRISP)
                         {
                             if (columnGridRISP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
@@ -319,7 +319,7 @@ namespace frmScoreCard
                     // RISP2o
                     if (players[idx]?.risp2o?.splits != null && players[idx].risp2o.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[2] is Grid columnGridRISP2o)
+                        if (rowGrid2.Children[3] is Grid columnGridRISP2o)
                         {
                             if (columnGridRISP2o.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
@@ -343,7 +343,7 @@ namespace frmScoreCard
                     // vsLH
                     if (players[idx]?.vsLeft?.splits != null && players[idx].vsLeft.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[3] is Grid columnGridvsLH)
+                        if (rowGrid2.Children[4] is Grid columnGridvsLH)
                         {
                             if (columnGridvsLH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
@@ -372,7 +372,7 @@ namespace frmScoreCard
                     // vsRH
                     if (players[idx]?.vsRight?.splits != null && players[idx].vsRight.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[4] is Grid columnGridvsRH)
+                        if (rowGrid2.Children[5] is Grid columnGridvsRH)
                         {
                             if (columnGridvsRH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
@@ -401,7 +401,7 @@ namespace frmScoreCard
                     // 7+
                     if (players[idx]?.plus7?.splits != null && players[idx].plus7.splits.Count > 0)
                     {
-                        if (rowGrid2.Children[5] is Grid columnGridvs7Plus)
+                        if (rowGrid2.Children[6] is Grid columnGridvs7Plus)
                         {
                             if (columnGridvs7Plus.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
