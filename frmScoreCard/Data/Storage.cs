@@ -154,6 +154,36 @@ namespace frmScoreCard.Data
             return id;
         }
 
+        public string GetJerseyNumber(string teamType, int playerId)
+        {
+            string jerseyNum = "";
+
+            if (teamType == "home")
+            {
+                foreach (PlayerInfo p in homeTeamRoster.roster)
+                {
+                    if (p.person.id == playerId)
+                    {
+                        jerseyNum = p.jerseyNumber;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (PlayerInfo p in guestTeamRoster.roster)
+                {
+                    if (p.person.id == playerId)
+                    {
+                        jerseyNum = p.jerseyNumber;
+                        break;
+                    }
+                }
+            }
+
+            return jerseyNum;
+        }
+
         public void AddSelectedPlayer(string teamType, int playerId, PlayerStats p)
         {
             if (teamType == "home")
@@ -280,6 +310,7 @@ namespace frmScoreCard.Data
     {
         public string? name { get; set; }
         public string? position { get; set; }
+        public string? jerseyNumber { get; set; }
         public Side? sides { get; set; }
         public FirstPitch? fp { get; set; }
         public RISP? risp { get; set; }

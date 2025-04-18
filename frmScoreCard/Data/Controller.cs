@@ -102,6 +102,7 @@ namespace frmScoreCard.Data
 
             info.name = playerName;
             info.position = GetPosition(teamType, playerId);
+            info.jerseyNumber = GetJerseyNumber(teamType, playerId);
             info.sides = GetSide(playerId);
             info.fp = await GetFirstPitch(playerId);
             info.risp = await GetRISP(playerId);
@@ -114,6 +115,11 @@ namespace frmScoreCard.Data
             info.pitchTypes = await GetPitchTypes(playerId);
 
             storage.AddSelectedPlayer(teamType, playerId, info);
+        }
+
+        static public string GetJerseyNumber(string teamType, int playerId)
+        {
+            return storage.GetJerseyNumber(teamType, playerId);
         }
 
         static public string GetPosition(string teamType, int playerId)
