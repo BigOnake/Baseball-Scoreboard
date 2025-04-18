@@ -836,6 +836,7 @@
 
         <!-- Hitters -->
         <Grid x:Name ="HitterGrid" Grid.Row="2" ShowGridLines="True">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.5*"/>
                 <RowDefinition Height="1.75*"/>
@@ -857,7 +858,7 @@
                 <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-
+           
             <!-- First Row -->
             <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
@@ -882,7 +883,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                                
+
                 <Grid Grid.Column="0">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
@@ -1170,7 +1171,7 @@
                 <Grid Grid.Column="2">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <Grid Grid.Column="3">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
@@ -1238,7 +1239,7 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
-                
+
                 <!-- K BB -->
                 <Grid Grid.Column="15" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1262,7 +1263,7 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
-                
+
                 <!-- 2B 3B -->
                 <Grid Grid.Column="16" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1286,7 +1287,7 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
-                
+
                 <!-- HR RBI -->
                 <Grid Grid.Column="17" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1310,7 +1311,7 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
-                
+
                 <!-- Runs BACON -->
                 <Grid Grid.Column="18" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1334,7 +1335,7 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
-                
+
                 <!-- SB-SBA DP-->
                 <Grid Grid.Column="19" ShowGridLines="True">
                     <Grid.RowDefinitions>
@@ -1584,7 +1585,7 @@
                             <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
                     </Grid>
-                 
+
                 </Grid>
 
             </Grid>
@@ -2301,7 +2302,7 @@
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
@@ -3690,7 +3691,7 @@
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <!-- 1stP -->
                 <Grid Grid.Column="1" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
@@ -5292,10 +5293,11 @@
 
                 </Grid>
             </Grid>
+          
         </Grid>
 
         <!-- Umpires -->
-        <Grid Grid.Row="3" ShowGridLines="True">
+        <Grid x:Name ="UmpireGrid" Grid.Row="3" ShowGridLines="True">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -5306,153 +5308,447 @@
             <!-- Umpire 1 -->
             <Grid Grid.Row="0" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="0.525*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
                 </Grid.ColumnDefinitions>
-
+                
+                <!-- Umpire Name and Type -->
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
-
+                    
+                    <!-- Umpire Type -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name = "umpireOfficialType1" Text="P"/>
+                            <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Umpire Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name="umpireName1" Text="Umpire Name"/>
+                            <TextBlock Text="Umpire Name" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
                 </Grid>
+
+                <Grid Grid.Column="1">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12"/>
+
+                <Grid Grid.Column="13">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="Home Total" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
             </Grid>
 
             <!-- Umpire 2 -->
             <Grid Grid.Row="1" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="0.525*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Umpire Name and Type -->
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
 
+                    <!-- Umpire Type -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name = "umpireOfficialType2" Text="P"/>
+                            <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Umpire Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name="umpireName2" Text="Umpire Name"/>
+                            <TextBlock Text="Umpire Name" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+                    
                 </Grid>
+
+                <Grid Grid.Column="1">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12"/>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
             </Grid>
 
             <!-- Umpire 3 -->
             <Grid Grid.Row="2" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="0.525*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Umpire Name and Type -->
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
 
+                    <!-- Umpire Type -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name = "umpireOfficialType3" Text="P"/>
+                            <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Umpire Type -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name="umpireName3" Text="Umpire Name"/>
+                            <TextBlock Text="Umpire Name" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+                    
                 </Grid>
+
+                <Grid Grid.Column="1">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12"/>
+
+                <Grid Grid.Column="13">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="Opp Total" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
             </Grid>
 
             <!-- Umpire 4 -->
             <Grid Grid.Row="3" ShowGridLines="True">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="1.4*"/>
+                    <ColumnDefinition Width="0.525*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                    <ColumnDefinition Width="0.7*"/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Umpire Name and Type -->
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
 
+                    <!-- Umpire Type -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name = "umpireOfficialType4" Text="P"/>
+                            <TextBlock Text="P" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Umpire Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Name="umpireName4" Text="Umpire Name"/>
+                            <TextBlock Text="Umpire Name" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
+
+                        <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+                    
                 </Grid>
+
+                <Grid Grid.Column="1">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="2">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="3">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="4">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="5">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="6">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="7">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="8">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="9">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="10">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="11">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="12"/>
+
+                <Grid Grid.Column="13">
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+
+                <Grid Grid.Column="14">
+                    <Viewbox Stretch="Uniform">
+                        <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
+                    </Viewbox>
+                    
+                    <Border Style="{StaticResource BorderStyle}"/>
+                </Grid>
+                
             </Grid>
         </Grid>
         

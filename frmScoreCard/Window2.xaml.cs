@@ -24,6 +24,9 @@ namespace frmScoreCard
             venueTable();
             benchTable();
             hitterTable();
+            umpsTeamsSBTable();
+
+            // Umpire Obj; cout << obj prints Umpire Type
         }
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
@@ -85,7 +88,7 @@ namespace frmScoreCard
 
         private void benchTable()                                                // Data for Bench Table
         {           
-            BenchName.Text = $"{stats.homeTeamName} BENCH";
+            BenchName.Text = $"{stats.homeTeamName} Bench";
 
             int idx = 0;
 
@@ -438,9 +441,78 @@ namespace frmScoreCard
                 idx++;
             }
              
-        }                          
+        }
 
-        
+        private void umpsTeamsSBTable()
+        {
+            // Populate Umpires
+            if (stats.umps != null && stats.umps.officials != null && stats.umps.officials.Count > 0)
+            {
+                for (int i = 0; i < UmpireGrid.Children.Count; i++)
+                {
+                    if (UmpireGrid.Children[i] is Grid rowGrid && rowGrid.Children[0] is Grid columnGrid)
+                    {
+                        if (columnGrid.Children[0] is Grid columnGridUmpType && columnGridUmpType.Children[0] is Viewbox viewboxUmpType
+                            && viewboxUmpType.Child is TextBlock textBlockUmpType)
+                        {
+                            textBlockUmpType.Text = stats.umps.officials[i].officialType;
+                        }
+
+                        if (columnGrid.Children[1] is Grid columnGridUmpName && columnGridUmpName.Children[0] is Viewbox viewboxUmpName
+                            && viewboxUmpName.Child is TextBlock textBlockUmpName)
+                        {
+                            textBlockUmpName.Text = stats.umps.officials[i].official.fullName;
+                        }
+                    }
+                }
+            }
+
+            // Populate SB-SBA, DP stats for Home Team
+            if (stats.homeTeamSB != null && stats.homeTeamSB.splits != null && stats.homeTeamSB.splits.Count > 0)
+            { 
+                if (UmpireGrid.Children[0] is Grid rowGrid2 && rowGrid2.Children[14] is Grid columnGrid2)
+                {
+                    if (columnGrid2.Children[0] is Viewbox viewboxTeamStat
+                        && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
+                    {
+                        textBlockTeamStat.Text = $"{stats.homeTeamSB.splits[0].stats.hitting.standard.stolenBases}-" +
+                            $"{stats.homeTeamSB.splits[0].stats.hitting.standard.caughtStealing}";
+                    }                  
+                }
+
+                if (UmpireGrid.Children[1] is Grid rowGrid3 && rowGrid3.Children[14] is Grid columnGrid3)
+                {
+                    if (columnGrid3.Children[0] is Viewbox viewboxTeamStat
+                        && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
+                    {
+                        textBlockTeamStat.Text = stats.homeTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();
+                    }
+                }
+            }
+
+            // Populate SB-SBA, DP stats for Opponent Team
+            if (stats.guestTeamSB != null && stats.guestTeamSB.splits != null && stats.guestTeamSB.splits.Count > 0)
+            {
+                if (UmpireGrid.Children[2] is Grid rowGrid4 && rowGrid4.Children[14] is Grid columnGrid4)
+                {
+                    if (columnGrid4.Children[0] is Viewbox viewboxTeamStat
+                        && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
+                    {
+                        textBlockTeamStat.Text = $"{stats.guestTeamSB.splits[0].stats.hitting.standard.stolenBases}-" +
+                            $"{stats.guestTeamSB.splits[0].stats.hitting.standard.caughtStealing}";
+                    }
+                }
+
+                if (UmpireGrid.Children[3] is Grid rowGrid5 && rowGrid5.Children[14] is Grid columnGrid5)
+                {
+                    if (columnGrid5.Children[0] is Viewbox viewboxTeamStat
+                        && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
+                    {
+                        textBlockTeamStat.Text = stats.guestTeamSB.splits[0].stats.hitting.standard.groundIntoDoublePlay.ToString();
+                    }
+                }
+            }
+        }
 
     }
 }
