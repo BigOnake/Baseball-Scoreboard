@@ -2,6 +2,7 @@
 using System.Runtime.CompilerServices;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace frmScoreCard.Data
 {
@@ -26,6 +27,8 @@ namespace frmScoreCard.Data
         {
             return storage.GetTeamId(teamName);
         }
+
+        /*****************************************************/
 
         static public async Task<Coaches> GetCoaches(int teamId)
         {
@@ -59,9 +62,85 @@ namespace frmScoreCard.Data
             return await apiClient.GetLiveData(gamePk);
         }
 
-        static public async void SetLiveData(int gamePk, string teamType)
+        static public async Task SetLiveData(int gamePk, string teamType)
         {
             storage.SetLiveData(await GetLiveData(gamePk), teamType);
+        }
+
+        static public LiveData FetchLiveData(string teamType)
+        {
+            return storage.GetLiveData(teamType);
+        }
+
+        static public async void AddBenchPlayers(string teamType, LiveData ld)
+        {
+            storage.RemoveBenchPlayers(teamType);
+
+            if (teamType == "home")
+            {
+                BenchStats bs = new BenchStats();
+
+                foreach (int playerId in ld.liveData.boxscore.teams.home.bench)
+                {
+                    bs.name = GetPlayerName(teamType, playerId);
+                    bs.position = GetPosition(teamType, playerId);
+                    bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
+                    bs.hitterStats = await GetHitterStats(playerId);
+
+                    storage.AddBenchPlayer(teamType, playerId, bs);
+                }
+            }
+            else
+            {
+                BenchStats bs = new BenchStats();
+
+                foreach (int playerId in ld.liveData.boxscore.teams.away.bench)
+                {
+                    bs.name = GetPlayerName(teamType, playerId);
+                    bs.position = GetPosition(teamType, playerId);
+                    bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
+                    bs.hitterStats = await GetHitterStats(playerId);
+
+                    storage.AddBenchPlayer(teamType, playerId, bs);
+                }
+            }
+        }
+
+        static public async void AddBullpenPlayers(string teamType, LiveData ld)
+        {
+            if (teamType == "home")
+            {
+                BullpenStats bp = new BullpenStats();
+
+                foreach (int playerId in ld.liveData.boxscore.teams.home.bullpen)
+                {
+                    bp.name = GetPlayerName(teamType, playerId);
+                    bp.position = GetPosition(teamType, playerId);
+                    bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
+                    bp.pitcherStats = await GetPitcherStats(playerId);
+
+                    storage.AddBullpenPlayer(teamType, playerId, bp);
+                }
+            }
+            else
+            {
+                BullpenStats bp = new BullpenStats();
+
+                foreach (int playerId in ld.liveData.boxscore.teams.away.bullpen)
+                {
+                    bp.name = GetPlayerName(teamType, playerId);
+                    bp.position = GetPosition(teamType, playerId);
+                    bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
+                    bp.pitcherStats = await GetPitcherStats(playerId);
+
+                    storage.AddBullpenPlayer(teamType, playerId, bp);
+                }
+            }
+        }
+
+        static public string GetPlayerName(string teamType, int playerId)
+        {
+            return storage.GetPlayerName(teamType, playerId);
         }
 
         /**********************************************************/

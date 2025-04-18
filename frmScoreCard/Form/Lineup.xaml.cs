@@ -55,7 +55,7 @@ namespace frmScoreCard.Form
             AddUmpires();
         }
 
-        private void AddRoster(ComboBox source, ComboBox destination, string teamType)
+        private async void AddRoster(ComboBox source, ComboBox destination, string teamType)
         {
             if (source?.SelectedItem != null)
             {
@@ -65,7 +65,9 @@ namespace frmScoreCard.Form
                 if (Controller.GetGamePk() == -1)
                     return;
 
-                Controller.SetLiveData(Controller.GetGamePk(), teamType);
+                await Controller.SetLiveData(Controller.GetGamePk(), teamType);
+                Controller.AddBenchPlayers(teamType, Controller.FetchLiveData(teamType));
+                Controller.AddBullpenPlayers(teamType, Controller.FetchLiveData(teamType));
                 Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetVenues(Controller.GetGamePk());
                 Controller.SetStadiumData();

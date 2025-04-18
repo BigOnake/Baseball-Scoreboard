@@ -29,6 +29,8 @@ namespace frmScoreCard.Data
             data = new Master();
         }
 
+        /****************************************/
+
         public Teams GetTeams()
         {
             return teams;
@@ -61,6 +63,8 @@ namespace frmScoreCard.Data
             return "";
         }
 
+        /****************************************/
+
         public int GetTeamId(string teamName)
         {
             int teamId = -1;
@@ -80,6 +84,8 @@ namespace frmScoreCard.Data
             return teamId;
         }
 
+        /****************************************/
+
         public Roster GetRoster(string teamType)
         {
             if (teamType == "home")
@@ -96,10 +102,19 @@ namespace frmScoreCard.Data
                 guestTeamRoster = r;
         }
 
+        /****************************************/
+
         public int GetGamePk()
         {
             return gamePk;
         }
+        
+        public void SetGamePk(int gameId)
+        {
+            gamePk = gameId;
+        }
+
+        /****************************************/
 
         public void SetTeamName(string teamName, string teamType)
         {
@@ -109,10 +124,7 @@ namespace frmScoreCard.Data
                 data.guestTeamName = teamName;
         }
 
-        public void SetGamePk(int gameId)
-        {
-            gamePk = gameId;
-        }
+        /****************************************/
 
         public Umpires GetUmpires()
         {
@@ -123,6 +135,8 @@ namespace frmScoreCard.Data
         {
             data.umps = u;
         }
+
+        /****************************************/
 
         public int GetPlayerId(string teamType, string playerName)
         {
@@ -184,6 +198,38 @@ namespace frmScoreCard.Data
             return jerseyNum;
         }
 
+        public string GetPlayerName(string teamType, int playerId)
+        {
+            string name = "";
+
+            if (teamType == "home")
+            {
+                foreach (PlayerInfo p in homeTeamRoster.roster)
+                {
+                    if (p.person.id == playerId)
+                    {
+                        name = p.person.fullName;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (PlayerInfo p in guestTeamRoster.roster)
+                {
+                    if (p.person.id == playerId)
+                    {
+                        name = p.person.fullName;
+                        break;
+                    }
+                }
+            }
+
+            return name;
+        }
+
+        /****************************************/
+
         public void AddSelectedPlayer(string teamType, int playerId, PlayerStats p)
         {
             if (teamType == "home")
@@ -200,6 +246,8 @@ namespace frmScoreCard.Data
                 data.homeTeamSelectedPlayers.Remove(playerId);
         }
 
+        /****************************************/
+
         public void SetSB(SB s, string teamType)
         {
             if (teamType == "home")
@@ -207,6 +255,8 @@ namespace frmScoreCard.Data
             else
                 data.guestTeamSB = s;
         }
+
+        /****************************************/
 
         public Venues GetVenues()
         {
@@ -223,6 +273,8 @@ namespace frmScoreCard.Data
             return (int)data.venue.dates[0].games[0].venue.id;
         }
 
+        /****************************************/
+
         public StadiumData GetStadiumData()
         {
             return data.stadium;
@@ -232,6 +284,8 @@ namespace frmScoreCard.Data
         {
             data.stadium = s;
         }
+
+        /****************************************/
 
         public Coaches GetCoaches(string teamType)
         {
@@ -249,6 +303,8 @@ namespace frmScoreCard.Data
                 data.guestTeamCoaches = c;
         }
 
+        /****************************************/
+
         public void SetLiveData(LiveData l, string teamType)
         {
             if (teamType == "home")
@@ -256,6 +312,40 @@ namespace frmScoreCard.Data
             else
                 data.guestTeamLive = l;
         }
+
+        public LiveData GetLiveData(string teamType)
+        {
+            if (teamType == "home")
+                return data.homeTeamLive;
+            else
+                return data.guestTeamLive;
+        }
+
+        public void AddBenchPlayer(string teamType, int playerId, BenchStats bs)
+        {
+            if (teamType == "home")
+                data.homeTeamBench[playerId] = bs;
+            else
+                data.guestTeamBench[playerId] = bs;
+        }
+
+        public void RemoveBenchPlayers(string teamType)
+        {
+            if (teamType == "home")
+                data.homeTeamBench.Clear();
+            else
+                data.guestTeamBench.Clear();
+        }
+
+        public void AddBullpenPlayer(string teamType, int playerId, BullpenStats bs)
+        {
+            if (teamType == "home")
+                data.homeTeamBullpen[playerId] = bs;
+            else
+                data.guestTeamBullpen[playerId] = bs;
+        }
+
+        /****************************************/
 
         public Master GetMaster()
         {
@@ -272,16 +362,21 @@ namespace frmScoreCard.Data
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
         public LiveData? homeTeamLive { get; set; }
+        public Dictionary<int, BenchStats>? homeTeamBench { get; set; }
+        public Dictionary<int, BullpenStats>? homeTeamBullpen { get; set; }
+
 
         public string? guestTeamName { get; set; }
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }
         public LiveData? guestTeamLive { get; set; }
+        public Dictionary<int, BenchStats>? guestTeamBench { get; set; }
+        public Dictionary<int, BullpenStats>? guestTeamBullpen { get; set; }
+
 
 
         public Umpires? umps { get; set; }
-
         public Venues? venue { get; set; }
         public StadiumData? stadium { get; set; }
 
@@ -291,18 +386,19 @@ namespace frmScoreCard.Data
             homeTeamSB = new SB();
             homeTeamCoaches = new Coaches();
             homeTeamLive = new LiveData();
+            homeTeamBench = new Dictionary<int, BenchStats>();
+            homeTeamBullpen = new Dictionary<int, BullpenStats>();
 
             guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             guestTeamSB = new SB();
             homeTeamCoaches = new Coaches();
             guestTeamLive = new LiveData();
+            homeTeamBench = new Dictionary<int, BenchStats>();
+            guestTeamBullpen = new Dictionary<int, BullpenStats>();
 
             umps = new Umpires();
-
             venue = new Venues();
             stadium = new StadiumData();
-
-            
         }
     }
 
@@ -321,6 +417,22 @@ namespace frmScoreCard.Data
         public HitterStats? hitterStats { get; set; }
         public PitcherStats? pitcherStats { get; set; }
         public PitchTypes? pitchTypes { get; set; }
+    }
+
+    public class BenchStats
+    {
+        public string? name { get; set; }
+        public string? position { get; set; }
+        public string? jerseyNumber { get; set; }
+        public HitterStats? hitterStats { get; set; }
+    }
+
+    public class BullpenStats
+    {
+        public string? name { get; set; }
+        public string? position { get; set; }
+        public string? jerseyNumber { get; set; }
+        public PitcherStats? pitcherStats { get; set; }
     }
 
     /****************************************/
