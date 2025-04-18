@@ -121,28 +121,131 @@ namespace frmScoreCard
                 //MessageBox.Show(players[idx].name);
                 //MessageBox.Show(players[idx].position);
 
-                //Player Names and Positions
+                //Player Names, Positions & AVG, OPS, K, BB and etc.
                 if (HitterGrid.Children[i] is Grid rowGrid)
                 {
-                    if (rowGrid.Children[0] is Grid columnGrid1 && columnGrid1.Children[0] is Viewbox viewbox
-                        && viewbox.Child is TextBlock textBlock)
+                    // Name 
+                    if (rowGrid.Children[0] is Grid columnGrid1 && columnGrid1.Children[0] is Viewbox viewboxPlayer
+                        && viewboxPlayer.Child is TextBlock textBlockPlayer)
                     {
                         if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Left")
-                            textBlock.Foreground = System.Windows.Media.Brushes.Red;
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
                         else if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Right")
-                            textBlock.Foreground = System.Windows.Media.Brushes.Blue;
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
                         else
-                            textBlock.Foreground = System.Windows.Media.Brushes.Black;
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
 
-                        textBlock.Text = players[idx].name;
+                        textBlockPlayer.Text = players[idx].name;
                     }
 
-                    if (rowGrid.Children[1] is Grid columnGrid2 && columnGrid2.Children[0] is Viewbox viewbox2
-                        && viewbox2.Child is TextBlock textBlock2)
+                    // Position
+                    if (rowGrid.Children[1] is Grid columnGrid2 && columnGrid2.Children[0] is Viewbox viewboxPos
+                        && viewboxPos.Child is TextBlock textBlockPos)
                     {
-                        textBlock2.Text = players[idx].position;
+                        textBlockPos.Text = players[idx].position;
                     }
-                    
+
+                    if (players[idx]?.hitterStats?.splits != null && players[idx].hitterStats.splits.Count > 0)
+                    {
+
+                        // AVG, OPS                   
+                        if (rowGrid.Children[2] is Grid columnGrid3)
+                        {
+                            if (columnGrid3.Children[0] is Grid rowGridAvg && rowGridAvg.Children[0] is Viewbox viewboxAvg
+                                && viewboxAvg.Child is TextBlock textBlockAvg)
+                            {
+                                textBlockAvg.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.avg;
+                            }
+
+                            if (columnGrid3.Children[1] is Grid rowGridOps && rowGridOps.Children[0] is Viewbox viewboxOps
+                                && viewboxOps.Child is TextBlock textBlockOps)
+                            {
+                                textBlockOps.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.ops;
+                            }
+                        }
+
+                        // K, BB
+                        if (rowGrid.Children[3] is Grid columnGrid4)
+                        {
+                            if (columnGrid4.Children[0] is Grid rowGridK && rowGridK.Children[0] is Viewbox viewboxK
+                                && viewboxK.Child is TextBlock textBlockK)
+                            {
+                                textBlockK.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.strikeOuts.ToString();
+                            }
+
+                            if (columnGrid4.Children[1] is Grid rowGridBB && rowGridBB.Children[0] is Viewbox viewboxBB
+                                && viewboxBB.Child is TextBlock textBlockBB)
+                            {
+                                textBlockBB.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.baseOnBalls.ToString();
+                            }
+                        }
+
+                        // 2B, 3B
+                        if (rowGrid.Children[4] is Grid columnGrid5)
+                        {
+                            if (columnGrid5.Children[0] is Grid rowGrid2b && rowGrid2b.Children[0] is Viewbox viewbox2b
+                                && viewbox2b.Child is TextBlock textBlock2b)
+                            {
+                                textBlock2b.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.doubles.ToString();
+                            }
+
+                            if (columnGrid5.Children[1] is Grid rowGrid3b && rowGrid3b.Children[0] is Viewbox viewbox3b
+                                && viewbox3b.Child is TextBlock textBlock3b)
+                            {
+                                textBlock3b.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.triples.ToString();
+                            }
+                        }
+
+                        // HR, RBI
+                        if (rowGrid.Children[5] is Grid columnGrid6)
+                        {
+                            if (columnGrid6.Children[0] is Grid rowGridHr && rowGridHr.Children[0] is Viewbox viewboxHr
+                                && viewboxHr.Child is TextBlock textBlockHr)
+                            {
+                                textBlockHr.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                            }
+
+                            if (columnGrid6.Children[1] is Grid rowGridRbi && rowGridRbi.Children[0] is Viewbox viewboxRbi
+                                && viewboxRbi.Child is TextBlock textBlockRbi)
+                            {
+                                textBlockRbi.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.rbi.ToString();
+                            }
+                        }
+
+                        // Runs, BACON
+                        if (rowGrid.Children[6] is Grid columnGrid7)
+                        {
+                            if (columnGrid7.Children[0] is Grid rowGridRuns && rowGridRuns.Children[0] is Viewbox viewboxRuns
+                                && viewboxRuns.Child is TextBlock textBlockRuns)
+                            {
+                                textBlockRuns.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.runs.ToString();
+                            }
+
+                            if (columnGrid7.Children[1] is Grid rowGridBacon && rowGridBacon.Children[0] is Viewbox viewboxBacon
+                                && viewboxBacon.Child is TextBlock textBlockBacon)
+                            {
+                                textBlockBacon.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.babip;
+                            }
+                        }
+
+                        // SB-SBA, DP
+                        if (rowGrid.Children[7] is Grid columnGrid8)
+                        {
+                            if (columnGrid8.Children[0] is Grid rowGridSb && rowGridSb.Children[0] is Viewbox viewboxSb
+                                && viewboxSb.Child is TextBlock textBlockSb)
+                            {
+                                textBlockSb.Text = $"{players[idx].hitterStats.splits[0].stats?.hitting?.standard?.stolenBases}-" +
+                                    $"{players[idx].hitterStats.splits[0].stats?.hitting?.standard?.caughtStealing}";
+                            }
+
+                            if (columnGrid8.Children[1] is Grid rowGridDp && rowGridDp.Children[0] is Viewbox viewboxDp
+                                && viewboxDp.Child is TextBlock textBlockDp)
+                            {
+                                textBlockDp.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.groundIntoDoublePlay.ToString();
+                            }
+                        }
+
+                    }
                 }
 
                 // 1stP, RISP, RISP2o, vsLH, vsRH, 7+.
