@@ -87,10 +87,16 @@ namespace frmScoreCard
         }
 
         private void benchTable()                                                // Data for Bench Table
-        {           
+        {
+            if (stats?.homeTeamBench == null || stats.homeTeamBench.Count == 0)
+                return;
+
+            var benchPlayers = stats.homeTeamBench.Values.ToList();
+            int idx = 0;
+
             BenchName.Text = $"{stats.homeTeamName} Bench";
 
-            int idx = 0;
+            MessageBox.Show(benchPlayers.Count.ToString());
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
@@ -99,37 +105,49 @@ namespace frmScoreCard
                     if (rowGrid.Children[0] is Grid columnGridNum && columnGridNum.Children[0] is Viewbox viewboxNum
                         && viewboxNum.Child is TextBlock textBlockNum)
                     {
-                        textBlockNum.Text = "0";
+                        textBlockNum.Text = benchPlayers[idx].jerseyNumber;
                     }
 
                     if (rowGrid.Children[1] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
                         && viewboxName.Child is TextBlock textBlockName)
                     {
-                        textBlockName.Text = "Player";
+                        /*
+                        if (benchPlayers[idx]?.position?.people?[0]?.pitchHand?.description == "Left")
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
+                        else if (benchPlayers[idx]?.sides?.people?[0]?.pitchHand?.description == "Right")
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
+                        else
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
+                        */
+
+                        textBlockName.Text = benchPlayers[idx].name;
                     }
 
-                    if (rowGrid.Children[2] is Grid columnGridAvg && columnGridAvg.Children[0] is Viewbox viewboxAvg
-                        && viewboxAvg.Child is TextBlock textBlockAvg)
-                    {
-                        textBlockAvg.Text = "0";
-                    }
+                    if (benchPlayers[idx]?.hitterStats?.splits != null && benchPlayers[idx].hitterStats.splits.Count > 0)
+                    { 
+                        if (rowGrid.Children[2] is Grid columnGridAvg && columnGridAvg.Children[0] is Viewbox viewboxAvg
+                            && viewboxAvg.Child is TextBlock textBlockAvg)
+                        {
+                            textBlockAvg.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.avg;
+                        }
 
-                    if (rowGrid.Children[3] is Grid columnGridHR && columnGridHR.Children[0] is Viewbox viewboxHR
-                        && viewboxHR.Child is TextBlock textBlockHR)
-                    {
-                        textBlockHR.Text = "0";
-                    }
+                        if (rowGrid.Children[3] is Grid columnGridHR && columnGridHR.Children[0] is Viewbox viewboxHR
+                            && viewboxHR.Child is TextBlock textBlockHR)
+                        {
+                            textBlockHR.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.homeRuns.ToString();
+                        }
 
-                    if (rowGrid.Children[4] is Grid columnGridRbi && columnGridRbi.Children[0] is Viewbox viewboxRbi
-                        && viewboxRbi.Child is TextBlock textBlockRbi)
-                    {
-                        textBlockRbi.Text = "0";
-                    }
+                        if (rowGrid.Children[4] is Grid columnGridRbi && columnGridRbi.Children[0] is Viewbox viewboxRbi
+                            && viewboxRbi.Child is TextBlock textBlockRbi)
+                        {
+                            textBlockRbi.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.rbi.ToString();
+                        }
 
-                    if (rowGrid.Children[5] is Grid columnGridOps && columnGridOps.Children[0] is Viewbox viewboxOps
-                        && viewboxOps.Child is TextBlock textBlockOps)
-                    {
-                        textBlockOps.Text = "0";
+                        if (rowGrid.Children[5] is Grid columnGridOps && columnGridOps.Children[0] is Viewbox viewboxOps
+                            && viewboxOps.Child is TextBlock textBlockOps)
+                        {
+                            textBlockOps.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.ops;
+                        }
                     }
                 }
 
@@ -523,5 +541,7 @@ namespace frmScoreCard
             if (stats.guestTeamName != null)
                 GuestTeam.Text = stats.guestTeamName;
         }                                                    
+        
+        
     }
 }

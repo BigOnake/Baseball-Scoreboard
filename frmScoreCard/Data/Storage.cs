@@ -393,7 +393,7 @@ namespace frmScoreCard.Data
             guestTeamSB = new SB();
             homeTeamCoaches = new Coaches();
             guestTeamLive = new LiveData();
-            homeTeamBench = new Dictionary<int, BenchStats>();
+            guestTeamBench = new Dictionary<int, BenchStats>();
             guestTeamBullpen = new Dictionary<int, BullpenStats>();
 
             umps = new Umpires();
