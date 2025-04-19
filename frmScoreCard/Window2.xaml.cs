@@ -39,8 +39,9 @@ namespace frmScoreCard
             if (stats.venue != null && stats.venue.dates != null)
             { 
                 VenueName.Text = stats.venue.dates[0].games[0].venue.name;
-                GameDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
             }
+
+            GameDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
 
             int idx = 0;
 
