@@ -78,10 +78,10 @@ namespace frmScoreCard.Data
 
             if (teamType == "home")
             {
-                BenchStats bs = new BenchStats();
-
                 foreach (int playerId in ld.liveData.boxscore.teams.home.bench)
                 {
+                    BenchStats bs = new BenchStats();
+
                     bs.name = GetPlayerName(teamType, playerId);
                     bs.position = GetPosition(teamType, playerId);
                     bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
@@ -92,10 +92,10 @@ namespace frmScoreCard.Data
             }
             else
             {
-                BenchStats bs = new BenchStats();
-
                 foreach (int playerId in ld.liveData.boxscore.teams.away.bench)
                 {
+                    BenchStats bs = new BenchStats();
+
                     bs.name = GetPlayerName(teamType, playerId);
                     bs.position = GetPosition(teamType, playerId);
                     bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
@@ -110,10 +110,10 @@ namespace frmScoreCard.Data
         {
             if (teamType == "home")
             {
-                BullpenStats bp = new BullpenStats();
-
                 foreach (int playerId in ld.liveData.boxscore.teams.home.bullpen)
                 {
+                    BullpenStats bp = new BullpenStats();
+
                     bp.name = GetPlayerName(teamType, playerId);
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
@@ -124,11 +124,12 @@ namespace frmScoreCard.Data
             }
             else
             {
-                BullpenStats bp = new BullpenStats();
-
                 foreach (int playerId in ld.liveData.boxscore.teams.away.bullpen)
                 {
+                    BullpenStats bp = new BullpenStats();
+
                     bp.name = GetPlayerName(teamType, playerId);
+                    MessageBox.Show(bp.name);
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);

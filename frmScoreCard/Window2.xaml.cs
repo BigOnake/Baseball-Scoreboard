@@ -96,7 +96,7 @@ namespace frmScoreCard
 
             BenchName.Text = $"{stats.homeTeamName} Bench";
 
-            MessageBox.Show(benchPlayers.Count.ToString());
+            //MessageBox.Show(benchPlayers.Count.ToString());
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
@@ -163,7 +163,7 @@ namespace frmScoreCard
             var players = stats.homeTeamSelectedPlayers.Values.ToList();
             int idx = 0;
 
-            MessageBox.Show(players.Count.ToString());
+            //MessageBox.Show(players.Count.ToString());
 
             // 1,3,5,7,9,11,13,15,17
             for (int i = 1; i < HitterGrid.Children.Count; i += 2)

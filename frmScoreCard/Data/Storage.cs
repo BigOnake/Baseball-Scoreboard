@@ -4,6 +4,7 @@ using System.DirectoryServices;
 using System.Reflection.Metadata.Ecma335;
 using System.Security.Policy;
 using System.Text.Json;
+using System.Windows;
 
 namespace frmScoreCard.Data
 {
@@ -324,9 +325,15 @@ namespace frmScoreCard.Data
         public void AddBenchPlayer(string teamType, int playerId, BenchStats bs)
         {
             if (teamType == "home")
-                data.homeTeamBench[playerId] = bs;
+            {
+                if (!data.homeTeamBench.ContainsValue(bs))
+                    data.homeTeamBench[playerId] = bs;
+            }
             else
-                data.guestTeamBench[playerId] = bs;
+            {
+                if (!data.guestTeamBench.ContainsValue(bs))
+                    data.guestTeamBench[playerId] = bs;
+            }
         }
 
         public void RemoveBenchPlayers(string teamType)
@@ -337,12 +344,18 @@ namespace frmScoreCard.Data
                 data.guestTeamBench.Clear();
         }
 
-        public void AddBullpenPlayer(string teamType, int playerId, BullpenStats bs)
+        public void AddBullpenPlayer(string teamType, int playerId, BullpenStats bp)
         {
             if (teamType == "home")
-                data.homeTeamBullpen[playerId] = bs;
+            {
+                if (!data.homeTeamBullpen.ContainsValue(bp))
+                    data.homeTeamBullpen[playerId] = bp;
+            }
             else
-                data.guestTeamBullpen[playerId] = bs;
+            {
+                if (!data.guestTeamBullpen.ContainsValue(bp))
+                    data.guestTeamBullpen[playerId] = bp;
+            }
         }
 
         /****************************************/
