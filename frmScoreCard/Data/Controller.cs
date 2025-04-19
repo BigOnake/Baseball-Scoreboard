@@ -62,14 +62,14 @@ namespace frmScoreCard.Data
             return await apiClient.GetLiveData(gamePk);
         }
 
-        static public async Task SetLiveData(int gamePk, string teamType)
+        static public async Task SetLiveData(int gamePk)
         {
-            storage.SetLiveData(await GetLiveData(gamePk), teamType);
+            storage.SetLiveData(await GetLiveData(gamePk));
         }
 
-        static public LiveData FetchLiveData(string teamType)
+        static public LiveData FetchLiveData()
         {
-            return storage.GetLiveData(teamType);
+            return storage.GetLiveData();
         }
 
         static public async void AddBenchPlayers(string teamType, LiveData ld)
@@ -108,6 +108,8 @@ namespace frmScoreCard.Data
 
         static public async void AddBullpenPlayers(string teamType, LiveData ld)
         {
+            storage.RemoveBullpenPlayers(teamType);
+
             if (teamType == "home")
             {
                 foreach (int playerId in ld.liveData.boxscore.teams.home.bullpen)
@@ -129,7 +131,6 @@ namespace frmScoreCard.Data
                     BullpenStats bp = new BullpenStats();
 
                     bp.name = GetPlayerName(teamType, playerId);
-                    MessageBox.Show(bp.name);
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);

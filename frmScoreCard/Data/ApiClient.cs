@@ -188,7 +188,7 @@ namespace frmScoreCard.Data
             }
             catch
             {
-                System.Windows.MessageBox.Show("No games today.", "ERROR");
+                MessageBox.Show("No games today.", "ERROR");
             }
 
             return gameId;

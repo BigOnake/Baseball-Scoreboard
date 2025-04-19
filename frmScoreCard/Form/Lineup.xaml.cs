@@ -63,11 +63,15 @@ namespace frmScoreCard.Form
                 Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetTeamName(source.SelectedItem.ToString(), teamType);
                 if (Controller.GetGamePk() == -1)
+                {
+                    MessageBox.Show("No games today.", "ERROR");
                     return;
+                }
 
-                await Controller.SetLiveData(Controller.GetGamePk(), teamType);
-                Controller.AddBenchPlayers(teamType, Controller.FetchLiveData(teamType));
-                Controller.AddBullpenPlayers(teamType, Controller.FetchLiveData(teamType));
+                MessageBox.Show(Controller.GetGamePk().ToString());
+                await Controller.SetLiveData(Controller.GetGamePk());
+                Controller.AddBenchPlayers(teamType, Controller.FetchLiveData());
+                Controller.AddBullpenPlayers(teamType, Controller.FetchLiveData());
                 Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetVenues(Controller.GetGamePk());
                 Controller.SetStadiumData();
@@ -188,8 +192,14 @@ namespace frmScoreCard.Form
 
         private void btnScorecard_Click(object sender, RoutedEventArgs e)
         {
-            string json = JsonSerializer.Serialize(Controller.GetMaster());
-            MessageBox.Show(json);
+            //string json = JsonSerializer.Serialize(Controller.GetMaster());
+            //MessageBox.Show(json);
+
+            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBench));
+            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));
+
+            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));
+            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));
 
             //var wpfWindow = new frmScoreCard.MainWindow(json);
 

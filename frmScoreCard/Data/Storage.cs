@@ -207,7 +207,7 @@ namespace frmScoreCard.Data
             {
                 foreach (PlayerInfo p in homeTeamRoster.roster)
                 {
-                    if (p.person.id == playerId)
+                    if (playerId == p.person.id)
                     {
                         name = p.person.fullName;
                         break;
@@ -218,7 +218,7 @@ namespace frmScoreCard.Data
             {
                 foreach (PlayerInfo p in guestTeamRoster.roster)
                 {
-                    if (p.person.id == playerId)
+                    if (playerId == p.person.id)
                     {
                         name = p.person.fullName;
                         break;
@@ -306,20 +306,14 @@ namespace frmScoreCard.Data
 
         /****************************************/
 
-        public void SetLiveData(LiveData l, string teamType)
+        public void SetLiveData(LiveData l)
         {
-            if (teamType == "home")
-                data.homeTeamLive = l;
-            else
-                data.guestTeamLive = l;
+            data.live = l;
         }
 
-        public LiveData GetLiveData(string teamType)
+        public LiveData GetLiveData()
         {
-            if (teamType == "home")
-                return data.homeTeamLive;
-            else
-                return data.guestTeamLive;
+            return data.live;
         }
 
         public void AddBenchPlayer(string teamType, int playerId, BenchStats bs)
@@ -342,6 +336,14 @@ namespace frmScoreCard.Data
                 data.homeTeamBench.Clear();
             else
                 data.guestTeamBench.Clear();
+        }
+
+        public void RemoveBullpenPlayers(string teamType)
+        {
+            if (teamType == "home")
+                data.homeTeamBullpen.Clear();
+            else
+                data.guestTeamBullpen.Clear();
         }
 
         public void AddBullpenPlayer(string teamType, int playerId, BullpenStats bp)
@@ -374,16 +376,16 @@ namespace frmScoreCard.Data
         public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
-        public LiveData? homeTeamLive { get; set; }
         public Dictionary<int, BenchStats>? homeTeamBench { get; set; }
         public Dictionary<int, BullpenStats>? homeTeamBullpen { get; set; }
+
+        public LiveData? live { get; set; }
 
 
         public string? guestTeamName { get; set; }
         public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }
-        public LiveData? guestTeamLive { get; set; }
         public Dictionary<int, BenchStats>? guestTeamBench { get; set; }
         public Dictionary<int, BullpenStats>? guestTeamBullpen { get; set; }
 
@@ -398,14 +400,14 @@ namespace frmScoreCard.Data
             homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             homeTeamSB = new SB();
             homeTeamCoaches = new Coaches();
-            homeTeamLive = new LiveData();
             homeTeamBench = new Dictionary<int, BenchStats>();
             homeTeamBullpen = new Dictionary<int, BullpenStats>();
+
+            live = new LiveData();
 
             guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
             guestTeamSB = new SB();
             homeTeamCoaches = new Coaches();
-            guestTeamLive = new LiveData();
             guestTeamBench = new Dictionary<int, BenchStats>();
             guestTeamBullpen = new Dictionary<int, BullpenStats>();
 
