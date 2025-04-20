@@ -26,6 +26,7 @@ namespace frmScoreCard
             hitterTable();
             umpsTeamsSBTable();
             scoreTable();
+            bullpenTable();
 
         }
 
@@ -541,8 +542,112 @@ namespace frmScoreCard
 
             if (stats.guestTeamName != null)
                 GuestTeam.Text = stats.guestTeamName;
-        }                                                    
-        
-        
+        }
+
+        private void bullpenTable()
+        {
+            if (stats.guestTeamBullpen != null && stats.guestTeamBullpen.Values.Count > 0)
+            {
+                var guestBullpenPlayers = stats.guestTeamBullpen.Values.ToList();
+
+                int idx = 0;
+
+                for (int i = 0; i < BullpenGrid.Children.Count; i++)
+                {
+                    if (BullpenGrid.Children[i] is Grid columnGrid && columnGrid.Children[1] is Grid rowGrid)
+                    {
+                        for (int j = 0; j < rowGrid.Children.Count; j += 2)
+                        {                           
+                            // G, S/Holds, W-L, ERA, IP, K, BB
+                            if (rowGrid.Children[j] is Grid rowGridStats)
+                            {
+                                if (rowGridStats.Children[0] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
+                                && viewboxName.Child is TextBlock textBlockName)
+                                {
+                                    textBlockName.Text = guestBullpenPlayers[idx].name;  
+                                }
+
+                                if (rowGridStats.Children[1] is Grid columnGridG && columnGridG.Children[0] is Viewbox viewboxG
+                                && viewboxG.Child is TextBlock textBlockG)
+                                {
+                                    textBlockG.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.gamesPlayed.ToString();  // G
+                                }
+
+                                if (rowGridStats.Children[2] is Grid columnGridSH)
+                                {
+                                    if (columnGridSH.Children[0] is Grid columnGridS && columnGridS.Children[0] is Viewbox viewboxS
+                                        && viewboxS.Child is TextBlock textBlockS)
+                                    {
+                                        textBlockS.Text = $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.saves}-" +
+                                            $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.blownSaves}";
+                                    }
+
+                                    if (columnGridSH.Children[1] is Grid columnGridH && columnGridH.Children[0] is Viewbox viewboxH
+                                        && viewboxH.Child is TextBlock textBlockH)
+                                    {
+                                        textBlockH.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.holds.ToString();                                        
+                                    }
+                                }
+
+                                if (rowGridStats.Children[3] is Grid columnGridWL && columnGridWL.Children[0] is Viewbox viewboxWL
+                                && viewboxWL.Child is TextBlock textBlockWL)
+                                {
+                                    textBlockWL.Text = $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.wins}-" +
+                                            $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.losses}";  
+                                }
+
+                                if (rowGridStats.Children[4] is Grid columnGridEra && columnGridEra.Children[0] is Viewbox viewboxEra
+                                && viewboxEra.Child is TextBlock textBlockEra)
+                                {
+                                    textBlockEra.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.era.ToString();  
+                                }
+
+                                if (rowGridStats.Children[5] is Grid columnGridIP && columnGridIP.Children[0] is Viewbox viewboxIP
+                                && viewboxIP.Child is TextBlock textBlockIP)
+                                {
+                                    textBlockIP.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.inningsPitched.ToString();  
+                                }
+
+                                if (rowGridStats.Children[6] is Grid columnGridK && columnGridK.Children[0] is Viewbox viewboxK
+                                && viewboxK.Child is TextBlock textBlockK)
+                                {
+                                    textBlockK.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.strikeOuts.ToString();  
+                                }
+
+                                if (rowGridStats.Children[7] is Grid columnGridBB && columnGridBB.Children[0] is Viewbox viewboxBB
+                                && viewboxBB.Child is TextBlock textBlockBB)
+                                {
+                                    textBlockBB.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.baseOnBalls.ToString();  
+                                }
+
+                            }
+
+                            // Pitch Type & Velocity
+                            if (rowGrid.Children[j + 1] is Grid rowGridPitchTypes)
+                            {
+                                for (int k = 0; k < rowGridPitchTypes.Children.Count; k++)
+                                {
+                                    if (rowGridPitchTypes.Children[k] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
+                                        && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT)
+                                    {
+                                        //textBlockPT.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.;
+                                    }
+
+                                    if (rowGridPitchTypes.Children[k] is Grid colGridV && colGridV.Children[2] is Grid colGridVstats
+                                        && colGridVstats.Children[0] is Viewbox viewboxV && viewboxV.Child is TextBlock textBlockV)
+                                    {
+                                        textBlockV.Text = "VVV";
+                                    }
+                                }
+                            }
+
+                            idx++;
+                        }
+                    }
+
+                }
+
+            }
+        }
     }
 }
