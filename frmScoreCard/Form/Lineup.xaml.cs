@@ -68,7 +68,6 @@ namespace frmScoreCard.Form
                     return;
                 }
 
-                MessageBox.Show(Controller.GetGamePk().ToString());
                 await Controller.SetLiveData(Controller.GetGamePk());
                 Controller.AddBenchPlayers(teamType, Controller.FetchLiveData());
                 Controller.AddBullpenPlayers(teamType, Controller.FetchLiveData());

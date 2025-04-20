@@ -440,6 +440,7 @@ namespace frmScoreCard.Data
         public string? position { get; set; }
         public string? jerseyNumber { get; set; }
         public HitterStats? hitterStats { get; set; }
+        public Side? sides { get; set; }
     }
 
     public class BullpenStats
@@ -448,6 +449,7 @@ namespace frmScoreCard.Data
         public string? position { get; set; }
         public string? jerseyNumber { get; set; }
         public PitcherStats? pitcherStats { get; set; }
+        public Side? sides { get; set; }
     }
 
     /****************************************/

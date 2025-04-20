@@ -86,6 +86,7 @@ namespace frmScoreCard.Data
                     bs.position = GetPosition(teamType, playerId);
                     bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bs.hitterStats = await GetHitterStats(playerId);
+                    bs.sides = GetSide(playerId);
 
                     storage.AddBenchPlayer(teamType, playerId, bs);
                 }
@@ -100,6 +101,7 @@ namespace frmScoreCard.Data
                     bs.position = GetPosition(teamType, playerId);
                     bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bs.hitterStats = await GetHitterStats(playerId);
+                    bs.sides = GetSide(playerId);
 
                     storage.AddBenchPlayer(teamType, playerId, bs);
                 }
@@ -120,6 +122,7 @@ namespace frmScoreCard.Data
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);
+                    bp.sides = GetSide(playerId);
 
                     storage.AddBullpenPlayer(teamType, playerId, bp);
                 }
@@ -134,6 +137,7 @@ namespace frmScoreCard.Data
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);
+                    bp.sides = GetSide(playerId);
 
                     storage.AddBullpenPlayer(teamType, playerId, bp);
                 }
