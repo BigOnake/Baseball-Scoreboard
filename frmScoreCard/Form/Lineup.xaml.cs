@@ -198,12 +198,10 @@ namespace frmScoreCard.Form
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));
 
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));
-            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));
 
-            //var wpfWindow = new frmScoreCard.MainWindow(json);
-
-            var wpfWindow2 = new frmScoreCard.Window2();
-            wpfWindow2.Show();
+            var scorecard = new Scorecard();
+            scorecard.Show();
         }
     }
 }

@@ -5,16 +5,16 @@ using System.Windows.Controls;
 
 using frmScoreCard.Data;
 
-namespace frmScoreCard
+namespace frmScoreCard.Form
 {
     /// <summary>
     /// Interaction logic for Window2.xaml
     /// </summary>
-    public partial class Window2 : Window
+    public partial class Scorecard : Window
     {
         public Master stats;
 
-        public Window2()
+        public Scorecard()
         {
             InitializeComponent();
 
