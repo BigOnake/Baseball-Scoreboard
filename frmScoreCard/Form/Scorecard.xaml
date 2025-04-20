@@ -984,7 +984,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="AVG" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="AVG" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -992,7 +992,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="OPS" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="OPS" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1007,7 +1007,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="K" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="K" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1015,7 +1015,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="BB" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="BB" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1030,7 +1030,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="2B" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="2B" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1038,7 +1038,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="3B" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="3B" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1053,7 +1053,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="HR" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="HR" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1061,7 +1061,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="RBI" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="RBI" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1076,7 +1076,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="Runs" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="Runs" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1084,7 +1084,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="BACON" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="BACON" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1099,7 +1099,7 @@
 
                     <Grid Grid.Row="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="SB-SBA" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="SB-SBA" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -1107,7 +1107,7 @@
 
                     <Grid Grid.Row="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Text="DP" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Text="DP" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -5614,7 +5614,7 @@
 
                 <Grid Grid.Column="13" Background="LightGray">
                     <Viewbox Stretch="Uniform">
-                        <TextBlock Text="Opp Total" Style="{StaticResource TextStyle}"/>
+                        <TextBlock Text="Guest Total" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
@@ -5978,7 +5978,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 
-                <!-- First Four -->
+                <!-- First Six -->
                 <Grid Grid.Column="0" ShowGridLines="True">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.75*"/>
@@ -6002,43 +6002,43 @@
                         
                         <Grid Grid.Column="1">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="G" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="G" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="2">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="S/Holds" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="S/Holds" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="3">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="W-L" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="W-L" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="4">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="ERA" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="ERA" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="5">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="IP" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="IP" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="6">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="K" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="K" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="7">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="BB" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="BB" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
                        
@@ -6091,11 +6091,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6144,6 +6157,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6161,7 +6175,7 @@
                                 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
                                 
@@ -6187,7 +6201,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6213,7 +6227,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6255,11 +6295,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6308,6 +6361,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6325,7 +6379,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6351,7 +6405,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6377,7 +6431,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6419,11 +6499,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6472,6 +6565,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6489,7 +6583,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6515,7 +6609,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6541,7 +6635,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6583,11 +6703,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6636,6 +6769,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6653,7 +6787,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6679,7 +6813,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6705,7 +6839,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6747,11 +6907,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6800,6 +6973,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6817,7 +6991,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6843,7 +7017,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6869,7 +7043,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -6911,11 +7111,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -6964,6 +7177,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -6981,7 +7195,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7007,7 +7221,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7033,7 +7247,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7045,12 +7285,11 @@
                             </Grid>
                         </Grid>
 
-
                     </Grid>
                     
                 </Grid>
                 
-                <!-- Second Four -->
+                <!-- Second Six -->
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.75*"/>
@@ -7074,43 +7313,43 @@
 
                         <Grid Grid.Column="1">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="G" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="G" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="2">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="S/Holds" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="S/Holds" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="3">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="W-L" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="W-L" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="4">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="ERA" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="ERA" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="5">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="IP" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="IP" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="6">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="K" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="K" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
                         <Grid Grid.Column="7">
                             <Viewbox Stretch="Uniform">
-                                <TextBlock Text="BB" Style="{StaticResource TextStyle}"/>
+                                <TextBlock Text="BB" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
 
@@ -7163,11 +7402,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7216,6 +7468,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -7233,7 +7486,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7259,7 +7512,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7285,7 +7538,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7327,11 +7606,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7380,6 +7672,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -7397,7 +7690,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7423,7 +7716,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7449,7 +7742,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7491,11 +7810,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7544,6 +7876,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -7561,7 +7894,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7587,7 +7920,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7613,7 +7946,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7655,11 +8014,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7708,6 +8080,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -7725,7 +8098,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7751,7 +8124,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7777,7 +8150,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7819,11 +8218,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7872,6 +8284,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -7889,7 +8302,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7915,7 +8328,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7941,7 +8354,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -7983,11 +8422,24 @@
                             </Grid>
 
                             <Grid Grid.Column="2">
-                                <Viewbox Stretch="Uniform">
-                                    <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
-                                </Viewbox>
 
-                                <Border Style="{StaticResource BorderStyle}"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0" Background="Yellow">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X-X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -8036,6 +8488,7 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
+                                <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
                             <Grid Grid.Column="0" ShowGridLines="True">
@@ -8053,7 +8506,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -8079,7 +8532,7 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
-                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -8105,7 +8558,33 @@
 
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="2">
+                                    <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+                            </Grid>
+
+                            <Grid Grid.Column="3" ShowGridLines="True">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid Grid.Column="0">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
+                                    </Viewbox>
+                                </Grid>
+
+                                <Grid Grid.Column="1">
+                                    <Viewbox Stretch="Uniform">
+                                        <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
 
@@ -8116,7 +8595,6 @@
                                 </Grid>
                             </Grid>
                         </Grid>
-
 
                     </Grid>
 
