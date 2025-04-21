@@ -194,8 +194,10 @@ namespace frmScoreCard.Form
             //string json = JsonSerializer.Serialize(Controller.GetMaster());
             //MessageBox.Show(json);
 
-            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBench));
-            MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBench));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));
+
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamCoaches));
 
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));

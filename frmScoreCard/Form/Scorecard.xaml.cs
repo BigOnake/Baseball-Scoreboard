@@ -695,56 +695,125 @@ namespace frmScoreCard.Form
                 }
 
             }
-        }
+        }       
 
-        int [] coachIndices() 
-        {
-            int[] arrIndex = new int[9];
-            int idx = 0;
-
-            for (int i = 0; i < stats.homeTeamCoaches.roster.Count; i++)
-            {
-                if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
-                {                    
-                    arrIndex[idx] = i;
-                }
-                else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
-                {
-                    arrIndex[idx] = i;
-                }
-
-                idx++;
-            }
-
-            return arrIndex;
-        }
-
-        private void coachTable()
+        private void coachTable()                                                // Data for Coaches
         {
             if (stats.homeTeamCoaches == null || stats.homeTeamCoaches.roster == null || stats.homeTeamCoaches.roster.Count == 0)
                 return;
 
-            int idx = 0;
-            List<int> coachIndices = new List<int>();
+            Dictionary<string, string> coachesDict = new Dictionary<string, string>();
 
-            for (int i = 0; i < CoachesGrid.Children.Count; i++)
-            {
-                if (idx >= stats.homeTeamCoaches.roster.Count)
-                    return;
-
-                if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+            // Exctract only needed coaches
+            for (int i = 0; i < stats.homeTeamCoaches.roster.Count; i++)
+            {               
+                if (stats.homeTeamCoaches.roster[i].person != null && stats.homeTeamCoaches.roster[i].person.fullName != null)
                 {
-                    //coachIndices.Add();
+                    if (!coachesDict.ContainsKey(stats.homeTeamCoaches.roster[i].jobId))
+                    { 
+                        if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+                        {
+                            coachesDict.Add("MNGR", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAB")
+                        {
+                            coachesDict.Add("COAB", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
+                        {
+                            coachesDict.Add("COAP", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COPA")
+                        {
+                            coachesDict.Add("COPA", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COA1")
+                        {
+                            coachesDict.Add("COA1", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COA3")
+                        {
+                            coachesDict.Add("COA3", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAT")
+                        {
+                            coachesDict.Add("COAT", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAA")
+                        {
+                            coachesDict.Add("COAA", stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                        else if (stats.homeTeamCoaches.roster[i].jobId == "BCAT")
+                        {
+                            coachesDict.Add("BCAT",stats.homeTeamCoaches.roster[i].person.fullName);
+                        }
+                    }
                 }
-
-                if (CoachesGrid.Children[i] is Grid rowGrid && rowGrid.Children[1] is Grid colGrid && colGrid.Children[0] is Viewbox viewbox 
-                    && viewbox.Child is TextBlock textblock)
-                {
-                    textblock.Text = stats.homeTeamCoaches.roster[i].person.fullName;
-                }
-                
             }
-            
+
+            // Populate Coaches Table
+            if (CoachesGrid.Children[0] is Grid rowGrid && rowGrid.Children[1] is Grid colGrid && colGrid.Children[0] is Viewbox viewbox
+                    && viewbox.Child is TextBlock textblock)
+            {
+                if (coachesDict.ContainsKey("MNGR"))
+                    textblock.Text = coachesDict["MNGR"];
+            }
+
+            if (CoachesGrid.Children[1] is Grid rowGridBC && rowGridBC.Children[1] is Grid colGridBC && colGridBC.Children[0] is Viewbox viewboxBC
+                    && viewboxBC.Child is TextBlock textblockBC)
+            {
+                if (coachesDict.ContainsKey("COAB"))
+                    textblockBC.Text = coachesDict["COAB"];
+            }
+
+            if (CoachesGrid.Children[2] is Grid rowGridPC && rowGridPC.Children[1] is Grid colGridPC && colGridPC.Children[0] is Viewbox viewboxPC
+                    && viewboxPC.Child is TextBlock textblockPC)
+            {
+                if (coachesDict.ContainsKey("COAP"))
+                    textblockPC.Text = coachesDict["COAP"];
+            }
+
+            if (CoachesGrid.Children[3] is Grid rowGridAPC && rowGridAPC.Children[1] is Grid colGridAPC && colGridAPC.Children[0] is Viewbox viewboxAPC
+                    && viewboxAPC.Child is TextBlock textblockAPC)
+            {
+                if (coachesDict.ContainsKey("COPA"))
+                    textblockAPC.Text = coachesDict["COPA"];
+            }
+
+            if (CoachesGrid.Children[4] is Grid rowGridFBC && rowGridFBC.Children[1] is Grid colGridFBC && colGridFBC.Children[0] is Viewbox viewboxFBC
+                    && viewboxFBC.Child is TextBlock textblockFBC)
+            {
+                if (coachesDict.ContainsKey("COA1"))
+                    textblockFBC.Text = coachesDict["COA1"];
+            }
+
+            if (CoachesGrid.Children[5] is Grid rowGridTBC && rowGridTBC.Children[1] is Grid colGridTBC && colGridTBC.Children[0] is Viewbox viewboxTBC
+                    && viewboxTBC.Child is TextBlock textblockTBC)
+            {
+                if (coachesDict.ContainsKey("COA3"))
+                    textblockTBC.Text = coachesDict["COA3"];
+            }
+
+            if (CoachesGrid.Children[6] is Grid rowGridHC && rowGridHC.Children[1] is Grid colGridHC && colGridHC.Children[0] is Viewbox viewboxHC
+                    && viewboxHC.Child is TextBlock textblockHC)
+            {
+                if (coachesDict.ContainsKey("COAT"))
+                    textblockHC.Text = coachesDict["COAT"];
+            }
+
+            if (CoachesGrid.Children[7] is Grid rowGridAHC && rowGridAHC.Children[1] is Grid colGridAHC && colGridAHC.Children[0] is Viewbox viewboxAHC
+                    && viewboxAHC.Child is TextBlock textblockAHC)
+            {
+                if (coachesDict.ContainsKey("COAA"))
+                    textblockAHC.Text = coachesDict["COAA"];
+            }
+
+            if (CoachesGrid.Children[8] is Grid rowGridBUC && rowGridBUC.Children[1] is Grid colGridBUC && colGridBUC.Children[0] is Viewbox viewboxBUC
+                    && viewboxBUC.Child is TextBlock textblockBUC)
+            {
+                if (coachesDict.ContainsKey("BCAT"))
+                    textblockBUC.Text = coachesDict["BCAT"];
+            }
         }
     }
 }
