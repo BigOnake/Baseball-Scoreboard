@@ -7582,7 +7582,7 @@
                     </Grid.RowDefinitions>
 
                     <!-- First Row -->
-                    <Grid Grid.Row="0" ShowGridLines="True">
+                    <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="4*"/>
                             <ColumnDefinition/>
@@ -7641,7 +7641,7 @@
                     </Grid>
 
                     <!-- Stats -->
-                    <Grid Grid.Row="1" ShowGridLines="True">
+                    <Grid Grid.Row="1">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -7658,7 +7658,7 @@
                         </Grid.RowDefinitions>
 
                         <!-- Player 1 -->
-                        <Grid Grid.Row="0" ShowGridLines="True">
+                        <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -7705,6 +7705,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7748,7 +7750,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="1" ShowGridLines="True">
+                        <Grid Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -7756,7 +7758,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -7780,9 +7782,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -7806,9 +7810,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -7832,9 +7838,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -7858,11 +7866,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
                         <!-- Player 2 -->
-                        <Grid Grid.Row="2" ShowGridLines="True">
+                        <Grid Grid.Row="2">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -7909,6 +7919,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -7952,7 +7964,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="3" ShowGridLines="True">
+                        <Grid Grid.Row="3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -7960,7 +7972,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -7984,9 +7996,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8010,9 +8024,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8036,9 +8052,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8062,11 +8080,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
                         <!-- Player 3 -->
-                        <Grid Grid.Row="4" ShowGridLines="True">
+                        <Grid Grid.Row="4">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -8113,6 +8133,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -8156,7 +8178,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="5" ShowGridLines="True">
+                        <Grid Grid.Row="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -8164,7 +8186,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8188,9 +8210,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8214,9 +8238,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8240,9 +8266,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8266,11 +8294,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
                         <!-- Player 4 -->
-                        <Grid Grid.Row="6" ShowGridLines="True">
+                        <Grid Grid.Row="6">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -8317,6 +8347,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -8360,7 +8392,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="7" ShowGridLines="True">
+                        <Grid Grid.Row="7">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -8368,7 +8400,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8392,9 +8424,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8418,9 +8452,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8444,9 +8480,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8470,11 +8508,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
                         <!-- Player 5 -->
-                        <Grid Grid.Row="8" ShowGridLines="True">
+                        <Grid Grid.Row="8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -8521,6 +8561,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -8564,7 +8606,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="9" ShowGridLines="True">
+                        <Grid Grid.Row="9">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -8572,7 +8614,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8596,9 +8638,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8622,9 +8666,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8648,9 +8694,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8674,11 +8722,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
                         <!-- Player 6 -->
-                        <Grid Grid.Row="10" ShowGridLines="True">
+                        <Grid Grid.Row="10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="4*"/>
                                 <ColumnDefinition/>
@@ -8725,6 +8775,8 @@
                                     </Viewbox>
                                 </Grid>
 
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="2"/>
+
                             </Grid>
 
                             <Grid Grid.Column="3">
@@ -8768,7 +8820,7 @@
                             </Grid>
                         </Grid>
 
-                        <Grid Grid.Row="11" ShowGridLines="True">
+                        <Grid Grid.Row="11">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -8776,7 +8828,7 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Grid Grid.Column="0" ShowGridLines="True">
+                            <Grid Grid.Column="0">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8800,9 +8852,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="1" ShowGridLines="True">
+                            <Grid Grid.Column="1">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8826,9 +8880,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="2" ShowGridLines="True">
+                            <Grid Grid.Column="2">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8852,9 +8908,11 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
 
-                            <Grid Grid.Column="3" ShowGridLines="True">
+                            <Grid Grid.Column="3">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
@@ -8878,6 +8936,8 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
+
+                                <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
 
@@ -8887,7 +8947,7 @@
             </Grid>
             
             <!-- Managers -->
-            <Grid Grid.Column="1" x:Name="CoachesGrid" ShowGridLines="True">
+            <Grid Grid.Column="1" x:Name="CoachesGrid">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -9117,6 +9177,8 @@
                 </Grid>
             </Grid>
         </Grid>
+
+        <Border Style="{StaticResource BorderStyle}" Grid.RowSpan="6"/>
 
     </Grid>
         
