@@ -2,7 +2,7 @@ using System;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
-
+using System.Xml.Serialization;
 using frmScoreCard.Data;
 
 namespace frmScoreCard.Form
@@ -27,6 +27,7 @@ namespace frmScoreCard.Form
             umpsTeamsSBTable();
             scoreTable();
             bullpenTable();
+            coachTable();
 
         }
 
@@ -50,6 +51,7 @@ namespace frmScoreCard.Form
             // Loop through each child of the main VenueGrid (skipping first row)
             for (int i = 1; i < VenueGrid.Children.Count; i++)   
             {
+
                 // Null check for standard and tracking is added too, because 
                 // some stadium have null values in those for some reason. Just to be safe.
                 if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0  
@@ -117,14 +119,19 @@ namespace frmScoreCard.Form
                     if (benchPlayers[idx].name != null && rowGrid.Children[1] is Grid columnGridName 
                         && columnGridName.Children[0] is Viewbox viewboxName && viewboxName.Child is TextBlock textBlockName)
                     {
-                        /*
-                        if (benchPlayers[idx].position == "Left")
+                        
+                        if (benchPlayers[idx].sides.people[0].batSide.description == "Left")
+                        {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Red;
-                        else if (benchPlayers[idx].position == "Right")
+                        }
+                        else if (benchPlayers[idx].sides.people[0].batSide.description == "Right")
+                        {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
+                        }
                         else
+                        {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Black;
-                        */
+                        }
 
                         textBlockName.Text = benchPlayers[idx].name;
                     }
@@ -571,6 +578,19 @@ namespace frmScoreCard.Form
                                         if (rowGridStats.Children[0] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
                                         && viewboxName.Child is TextBlock textBlockName)
                                         {
+                                            if (guestBullpenPlayers[idx].sides.people[0].pitchHand.description == "Left")
+                                            {
+                                                textBlockName.Foreground = System.Windows.Media.Brushes.Red;
+                                            }
+                                            else if (guestBullpenPlayers[idx].sides.people[0].pitchHand.description == "Right")
+                                            {
+                                                textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
+                                            }
+                                            else
+                                            {
+                                                textBlockName.Foreground = System.Windows.Media.Brushes.Black;
+                                            }
+
                                             textBlockName.Text = guestBullpenPlayers[idx].name;
                                         }
                                     }
@@ -633,24 +653,34 @@ namespace frmScoreCard.Form
                                     }
                                 }
 
-                                // Add a null check after you have the return calls.
                                 // Pitch Type & Velocity
                                 if (rowGrid.Children[j + 1] is Grid rowGridPitchTypes)
-                                {
-                                    for (int k = 0; k < rowGridPitchTypes.Children.Count; k++)
-                                    {
-                                        if (rowGridPitchTypes.Children[k] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
-                                            && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT)
+                                {                                    
+                                        if (guestBullpenPlayers[idx].bullpenPitches != null && guestBullpenPlayers[idx].bullpenPitches.splits != null)
                                         {
-                                            //textBlockPT.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.;
-                                        }
+                                            for (int z = 0; z < rowGridPitchTypes.Children.Count; z++)
+                                            {
+                                                // Extra Null Checks because some pitch codes are null
+                                                if (rowGridPitchTypes.Children[z] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
+                                                    && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT
+                                                    && z < guestBullpenPlayers[idx].bullpenPitches.splits.Count
+                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType != null
+                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType.code != null)
+                                                {
+                                                    textBlockPT.Text = guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType.code;
+                                                }
 
-                                        if (rowGridPitchTypes.Children[k] is Grid colGridV && colGridV.Children[2] is Grid colGridVstats
-                                            && colGridVstats.Children[0] is Viewbox viewboxV && viewboxV.Child is TextBlock textBlockV)
-                                        {
-                                            textBlockV.Text = "VVV";
-                                        }
-                                    }
+                                                // Extra Null Checks because some release speed values are null
+                                                if (rowGridPitchTypes.Children[z] is Grid colGridV && colGridV.Children[2] is Grid colGridVstats
+                                                    && colGridVstats.Children[0] is Viewbox viewboxV && viewboxV.Child is TextBlock textBlockV
+                                                    && z < guestBullpenPlayers[idx].bullpenPitches.splits.Count
+                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed != null
+                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed.averageValue != null)
+                                                {
+                                                textBlockV.Text = guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
+                                                }
+                                            }                                                                                                         
+                                        }                                 
                                 }
                                 
                                 idx++;
@@ -665,6 +695,56 @@ namespace frmScoreCard.Form
                 }
 
             }
-        }                                           
+        }
+
+        int [] coachIndices() 
+        {
+            int[] arrIndex = new int[9];
+            int idx = 0;
+
+            for (int i = 0; i < stats.homeTeamCoaches.roster.Count; i++)
+            {
+                if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+                {                    
+                    arrIndex[idx] = i;
+                }
+                else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
+                {
+                    arrIndex[idx] = i;
+                }
+
+                idx++;
+            }
+
+            return arrIndex;
+        }
+
+        private void coachTable()
+        {
+            if (stats.homeTeamCoaches == null || stats.homeTeamCoaches.roster == null || stats.homeTeamCoaches.roster.Count == 0)
+                return;
+
+            int idx = 0;
+            List<int> coachIndices = new List<int>();
+
+            for (int i = 0; i < CoachesGrid.Children.Count; i++)
+            {
+                if (idx >= stats.homeTeamCoaches.roster.Count)
+                    return;
+
+                if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+                {
+                    //coachIndices.Add();
+                }
+
+                if (CoachesGrid.Children[i] is Grid rowGrid && rowGrid.Children[1] is Grid colGrid && colGrid.Children[0] is Viewbox viewbox 
+                    && viewbox.Child is TextBlock textblock)
+                {
+                    textblock.Text = stats.homeTeamCoaches.roster[i].person.fullName;
+                }
+                
+            }
+            
+        }
     }
 }

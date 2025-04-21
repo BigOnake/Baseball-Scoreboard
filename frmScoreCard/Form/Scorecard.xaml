@@ -8602,7 +8602,7 @@
             </Grid>
             
             <!-- Managers -->
-            <Grid Grid.Column="1" x:Name="MangersGrid" ShowGridLines="True">
+            <Grid Grid.Column="1" x:Name="CoachesGrid" ShowGridLines="True">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
