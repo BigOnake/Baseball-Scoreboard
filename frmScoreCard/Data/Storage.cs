@@ -17,7 +17,7 @@ namespace frmScoreCard.Data
         public Roster guestTeamRoster;
 
         public Master data;
-        
+
 
         public Storage()
         {
@@ -109,7 +109,7 @@ namespace frmScoreCard.Data
         {
             return gamePk;
         }
-        
+
         public void SetGamePk(int gameId)
         {
             gamePk = gameId;
@@ -450,6 +450,53 @@ namespace frmScoreCard.Data
         public string? jerseyNumber { get; set; }
         public PitcherStats? pitcherStats { get; set; }
         public Side? sides { get; set; }
+
+        public BullpenPitches? bullpenPitches { get; set; }
+    }
+
+    /****************************************/
+
+    public class BullpenPitches
+    {
+        public List<BullpenSplits>? splits { get; set; }
+    }
+
+    public class BullpenSplits
+    {
+        public BullpenPitchStats? stats { get; set; }
+        public BullpenPitchType? pitchType { get; set; }
+    }
+
+    public class BullpenPitchStats
+    {
+        public BullpenPitching? pitching { get; set; }
+    }
+
+    public class BullpenPitching
+    {
+        public BullpenStandard? standard { get; set; }
+        public BullpenTracking? tracking { get; set; }
+    }
+
+    public class BullpenStandard
+    {
+        public int? hits { get; set; }
+        public int? atBats { get; set; }
+    }
+
+    public class BullpenTracking
+    {
+        public BullpenReleaseSpeed? releaseSpeed { get; set; }
+    }
+
+    public class BullpenReleaseSpeed
+    {
+        public double? averageValue { get; set; }
+    }
+
+    public class BullpenPitchType
+    {
+        public string? code { get; set; }
     }
 
     /****************************************/

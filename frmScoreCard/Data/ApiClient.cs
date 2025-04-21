@@ -348,9 +348,7 @@ namespace frmScoreCard.Data
 
             string result = await GetOAuthJsonRequest(path);
 
-            PitcherStats stat = JsonSerializer.Deserialize<PitcherStats>(result);
-
-            return stat;
+            return JsonSerializer.Deserialize<PitcherStats>(result);
         }
 
         public async Task<PitchTypes> GetPitchTypes(int playerId)
@@ -362,9 +360,19 @@ namespace frmScoreCard.Data
 
             string result = await GetOAuthJsonRequest(path);
 
-            PitchTypes stat = JsonSerializer.Deserialize<PitchTypes>(result);
+            return JsonSerializer.Deserialize<PitchTypes>(result);
+        }
 
-            return stat;
+        public async Task<BullpenPitches> GetBullpenPitches(int playerId)
+        {
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=pitchType,player&" +
+                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,pitching,standard,hits,atBats,tracking,releaseSpeed,averageValue,pitchType,code";
+
+            string result = await GetOAuthJsonRequest(path);
+
+            return JsonSerializer.Deserialize<BullpenPitches>(result);
         }
 
         /**********************************************************/

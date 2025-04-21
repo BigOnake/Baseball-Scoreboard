@@ -123,6 +123,7 @@ namespace frmScoreCard.Data
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);
                     bp.sides = GetSide(playerId);
+                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
 
                     storage.AddBullpenPlayer(teamType, playerId, bp);
                 }
@@ -133,15 +134,23 @@ namespace frmScoreCard.Data
                 {
                     BullpenStats bp = new BullpenStats();
 
+                    bp.pitcherStats = await GetPitcherStats(playerId);
+                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
                     bp.name = GetPlayerName(teamType, playerId);
                     bp.position = GetPosition(teamType, playerId);
                     bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
                     bp.pitcherStats = await GetPitcherStats(playerId);
                     bp.sides = GetSide(playerId);
+                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
 
                     storage.AddBullpenPlayer(teamType, playerId, bp);
                 }
             }
+        }
+
+        static public async Task<BullpenPitches> GetBullpenPitches(string teamType, int playerId)
+        {
+            return await apiClient.GetBullpenPitches(playerId);
         }
 
         static public string GetPlayerName(string teamType, int playerId)
