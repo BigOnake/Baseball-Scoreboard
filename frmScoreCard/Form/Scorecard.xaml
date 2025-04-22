@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        
+
         <!-- Style for all text -->
         <Style x:Key ="TextStyle" TargetType="TextBlock">
             <Setter Property="FontWeight" Value="Bold"/>
@@ -33,10 +33,10 @@
             <Setter Property="BorderThickness" Value="0.5"/>
         </Style>
     </Window.Resources>
-    
+
     <!-- Main Grid -->
     <Grid Margin="5">
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="0.25*"/>
             <RowDefinition Height="2*"/>
@@ -45,7 +45,7 @@
             <RowDefinition Height="0.50*"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
-        
+
         <!-- Title for ScoreCard -->
         <Grid Grid.Row="0">
             <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
@@ -62,7 +62,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <!-- Diamond -->
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
@@ -77,10 +77,41 @@
 
                 <Grid Grid.Row="1">
                     <!-- Diamond Here -->
-                    <Border Style="{StaticResource BorderStyle}"/>
+
+                    <Viewbox Stretch="Uniform">
+                        <Canvas Width="300" Height="300">
+                            <Line X1="0" Y1="50" X2="300" Y2="50" Stroke="Black" StrokeThickness="1" RenderTransformOrigin="0.488,0.512" HorizontalAlignment="Left" Canvas.Left="17"/>
+                            <Line X1="0" Y1="75" X2="300" Y2="75" Stroke="Black" StrokeThickness="1" Canvas.Left="322" Canvas.Top="20" RenderTransformOrigin="0.485,0.591"/>
+                            <Line X1="0" Y1="100" X2="300" Y2="100" Stroke="Black" StrokeThickness="1" Canvas.Left="-314" Canvas.Top="-5"/>
+                            <Line X1="0" Y1="125" X2="300" Y2="125" Stroke="Black" StrokeThickness="1" Canvas.Left="-243" Canvas.Top="24"/>
+                            <Line X1="0" Y1="150" X2="300" Y2="150" Stroke="Black" StrokeThickness="1" Canvas.Left="259"/>
+                            <Line X1="0" Y1="175" X2="300" Y2="175" Stroke="Black" StrokeThickness="1" Canvas.Left="-307" Canvas.Top="25"/>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="332"/>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="-226" Canvas.Top="45"/>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="236" Canvas.Top="50"/>
+                        </Canvas>
+                    </Viewbox>
+
+                    <Viewbox Stretch="Uniform">
+                        <Rectangle Width="100" Height="100"
+                                Fill="White"
+                                Stroke="Black"
+                                StrokeThickness="1">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <TranslateTransform X="140" Y="100"/>
+                                    <!-- Rotate by 45 degrees (center of the rectangle) -->
+                                    <RotateTransform Angle="45" CenterX="50" CenterY="50"/>
+                                    <!-- Scale down to 60% of original size -->
+                                    <ScaleTransform ScaleX="0.7" ScaleY="0.3"/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
+                    </Viewbox>
+
                 </Grid>
             </Grid>
-            
+
             <!-- Pitchers Top -->
             <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
@@ -120,7 +151,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Pitcher-->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
@@ -129,7 +160,7 @@
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
-                    
+
                     <!-- GS -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
@@ -183,7 +214,7 @@
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
-                    
+
                     <!-- BB -->
                     <Grid Grid.Column="7">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
@@ -242,19 +273,19 @@
                 <Grid Grid.Row="2">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="3">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="4">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="5">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <Grid Grid.Row="6">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
@@ -270,9 +301,9 @@
                 <Grid Grid.Row="9">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
             </Grid>
-            
+
             <!-- Venue & Bench-->
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
@@ -290,15 +321,15 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    
+
                     <!-- Venue Name and Game Date -->
                     <Grid Grid.Row="0">
-                        
+
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        
+
                         <!-- Venue Name-->
                         <Grid Grid.Column="0">
                             <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
@@ -313,7 +344,7 @@
                             </Viewbox>
                         </Grid>
                     </Grid>
-                    
+
                     <!-- Venue Data (5 Rows Below) -->
                     <Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
@@ -343,7 +374,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -360,7 +391,7 @@
 
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
-                        
+
                     </Grid>
 
                     <Grid Grid.Row="2">
@@ -381,7 +412,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -392,7 +423,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -430,7 +461,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -441,7 +472,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -479,7 +510,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -490,7 +521,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -528,7 +559,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="1">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -539,7 +570,7 @@
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="3">
-                            
+
                             <Border Style="{StaticResource BorderStyle}"/>
                         </Grid>
                         <Grid Grid.Column="4">
@@ -561,7 +592,7 @@
 
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
                 <!-- Bench -->
                 <Grid x:Name ="BenchGrid" Grid.Row="1">
                     <Grid.RowDefinitions>
@@ -844,7 +875,7 @@
                 <RowDefinition Height="1.75*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-           
+
             <!-- First Row -->
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
@@ -5409,14 +5440,14 @@
                     <ColumnDefinition Width="0.7*"/>
                     <ColumnDefinition Width="0.7*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <!-- Umpire Name and Type -->
                 <Grid Grid.Column="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="0.2*"/>
                         <ColumnDefinition Width="0.8*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <!-- Umpire Type -->
                     <Grid Grid.Column="0" Background="LightGray">
                         <Viewbox Stretch="Uniform">
@@ -5440,7 +5471,7 @@
                     <Viewbox Stretch="Uniform">
                         <TextBlock Text="R" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
-                    
+
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
@@ -5546,7 +5577,7 @@
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
-                    
+
                 </Grid>
 
                 <Grid Grid.Column="1" Background="LightGray">
@@ -5656,7 +5687,7 @@
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
-                    
+
                 </Grid>
 
                 <Grid Grid.Column="1" Background="LightGray">
@@ -5722,7 +5753,7 @@
                     </Viewbox>
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
             </Grid>
 
             <!-- Umpire 4 -->
@@ -5769,7 +5800,7 @@
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
-                    
+
                 </Grid>
 
                 <Grid Grid.Column="1" Background="LightGray">
@@ -5830,13 +5861,13 @@
                     <Viewbox Stretch="Uniform">
                         <TextBlock Text="XX" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
-                    
+
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
             </Grid>
         </Grid>
-        
+
         <!-- Team Scores -->
         <Grid Grid.Row ="4">
             <Grid.RowDefinitions>
@@ -6022,7 +6053,7 @@
                     <Viewbox Stretch="Uniform">
                         <TextBlock x:Name = "HomeTeam" Text="Home Team" Style="{StaticResource TextStyle}"/>
                     </Viewbox>
-                    
+
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
@@ -6185,7 +6216,7 @@
                 <Grid Grid.Column="16">
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-                
+
             </Grid>
         </Grid>
 
@@ -6202,14 +6233,14 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                
+
                 <!-- First Six -->
                 <Grid Grid.Column="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.75*"/>
                         <RowDefinition Height="9.25*"/>
                     </Grid.RowDefinitions>
-                    
+
                     <!-- First Row -->
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
@@ -6224,7 +6255,7 @@
                         </Grid.ColumnDefinitions>
 
                         <Grid Grid.Column="0"/>
-                        
+
                         <Grid Grid.Column="1">
                             <Viewbox Stretch="Uniform">
                                 <TextBlock Text="G" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
@@ -6266,9 +6297,9 @@
                                 <TextBlock Text="BB" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                             </Viewbox>
                         </Grid>
-                       
+
                     </Grid>
-                    
+
                     <!-- Stats -->
                     <Grid Grid.Row="1">
                         <Grid.RowDefinitions>
@@ -6285,7 +6316,7 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        
+
                         <!-- Player 1 -->
                         <Grid Grid.Row="0">
                             <Grid.ColumnDefinitions>
@@ -6306,7 +6337,7 @@
 
                                 <Border Style="{StaticResource BorderStyle}"/>
                             </Grid>
-                            
+
                             <Grid Grid.Column="1">
                                 <Viewbox Stretch="Uniform">
                                     <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
@@ -6399,13 +6430,13 @@
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
-                                
+
                                 <Grid Grid.Column="1">
                                     <Viewbox Stretch="Uniform">
                                         <TextBlock Style="{StaticResource TextStyle}"/>
                                     </Viewbox>
                                 </Grid>
-                                
+
                                 <Grid Grid.Column="2">
                                     <Viewbox Stretch="Uniform">
                                         <TextBlock Text="X" Style="{StaticResource TextStyle}"/>
@@ -7571,9 +7602,9 @@
                         </Grid>
 
                     </Grid>
-                    
+
                 </Grid>
-                
+
                 <!-- Second Six -->
                 <Grid Grid.Column="1">
                     <Grid.RowDefinitions>
@@ -8945,7 +8976,7 @@
 
                 </Grid>
             </Grid>
-            
+
             <!-- Managers -->
             <Grid Grid.Column="1" x:Name="CoachesGrid">
                 <Grid.RowDefinitions>
@@ -8959,7 +8990,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                
+
                 <!-- Manager -->
                 <Grid Grid.Row = "0">
                     <Grid.ColumnDefinitions>
@@ -9181,6 +9212,6 @@
         <Border Style="{StaticResource BorderStyle}" Grid.RowSpan="6"/>
 
     </Grid>
-        
-    
+
+
 </Window>
