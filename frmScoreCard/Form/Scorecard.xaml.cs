@@ -48,7 +48,7 @@ namespace frmScoreCard.Form
 
             for (int i = 1; i < VenueGrid.Children.Count; i++)
             {
-                // If stats end, the loop will stop.
+                // If there are no or not enough stats to fit the grid, the function will stop.
                 if (stats?.stadium?.splits == null || idx >= stats.stadium.splits.Count)
                     return;
                 
@@ -93,6 +93,7 @@ namespace frmScoreCard.Form
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
+                // Function stops if bench players are null or less than could fit the grid.
                 if (benchPlayers == null || idx >= benchPlayers.Count)
                     return;
 
@@ -156,12 +157,9 @@ namespace frmScoreCard.Form
             }
         }
 
-        private void hitterTable()                                               // Data for Hitter Table
-        {
-            if (stats?.homeTeamSelectedPlayers == null || stats.homeTeamSelectedPlayers.Count == 0)
-                return;
-
-            var players = stats.homeTeamSelectedPlayers.Values.ToList();
+        private void hitterTable()                                               
+        {           
+            var players = stats?.homeTeamSelectedPlayers?.Values.ToList();
             int idx = 0;
 
             // 1,3,5,7,9,11,13,15,17
@@ -170,50 +168,50 @@ namespace frmScoreCard.Form
                 // 2,4,6,8,10,12,14,16,18
                 int j = i + 1;
 
-                if (idx >= players.Count)
+                // Function stops if players are null or aren't enough to fit the grid.
+                if (players == null || idx >= players.Count)
                     return;
 
                 //Player Names, Positions & AVG, OPS, K, BB and etc.
                 if (HitterGrid.Children[i] is Grid rowGrid)
                 {
                     // Name 
-                    if (players[idx].name != null && rowGrid.Children[0] is Grid columnGrid1 
+                    if (rowGrid.Children[0] is Grid columnGrid1 
                         && columnGrid1.Children[0] is Viewbox viewboxPlayer && viewboxPlayer.Child is TextBlock textBlockPlayer)
                     {
-                        if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Left")
+                        if (players[idx].sides?.people?[0]?.pitchHand?.description == "Left")
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
-                        else if (players[idx]?.sides?.people?[0]?.pitchHand?.description == "Right")
+                        else if (players[idx].sides?.people?[0]?.pitchHand?.description == "Right")
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
                         else
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
 
-                        textBlockPlayer.Text = $"{players[idx].jerseyNumber}-{players[idx].name}";
+                        textBlockPlayer.Text = $"{players[idx].jerseyNumber ?? string.Empty}-{players[idx].name ?? string.Empty}";
                     }
 
                     // Position
-                    if (players[idx].position != null && rowGrid.Children[1] is Grid columnGrid2 
+                    if (rowGrid.Children[1] is Grid columnGrid2 
                         && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBlock textBlockPos)
                     {
-                        textBlockPos.Text = players[idx].position;
+                        textBlockPos.Text = players[idx].position ?? string.Empty;
                     }
 
-                    // Stats
-                    if (players[idx]?.hitterStats?.splits != null && players[idx].hitterStats.splits.Count > 0)
+                    // Checks if the 'splits' property contains values
+                    if (players[idx].hitterStats?.splits?.Count != null && players[idx].hitterStats?.splits?.Count > 0)                   
                     {
-
                         // AVG, OPS                   
                         if (rowGrid.Children[14] is Grid columnGrid3)
                         {
                             if (columnGrid3.Children[0] is Grid rowGridAvg && rowGridAvg.Children[0] is Viewbox viewboxAvg
                                 && viewboxAvg.Child is TextBlock textBlockAvg)
                             {
-                                textBlockAvg.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.avg;
+                                textBlockAvg.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
 
                             if (columnGrid3.Children[1] is Grid rowGridOps && rowGridOps.Children[0] is Viewbox viewboxOps
                                 && viewboxOps.Child is TextBlock textBlockOps)
                             {
-                                textBlockOps.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.ops;
+                                textBlockOps.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
                             }
                         }
 
@@ -223,13 +221,13 @@ namespace frmScoreCard.Form
                             if (columnGrid4.Children[0] is Grid rowGridK && rowGridK.Children[0] is Viewbox viewboxK
                                 && viewboxK.Child is TextBlock textBlockK)
                             {
-                                textBlockK.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.strikeOuts.ToString();
+                                textBlockK.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.strikeOuts.ToString() ?? string.Empty;
                             }
 
                             if (columnGrid4.Children[1] is Grid rowGridBB && rowGridBB.Children[0] is Viewbox viewboxBB
                                 && viewboxBB.Child is TextBlock textBlockBB)
                             {
-                                textBlockBB.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.baseOnBalls.ToString();
+                                textBlockBB.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.baseOnBalls.ToString() ?? string.Empty;
                             }
                         }
 
@@ -239,13 +237,13 @@ namespace frmScoreCard.Form
                             if (columnGrid5.Children[0] is Grid rowGrid2b && rowGrid2b.Children[0] is Viewbox viewbox2b
                                 && viewbox2b.Child is TextBlock textBlock2b)
                             {
-                                textBlock2b.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.doubles.ToString();
+                                textBlock2b.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.doubles.ToString() ?? string.Empty;
                             }
 
                             if (columnGrid5.Children[1] is Grid rowGrid3b && rowGrid3b.Children[0] is Viewbox viewbox3b
                                 && viewbox3b.Child is TextBlock textBlock3b)
                             {
-                                textBlock3b.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.triples.ToString();
+                                textBlock3b.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.triples.ToString() ?? string.Empty;
                             }
                         }
 
@@ -255,13 +253,13 @@ namespace frmScoreCard.Form
                             if (columnGrid6.Children[0] is Grid rowGridHr && rowGridHr.Children[0] is Viewbox viewboxHr
                                 && viewboxHr.Child is TextBlock textBlockHr)
                             {
-                                textBlockHr.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                                textBlockHr.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
                             }
 
                             if (columnGrid6.Children[1] is Grid rowGridRbi && rowGridRbi.Children[0] is Viewbox viewboxRbi
                                 && viewboxRbi.Child is TextBlock textBlockRbi)
                             {
-                                textBlockRbi.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.rbi.ToString();
+                                textBlockRbi.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.rbi.ToString() ?? string.Empty;
                             }
                         }
 
@@ -271,13 +269,13 @@ namespace frmScoreCard.Form
                             if (columnGrid7.Children[0] is Grid rowGridRuns && rowGridRuns.Children[0] is Viewbox viewboxRuns
                                 && viewboxRuns.Child is TextBlock textBlockRuns)
                             {
-                                textBlockRuns.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.runs.ToString();
+                                textBlockRuns.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.runs.ToString() ?? string.Empty;
                             }
 
                             if (columnGrid7.Children[1] is Grid rowGridBacon && rowGridBacon.Children[0] is Viewbox viewboxBacon
                                 && viewboxBacon.Child is TextBlock textBlockBacon)
                             {
-                                textBlockBacon.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.babip;
+                                textBlockBacon.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.babip ?? string.Empty;
                             }
                         }
 
@@ -287,166 +285,167 @@ namespace frmScoreCard.Form
                             if (columnGrid8.Children[0] is Grid rowGridSb && rowGridSb.Children[0] is Viewbox viewboxSb
                                 && viewboxSb.Child is TextBlock textBlockSb)
                             {
-                                textBlockSb.Text = $"{players[idx].hitterStats.splits[0].stats?.hitting?.standard?.stolenBases}-" +
-                                    $"{players[idx].hitterStats.splits[0].stats?.hitting?.standard?.caughtStealing}";
+                                textBlockSb.Text = $"{players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.stolenBases.ToString() ?? string.Empty}-" +
+                                    $"{players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.caughtStealing.ToString() ?? string.Empty}";
                             }
 
                             if (columnGrid8.Children[1] is Grid rowGridDp && rowGridDp.Children[0] is Viewbox viewboxDp
                                 && viewboxDp.Child is TextBlock textBlockDp)
                             {
-                                textBlockDp.Text = players[idx].hitterStats.splits[0].stats?.hitting?.standard?.groundIntoDoublePlay.ToString();
+                                textBlockDp.Text = players[idx].hitterStats?.splits?[0]?.stats?.hitting?.standard?.groundIntoDoublePlay.ToString() ?? string.Empty;
                             }
                         }
-
                     }
+                    
                 }
 
                 // 1stP, RISP, RISP2o, vsLH, vsRH, 7+.
                 if (HitterGrid.Children[j] is Grid rowGrid2)
                 {
                     // 1stP
-                    if (players[idx]?.fp?.splits != null && players[idx].fp.splits.Count > 0)
+                    if (players[idx].fp?.splits?.Count != null && players[idx].fp?.splits?.Count > 0)
                     {
                         if (rowGrid2.Children[1] is Grid columnGrid1stP)
                         {
                             if (columnGrid1stP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = players[idx].fp.splits[0].stats?.hitting?.tracking?.hitProbability?.averageValue.ToString();                 
+                                textBlock3.Text = players[idx].fp?.splits?[0]?.stats?.hitting?.tracking?.hitProbability?.averageValue.ToString() ?? string.Empty;
                             }
                             if (columnGrid1stP.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].fp.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock4.Text = players[idx].fp?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGrid1stP.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
                                 && viewbox5.Child is TextBlock textBlock5)
                             {
-                                textBlock5.Text = players[idx].fp.splits[0].stats?.hitting?.standard?.ops;
+                                textBlock5.Text = players[idx].fp?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
                             }
                         }
                     }
+                    
 
                     // RISP
-                    if (players[idx]?.risp?.splits != null && players[idx].risp.splits.Count > 0)
-                    {
+                    if (players[idx].risp?.splits?.Count != null && players[idx].risp?.splits?.Count > 0)
+                    { 
                         if (rowGrid2.Children[2] is Grid columnGridRISP)
                         {
                             if (columnGridRISP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = $"{players[idx].risp.splits[0].stats?.hitting?.standard?.hits}-" +
-                                    $"{players[idx].risp.splits[0].stats?.hitting?.standard?.atBats}";
+                                textBlock3.Text = $"{players[idx].risp?.splits?[0]?.stats?.hitting?.standard?.hits.ToString() ?? string.Empty}-" +
+                                    $"{players[idx].risp?.splits?[0]?.stats?.hitting?.standard?.atBats.ToString() ?? string.Empty}";
                             }
                             if (columnGridRISP.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].risp.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock4.Text = players[idx].risp?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGridRISP.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
                                 && viewbox5.Child is TextBlock textBlock5)
                             {
-                                textBlock5.Text = players[idx].risp.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                                textBlock5.Text = players[idx].risp?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
                             }
                         }
                     }
 
                     // RISP2o
-                    if (players[idx]?.risp2o?.splits != null && players[idx].risp2o.splits.Count > 0)
-                    {
+                    if (players[idx].risp2o?.splits?.Count != null && players[idx].risp2o?.splits?.Count > 0)
+                    { 
                         if (rowGrid2.Children[3] is Grid columnGridRISP2o)
                         {
                             if (columnGridRISP2o.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = $"{players[idx].risp2o.splits[0].stats?.hitting?.standard?.hits}-" +
-                                    $"{players[idx].risp2o.splits[0].stats?.hitting?.standard?.atBats}";
+                                textBlock3.Text = $"{players[idx].risp2o?.splits?[0]?.stats?.hitting?.standard?.hits.ToString() ?? string.Empty}-" +
+                                    $"{players[idx].risp2o?.splits?[0]?.stats?.hitting?.standard?.atBats.ToString() ?? string.Empty}";
                             }
                             if (columnGridRISP2o.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].risp2o.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock4.Text = players[idx].risp2o?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGridRISP2o.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
                                 && viewbox5.Child is TextBlock textBlock5)
                             {
-                                textBlock5.Text = players[idx].risp2o.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                                textBlock5.Text = players[idx].risp2o?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
                             }
                         }
                     }
 
                     // vsLH
-                    if (players[idx]?.vsLeft?.splits != null && players[idx].vsLeft.splits.Count > 0)
-                    {
+                    if (players[idx].vsLeft?.splits?.Count != null && players[idx].vsLeft?.splits?.Count > 0)
+                    { 
                         if (rowGrid2.Children[4] is Grid columnGridvsLH)
                         {
                             if (columnGridvsLH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = $"{players[idx].vsLeft.splits[0].stats?.hitting?.standard?.hits}-" +
-                                    $"{players[idx].vsLeft.splits[0].stats?.hitting?.standard?.atBats}";
+                                textBlock3.Text = $"{players[idx].vsLeft?.splits?[0]?.stats?.hitting?.standard?.hits.ToString() ?? string.Empty}-" +
+                                    $"{players[idx].vsLeft?.splits?[0]?.stats?.hitting?.standard?.atBats.ToString() ?? string.Empty}";
                             }
                             if (columnGridvsLH.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                                textBlock4.Text = players[idx].vsLeft?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
                             }
                             if (columnGridvsLH.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
                                 && viewbox5.Child is TextBlock textBlock5)
                             {
-                                textBlock5.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock5.Text = players[idx].vsLeft?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGridvsLH.Children[4] is Grid columnGrid7 && columnGrid7.Children[0] is Viewbox viewbox6
                                 && viewbox6.Child is TextBlock textBlock6)
                             {
-                                textBlock6.Text = players[idx].vsLeft.splits[0].stats?.hitting?.standard?.ops;
+                                textBlock6.Text = players[idx].vsLeft?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
                             }
                         }
                     }
 
                     // vsRH
-                    if (players[idx]?.vsRight?.splits != null && players[idx].vsRight.splits.Count > 0)
-                    {
+                    if (players[idx].vsRight?.splits?.Count != null && players[idx].vsRight?.splits?.Count > 0)
+                    { 
                         if (rowGrid2.Children[5] is Grid columnGridvsRH)
                         {
                             if (columnGridvsRH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = $"{players[idx].vsRight.splits[0].stats?.hitting?.standard?.hits}-" +
-                                    $"{players[idx].vsRight.splits[0].stats?.hitting?.standard?.atBats}";
+                                textBlock3.Text = $"{players[idx].vsRight?.splits?[0]?.stats?.hitting?.standard?.hits.ToString() ?? string.Empty}-" +
+                                    $"{players[idx].vsRight?.splits?[0]?.stats?.hitting?.standard?.atBats.ToString() ?? string.Empty}";
                             }
                             if (columnGridvsRH.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.homeRuns.ToString();
+                                textBlock4.Text = players[idx].vsRight?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
                             }
                             if (columnGridvsRH.Children[3] is Grid columnGrid6 && columnGrid6.Children[0] is Viewbox viewbox5
                                 && viewbox5.Child is TextBlock textBlock5)
                             {
-                                textBlock5.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock5.Text = players[idx].vsRight?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGridvsRH.Children[4] is Grid columnGrid7 && columnGrid7.Children[0] is Viewbox viewbox6
                                 && viewbox6.Child is TextBlock textBlock6)
                             {
-                                textBlock6.Text = players[idx].vsRight.splits[0].stats?.hitting?.standard?.ops;
+                                textBlock6.Text = players[idx].vsRight?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
                             }
                         }
                     }
 
                     // 7+
-                    if (players[idx]?.plus7?.splits != null && players[idx].plus7.splits.Count > 0)
-                    {
+                    if (players[idx].plus7?.splits?.Count != null && players[idx].plus7?.splits?.Count > 0)
+                    { 
                         if (rowGrid2.Children[6] is Grid columnGridvs7Plus)
                         {
                             if (columnGridvs7Plus.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
                                 && viewbox3.Child is TextBlock textBlock3)
                             {
-                                textBlock3.Text = players[idx].plus7.splits[0].stats?.hitting?.standard?.avg;
+                                textBlock3.Text = players[idx].plus7?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                             }
                             if (columnGridvs7Plus.Children[2] is Grid columnGrid5 && columnGrid5.Children[0] is Viewbox viewbox4
                                 && viewbox4.Child is TextBlock textBlock4)
                             {
-                                textBlock4.Text = players[idx].plus7.splits[0].stats?.hitting?.standard?.ops;
+                                textBlock4.Text = players[idx].plus7?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
                             }
                         }
                     }
