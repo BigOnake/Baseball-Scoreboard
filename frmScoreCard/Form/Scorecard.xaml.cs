@@ -33,98 +33,88 @@ namespace frmScoreCard.Form
 
         private void scoreCardTitle()                                            // Title for the ScoreCard
         {                       
-            if (stats.homeTeamName != null)
-                Blob.Text = stats.homeTeamName;            
+            Blob.Text = stats?.homeTeamName ?? string.Empty;            
         }
 
-        private void venueTable()                                                // Data for Venue Table
-        {
-            if (stats.venue != null && stats.venue.dates != null)
-            { 
-                VenueName.Text = stats.venue.dates[0].games[0].venue.name;
-            }
-
-            GameDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
-
+        private void venueTable()                                                
+        {            
             int idx = 0;
 
-            // Loop through each child of the main VenueGrid (skipping first row)
-            for (int i = 1; i < VenueGrid.Children.Count; i++)   
+            // Venue Name           
+            VenueName.Text = stats?.venue?.dates?[0]?.games?[0]?.venue?.name ?? string.Empty;
+
+            // Date
+            GameDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
+
+            for (int i = 1; i < VenueGrid.Children.Count; i++)
             {
-
-                // Null check for standard and tracking is added too, because 
-                // some stadium have null values in those for some reason. Just to be safe.
-                if (stats.stadium != null && stats.stadium.splits != null && stats.stadium.splits.Count() > 0  
-                    && stats.stadium.splits[idx].stats.pitching.standard != null 
-                    && stats.stadium.splits[idx].stats.pitching.tracking != null)
-                { 
-                    // Pitch Type
-                    if (VenueGrid.Children[i] is Grid rowGrid1 && rowGrid1.Children[0] is Grid columnGridPT
-                        && columnGridPT.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textblockPT)
-                    {
-                        textblockPT.Text = stats.stadium.splits[idx].pitchType.code.ToString();
-                    }
-
-                    // Velocity
-                    if (VenueGrid.Children[i] is Grid rowGrid2 && rowGrid2.Children[2] is Grid columnGrid
-                        && columnGrid.Children[0] is Viewbox viewbox && viewbox.Child is TextBlock textblock)
-                    {
-                        textblock.Text = stats.stadium.splits[idx].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
-                    }
-
-                    // Batting avg
-                    if (VenueGrid.Children[i] is Grid rowGrid3 && rowGrid3.Children[4] is Grid columnGridAvg
-                        && columnGridAvg.Children[0] is Viewbox viewboxAvg && viewboxAvg.Child is TextBlock textblockAvg)
-                    {
-                        textblockAvg.Text = stats.stadium.splits[idx].stats.pitching.standard.avg.ToString();
-                    }
-
-                    // Ops
-                    if (VenueGrid.Children[i] is Grid rowGrid4 && rowGrid4.Children[5] is Grid columnGridOps
-                        && columnGridOps.Children[0] is Viewbox viewboxOps && viewboxOps.Child is TextBlock textblockOps)
-                    {
-                        textblockOps.Text = stats.stadium.splits[idx].stats.pitching.standard.ops.ToString();
-                    }
+                // If stats end, the loop will stop.
+                if (stats?.stadium?.splits == null || idx >= stats.stadium.splits.Count)
+                    return;
+                
+                // Pitch Type
+                if (VenueGrid.Children[i] is Grid rowGrid1 && rowGrid1.Children[0] is Grid columnGridPT
+                    && columnGridPT.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textblockPT)
+                {
+                    textblockPT.Text = stats?.stadium?.splits?[idx]?.pitchType?.code?.ToString() ?? string.Empty;
                 }
 
+                // Velocity
+                if (VenueGrid.Children[i] is Grid rowGrid2 && rowGrid2.Children[2] is Grid columnGrid
+                    && columnGrid.Children[0] is Viewbox viewbox && viewbox.Child is TextBlock textblock)
+                {
+                    textblock.Text = stats?.stadium?.splits?[idx]?.stats?.pitching?.tracking?.releaseSpeed?.averageValue?.ToString() ?? string.Empty;
+                }
+
+                // Batting avg
+                if (VenueGrid.Children[i] is Grid rowGrid3 && rowGrid3.Children[4] is Grid columnGridAvg
+                    && columnGridAvg.Children[0] is Viewbox viewboxAvg && viewboxAvg.Child is TextBlock textblockAvg)
+                {
+                    textblockAvg.Text = stats?.stadium?.splits?[idx]?.stats?.pitching?.standard?.avg ?? string.Empty;
+                }
+
+                // Ops
+                if (VenueGrid.Children[i] is Grid rowGrid4 && rowGrid4.Children[5] is Grid columnGridOps
+                    && columnGridOps.Children[0] is Viewbox viewboxOps && viewboxOps.Child is TextBlock textblockOps)
+                {
+                    textblockOps.Text = stats?.stadium?.splits?[idx]?.stats?.pitching?.standard?.ops ?? string.Empty;
+                }
+                    
                 idx++;
             }
         }
 
-        private void benchTable()                                                // Data for Bench Table
-        {
-            if (stats?.homeTeamBench == null || stats.homeTeamBench.Count == 0)
-                return;
-
-            var benchPlayers = stats.homeTeamBench.Values.ToList();
+        private void benchTable()                                                
+        {           
+            var benchPlayers = stats?.homeTeamBench?.Values.ToList();
             int idx = 0;
 
-            BenchName.Text = $"{stats.homeTeamName} Bench";
+            BenchName.Text = $"{stats?.homeTeamName ?? string.Empty} Bench";
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
-                if (idx >= benchPlayers.Count)
+                if (idx >= benchPlayers?.Count)
                     return;
 
                 if (BenchGrid.Children[i] is Grid rowGrid)
                 {
                     // Jersey Number
-                    if (benchPlayers[idx].jerseyNumber != null && rowGrid.Children[0] is Grid columnGridNum && columnGridNum.Children[0] is Viewbox viewboxNum
+                    if (rowGrid.Children[0] is Grid columnGridNum && columnGridNum.Children[0] is Viewbox viewboxNum
                         && viewboxNum.Child is TextBlock textBlockNum)
                     {
-                        textBlockNum.Text = benchPlayers[idx].jerseyNumber;
+                        textBlockNum.Text = benchPlayers?[idx]?.jerseyNumber ?? string.Empty;
                     }
 
                     // Name
-                    if (benchPlayers[idx].name != null && rowGrid.Children[1] is Grid columnGridName 
-                        && columnGridName.Children[0] is Viewbox viewboxName && viewboxName.Child is TextBlock textBlockName)
-                    {
-                        
-                        if (benchPlayers[idx].sides.people[0].batSide.description == "Left")
+                    if (rowGrid.Children[1] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName 
+                        && viewboxName.Child is TextBlock textBlockName)
+                    {     
+                       
+                        if (benchPlayers?[idx]?.sides?.people?[0]?.batSide?.description == "Left")
                         {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Red;
                         }
-                        else if (benchPlayers[idx].sides.people[0].batSide.description == "Right")
+                        else if (benchPlayers?[idx]?.sides?.people?[0]?.batSide?.description == "Right")
                         {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
                         }
@@ -132,37 +122,34 @@ namespace frmScoreCard.Form
                         {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Black;
                         }
-
-                        textBlockName.Text = benchPlayers[idx].name;
+                        
+                        textBlockName.Text = benchPlayers?[idx]?.name ?? string.Empty;
                     }
 
-                    // Bench Player Stats
-                    if (benchPlayers[idx]?.hitterStats?.splits != null && benchPlayers[idx].hitterStats.splits.Count > 0)
-                    { 
-                        if (rowGrid.Children[2] is Grid columnGridAvg && columnGridAvg.Children[0] is Viewbox viewboxAvg
-                            && viewboxAvg.Child is TextBlock textBlockAvg)
-                        {
-                            textBlockAvg.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.avg;
-                        }
-
-                        if (rowGrid.Children[3] is Grid columnGridHR && columnGridHR.Children[0] is Viewbox viewboxHR
-                            && viewboxHR.Child is TextBlock textBlockHR)
-                        {
-                            textBlockHR.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.homeRuns.ToString();
-                        }
-
-                        if (rowGrid.Children[4] is Grid columnGridRbi && columnGridRbi.Children[0] is Viewbox viewboxRbi
-                            && viewboxRbi.Child is TextBlock textBlockRbi)
-                        {
-                            textBlockRbi.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.rbi.ToString();
-                        }
-
-                        if (rowGrid.Children[5] is Grid columnGridOps && columnGridOps.Children[0] is Viewbox viewboxOps
-                            && viewboxOps.Child is TextBlock textBlockOps)
-                        {
-                            textBlockOps.Text = benchPlayers[idx].hitterStats.splits[0].stats.hitting.standard.ops;
-                        }
+                    // Bench Player Stats                    
+                    if (rowGrid.Children[2] is Grid columnGridAvg && columnGridAvg.Children[0] is Viewbox viewboxAvg
+                        && viewboxAvg.Child is TextBlock textBlockAvg)
+                    {
+                        textBlockAvg.Text = benchPlayers?[idx]?.hitterStats?.splits?[0]?.stats?.hitting?.standard?.avg ?? string.Empty;
                     }
+
+                    if (rowGrid.Children[3] is Grid columnGridHR && columnGridHR.Children[0] is Viewbox viewboxHR
+                        && viewboxHR.Child is TextBlock textBlockHR)
+                    {
+                        textBlockHR.Text = benchPlayers?[idx]?.hitterStats?.splits?[0]?.stats?.hitting?.standard?.homeRuns.ToString() ?? string.Empty;
+                    }
+
+                    if (rowGrid.Children[4] is Grid columnGridRbi && columnGridRbi.Children[0] is Viewbox viewboxRbi
+                        && viewboxRbi.Child is TextBlock textBlockRbi)
+                    {
+                        textBlockRbi.Text = benchPlayers?[idx]?.hitterStats?.splits?[0]?.stats?.hitting?.standard?.rbi.ToString() ?? string.Empty;
+                    }
+
+                    if (rowGrid.Children[5] is Grid columnGridOps && columnGridOps.Children[0] is Viewbox viewboxOps
+                        && viewboxOps.Child is TextBlock textBlockOps)
+                    {
+                        textBlockOps.Text = benchPlayers?[idx]?.hitterStats?.splits?[0]?.stats?.hitting?.standard?.ops ?? string.Empty;
+                    }                  
                 }
 
                 idx++;

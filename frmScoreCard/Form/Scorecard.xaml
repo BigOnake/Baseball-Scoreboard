@@ -53,7 +53,7 @@
         <!-- Title for ScoreCard -->
         <Grid Grid.Row="0">
             <Viewbox Stretch="Uniform" HorizontalAlignment="Left">
-                <TextBlock x:Name = "Blob" Text="Title" Style="{StaticResource TextStyle}"/>
+                <TextBlock x:Name = "Blob" Style="{StaticResource TextStyle}"/>
             </Viewbox>
 
             <Border Style="{StaticResource BorderStyle}"/>
