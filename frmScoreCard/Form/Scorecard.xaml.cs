@@ -548,7 +548,7 @@ namespace frmScoreCard.Form
             }
         }
 
-        private void scoreTable()                                                // Data for Score Table
+        private void scoreTable()                                                
         {
             if (stats.homeTeamName != null)
                 HomeTeam.Text = stats.homeTeamName;
@@ -557,7 +557,7 @@ namespace frmScoreCard.Form
                 GuestTeam.Text = stats.guestTeamName;
         }
 
-        private void bullpenTable()                                              // Data for Bullpen 
+        private void bullpenTable()                                              
         {
             if (stats.guestTeamBullpen != null && stats.guestTeamBullpen.Values.Count > 0)
             {
@@ -572,129 +572,123 @@ namespace frmScoreCard.Form
                         for (int j = 0; j < rowGrid.Children.Count; j += 2)
                         {
                             // Function will return back to the caller if there are no more bullpen players to fill the grid.
-                            if (idx < guestBullpenPlayers.Count)
-                            {                                
-                                // G, S/Holds, W-L, ERA, IP, K, BB
-                                if (rowGrid.Children[j] is Grid rowGridStats)
-                                {
-                                    // Check if pitcher name is not null.
-                                    if (guestBullpenPlayers[idx].name != null)
-                                    {
-                                        // Name
-                                        if (rowGridStats.Children[0] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
-                                        && viewboxName.Child is TextBlock textBlockName)
-                                        {
-                                            if (guestBullpenPlayers[idx].sides.people[0].pitchHand.description == "Left")
-                                            {
-                                                textBlockName.Foreground = System.Windows.Media.Brushes.Red;
-                                            }
-                                            else if (guestBullpenPlayers[idx].sides.people[0].pitchHand.description == "Right")
-                                            {
-                                                textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
-                                            }
-                                            else
-                                            {
-                                                textBlockName.Foreground = System.Windows.Media.Brushes.Black;
-                                            }
-
-                                            textBlockName.Text = guestBullpenPlayers[idx].name;
-                                        }
-                                    }
-
-                                    // Check if stats for pitcher exist before accessing them
-                                    if (guestBullpenPlayers[idx].pitcherStats.splits != null && guestBullpenPlayers[idx].pitcherStats.splits.Count > 0)
-                                    { 
-                                        if (rowGridStats.Children[1] is Grid columnGridG && columnGridG.Children[0] is Viewbox viewboxG
-                                        && viewboxG.Child is TextBlock textBlockG)
-                                        {
-                                            textBlockG.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.gamesPlayed.ToString();  // G
-                                        }
-
-                                        if (rowGridStats.Children[2] is Grid columnGridSH)
-                                        {
-                                            if (columnGridSH.Children[0] is Grid columnGridS && columnGridS.Children[0] is Viewbox viewboxS
-                                                && viewboxS.Child is TextBlock textBlockS)
-                                            {
-                                                textBlockS.Text = $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.saves}-" +
-                                                    $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.blownSaves}";
-                                            }
-
-                                            if (columnGridSH.Children[1] is Grid columnGridH && columnGridH.Children[0] is Viewbox viewboxH
-                                                && viewboxH.Child is TextBlock textBlockH)
-                                            {
-                                                textBlockH.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.holds.ToString();
-                                            }
-                                        }
-
-                                        if (rowGridStats.Children[3] is Grid columnGridWL && columnGridWL.Children[0] is Viewbox viewboxWL
-                                        && viewboxWL.Child is TextBlock textBlockWL)
-                                        {
-                                            textBlockWL.Text = $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.wins}-" +
-                                                    $"{guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.losses}";
-                                        }
-
-                                        if (rowGridStats.Children[4] is Grid columnGridEra && columnGridEra.Children[0] is Viewbox viewboxEra
-                                        && viewboxEra.Child is TextBlock textBlockEra)
-                                        {
-                                            textBlockEra.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.era.ToString();
-                                        }
-
-                                        if (rowGridStats.Children[5] is Grid columnGridIP && columnGridIP.Children[0] is Viewbox viewboxIP
-                                        && viewboxIP.Child is TextBlock textBlockIP)
-                                        {
-                                            textBlockIP.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.inningsPitched.ToString();
-                                        }
-
-                                        if (rowGridStats.Children[6] is Grid columnGridK && columnGridK.Children[0] is Viewbox viewboxK
-                                        && viewboxK.Child is TextBlock textBlockK)
-                                        {
-                                            textBlockK.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.strikeOuts.ToString();
-                                        }
-
-                                        if (rowGridStats.Children[7] is Grid columnGridBB && columnGridBB.Children[0] is Viewbox viewboxBB
-                                        && viewboxBB.Child is TextBlock textBlockBB)
-                                        {
-                                            textBlockBB.Text = guestBullpenPlayers[idx].pitcherStats.splits[0].stats.pitching.standard.baseOnBalls.ToString();
-                                        }
-                                    }
-                                }
-
-                                // Pitch Type & Velocity
-                                if (rowGrid.Children[j + 1] is Grid rowGridPitchTypes)
-                                {                                    
-                                        if (guestBullpenPlayers[idx].bullpenPitches != null && guestBullpenPlayers[idx].bullpenPitches.splits != null)
-                                        {
-                                            for (int z = 0; z < rowGridPitchTypes.Children.Count; z++)
-                                            {
-                                                // Extra Null Checks because some pitch codes are null
-                                                if (rowGridPitchTypes.Children[z] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
-                                                    && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT
-                                                    && z < guestBullpenPlayers[idx].bullpenPitches.splits.Count
-                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType != null
-                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType.code != null)
-                                                {
-                                                    textBlockPT.Text = guestBullpenPlayers[idx].bullpenPitches.splits[z].pitchType.code;
-                                                }
-
-                                                // Extra Null Checks because some release speed values are null
-                                                if (rowGridPitchTypes.Children[z] is Grid colGridV && colGridV.Children[2] is Grid colGridVstats
-                                                    && colGridVstats.Children[0] is Viewbox viewboxV && viewboxV.Child is TextBlock textBlockV
-                                                    && z < guestBullpenPlayers[idx].bullpenPitches.splits.Count
-                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed != null
-                                                    && guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed.averageValue != null)
-                                                {
-                                                textBlockV.Text = guestBullpenPlayers[idx].bullpenPitches.splits[z].stats.pitching.tracking.releaseSpeed.averageValue.ToString();
-                                                }
-                                            }                                                                                                         
-                                        }                                 
-                                }
-                                
-                                idx++;
-                            }
-                            else
-                            {
+                            if (idx >= guestBullpenPlayers.Count)
                                 return;
+                            
+                            // G, S/Holds, W-L, ERA, IP, K, BB
+                            if (rowGrid.Children[j] is Grid rowGridStats)
+                            {
+                                // Name
+                                if (rowGridStats.Children[0] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
+                                && viewboxName.Child is TextBlock textBlockName)
+                                {
+                                    if (guestBullpenPlayers[idx].sides?.people?[0]?.pitchHand?.description == "Left")
+                                    {
+                                        textBlockName.Foreground = System.Windows.Media.Brushes.Red;
+                                    }
+                                    else if (guestBullpenPlayers[idx].sides?.people?[0]?.pitchHand?.description == "Right")
+                                    {
+                                        textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
+                                    }
+                                    else
+                                    {
+                                        textBlockName.Foreground = System.Windows.Media.Brushes.Black;
+                                    }
+
+                                    textBlockName.Text = guestBullpenPlayers[idx].name ?? string.Empty;
+                                }
+
+                                // Check if the splits property is not null and contain values
+                                if (guestBullpenPlayers[idx].pitcherStats?.splits?.Count != null && guestBullpenPlayers[idx].pitcherStats?.splits?.Count > 0)
+                                { 
+                                    // G
+                                    if (rowGridStats.Children[1] is Grid columnGridG && columnGridG.Children[0] is Viewbox viewboxG
+                                    && viewboxG.Child is TextBlock textBlockG)
+                                    {
+                                        textBlockG.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.gamesPlayed.ToString() ?? string.Empty;
+                                    }
+
+                                    // S/Holds
+                                    if (rowGridStats.Children[2] is Grid columnGridSH)
+                                    {
+                                        if (columnGridSH.Children[0] is Grid columnGridS && columnGridS.Children[0] is Viewbox viewboxS
+                                            && viewboxS.Child is TextBlock textBlockS)
+                                        {
+                                            textBlockS.Text = $"{guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.saves.ToString() ?? string.Empty}-" +
+                                                $"{guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.blownSaves.ToString() ?? string.Empty}";
+                                        }
+
+                                        if (columnGridSH.Children[1] is Grid columnGridH && columnGridH.Children[0] is Viewbox viewboxH
+                                            && viewboxH.Child is TextBlock textBlockH)
+                                        {
+                                            textBlockH.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.holds.ToString() ?? string.Empty;
+                                        }
+                                    }
+
+                                    if (rowGridStats.Children[3] is Grid columnGridWL && columnGridWL.Children[0] is Viewbox viewboxWL
+                                    && viewboxWL.Child is TextBlock textBlockWL)
+                                    {
+                                        textBlockWL.Text = $"{guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.wins.ToString() ?? string.Empty}-" +
+                                                $"{guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.losses.ToString() ?? string.Empty}";
+                                    }
+
+                                    if (rowGridStats.Children[4] is Grid columnGridEra && columnGridEra.Children[0] is Viewbox viewboxEra
+                                    && viewboxEra.Child is TextBlock textBlockEra)
+                                    {
+                                        textBlockEra.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.era?.ToString() ?? string.Empty;
+                                    }
+
+                                    if (rowGridStats.Children[5] is Grid columnGridIP && columnGridIP.Children[0] is Viewbox viewboxIP
+                                    && viewboxIP.Child is TextBlock textBlockIP)
+                                    {
+                                        textBlockIP.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.inningsPitched?.ToString() ?? string.Empty;
+                                    }
+
+                                    if (rowGridStats.Children[6] is Grid columnGridK && columnGridK.Children[0] is Viewbox viewboxK
+                                    && viewboxK.Child is TextBlock textBlockK)
+                                    {
+                                        textBlockK.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.strikeOuts.ToString() ?? string.Empty;
+                                    }
+
+                                    if (rowGridStats.Children[7] is Grid columnGridBB && columnGridBB.Children[0] is Viewbox viewboxBB
+                                    && viewboxBB.Child is TextBlock textBlockBB)
+                                    {
+                                        textBlockBB.Text = guestBullpenPlayers[idx].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.baseOnBalls.ToString() ?? string.Empty;
+                                    }
+                                }
                             }
+
+                            // Pitch Type & Velocity
+                            if (rowGrid.Children[j + 1] is Grid rowGridPitchTypes)
+                            {
+                                // Check if the splits property is not null and contain values    
+                                if (guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count > 0)
+                                {
+                                    for (int z = 0; z < rowGridPitchTypes.Children.Count; z++)
+                                    {
+                                        // Extra Null Checks because some pitch codes are null
+                                        if (rowGridPitchTypes.Children[z] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
+                                            && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT
+                                            && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null 
+                                            && z < guestBullpenPlayers[idx].bullpenPitches?.splits?.Count)
+                                        {
+                                            textBlockPT.Text = guestBullpenPlayers[idx].bullpenPitches?.splits?[z]?.pitchType?.code?.ToString() ?? string.Empty;
+                                        }
+
+                                        // Extra Null Checks because some release speed values are null
+                                        if (rowGridPitchTypes.Children[z] is Grid colGridV && colGridV.Children[2] is Grid colGridVstats
+                                            && colGridVstats.Children[0] is Viewbox viewboxV && viewboxV.Child is TextBlock textBlockV
+                                            && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null
+                                            && z < guestBullpenPlayers[idx].bullpenPitches?.splits?.Count)
+                                        {
+                                        textBlockV.Text = guestBullpenPlayers[idx].bullpenPitches?.splits?[z]?.stats?.pitching?.tracking?.releaseSpeed?.averageValue.ToString() ?? string.Empty;
+                                        }
+                                    }                                                                                                         
+                                }                                 
+                            }
+                                
+                            idx++;
+                            
                         }
                     }
 
