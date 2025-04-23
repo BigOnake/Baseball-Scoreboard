@@ -9541,7 +9541,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
+                            <TextBlock FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9565,7 +9565,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9589,7 +9589,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9613,7 +9613,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9637,7 +9637,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9661,7 +9661,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9685,7 +9685,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9709,7 +9709,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -9733,7 +9733,7 @@
 
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Text="XXX" Style="{StaticResource TextStyle}"/>
+                            <TextBlock Style="{StaticResource TextStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>

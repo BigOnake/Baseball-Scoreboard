@@ -697,58 +697,57 @@ namespace frmScoreCard.Form
             }
         }       
 
-        private void coachTable()                                                // Data for Coaches
+        private void coachTable()                                                
         {
-            if (stats.homeTeamCoaches == null || stats.homeTeamCoaches.roster == null || stats.homeTeamCoaches.roster.Count == 0)
+            // Check if roster is emoty, return back to the caller if it's true
+            if (stats?.homeTeamCoaches?.roster?.Count == null || stats.homeTeamCoaches.roster.Count == 0)
                 return;
 
             Dictionary<string, string> coachesDict = new Dictionary<string, string>();
 
             // Exctract only needed coaches
-            for (int i = 0; i < stats.homeTeamCoaches.roster.Count; i++)
+            for (int i = 0; i < stats.homeTeamCoaches?.roster.Count; i++)
             {               
-                if (stats.homeTeamCoaches.roster[i].person != null && stats.homeTeamCoaches.roster[i].person.fullName != null)
-                {
-                    if (!coachesDict.ContainsKey(stats.homeTeamCoaches.roster[i].jobId))
-                    { 
-                        if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
-                        {
-                            coachesDict.Add("MNGR", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAB")
-                        {
-                            coachesDict.Add("COAB", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
-                        {
-                            coachesDict.Add("COAP", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COPA")
-                        {
-                            coachesDict.Add("COPA", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COA1")
-                        {
-                            coachesDict.Add("COA1", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COA3")
-                        {
-                            coachesDict.Add("COA3", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAT")
-                        {
-                            coachesDict.Add("COAT", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "COAA")
-                        {
-                            coachesDict.Add("COAA", stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
-                        else if (stats.homeTeamCoaches.roster[i].jobId == "BCAT")
-                        {
-                            coachesDict.Add("BCAT",stats.homeTeamCoaches.roster[i].person.fullName);
-                        }
+                if (stats.homeTeamCoaches.roster[i].jobId != null && !coachesDict.ContainsKey(stats.homeTeamCoaches.roster[i].jobId))
+                { 
+                    if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+                    {
+                        coachesDict.Add("MNGR", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAB")
+                    {
+                        coachesDict.Add("COAB", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
+                    {
+                        coachesDict.Add("COAP", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COPA")
+                    {
+                        coachesDict.Add("COPA", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COA1")
+                    {
+                        coachesDict.Add("COA1", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COA3")
+                    {
+                        coachesDict.Add("COA3", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAT")
+                    {
+                        coachesDict.Add("COAT", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAA")
+                    {
+                        coachesDict.Add("COAA", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                    }
+                    else if (stats.homeTeamCoaches.roster[i].jobId == "BCAT")
+                    {
+                        coachesDict.Add("BCAT", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
                 }
+                
             }
 
             // Populate Coaches Table
