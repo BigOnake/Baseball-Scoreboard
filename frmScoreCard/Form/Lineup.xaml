@@ -5,49 +5,307 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frmScoreCard.Form"
         mc:Ignorable="d"
-        Title="Lineup" Height="450" Width="800"
-        Loaded="Lineup_Loaded">
+        Title="Lineup" 
+        Loaded="Lineup_Loaded"       
+        Height="720" Width="1280"
+        MinHeight="600" MinWidth="1024"
+        MaxHeight="1080" MaxWidth="1920"
+        SizeToContent="Manual">
 
-    <Grid Margin="0,0,0,-6">
+
+    <Grid ShowGridLines="True">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="360*"/>
-            <ColumnDefinition Width="40*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <!-- HOME TEAM -->
-        <Label Content="Home Team" HorizontalAlignment="Left" Margin="40,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="cBoxHomeTeams" SelectionChanged="cBoxHomeTeams_SelectedIndexChanged" HorizontalAlignment="Left" Margin="7,41,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Player" HorizontalAlignment="Left" Margin="56,117,0,0" VerticalAlignment="Top" Height="32"/>
-        <ComboBox Name="cBoxHomePlayers" SelectionChanged="cBoxHomePlayers_SelectedIndexChanged" HorizontalAlignment="Left" Margin="7,149,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
-        <ListBox Name="lBoxHomePlayers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="7,181,571,35"/>
-        <Button Name="btnHomeTeamRemove" Click="btnHomePlayersRemove_Click" Content="Remove" HorizontalAlignment="Left" Margin="10,404,0,0" VerticalAlignment="Top"/>
-        <Button Name="btnHomeTeamClear" Click="btnHomePlayersClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="116,404,0,0" VerticalAlignment="Top"/>
-        <Label Content="Home Team Bullpen" HorizontalAlignment="Left" Margin="184,10,0,0" VerticalAlignment="Top"/>
-        <ListBox Name="lBoxHomeTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="172,40,406,219"/>
-        <Label Content="Home Team Bench" HorizontalAlignment="Left" Margin="188,218,0,0" VerticalAlignment="Top"/>
-        <ListBox Name="lBoxHomeTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="172,249,406,10"/>
+        <!-- Guest Team & Players -->
+        <Grid Grid.Column="0" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
 
-        <!-- GUEST TEAM -->
-        <Label Content="Guest Team" HorizontalAlignment="Left" Margin="525,10,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="cBoxGuestTeams" SelectionChanged="cBoxGuestTeams_SelectedIndexChanged" HorizontalAlignment="Left" Margin="491,41,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label Content="Player" HorizontalAlignment="Left" Margin="540,117,0,0" VerticalAlignment="Top" Height="32"/>
-        <ComboBox Name="cBoxGuestPlayers" SelectionChanged="cBoxGuestPlayers_SelectedIndexChanged" HorizontalAlignment="Left" Margin="491,149,0,0" VerticalAlignment="Top" Width="140" Height="26"/>
-        <ListBox Name="lBoxGuestPlayers" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="491,181,87,35"/>
-        <Button Name="btnGuestTeamRemove" Click="btnGuestPlayersRemove_Click" Content="Remove" Margin="491,404,181,16"/>
-        <Button Name="btnGuestTeamClear" Click="btnGuestPlayersClear_Click" Content="Clear" HorizontalAlignment="Left" Margin="600,404,0,0" VerticalAlignment="Top"/>
+            <!-- Guest Team -->
+            <Grid Grid.Row="0" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
 
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Guest Team" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
 
-        <Label Content="Guest Team Bullpen" HorizontalAlignment="Left" Margin="662,10,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ListBox Name="lBoxGuestTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,40,10,0" Grid.ColumnSpan="2" HorizontalAlignment="Right" Width="140" Height="181" VerticalAlignment="Top"/>
-        <Label Content="Guest Team Bench" HorizontalAlignment="Left" Margin="666,218,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-        <ListBox Name="lBoxGuestTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="649,249,11,10" Grid.ColumnSpan="2"/>
+                <!-- ComboBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ComboBox Name="cBoxGuestTeams" SelectionChanged="cBoxHomeTeams_SelectedIndexChanged" 
+                              VerticalAlignment="Top" HorizontalAlignment="Center" Height ="25" Width="140" />
+                </Grid>
+            </Grid>
 
-        <!-- MISC. -->
-        <Label Name="lblDate" Content="Date" HorizontalAlignment="Left" Margin="383,99,0,0" VerticalAlignment="Top"/>
-        <Label Content="Umpires" HorizontalAlignment="Left" Margin="373,172,0,0" VerticalAlignment="Top"/>
-        <ListBox Name="lBoxUmpires" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="330,203,248,110"/>
-        <Button Name="btnScoreCard" Click="btnScorecard_Click" Content="Home Scorecard" HorizontalAlignment="Left" Margin="354,385,0,0" VerticalAlignment="Top"/>
-        <Button Name="btnScoreCardGuest" Click="btnScorecardGuest_Click" Content="Guest Scorecard" HorizontalAlignment="Left" Margin="356,340,0,0" VerticalAlignment="Top"/>
+            <!-- Player -->
+            <Grid Grid.Row="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Player" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                </Grid>
+
+                <!-- ComboBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ComboBox Name="cBoxGuestPlayers" SelectionChanged="cBoxHomePlayers_SelectedIndexChanged" 
+                              HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="140" Height="25"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="2" ShowGridLines="True">
+                    <ListBox Name="lBoxGuestPlayers" VerticalAlignment="Top" Margin="0,10,0,0" 
+                             Width = "140" Height="170" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                </Grid>
+
+                <!-- Remove & Clear Buttons -->
+                <Grid Grid.Row="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Remove -->
+                    <Grid Grid.Column="0" ShowGridLines="True">
+                        <Button Name="btnGuestTeamRemove" Click="btnHomePlayersRemove_Click" Content="Remove" 
+                                Margin ="0,10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                Height="25" Width="70"/>
+                    </Grid>
+
+                    <!-- Clear -->
+                    <Grid Grid.Column="1" ShowGridLines="True">
+                        <Button Name="btnGuestTeamClear" Click="btnHomePlayersClear_Click" Content="Clear" 
+                                Margin ="0,10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                                Height="25" Width="70"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <!-- Guest Bullpen & Bench -->
+        <Grid Grid.Column="1" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Bullpen -->
+            <Grid Grid.Row="0" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Guest Team Bullpen" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ListBox Name="lBoxGuestTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                             VerticalAlignment="Top" Width = "140" Height="170" Margin="0,10,0,0"/>
+                </Grid>
+            </Grid>
+
+            <!-- Bench -->
+            <Grid Grid.Row="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Guest Team Bench" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ListBox Name="lBoxGuestTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                            VerticalAlignment="Top" Width = "140" Height="170" Margin="0,10,0,0"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+        
+        <!-- Middle Section -->
+        <Grid Grid.Column="2" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Label -->
+            <Grid Grid.Row="0">
+                <Label Name="lblDate" Content="Date" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            </Grid>
+            
+            <!-- Label -->
+            <Grid Grid.Row="1">
+                <Label Content="Umpires" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+            </Grid>
+
+            <!-- ListBox -->
+            <Grid Grid.Row="2">
+                <ListBox Name="lBoxUmpires" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,10,0,0"
+                         Width="140" Height="170"/>
+            </Grid>
+
+            <!-- Button -->
+            <Grid Grid.Row="3">
+                <Button Name="btnScoreCard" Click="btnScorecard_Click" Content="Home Scorecard" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100"/>
+            </Grid>
+
+            <!-- Button -->
+            <Grid Grid.Row="4">
+                <Button Name="btnScoreCardGuest" Click="btnScorecardGuest_Click" Content="Guest Scorecard" 
+                        HorizontalAlignment="Center" VerticalAlignment="Center" Height="25" Width="100"/>
+            </Grid>
+        </Grid>
+
+        <!-- Home Bullpen & Bench -->
+        <Grid Grid.Column="3" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Bullpen -->
+            <Grid Grid.Row="0" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Home Team Bullpen" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ListBox Name="lBoxHomeTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                     VerticalAlignment="Top" Width = "140" Height="170" Margin="0,10,0,0"/>
+                </Grid>
+            </Grid>
+
+            <!-- Bench -->
+            <Grid Grid.Row="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="8*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Home Team Bench" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ListBox Name="lBoxHomeTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" 
+                    VerticalAlignment="Top" Width = "140" Height="170" Margin="0,10,0,0"/>
+                </Grid>
+
+            </Grid>
+        </Grid>
+
+        <!-- Home Team & Players-->
+        <Grid Grid.Column="4" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Guest Team -->
+            <Grid Grid.Row="0" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="7*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Home Team" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                </Grid>
+
+                <!-- ComboBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ComboBox Name="cBoxHomeTeams" SelectionChanged="cBoxHomeTeams_SelectedIndexChanged" 
+                      VerticalAlignment="Top" HorizontalAlignment="Center" Height ="25" Width="140" />
+                </Grid>
+            </Grid>
+
+            <!-- Player -->
+            <Grid Grid.Row="1" ShowGridLines="True">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Label -->
+                <Grid Grid.Row="0" ShowGridLines="True">
+                    <Label Content="Player" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                </Grid>
+
+                <!-- ComboBox -->
+                <Grid Grid.Row="1" ShowGridLines="True">
+                    <ComboBox Name="cBoxHomePlayers" SelectionChanged="cBoxHomePlayers_SelectedIndexChanged" 
+                      HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="140" Height="25"/>
+                </Grid>
+
+                <!-- ListBox -->
+                <Grid Grid.Row="2" ShowGridLines="True">
+                    <ListBox Name="lBoxHomePlayers" VerticalAlignment="Top" Margin="0,10,0,0" 
+                     Width = "140" Height="170" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                </Grid>
+
+                <!-- Remove & Clear Buttons -->
+                <Grid Grid.Row="3" ShowGridLines="True">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Remove -->
+                    <Grid Grid.Column="0" ShowGridLines="True">
+                        <Button Name="btnHomeTeamRemove" Click="btnHomePlayersRemove_Click" Content="Remove" 
+                        Margin ="0,10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                        Height="25" Width="70"/>
+                    </Grid>
+
+                    <!-- Clear -->
+                    <Grid Grid.Column="1" ShowGridLines="True">
+                        <Button Name="btnHomeTeamClear" Click="btnHomePlayersClear_Click" Content="Clear" 
+                        Margin ="0,10" HorizontalAlignment="Center" VerticalAlignment="Top"
+                        Height="25" Width="70"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>
