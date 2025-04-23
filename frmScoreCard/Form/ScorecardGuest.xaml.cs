@@ -1,21 +1,28 @@
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Xml.Serialization;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using frmScoreCard.Data;
 
 namespace frmScoreCard.Form
 {
     /// <summary>
-    /// Interaction logic for Window2.xaml
+    /// Interaction logic for ScorecardGuest.xaml
     /// </summary>
-    public partial class Scorecard : Window
+    public partial class ScorecardGuest : Window
     {
         public Master stats;
 
-        public Scorecard()
+        public ScorecardGuest()
         {
             InitializeComponent();
 
@@ -33,11 +40,11 @@ namespace frmScoreCard.Form
 
         private void scoreCardTitle()
         {
-            Blob.Text = stats?.homeTeamName ?? string.Empty;
+            Blob.Text = stats?.guestTeamName ?? string.Empty;
         }
 
-        private void venueTable()                                                
-        {            
+        private void venueTable()
+        {
             int idx = 0;
 
             // Venue Name           
@@ -51,7 +58,7 @@ namespace frmScoreCard.Form
                 // If there are no or not enough stats to fit the grid, the function will stop.
                 if (stats?.stadium?.splits == null || idx >= stats.stadium.splits.Count)
                     return;
-                
+
                 // Pitch Type
                 if (VenueGrid.Children[i] is Grid rowGrid1 && rowGrid1.Children[0] is Grid columnGridPT
                     && columnGridPT.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textblockPT)
@@ -79,17 +86,17 @@ namespace frmScoreCard.Form
                 {
                     textblockOps.Text = stats?.stadium?.splits?[idx]?.stats?.pitching?.standard?.ops ?? string.Empty;
                 }
-                    
+
                 idx++;
             }
         }
 
-        private void benchTable()                                                
-        {           
-            var benchPlayers = stats?.homeTeamBench?.Values.ToList();
+        private void benchTable()
+        {
+            var benchPlayers = stats?.guestTeamBench?.Values.ToList();
             int idx = 0;
 
-            BenchName.Text = $"{stats?.homeTeamName ?? string.Empty} Bench";
+            BenchName.Text = $"{stats?.guestTeamName ?? string.Empty} Bench";
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
@@ -107,10 +114,10 @@ namespace frmScoreCard.Form
                     }
 
                     // Name
-                    if (rowGrid.Children[1] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName 
+                    if (rowGrid.Children[1] is Grid columnGridName && columnGridName.Children[0] is Viewbox viewboxName
                         && viewboxName.Child is TextBlock textBlockName)
-                    {     
-                       
+                    {
+
                         if (benchPlayers[idx].sides?.people?[0]?.batSide?.description == "Left")
                         {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Red;
@@ -123,7 +130,7 @@ namespace frmScoreCard.Form
                         {
                             textBlockName.Foreground = System.Windows.Media.Brushes.Black;
                         }
-                        
+
                         textBlockName.Text = benchPlayers?[idx]?.name ?? string.Empty;
                     }
 
@@ -160,9 +167,9 @@ namespace frmScoreCard.Form
             }
         }
 
-        private void hitterTable()                                               
-        {           
-            var players = stats?.homeTeamSelectedPlayers?.Values.ToList();
+        private void hitterTable()
+        {
+            var players = stats?.guestTeamSelectedPlayers?.Values.ToList();
             int idx = 0;
 
             // 1,3,5,7,9,11,13,15,17
@@ -179,7 +186,7 @@ namespace frmScoreCard.Form
                 if (HitterGrid.Children[i] is Grid rowGrid)
                 {
                     // Name 
-                    if (rowGrid.Children[0] is Grid columnGrid1 
+                    if (rowGrid.Children[0] is Grid columnGrid1
                         && columnGrid1.Children[0] is Viewbox viewboxPlayer && viewboxPlayer.Child is TextBlock textBlockPlayer)
                     {
                         if (players[idx].sides?.people?[0]?.pitchHand?.description == "Left")
@@ -193,14 +200,14 @@ namespace frmScoreCard.Form
                     }
 
                     // Position
-                    if (rowGrid.Children[1] is Grid columnGrid2 
+                    if (rowGrid.Children[1] is Grid columnGrid2
                         && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBlock textBlockPos)
                     {
                         textBlockPos.Text = players[idx].position ?? string.Empty;
                     }
 
                     // Checks if the 'splits' property contains values
-                    if (players[idx].hitterStats?.splits?.Count != null && players[idx].hitterStats?.splits?.Count > 0)                   
+                    if (players[idx].hitterStats?.splits?.Count != null && players[idx].hitterStats?.splits?.Count > 0)
                     {
                         // AVG, OPS                   
                         if (rowGrid.Children[14] is Grid columnGrid3)
@@ -299,7 +306,7 @@ namespace frmScoreCard.Form
                             }
                         }
                     }
-                    
+
                 }
 
                 // 1stP, RISP, RISP2o, vsLH, vsRH, 7+.
@@ -327,11 +334,11 @@ namespace frmScoreCard.Form
                             }
                         }
                     }
-                    
+
 
                     // RISP
                     if (players[idx].risp?.splits?.Count != null && players[idx].risp?.splits?.Count > 0)
-                    { 
+                    {
                         if (rowGrid2.Children[2] is Grid columnGridRISP)
                         {
                             if (columnGridRISP.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
@@ -355,7 +362,7 @@ namespace frmScoreCard.Form
 
                     // RISP2o
                     if (players[idx].risp2o?.splits?.Count != null && players[idx].risp2o?.splits?.Count > 0)
-                    { 
+                    {
                         if (rowGrid2.Children[3] is Grid columnGridRISP2o)
                         {
                             if (columnGridRISP2o.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
@@ -379,7 +386,7 @@ namespace frmScoreCard.Form
 
                     // vsLH
                     if (players[idx].vsLeft?.splits?.Count != null && players[idx].vsLeft?.splits?.Count > 0)
-                    { 
+                    {
                         if (rowGrid2.Children[4] is Grid columnGridvsLH)
                         {
                             if (columnGridvsLH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
@@ -408,7 +415,7 @@ namespace frmScoreCard.Form
 
                     // vsRH
                     if (players[idx].vsRight?.splits?.Count != null && players[idx].vsRight?.splits?.Count > 0)
-                    { 
+                    {
                         if (rowGrid2.Children[5] is Grid columnGridvsRH)
                         {
                             if (columnGridvsRH.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
@@ -437,7 +444,7 @@ namespace frmScoreCard.Form
 
                     // 7+
                     if (players[idx].plus7?.splits?.Count != null && players[idx].plus7?.splits?.Count > 0)
-                    { 
+                    {
                         if (rowGrid2.Children[6] is Grid columnGridvs7Plus)
                         {
                             if (columnGridvs7Plus.Children[1] is Grid columnGrid4 && columnGrid4.Children[0] is Viewbox viewbox3
@@ -453,13 +460,13 @@ namespace frmScoreCard.Form
                         }
                     }
                 }
-                
+
                 idx++;
             }
-             
+
         }
 
-        private void umpsTeamsSBTable()                                          
+        private void umpsTeamsSBTable()
         {
             int idx = 0;
 
@@ -474,7 +481,7 @@ namespace frmScoreCard.Form
                 {
                     // Check if officials property contain values
                     if (stats?.umps?.officials?.Count > 0)
-                    { 
+                    {
                         if (columnGrid.Children[0] is Grid columnGridUmpType && columnGridUmpType.Children[0] is Viewbox viewboxUmpType
                             && viewboxUmpType.Child is TextBlock textBlockUmpType)
                         {
@@ -497,20 +504,20 @@ namespace frmScoreCard.Form
                     }
                 }
 
-                
-            }          
+
+            }
 
             // Populate SB-SBA, DP stats for Home Team
-            if (stats?.homeTeamSB?.splits?.Count != null && stats.homeTeamSB.splits.Count > 0)
-            { 
+            if (stats?.guestTeamSB?.splits?.Count != null && stats.guestTeamSB.splits.Count > 0)
+            {
                 if (UmpireGrid.Children[0] is Grid rowGrid2 && rowGrid2.Children[14] is Grid columnGrid2)
                 {
                     if (columnGrid2.Children[0] is Viewbox viewboxTeamStat
                         && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
                     {
-                        textBlockTeamStat.Text = $"{stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.stolenBases.ToString() ?? string.Empty}-" +
-                            $"{stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.caughtStealing.ToString() ?? string.Empty}";
-                    }                  
+                        textBlockTeamStat.Text = $"{stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.stolenBases.ToString() ?? string.Empty}-" +
+                            $"{stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.caughtStealing.ToString() ?? string.Empty}";
+                    }
                 }
 
                 if (UmpireGrid.Children[1] is Grid rowGrid3 && rowGrid3.Children[14] is Grid columnGrid3)
@@ -518,21 +525,21 @@ namespace frmScoreCard.Form
                     if (columnGrid3.Children[0] is Viewbox viewboxTeamStat
                         && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
                     {
-                        textBlockTeamStat.Text = stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.groundIntoDoublePlay.ToString() ?? string.Empty;
+                        textBlockTeamStat.Text = stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.groundIntoDoublePlay.ToString() ?? string.Empty;
                     }
                 }
             }
 
             // Populate SB-SBA, DP stats for Opponent Team
-            if (stats?.guestTeamSB?.splits?.Count != null && stats.guestTeamSB.splits.Count > 0)
+            if (stats?.homeTeamSB?.splits?.Count != null && stats.homeTeamSB.splits.Count > 0)
             {
                 if (UmpireGrid.Children[2] is Grid rowGrid4 && rowGrid4.Children[14] is Grid columnGrid4)
                 {
                     if (columnGrid4.Children[0] is Viewbox viewboxTeamStat
                         && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
                     {
-                        textBlockTeamStat.Text = $"{stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.stolenBases.ToString() ?? string.Empty}-" +
-                            $"{stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.caughtStealing.ToString() ?? string.Empty}";
+                        textBlockTeamStat.Text = $"{stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.stolenBases.ToString() ?? string.Empty}-" +
+                            $"{stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.caughtStealing.ToString() ?? string.Empty}";
                     }
                 }
 
@@ -541,26 +548,26 @@ namespace frmScoreCard.Form
                     if (columnGrid5.Children[0] is Viewbox viewboxTeamStat
                         && viewboxTeamStat.Child is TextBlock textBlockTeamStat)
                     {
-                        textBlockTeamStat.Text = stats?.guestTeamSB?.splits?[0]?.stats?.hitting?.standard?.groundIntoDoublePlay.ToString() ?? string.Empty;
+                        textBlockTeamStat.Text = stats?.homeTeamSB?.splits?[0]?.stats?.hitting?.standard?.groundIntoDoublePlay.ToString() ?? string.Empty;
                     }
                 }
             }
         }
 
-        private void scoreTable()                                                
+        private void scoreTable()
         {
             if (stats.homeTeamName != null)
-                HomeTeam.Text = stats.homeTeamName;
+                GuestTeam.Text = stats.homeTeamName;
 
             if (stats.guestTeamName != null)
-                GuestTeam.Text = stats.guestTeamName;
+                HomeTeam.Text = stats.guestTeamName;
         }
 
-        private void bullpenTable()                                              
+        private void bullpenTable()
         {
-            if (stats.guestTeamBullpen != null && stats.guestTeamBullpen.Values.Count > 0)
+            if (stats.homeTeamBullpen != null && stats.homeTeamBullpen.Values.Count > 0)
             {
-                var guestBullpenPlayers = stats.guestTeamBullpen.Values.ToList();
+                var guestBullpenPlayers = stats.homeTeamBullpen.Values.ToList();
 
                 int idx = 0;
 
@@ -573,7 +580,7 @@ namespace frmScoreCard.Form
                             // Function will return back to the caller if there are no more bullpen players to fill the grid.
                             if (idx >= guestBullpenPlayers.Count)
                                 return;
-                            
+
                             // G, S/Holds, W-L, ERA, IP, K, BB
                             if (rowGrid.Children[j] is Grid rowGridStats)
                             {
@@ -599,7 +606,7 @@ namespace frmScoreCard.Form
 
                                 // Check if the splits property is not null and contain values
                                 if (guestBullpenPlayers[idx].pitcherStats?.splits?.Count != null && guestBullpenPlayers[idx].pitcherStats?.splits?.Count > 0)
-                                { 
+                                {
                                     // G
                                     if (rowGridStats.Children[1] is Grid columnGridG && columnGridG.Children[0] is Viewbox viewboxG
                                     && viewboxG.Child is TextBlock textBlockG)
@@ -668,7 +675,7 @@ namespace frmScoreCard.Form
                                         // Extra Null Checks because some pitch codes are null
                                         if (rowGridPitchTypes.Children[z] is Grid colGridPT && colGridPT.Children[0] is Grid colGridPTstats
                                             && colGridPTstats.Children[0] is Viewbox viewboxPT && viewboxPT.Child is TextBlock textBlockPT
-                                            && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null 
+                                            && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null
                                             && z < guestBullpenPlayers[idx].bullpenPitches?.splits?.Count)
                                         {
                                             textBlockPT.Text = guestBullpenPlayers[idx].bullpenPitches?.splits?[z]?.pitchType?.code?.ToString() ?? string.Empty;
@@ -680,73 +687,73 @@ namespace frmScoreCard.Form
                                             && guestBullpenPlayers[idx].bullpenPitches?.splits?.Count != null
                                             && z < guestBullpenPlayers[idx].bullpenPitches?.splits?.Count)
                                         {
-                                        textBlockV.Text = guestBullpenPlayers[idx].bullpenPitches?.splits?[z]?.stats?.pitching?.tracking?.releaseSpeed?.averageValue.ToString() ?? string.Empty;
+                                            textBlockV.Text = guestBullpenPlayers[idx].bullpenPitches?.splits?[z]?.stats?.pitching?.tracking?.releaseSpeed?.averageValue.ToString() ?? string.Empty;
                                         }
-                                    }                                                                                                         
-                                }                                 
+                                    }
+                                }
                             }
-                                
+
                             idx++;
-                            
+
                         }
                     }
 
                 }
 
             }
-        }       
+        }
 
-        private void coachTable()                                                
+        private void coachTable()
         {
             // Check if roster is emoty, return back to the caller if it's true
-            if (stats?.homeTeamCoaches?.roster?.Count == null || stats.homeTeamCoaches.roster.Count == 0)
+            if (stats?.guestTeamCoaches?.roster?.Count == null || stats.guestTeamCoaches.roster.Count == 0)
                 return;
 
             Dictionary<string, string> coachesDict = new Dictionary<string, string>();
 
             // Exctract only needed coaches
-            for (int i = 0; i < stats.homeTeamCoaches?.roster.Count; i++)
-            {               
-                if (stats.homeTeamCoaches.roster[i].jobId != null && !coachesDict.ContainsKey(stats.homeTeamCoaches.roster[i].jobId))
-                { 
-                    if (stats.homeTeamCoaches.roster[i].jobId == "MNGR")
+            for (int i = 0; i < stats.guestTeamCoaches?.roster.Count; i++)
+            {
+                if (stats.guestTeamCoaches.roster[i].jobId != null && !coachesDict.ContainsKey(stats.guestTeamCoaches.roster[i].jobId))
+                {
+                    if (stats.guestTeamCoaches.roster[i].jobId == "MNGR")
                     {
-                        coachesDict.Add("MNGR", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("MNGR", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAB")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COAB")
                     {
-                        coachesDict.Add("COAB", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COAB", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAP")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COAP")
                     {
-                        coachesDict.Add("COAP", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COAP", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COPA")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COPA")
                     {
-                        coachesDict.Add("COPA", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COPA", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COA1")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COA1")
                     {
-                        coachesDict.Add("COA1", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COA1", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COA3")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COA3")
                     {
-                        coachesDict.Add("COA3", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COA3", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAT")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COAT")
                     {
-                        coachesDict.Add("COAT", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COAT", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "COAA")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "COAA")
                     {
-                        coachesDict.Add("COAA", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("COAA", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
-                    else if (stats.homeTeamCoaches.roster[i].jobId == "BCAT")
+                    else if (stats.guestTeamCoaches.roster[i].jobId == "BCAT")
                     {
-                        coachesDict.Add("BCAT", stats.homeTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
+                        coachesDict.Add("BCAT", stats.guestTeamCoaches?.roster?[i]?.person?.fullName ?? string.Empty);
                     }
                 }
-                
+
             }
 
             // Populate Coaches Table
@@ -814,5 +821,4 @@ namespace frmScoreCard.Form
             }
         }
     }
-
 }

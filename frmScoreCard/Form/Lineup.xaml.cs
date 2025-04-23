@@ -205,5 +205,12 @@ namespace frmScoreCard.Form
             var scorecard = new Scorecard();
             scorecard.Show();
         }
+
+        private void btnScorecardGuest_Click(object sender, RoutedEventArgs e)
+        {
+            var scorecard = new ScorecardGuest();
+            
+            scorecard.Show();
+        }
     }
 }

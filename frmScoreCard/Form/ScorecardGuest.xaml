@@ -1,16 +1,16 @@
-﻿<Window x:Class="frmScoreCard.Form.Scorecard"
+﻿<Window x:Class="frmScoreCard.Form.ScorecardGuest"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:frmScoreCard"
+        xmlns:local="clr-namespace:frmScoreCard.Form"
         mc:Ignorable="d"
-        Title="Home" 
+        Title="Guest" 
         Height="720" Width="1280"
         MinHeight="600" MinWidth="1024"
         MaxHeight="1080" MaxWidth="1920"
         SizeToContent="Manual">
-
+    
     <Window.Resources>
 
         <!-- Style for all text -->
@@ -9504,7 +9504,7 @@
                                 <Border Style="{StaticResource BorderStyle}" Grid.ColumnSpan="3"/>
                             </Grid>
                         </Grid>
-    
+
                     </Grid>
 
                 </Grid>
@@ -9745,5 +9745,4 @@
         <Border Style="{StaticResource BorderStyle}" Grid.RowSpan="6"/>
 
     </Grid>
-
 </Window>

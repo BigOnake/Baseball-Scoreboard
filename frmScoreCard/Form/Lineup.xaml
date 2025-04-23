@@ -46,6 +46,8 @@
         <Label Name="lblDate" Content="Date" HorizontalAlignment="Left" Margin="383,99,0,0" VerticalAlignment="Top"/>
         <Label Content="Umpires" HorizontalAlignment="Left" Margin="373,172,0,0" VerticalAlignment="Top"/>
         <ListBox Name="lBoxUmpires" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="330,203,248,110"/>
-        <Button Name="btnScoreCard" Click="btnScorecard_Click" Content="Scorecard" HorizontalAlignment="Left" Margin="373,385,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnScoreCard" Click="btnScorecard_Click" Content="Home Scorecard" HorizontalAlignment="Left" Margin="354,385,0,0" VerticalAlignment="Top"/>
+        <Button Name="btnScoreCardGuest" Click="btnScorecardGuest_Click" Content="Guest Scorecard" HorizontalAlignment="Left" Margin="356,340,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
