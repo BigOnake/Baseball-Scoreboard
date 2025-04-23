@@ -31,7 +31,7 @@ namespace frmScoreCard.Form
 
         }
 
-        private void scoreCardTitle()                                            // Title for the ScoreCard
+        private void scoreCardTitle()                                            
         {                       
             Blob.Text = stats?.homeTeamName ?? string.Empty;            
         }
@@ -93,7 +93,7 @@ namespace frmScoreCard.Form
 
             for (int i = 1; i < BenchGrid.Children.Count; i++)
             {
-                if (idx >= benchPlayers?.Count)
+                if (benchPlayers == null || idx >= benchPlayers.Count)
                     return;
 
                 if (BenchGrid.Children[i] is Grid rowGrid)
