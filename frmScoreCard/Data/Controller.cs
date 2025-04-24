@@ -72,81 +72,122 @@ namespace frmScoreCard.Data
             return storage.GetLiveData();
         }
 
-        static public async void AddBenchPlayers(string teamType, LiveData ld)
+        //static public async void AddBenchPlayers(string teamType, LiveData ld)
+        //{
+        //    storage.RemoveBenchPlayers(teamType);
+
+        //    if (teamType == "home")
+        //    {
+        //        foreach (int playerId in ld.liveData.boxscore.teams.home.bench)
+        //        {
+        //            BenchStats bs = new BenchStats();
+
+        //            bs.name = GetPlayerName(teamType, playerId);
+        //            bs.position = GetPosition(teamType, playerId);
+        //            bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
+        //            bs.hitterStats = await GetHitterStats(playerId);
+        //            bs.sides = GetSide(playerId);
+
+        //            storage.AddBenchPlayer(teamType, playerId, bs);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (int playerId in ld.liveData.boxscore.teams.away.bench)
+        //        {
+        //            BenchStats bs = new BenchStats();
+
+        //            bs.name = GetPlayerName(teamType, playerId);
+        //            bs.position = GetPosition(teamType, playerId);
+        //            bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
+        //            bs.hitterStats = await GetHitterStats(playerId);
+        //            bs.sides = GetSide(playerId);
+
+        //            storage.AddBenchPlayer(teamType, playerId, bs);
+        //        }
+        //    }
+        //}
+
+        static public async void AddBenchPlayer(string teamType, string playerName)
         {
-            storage.RemoveBenchPlayers(teamType);
+            BenchStats bs = new BenchStats();
 
-            if (teamType == "home")
-            {
-                foreach (int playerId in ld.liveData.boxscore.teams.home.bench)
-                {
-                    BenchStats bs = new BenchStats();
+            int playerId = GetPlayerId(teamType, playerName);
 
-                    bs.name = GetPlayerName(teamType, playerId);
-                    bs.position = GetPosition(teamType, playerId);
-                    bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
-                    bs.hitterStats = await GetHitterStats(playerId);
-                    bs.sides = GetSide(playerId);
+            bs.name = GetPlayerName(teamType, playerId);
+            bs.position = GetPosition(teamType, playerId);
+            bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
+            bs.hitterStats = await GetHitterStats(playerId);
+            bs.sides = GetSide(playerId);
 
-                    storage.AddBenchPlayer(teamType, playerId, bs);
-                }
-            }
-            else
-            {
-                foreach (int playerId in ld.liveData.boxscore.teams.away.bench)
-                {
-                    BenchStats bs = new BenchStats();
-
-                    bs.name = GetPlayerName(teamType, playerId);
-                    bs.position = GetPosition(teamType, playerId);
-                    bs.jerseyNumber = GetJerseyNumber(teamType, playerId);
-                    bs.hitterStats = await GetHitterStats(playerId);
-                    bs.sides = GetSide(playerId);
-
-                    storage.AddBenchPlayer(teamType, playerId, bs);
-                }
-            }
+            storage.AddBenchPlayer(teamType, playerId, bs);
         }
 
-        static public async void AddBullpenPlayers(string teamType, LiveData ld)
+        static public async void AddBullpenPlayer(string teamType, string playerName)
         {
-            storage.RemoveBullpenPlayers(teamType);
+            BullpenStats bp = new BullpenStats();
 
-            if (teamType == "home")
-            {
-                foreach (int playerId in ld.liveData.boxscore.teams.home.bullpen)
-                {
-                    BullpenStats bp = new BullpenStats();
+            int playerId = GetPlayerId(teamType, playerName);
 
-                    bp.name = GetPlayerName(teamType, playerId);
-                    bp.position = GetPosition(teamType, playerId);
-                    bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
-                    bp.pitcherStats = await GetPitcherStats(playerId);
-                    bp.sides = GetSide(playerId);
-                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
+            bp.name = GetPlayerName(teamType, playerId);
+            bp.position = GetPosition(teamType, playerId);
+            bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
+            bp.pitcherStats = await GetPitcherStats(playerId);
+            bp.sides = GetSide(playerId);
+            bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
 
-                    storage.AddBullpenPlayer(teamType, playerId, bp);
-                }
-            }
-            else
-            {
-                foreach (int playerId in ld.liveData.boxscore.teams.away.bullpen)
-                {
-                    BullpenStats bp = new BullpenStats();
-
-                    bp.pitcherStats = await GetPitcherStats(playerId);
-                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
-                    bp.name = GetPlayerName(teamType, playerId);
-                    bp.position = GetPosition(teamType, playerId);
-                    bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
-                    bp.pitcherStats = await GetPitcherStats(playerId);
-                    bp.sides = GetSide(playerId);
-                    bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
-
-                    storage.AddBullpenPlayer(teamType, playerId, bp);
-                }
-            }
+            storage.AddBullpenPlayer(teamType, playerId, bp);
         }
+
+        static public void RemoveSelectedBenchPlayer(string teamType, string playerName)
+        {
+            storage.RemoveBenchPlayer(teamType, GetPlayerId(teamType, playerName));
+        }
+
+        static public void RemoveSelectedBullpenPlayer(string teamType, string playerName)
+        {
+            storage.RemoveBullpenPlayer(teamType, GetPlayerId(teamType, playerName));
+        }
+
+        //static public async void AddBullpenPlayers(string teamType, LiveData ld)
+        //{
+        //    storage.RemoveBullpenPlayers(teamType);
+
+        //    if (teamType == "home")
+        //    {
+        //        foreach (int playerId in ld.liveData.boxscore.teams.home.bullpen)
+        //        {
+        //            BullpenStats bp = new BullpenStats();
+
+        //            bp.name = GetPlayerName(teamType, playerId);
+        //            bp.position = GetPosition(teamType, playerId);
+        //            bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
+        //            bp.pitcherStats = await GetPitcherStats(playerId);
+        //            bp.sides = GetSide(playerId);
+        //            bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
+
+        //            storage.AddBullpenPlayer(teamType, playerId, bp);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        foreach (int playerId in ld.liveData.boxscore.teams.away.bullpen)
+        //        {
+        //            BullpenStats bp = new BullpenStats();
+
+        //            bp.pitcherStats = await GetPitcherStats(playerId);
+        //            bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
+        //            bp.name = GetPlayerName(teamType, playerId);
+        //            bp.position = GetPosition(teamType, playerId);
+        //            bp.jerseyNumber = GetJerseyNumber(teamType, playerId);
+        //            bp.pitcherStats = await GetPitcherStats(playerId);
+        //            bp.sides = GetSide(playerId);
+        //            bp.bullpenPitches = await GetBullpenPitches(teamType, playerId);
+
+        //            storage.AddBullpenPlayer(teamType, playerId, bp);
+        //        }
+        //    }
+        //}
 
         static public async Task<BullpenPitches> GetBullpenPitches(string teamType, int playerId)
         {

@@ -330,6 +330,14 @@ namespace frmScoreCard.Data
             }
         }
 
+        public void RemoveBenchPlayer(string teamType, int playerId)
+        {
+            if (teamType == "home")
+                data.homeTeamBench.Remove(playerId);
+            else
+                data.guestTeamBench.Remove(playerId);
+        }
+
         public void RemoveBenchPlayers(string teamType)
         {
             if (teamType == "home")
@@ -344,6 +352,14 @@ namespace frmScoreCard.Data
                 data.homeTeamBullpen.Clear();
             else
                 data.guestTeamBullpen.Clear();
+        }
+
+        public void RemoveBullpenPlayer(string teamType, int playerId)
+        {
+            if (teamType == "home")
+                data.homeTeamBullpen.Remove(playerId);
+            else
+                data.guestTeamBullpen.Remove(playerId);
         }
 
         public void AddBullpenPlayer(string teamType, int playerId, BullpenStats bp)
@@ -506,7 +522,7 @@ namespace frmScoreCard.Data
         public List<Team>? teams { get; set; }
     }
 
-    public class Team
+    public class Team : IComparable<Team>
     {
         public int? id { get; set; }
 
@@ -518,6 +534,11 @@ namespace frmScoreCard.Data
                 return name;
             else
                 return "";
+        }
+
+        public int CompareTo(Team? other)
+        {
+            return name.CompareTo(other.name);
         }
     }
 
