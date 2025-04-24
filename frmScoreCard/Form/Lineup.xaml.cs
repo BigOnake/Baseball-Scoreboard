@@ -309,12 +309,12 @@ namespace frmScoreCard.Form
 
         private void btnHomeBullpenClear_Click(object sender, RoutedEventArgs e)
         {
-            RemoveAllPlayers(lBoxHomeTeamBullpen, "home");
+            RemoveAllBullpenPlayers(lBoxHomeTeamBullpen, "home");
         }
 
         private void btnHomeBenchClear_Click(object sender, RoutedEventArgs e)
         {
-            RemoveAllPlayers(lBoxHomeTeamBench, "home");
+            RemoveAllBenchPlayers(lBoxHomeTeamBench, "home");
         }
 
         private void btnGuestPlayersClear_Click(object sender, RoutedEventArgs e)
@@ -324,12 +324,32 @@ namespace frmScoreCard.Form
 
         private void btnGuestBullpenClear_Click(object sender, RoutedEventArgs e)
         {
-            RemoveAllPlayers(lBoxGuestTeamBullpen, "guest");
+            RemoveAllBullpenPlayers(lBoxGuestTeamBullpen, "guest");
         }
 
         private void btnGuestBenchClear_Click(object sender, RoutedEventArgs e)
         {
-            RemoveAllPlayers(lBoxGuestTeamBench, "guest");
+            RemoveAllBenchPlayers(lBoxGuestTeamBench, "guest");
+        }
+
+        private void RemoveAllBullpenPlayers(ListBox lBox, string teamType)
+        {
+            foreach (string name in lBox.Items)
+            {
+                Controller.RemoveSelectedBullpenPlayer(teamType, ParseName(name));
+            }
+
+            lBox.Items.Clear();
+        }
+
+        private void RemoveAllBenchPlayers(ListBox lBox, string teamType)
+        {
+            foreach (string name in lBox.Items)
+            {
+                Controller.RemoveSelectedBenchPlayer(teamType, ParseName(name));
+            }
+
+            lBox.Items.Clear();
         }
 
         private void RemoveAllPlayers(ListBox lBox, string teamType)
