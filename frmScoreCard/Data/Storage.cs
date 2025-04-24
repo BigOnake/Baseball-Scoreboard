@@ -244,7 +244,7 @@ namespace frmScoreCard.Data
             if (teamType == "home")
                 data.homeTeamSelectedPlayers.Remove(playerId);
             else
-                data.homeTeamSelectedPlayers.Remove(playerId);
+                data.guestTeamSelectedPlayers.Remove(playerId);
         }
 
         /****************************************/
