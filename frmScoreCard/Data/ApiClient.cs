@@ -128,7 +128,7 @@ namespace frmScoreCard.Data
             }
             else
             {
-                result = "Failure - OAuth2.0 Get Request";
+                result = "Failure - OAuth2.0 GET Request";
             }
 
             return result;
@@ -140,18 +140,14 @@ namespace frmScoreCard.Data
         {
             path = BASE_URL + $"teams?sportId=1&leagueIds=103,104&activeStatus=Y&fields=teams,id,name";
 
-            string result = GetJson(path);
-
-            return JsonSerializer.Deserialize<Teams>(result);
+            return JsonSerializer.Deserialize<Teams>(GetJson(path));
         }
 
         public Roster GetRoster(int teamId)
         {
             path = BASE_URL + $"teams/{teamId}/roster/40Man";
 
-            string result = GetJson(path);
-
-            return JsonSerializer.Deserialize<Roster>(result);
+            return JsonSerializer.Deserialize<Roster>(GetJson(path));
         }
 
         public int GetGamePk(int teamId)
@@ -164,6 +160,10 @@ namespace frmScoreCard.Data
             try
             {
                 Game? g = JsonSerializer.Deserialize<Game>(result);
+
+                // This line is sufficient if we want the last game in the list, otherwise
+                // continue with getting game closest to current time.
+                //gameId = (int)g.dates[0].games[^1].gamePk;
 
                 DateTime currentUtcTime = DateTimeOffset.UtcNow.UtcDateTime;
                 TimeSpan smallestTs = TimeSpan.MaxValue;
@@ -188,7 +188,7 @@ namespace frmScoreCard.Data
             }
             catch
             {
-                System.Windows.MessageBox.Show("No games today.", "ERROR");
+                //MessageBox.Show("No games today.", "ERROR");
             }
 
             return gameId;
@@ -199,9 +199,7 @@ namespace frmScoreCard.Data
             // There must be valid games for the day
             path = BASE_URL + $"game/{gamePk}/boxscore?fields=officials,official,id,fullName,officialType";
 
-            string result = GetJson(path);
-
-            return JsonSerializer.Deserialize<Umpires>(result);
+            return JsonSerializer.Deserialize<Umpires>(GetJson(path));
         }
 
         /**********************************************************/
@@ -212,20 +210,14 @@ namespace frmScoreCard.Data
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"teamIds={teamId}&fields=splits,stats,hitting,standard,caughtStealing,stolenBases,groundIntoDoublePlay";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<SB>(result);
+            return JsonSerializer.Deserialize<SB>(await GetOAuthJsonRequest(path));
         }
-
-        /**********************************************************/
 
         public Venues GetVenues(int gamePk)
         {
             path = BASE_URL + $"schedule?gamePk={gamePk}&fields=dates,games,venue,id,name";
 
-            string result = GetJson(path);
-
-            return JsonSerializer.Deserialize<Venues>(result);
+            return JsonSerializer.Deserialize<Venues>(GetJson(path));
         }
 
         public async Task<StadiumData> GetStadiumData(int venueId)
@@ -234,9 +226,7 @@ namespace frmScoreCard.Data
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&statFields=standard,advanced,expected,tracking&venueIds={venueId}&" +
                 $"fields=splits,stats,pitching,standard,avg,ops,tracking,releaseSpeed,averageValue,pitchType,code";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<StadiumData>(result);
+            return JsonSerializer.Deserialize<StadiumData>(await GetOAuthJsonRequest(path));
         }
 
         /****************************************
@@ -249,9 +239,7 @@ namespace frmScoreCard.Data
         {
             path = BASE_URL + $"people?personIds={playerId}&fields=people,batSide,code,description,pitchHand,code,description";
 
-            string result = GetJson(path);
-
-            return JsonSerializer.Deserialize<Side>(result);
+            return JsonSerializer.Deserialize<Side>(GetJson(path));
         }
 
         public async Task<FirstPitch> GetFirstPitch(int playerId)
@@ -262,9 +250,7 @@ namespace frmScoreCard.Data
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,ops,avg,tracking,hitProbability,averageValue";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<FirstPitch>(result);
+            return JsonSerializer.Deserialize<FirstPitch>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<RISP> GetRISP(int playerId)
@@ -274,9 +260,7 @@ namespace frmScoreCard.Data
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=risp&sportIds=&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<RISP>(result);
+            return JsonSerializer.Deserialize<RISP>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<RISP> GetRISP2O(int playerId)
@@ -286,9 +270,7 @@ namespace frmScoreCard.Data
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=o2,risp&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<RISP>(result);
+            return JsonSerializer.Deserialize<RISP>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<VSLeftRight> GetVSLeft(int playerId)
@@ -298,9 +280,7 @@ namespace frmScoreCard.Data
                 $"limit=50&pitchHand=L&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<VSLeftRight>(result);
+            return JsonSerializer.Deserialize<VSLeftRight>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<VSLeftRight> GetVSRight(int playerId)
@@ -310,9 +290,7 @@ namespace frmScoreCard.Data
                 $"limit=50&pitchHand=R&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<VSLeftRight>(result);
+            return JsonSerializer.Deserialize<VSLeftRight>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<Plus7> Get7Plus(int playerId)
@@ -322,9 +300,7 @@ namespace frmScoreCard.Data
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=ig07&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,avg,ops";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<Plus7>(result);
+            return JsonSerializer.Deserialize<Plus7>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<HitterStats> GetHitterStats(int playerId)
@@ -334,9 +310,7 @@ namespace frmScoreCard.Data
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,baseOnBalls,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<HitterStats>(result);
+            return JsonSerializer.Deserialize<HitterStats>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<PitcherStats> GetPitcherStats(int playerId)
@@ -346,11 +320,7 @@ namespace frmScoreCard.Data
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,pitching,standard,gamesStarted,groundOuts," +
                 $"homeRuns,strikeOuts,intentionalWalks,hits,avg,groundIntoDoublePlay,era,inningsPitched,wins,losses,saves,saveOpportunities,blownSaves,earnedRuns,whip,gamesPlayed,baseOnBalls,inningsPitched,holds";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            PitcherStats stat = JsonSerializer.Deserialize<PitcherStats>(result);
-
-            return stat;
+            return JsonSerializer.Deserialize<PitcherStats>(await GetOAuthJsonRequest(path));
         }
 
         public async Task<PitchTypes> GetPitchTypes(int playerId)
@@ -360,11 +330,17 @@ namespace frmScoreCard.Data
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,pitching,standard,hits,atBats,tracking,exitVelocity,averageValue,pitchType,code";
 
-            string result = await GetOAuthJsonRequest(path);
+            return JsonSerializer.Deserialize<PitchTypes>(await GetOAuthJsonRequest(path));
+        }
 
-            PitchTypes stat = JsonSerializer.Deserialize<PitchTypes>(result);
+        public async Task<BullpenPitches> GetBullpenPitches(int playerId)
+        {
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=pitchType,player&" +
+                $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
+                $"statFields=standard,advanced,expected,tracking&" +
+                $"fields=splits,stats,pitching,standard,hits,atBats,tracking,releaseSpeed,averageValue,pitchType,code";
 
-            return stat;
+            return JsonSerializer.Deserialize<BullpenPitches>(await GetOAuthJsonRequest(path));
         }
 
         /**********************************************************/
@@ -373,9 +349,7 @@ namespace frmScoreCard.Data
         {
             path = BASE_URL + $"teams/{teamId}/coaches";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<Coaches>(result);
+            return JsonSerializer.Deserialize<Coaches>(await GetOAuthJsonRequest(path));
         }
 
         /**********************************************************/
@@ -384,9 +358,7 @@ namespace frmScoreCard.Data
         {
             path = $"https://statsapi.mlb.com/api/v1.1/game/{gamePk}/feed/live?&fields=liveData,boxscore,teams";
 
-            string result = await GetOAuthJsonRequest(path);
-
-            return JsonSerializer.Deserialize<LiveData>(result);
+            return JsonSerializer.Deserialize<LiveData>(await GetOAuthJsonRequest(path));
         }
     }
 }   
