@@ -42,42 +42,54 @@ namespace frmScoreCard.Form
 
         private void cBoxHomeTeams_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            RemoveAllPlayers(lBoxHomePlayers, "home");
-
-            AddRoster(cBoxHomeTeams, cBoxHomePlayers, "home");
-            AddRoster(cBoxHomeTeams, cBoxHomeBullpen, "home");
-            AddRoster(cBoxHomeTeams, cBoxHomeBench, "home");
-
-            AddUmpires();
-        }
-
-        private void cBoxGuestTeams_SelectedIndexChanged(object sender, RoutedEventArgs e)
-        {
-            RemoveAllPlayers(lBoxGuestPlayers, "guest");
-
-            AddRoster(cBoxGuestTeams, cBoxGuestPlayers, "guest");
-            AddRoster(cBoxGuestTeams, cBoxGuestBullpen, "guest");
-            AddRoster(cBoxGuestTeams, cBoxGuestBench, "guest");
-
-            AddUmpires();
-        }
-
-        private async void AddRoster(ComboBox source, ComboBox destination, string teamType)
-        {
-            if (source?.SelectedItem != null)
+            if (cBoxHomeTeams.SelectedIndex != -1)
             {
-                Controller.SetRoster(Controller.GetTeamId(source.SelectedItem.ToString()), teamType);
-                Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
-                Controller.SetTeamName(source.SelectedItem.ToString(), teamType);
+                RemoveAllPlayers(lBoxHomePlayers, "home");
+
+                Controller.SetGamePk(Controller.GetTeamId(cBoxHomeTeams.SelectedItem.ToString()));
                 if (Controller.GetGamePk() == -1)
                 {
                     MessageBox.Show("No games today.", "ERROR");
                     return;
                 }
 
+                AddRoster(cBoxHomeTeams, cBoxHomePlayers, "home");
+                AddRoster(cBoxHomeTeams, cBoxHomeBullpen, "home");
+                AddRoster(cBoxHomeTeams, cBoxHomeBench, "home");
+
+                AddUmpires();
+            }
+        }
+
+        private void cBoxGuestTeams_SelectedIndexChanged(object sender, RoutedEventArgs e)
+        {
+            if (cBoxGuestTeams.SelectedIndex != -1)
+            {
+                RemoveAllPlayers(lBoxGuestPlayers, "guest");
+
+                Controller.SetGamePk(Controller.GetTeamId(cBoxGuestTeams.SelectedItem.ToString()));
+                if (Controller.GetGamePk() == -1)
+                {
+                    MessageBox.Show("No games today.", "ERROR");
+                    return;
+                }
+
+                AddRoster(cBoxGuestTeams, cBoxGuestPlayers, "guest");
+                AddRoster(cBoxGuestTeams, cBoxGuestBullpen, "guest");
+                AddRoster(cBoxGuestTeams, cBoxGuestBench, "guest");
+
+                AddUmpires();
+            }
+        }
+
+        private async void AddRoster(ComboBox source, ComboBox destination, string teamType)
+        {
+            if (source?.SelectedItem != null)
+            {
+                Controller.SetGamePk(Controller.GetTeamId(source.SelectedItem.ToString()));
+                Controller.SetRoster(Controller.GetTeamId(source.SelectedItem.ToString()), teamType);
+                Controller.SetTeamName(source.SelectedItem.ToString(), teamType);
                 await Controller.SetLiveData(Controller.GetGamePk());
-                //Controller.AddBenchPlayers(teamType, Controller.FetchLiveData());
-                //Controller.AddBullpenPlayers(teamType, Controller.FetchLiveData());
                 Controller.SetSB(teamType, Controller.GetTeamId(source.SelectedItem.ToString()));
                 Controller.SetVenues(Controller.GetGamePk());
                 Controller.SetStadiumData();
