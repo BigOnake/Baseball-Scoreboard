@@ -1,10 +1,15 @@
 ﻿using System;
+using System.IO;
+using System.Reflection.Metadata;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Media;
-
+using System.Windows.Threading;
+using System.Windows.Xps.Packaging;
 using frmScoreCard.Data;
+using Microsoft.Win32;
 
 namespace frmScoreCard.Form
 {
@@ -13,9 +18,22 @@ namespace frmScoreCard.Form
     /// </summary>
     public partial class Lineup : Window
     {
+        private DispatcherTimer timer;
+
         public Lineup()
         {
             InitializeComponent();
+
+            timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(3);
+            timer.Tick += Timer_Tick;
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Stop();
+            btnScoreCard.Visibility = Visibility.Visible;
+            btnScoreCardGuest.Visibility = Visibility.Visible;
         }
 
         private void Lineup_Loaded(object sender, RoutedEventArgs e)
@@ -27,7 +45,6 @@ namespace frmScoreCard.Form
 
             if (team?.teams != null)
             {
-                //team.teams.Sort((obj1, obj2) => obj1.ToString().CompareTo(obj2.ToString()));
                 team.teams.Sort();
 
                 foreach (Team t in team.teams)
@@ -133,32 +150,60 @@ namespace frmScoreCard.Form
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             if (Controller.GetMaster().homeTeamSelectedPlayers.Count != 9)
+            {
+                timer.Start();
+                btnScoreCard.Visibility = Visibility.Hidden;
+                btnScoreCardGuest.Visibility = Visibility.Hidden;
+
                 AddPlayer(cBoxHomePlayers, "home");
+            }
         }
 
         private void cBoxHomeBullpen_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
+            timer.Start();
+            btnScoreCard.Visibility = Visibility.Hidden;
+            btnScoreCardGuest.Visibility = Visibility.Hidden;
+
             AddBullpenPlayer(cBoxHomeBullpen, "home");
         }
 
         private void cBoxHomeBench_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
+            timer.Start();
+            btnScoreCard.Visibility = Visibility.Hidden;
+            btnScoreCardGuest.Visibility = Visibility.Hidden;
+
             AddBenchPlayer(cBoxHomeBench, "home");
         }
 
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
             if (Controller.GetMaster().guestTeamSelectedPlayers.Count != 9)
+            {
+                timer.Start();
+                btnScoreCard.Visibility = Visibility.Hidden;
+                btnScoreCardGuest.Visibility = Visibility.Hidden;
+
                 AddPlayer(cBoxGuestPlayers, "guest");
+            }
         }
 
         private void cBoxGuestBullpen_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
+            timer.Start();
+            btnScoreCard.Visibility = Visibility.Hidden;
+            btnScoreCardGuest.Visibility = Visibility.Hidden;
+
             AddBullpenPlayer(cBoxGuestBullpen, "guest");
         }
 
         private void cBoxGuestBench_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
+            timer.Start();
+            btnScoreCard.Visibility = Visibility.Hidden;
+            btnScoreCardGuest.Visibility = Visibility.Hidden;
+
             AddBenchPlayer(cBoxGuestBench, "guest");
         }
 
@@ -378,7 +423,7 @@ namespace frmScoreCard.Form
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));
 
             var scorecard = new Scorecard();
-            scorecard.Show();
+                scorecard.Show();
         }
 
         private void btnScorecardGuest_Click(object sender, RoutedEventArgs e)
