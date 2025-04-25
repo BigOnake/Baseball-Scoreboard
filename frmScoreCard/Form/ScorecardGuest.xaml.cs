@@ -36,6 +36,7 @@ namespace frmScoreCard.Form
             scoreTable();
             bullpenTable();
             coachTable();
+            startingPitcher();
         }
 
         private void scoreCardTitle()
@@ -818,6 +819,105 @@ namespace frmScoreCard.Form
             {
                 if (coachesDict.ContainsKey("BCAT"))
                     textblockBUC.Text = coachesDict["BCAT"];
+            }
+        }
+
+        private void startingPitcher()
+        {
+            if (stats.homeTeamSelectedPlayers != null && stats.homeTeamSelectedPlayers.Count >= 10)
+            {
+                var startingPitcher = stats.homeTeamSelectedPlayers.Values.ToList();
+
+                if (StartingPitcher.Children[0] is Grid colGridName && colGridName.Children[0] is Viewbox viewboxName
+                    && viewboxName.Child is TextBlock textblockName)
+                {
+                    if (startingPitcher[9].sides?.people?[0]?.pitchHand?.description == "Left")
+                    {
+                        textblockName.Foreground = System.Windows.Media.Brushes.Red;
+                    }
+                    else
+                    {
+                        textblockName.Foreground = System.Windows.Media.Brushes.Black;
+                    }
+
+                    textblockName.Text = startingPitcher[9].name;
+                }
+
+                if (startingPitcher[9].pitcherStats?.splits?.Count != null && startingPitcher[9].pitcherStats?.splits?.Count > 0)
+                {
+                    if (StartingPitcher.Children[1] is Grid colGridGO && colGridGO.Children[0] is Viewbox viewboxGO
+                    && viewboxGO.Child is TextBlock textblockGO)
+                    {
+                        textblockGO.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.gamesStarted?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[2] is Grid colGridWL && colGridWL.Children[0] is Viewbox viewboxWL
+                    && viewboxWL.Child is TextBlock textblockWL)
+                    {
+                        textblockWL.Text = $"{startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.wins?.ToString() ?? string.Empty}-" +
+                            $"{startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.losses.ToString() ?? string.Empty}";
+                    }
+
+                    if (StartingPitcher.Children[3] is Grid colGridEra && colGridEra.Children[0] is Viewbox viewboxEra
+                    && viewboxEra.Child is TextBlock textblockEra)
+                    {
+                        textblockEra.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.era?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[4] is Grid colGridIp && colGridIp.Children[0] is Viewbox viewboxIp
+                    && viewboxIp.Child is TextBlock textblockIp)
+                    {
+                        textblockIp.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.inningsPitched?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[5] is Grid colGridH && colGridH.Children[0] is Viewbox viewboxH
+                    && viewboxH.Child is TextBlock textblockH)
+                    {
+                        textblockH.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.hits?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[6] is Grid colGridER && colGridER.Children[0] is Viewbox viewboxER
+                    && viewboxER.Child is TextBlock textblockER)
+                    {
+                        textblockER.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.earnedRuns?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[7] is Grid colGridBB && colGridBB.Children[0] is Viewbox viewboxBB
+                    && viewboxBB.Child is TextBlock textblockBB)
+                    {
+                        textblockBB.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.baseOnBalls?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[8] is Grid colGridK && colGridK.Children[0] is Viewbox viewboxK
+                    && viewboxK.Child is TextBlock textblockK)
+                    {
+                        textblockK.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.strikeOuts?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[9] is Grid colGridHR && colGridHR.Children[0] is Viewbox viewboxHR
+                    && viewboxHR.Child is TextBlock textblockHR)
+                    {
+                        textblockHR.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.homeRuns?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[10] is Grid colGridAVG && colGridAVG.Children[0] is Viewbox viewboxAVG
+                    && viewboxAVG.Child is TextBlock textblockAVG)
+                    {
+                        textblockAVG.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.avg?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[11] is Grid colGridWHIP && colGridWHIP.Children[0] is Viewbox viewboxWHIP
+                    && viewboxWHIP.Child is TextBlock textblockWHIP)
+                    {
+                        textblockWHIP.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.whip?.ToString() ?? string.Empty;
+                    }
+
+                    if (StartingPitcher.Children[12] is Grid colGridGB && colGridGB.Children[0] is Viewbox viewboxGB
+                    && viewboxGB.Child is TextBlock textblockGB)
+                    {
+                        textblockGB.Text = startingPitcher[9].pitcherStats?.splits?[0]?.stats?.pitching?.standard?.groundOuts?.ToString() ?? string.Empty;
+                    }
+                }
             }
         }
     }

@@ -149,7 +149,7 @@ namespace frmScoreCard.Form
 
         private void cBoxHomePlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            if (Controller.GetMaster().homeTeamSelectedPlayers.Count != 9)
+            if (Controller.GetMaster().homeTeamSelectedPlayers.Count != 10)
             {
                 timer.Start();
                 btnScoreCard.Visibility = Visibility.Hidden;
@@ -179,7 +179,7 @@ namespace frmScoreCard.Form
 
         private void cBoxGuestPlayers_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            if (Controller.GetMaster().guestTeamSelectedPlayers.Count != 9)
+            if (Controller.GetMaster().guestTeamSelectedPlayers.Count != 10)
             {
                 timer.Start();
                 btnScoreCard.Visibility = Visibility.Hidden;

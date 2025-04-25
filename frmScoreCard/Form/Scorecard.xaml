@@ -275,7 +275,7 @@
                 </Grid>
                 
                 <!-- Starting Pitcher -->
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="2" x:Name="StartingPitcher">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="4*"/>
                         <ColumnDefinition/>
