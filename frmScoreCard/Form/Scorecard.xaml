@@ -1712,7 +1712,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                             UpdateSourceTrigger=PropertyChanged}" 
+                             BorderThickness="0" Background="Transparent"
+                             FontWeight="Bold" KeyDown="P1_KeyDown">
+                            
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -2186,7 +2194,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                             UpdateSourceTrigger=PropertyChanged}" 
+                             BorderThickness="0" Background="Transparent"
+                             FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -2660,7 +2676,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3134,7 +3158,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3608,7 +3640,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4082,7 +4122,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                             UpdateSourceTrigger=PropertyChanged}" 
+                             BorderThickness="0" Background="Transparent"
+                             FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4556,7 +4604,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5030,7 +5086,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5504,7 +5568,15 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Style="{StaticResource TextStyle}"/>
+                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
+                                 UpdateSourceTrigger=PropertyChanged}" 
+                                 BorderThickness="0" Background="Transparent"
+                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+
+                            <TextBox.InputBindings>
+                                <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                            </TextBox.InputBindings>
+                        </TextBox>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
