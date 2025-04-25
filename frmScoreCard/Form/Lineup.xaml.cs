@@ -351,7 +351,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownHomePlayer(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemovePlayer(lBoxHomePlayers, "home");
             }
@@ -359,7 +359,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownHomeBullpen(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemoveBullpenPlayer(lBoxHomeTeamBullpen, "home");
             }
@@ -367,7 +367,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownHomeBench(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemoveBenchPlayer(lBoxHomeTeamBench, "home");
             }
@@ -375,7 +375,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownGuestPlayer(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemovePlayer(lBoxGuestPlayers, "guest");
             }
@@ -383,7 +383,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownGuestBullpen(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemoveBullpenPlayer(lBoxGuestTeamBullpen, "guest");
             }
@@ -391,7 +391,7 @@ namespace frmScoreCard.Form
 
         private void OnKeyDownGuestBench(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Delete)
+            if (e.Key == Key.Delete || e.Key == Key.Back)
             {
                 RemoveBenchPlayer(lBoxGuestTeamBench, "guest");
             }
