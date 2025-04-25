@@ -5,7 +5,9 @@ using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
+using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 using System.Windows.Xps.Packaging;
 using frmScoreCard.Data;
@@ -280,7 +282,7 @@ namespace frmScoreCard.Form
 
         private string ParseName(string name)
         {
-            return name.Substring(0, name.IndexOf("-")).TrimEnd();
+            return name.Substring(0, name.LastIndexOf("-")).TrimEnd();
         }
 
         /*****************************************************/
@@ -342,6 +344,56 @@ namespace frmScoreCard.Form
                 Controller.RemoveSelectedPlayer(teamType, ParseName(lBox.SelectedItem.ToString()));
 
                 lBox.Items.RemoveAt(lBox.SelectedIndex);
+            }
+        }
+
+        /*****************************************************/
+
+        private void OnKeyDownHomePlayer(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemovePlayer(lBoxHomePlayers, "home");
+            }
+        }
+
+        private void OnKeyDownHomeBullpen(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemoveBullpenPlayer(lBoxHomeTeamBullpen, "home");
+            }
+        }
+
+        private void OnKeyDownHomeBench(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemoveBenchPlayer(lBoxHomeTeamBench, "home");
+            }
+        }
+
+        private void OnKeyDownGuestPlayer(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemovePlayer(lBoxGuestPlayers, "guest");
+            }
+        }
+
+        private void OnKeyDownGuestBullpen(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemoveBullpenPlayer(lBoxGuestTeamBullpen, "guest");
+            }
+        }
+
+        private void OnKeyDownGuestBench(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete)
+            {
+                RemoveBenchPlayer(lBoxGuestTeamBench, "guest");
             }
         }
 
