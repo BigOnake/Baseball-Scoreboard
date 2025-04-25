@@ -118,11 +118,11 @@ namespace frmScoreCard.Form
                         }
                         else if (benchPlayers[idx].sides?.people?[0]?.batSide?.description == "Right")
                         {
-                            textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
+                            textBlockName.Foreground = System.Windows.Media.Brushes.Black;
                         }
                         else
                         {
-                            textBlockName.Foreground = System.Windows.Media.Brushes.Black;
+                            textBlockName.Foreground = System.Windows.Media.Brushes.Blue;
                         }
                         
                         textBlockName.Text = benchPlayers?[idx]?.name ?? string.Empty;
@@ -186,9 +186,9 @@ namespace frmScoreCard.Form
                         if (players[idx].sides?.people?[0]?.pitchHand?.description == "Left")
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
                         else if (players[idx].sides?.people?[0]?.pitchHand?.description == "Right")
-                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
-                        else
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
+                        else
+                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
 
                         textBlockPlayer.Text = $"{players[idx].jerseyNumber ?? string.Empty}-{players[idx].name ?? string.Empty}";
                     }
