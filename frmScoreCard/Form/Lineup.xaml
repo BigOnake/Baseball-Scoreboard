@@ -93,7 +93,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox Name="lBoxGuestPlayers" VerticalAlignment="Top" Margin="0,10,0,0" 
-                             Width = "150" Height="280" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                             KeyDown="OnKeyDownGuestPlayer" Width = "150" Height="280" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 </Grid>
 
                 <!-- Remove & Clear Buttons -->
@@ -153,7 +153,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox Name="lBoxGuestTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" 
-                             VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
+                             KeyDown="OnKeyDownGuestBullpen" VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
                 </Grid>
 
                 <!-- Remove & Clear Buttons -->
@@ -203,7 +203,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox Name="lBoxGuestTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" 
-                            VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
+                            KeyDown="OnKeyDownGuestBench" VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
                 </Grid>
 
                 <!-- Remove & Clear Buttons -->
@@ -313,7 +313,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox x:Name="lBoxHomeTeamBullpen" d:ItemsSource="{d:SampleData ItemCount=5}" 
-                             VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
+                             KeyDown="OnKeyDownHomeBullpen" VerticalAlignment="Center" Width = "150" Height="150" Margin="0,10,0,0"/>
                 </Grid>
 
                 <!-- Remove & Clear Buttons -->
@@ -365,7 +365,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox Name="lBoxHomeTeamBench" d:ItemsSource="{d:SampleData ItemCount=5}" 
-                             VerticalAlignment="Center" Width = "150" Height="170" Margin="0,10,0,0"/>
+                             KeyDown="OnKeyDownHomeBench" VerticalAlignment="Center" Width = "150" Height="170" Margin="0,10,0,0"/>
                 </Grid>
 
 
@@ -447,7 +447,7 @@
                 <!-- ListBox -->
                 <Grid Grid.Row="2">
                     <ListBox Name="lBoxHomePlayers" VerticalAlignment="Top" Margin="0,10,0,0" 
-                             Width = "150" Height="280" d:ItemsSource="{d:SampleData ItemCount=5}"/>
+                             KeyDown="OnKeyDownHomePlayer" Width = "150" Height="280" d:ItemsSource="{d:SampleData ItemCount=5}"/>
                 </Grid>
 
                 <!-- Remove & Clear Buttons -->

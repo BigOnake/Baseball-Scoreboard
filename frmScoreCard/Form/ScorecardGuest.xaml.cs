@@ -202,9 +202,9 @@ namespace frmScoreCard.Form
 
                     // Position
                     if (rowGrid.Children[1] is Grid columnGrid2
-                        && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBlock textBlockPos)
+                        && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBox textBoxPos)
                     {
-                        textBlockPos.Text = players[idx].position ?? string.Empty;
+                        textBoxPos.Text = players[idx].position ?? string.Empty;
                     }
 
                     // Checks if the 'splits' property contains values
@@ -815,6 +815,16 @@ namespace frmScoreCard.Form
             {
                 if (coachesDict.ContainsKey("BCAT"))
                     textblockBUC.Text = coachesDict["BCAT"];
+            }
+        }
+
+        // Clears cursor when "Enter" is pressed
+        private void P1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // Move focus to another element
+                Keyboard.ClearFocus();
             }
         }
 

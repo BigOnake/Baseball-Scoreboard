@@ -1,8 +1,10 @@
 using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Xml.Serialization;
 using frmScoreCard.Data;
 
@@ -16,11 +18,11 @@ namespace frmScoreCard.Form
         public Master stats;
 
         public Scorecard()
-        {
+        {            
             InitializeComponent();
 
             stats = Controller.GetMaster();
-
+           
             scoreCardTitle();
             venueTable();
             benchTable();
@@ -35,6 +37,20 @@ namespace frmScoreCard.Form
         private void scoreCardTitle()
         {
             Blob.Text = stats?.homeTeamName ?? string.Empty;
+        }
+
+        // diamond(), not used yet. Will maybe use if decide to place
+        // players into the field automatically.
+        private void diamond()
+        {
+            for (int i = 0; i < FieldGrid.Children.Count; i++)
+            {
+                if (FieldGrid.Children[0] is Viewbox viewbox && viewbox.Child is Canvas canvas
+                    && canvas.Children[i] is TextBox textbox)
+                {
+                    textbox.Text = "XX-Player Name";
+                }
+            }
         }
 
         private void venueTable()                                                
@@ -195,9 +211,9 @@ namespace frmScoreCard.Form
 
                     // Position
                     if (rowGrid.Children[1] is Grid columnGrid2 
-                        && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBlock textBlockPos)
+                        && columnGrid2.Children[0] is Viewbox viewboxPos && viewboxPos.Child is TextBox textBoxPos)
                     {
-                        textBlockPos.Text = players[idx].position ?? string.Empty;
+                        textBoxPos.Text = players[idx].position ?? string.Empty;
                     }
 
                     // Checks if the 'splits' property contains values
@@ -810,6 +826,17 @@ namespace frmScoreCard.Form
                     textblockBUC.Text = coachesDict["BCAT"];
             }
         }
+
+        // Clears cursor when "Enter" is pressed
+        private void P1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                // Move focus to another element
+                Keyboard.ClearFocus();               
+            }
+        }        
+
     
         private void startingPitcher()
         {

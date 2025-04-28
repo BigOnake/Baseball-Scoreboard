@@ -1,15 +1,12 @@
 ﻿using System;
 using System.IO;
-using System.Reflection.Metadata;
-using System.Text.Json;
+using System.IO.Packaging;
+using System.Printing;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Media;
+using System.Windows.Input;
 using System.Windows.Threading;
-using System.Windows.Xps.Packaging;
 using frmScoreCard.Data;
-using Microsoft.Win32;
 
 namespace frmScoreCard.Form
 {
@@ -280,7 +277,7 @@ namespace frmScoreCard.Form
 
         private string ParseName(string name)
         {
-            return name.Substring(0, name.IndexOf("-")).TrimEnd();
+            return name.Substring(0, name.LastIndexOf("-")).TrimEnd();
         }
 
         /*****************************************************/
@@ -342,6 +339,56 @@ namespace frmScoreCard.Form
                 Controller.RemoveSelectedPlayer(teamType, ParseName(lBox.SelectedItem.ToString()));
 
                 lBox.Items.RemoveAt(lBox.SelectedIndex);
+            }
+        }
+
+        /*****************************************************/
+
+        private void OnKeyDownHomePlayer(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemovePlayer(lBoxHomePlayers, "home");
+            }
+        }
+
+        private void OnKeyDownHomeBullpen(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemoveBullpenPlayer(lBoxHomeTeamBullpen, "home");
+            }
+        }
+
+        private void OnKeyDownHomeBench(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemoveBenchPlayer(lBoxHomeTeamBench, "home");
+            }
+        }
+
+        private void OnKeyDownGuestPlayer(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemovePlayer(lBoxGuestPlayers, "guest");
+            }
+        }
+
+        private void OnKeyDownGuestBullpen(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemoveBullpenPlayer(lBoxGuestTeamBullpen, "guest");
+            }
+        }
+
+        private void OnKeyDownGuestBench(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Delete || e.Key == Key.Back)
+            {
+                RemoveBenchPlayer(lBoxGuestTeamBench, "guest");
             }
         }
 
@@ -411,19 +458,25 @@ namespace frmScoreCard.Form
 
         private void btnScorecard_Click(object sender, RoutedEventArgs e)
         {
-            //string json = JsonSerializer.Serialize(Controller.GetMaster());
-            //MessageBox.Show(json);
+            //string json = JsonSerializer.Serialize(Controller.GetMaster());  
+            //MessageBox.Show(json);  
 
-            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBench));
-            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBench));  
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamBullpen));  
 
-            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamCoaches));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().homeTeamCoaches));  
 
-            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));
-            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));  
+            //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));  
+
+            //PrintDialog printDialog = new PrintDialog();
+            //if (printDialog.ShowDialog() == true)
+            //{
+            //    printDialog.PrintVisual(this, "My Form");
+            //}
 
             var scorecard = new Scorecard();
-                scorecard.Show();
+            scorecard.Show();
         }
 
         private void btnScorecardGuest_Click(object sender, RoutedEventArgs e)
