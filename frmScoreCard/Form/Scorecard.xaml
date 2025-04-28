@@ -30,6 +30,16 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
+        <!-- Style for Field Players -->
+        <Style x:Key="FieldPlayerStyle" TargetType="TextBox">
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="MinWidth" Value="240"/>
+        </Style>
 
         <!-- Border Style for all grids -->
         <Style x:Key="BorderStyle" TargetType="Border">
@@ -79,23 +89,124 @@
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
 
-                <Grid Grid.Row="1">
-                    <!-- Diamond Here -->
-
+                <Grid Grid.Row="1" x:Name="FieldGrid">
+                    
+                    <!-- Field -->
                     <Viewbox Stretch="Uniform">
                         <Canvas Width="300" Height="300">
-                            <Line X1="0" Y1="50" X2="300" Y2="50" Stroke="Black" StrokeThickness="1" RenderTransformOrigin="0.488,0.512" HorizontalAlignment="Left" Canvas.Left="17"/>
-                            <Line X1="0" Y1="75" X2="300" Y2="75" Stroke="Black" StrokeThickness="1" Canvas.Left="322" Canvas.Top="20" RenderTransformOrigin="0.485,0.591"/>
-                            <Line X1="0" Y1="100" X2="300" Y2="100" Stroke="Black" StrokeThickness="1" Canvas.Left="-314" Canvas.Top="-5"/>
-                            <Line X1="0" Y1="125" X2="300" Y2="125" Stroke="Black" StrokeThickness="1" Canvas.Left="-243" Canvas.Top="24"/>
-                            <Line X1="0" Y1="150" X2="300" Y2="150" Stroke="Black" StrokeThickness="1" Canvas.Left="259"/>
-                            <Line X1="0" Y1="175" X2="300" Y2="175" Stroke="Black" StrokeThickness="1" Canvas.Left="-307" Canvas.Top="25"/>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="332"/>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="-226" Canvas.Top="45"/>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" Canvas.Left="236" Canvas.Top="50"/>
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="25"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="50" X2="300" Y2="50" Stroke="Black" StrokeThickness="1" 
+                                  RenderTransformOrigin="0.5,0.5" Canvas.Left="17" Canvas.Top ="15"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="350" Canvas.Top="55"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="75" X2="300" Y2="75" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="320" Canvas.Top="20" RenderTransformOrigin="0.5,0.5"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="-290" Canvas.Top="55" 
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="100" X2="300" Y2="100" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="-315" Canvas.Top="-5"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="-220" Canvas.Top="110"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="125" X2="300" Y2="125" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="-243" Canvas.Top="25"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="290" Canvas.Top="110"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="150" X2="300" Y2="150" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="259"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="-280" Canvas.Top="160"
+                            Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="175" X2="300" Y2="175" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="-307" Canvas.Top="25"/>
+
+                            <!-- Player -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="332" Canvas.Top="160"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="332"/>
+
+                            <!-- Coach -->
+                            <TextBox Text="Coach Name" Canvas.Left="-205" Canvas.Top="205"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown"
+                                     Foreground="Red">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="-226" Canvas.Top="45"/>
+                            
+                            <!-- Coach -->
+                            <TextBox Text="Coach Name" Canvas.Left="290" Canvas.Top="210"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown"
+                                     Foreground="Red">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="236" Canvas.Top="50"/>
                         </Canvas>
                     </Viewbox>
 
+                    <!-- Diamond -->
                     <Viewbox Stretch="Uniform">
                         <Rectangle Width="100" Height="100"
                             Fill="White"

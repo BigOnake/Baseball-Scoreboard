@@ -38,6 +38,20 @@ namespace frmScoreCard.Form
             Blob.Text = stats?.homeTeamName ?? string.Empty;
         }
 
+        // diamond(), not used yet. Will maybe use if decide to place
+        // players into the field automatically.
+        private void diamond()
+        {
+            for (int i = 0; i < FieldGrid.Children.Count; i++)
+            {
+                if (FieldGrid.Children[0] is Viewbox viewbox && viewbox.Child is Canvas canvas
+                    && canvas.Children[i] is TextBox textbox)
+                {
+                    textbox.Text = "XX-Player Name";
+                }
+            }
+        }
+
         private void venueTable()                                                
         {            
             int idx = 0;
