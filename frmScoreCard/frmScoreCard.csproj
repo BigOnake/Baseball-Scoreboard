@@ -6,9 +6,11 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\cardinals.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\cardinals.ico" />
     <None Remove="Resources\mlb_logo.png" />
   </ItemGroup>
 
@@ -21,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\cardinals.ico" />
     <EmbeddedResource Include="Resources\config.txt" />
     <EmbeddedResource Include="Resources\mlb_logo.png" />
   </ItemGroup>
