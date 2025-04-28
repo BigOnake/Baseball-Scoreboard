@@ -37,10 +37,19 @@
             <Setter Property="FontStyle" Value="Italic"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="MinWidth" Value="240"/>
         </Style>
-
+        
+        <!-- Style for hitter positions -->
+        <Style x:Key="HitterPositionStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="MinWidth" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        
         <!-- Border Style for all grids -->
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black"/>
@@ -1823,11 +1832,8 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                             UpdateSourceTrigger=PropertyChanged}" 
-                             BorderThickness="0" Background="Transparent"
-                             FontWeight="Bold" KeyDown="P1_KeyDown">
-                            
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
+
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
                             </TextBox.InputBindings>
@@ -2305,10 +2311,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                             UpdateSourceTrigger=PropertyChanged}" 
-                             BorderThickness="0" Background="Transparent"
-                             FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -2787,10 +2790,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -3269,10 +3269,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -3751,10 +3748,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -4233,10 +4227,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                             UpdateSourceTrigger=PropertyChanged}" 
-                             BorderThickness="0" Background="Transparent"
-                             FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -4715,10 +4706,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -5197,10 +5185,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
@@ -5679,10 +5664,7 @@
 
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBox Text="{Binding DisplayText, Mode=OneWayToSource, 
-                                 UpdateSourceTrigger=PropertyChanged}" 
-                                 BorderThickness="0" Background="Transparent"
-                                 FontWeight="Bold" KeyDown="P1_KeyDown">
+                        <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
 
                             <TextBox.InputBindings>
                                 <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
