@@ -244,7 +244,7 @@
             <!-- Img -->
             <Grid Grid.Row="0">
                 <Image HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150"
-                       Source="/Form/mlb_logo.png"/>
+                       Source="/Resources/mlb_logo.png"/>
             </Grid>
 
             <!-- Label -->

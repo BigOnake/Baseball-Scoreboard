@@ -5,6 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Security.Policy;
 using System.Text.Json;
 using System.Windows;
+using System.Collections.Specialized;
 
 namespace frmScoreCard.Data
 {
@@ -234,9 +235,9 @@ namespace frmScoreCard.Data
         public void AddSelectedPlayer(string teamType, int playerId, PlayerStats p)
         {
             if (teamType == "home")
-                data.homeTeamSelectedPlayers[playerId] = p;
+                data.homeTeamSelectedPlayers.Add(playerId, p);
             else
-                data.guestTeamSelectedPlayers[playerId] = p;
+                data.guestTeamSelectedPlayers.Add(playerId, p);
         }
 
         public void RemoveSelectedPlayer(string teamType, int playerId)
@@ -320,13 +321,13 @@ namespace frmScoreCard.Data
         {
             if (teamType == "home")
             {
-                if (!data.homeTeamBench.ContainsValue(bs))
-                    data.homeTeamBench[playerId] = bs;
+                if (!data.homeTeamBench.Contains(playerId))
+                    data.homeTeamBench.Add(playerId, bs);
             }
             else
             {
-                if (!data.guestTeamBench.ContainsValue(bs))
-                    data.guestTeamBench[playerId] = bs;
+                if (!data.guestTeamBench.Contains(playerId))
+                    data.guestTeamBench.Add(playerId, bs);
             }
         }
 
@@ -366,13 +367,13 @@ namespace frmScoreCard.Data
         {
             if (teamType == "home")
             {
-                if (!data.homeTeamBullpen.ContainsValue(bp))
-                    data.homeTeamBullpen[playerId] = bp;
+                if (!data.homeTeamBullpen.Contains(playerId))
+                    data.homeTeamBullpen.Add(playerId, bp);
             }
             else
             {
-                if (!data.guestTeamBullpen.ContainsValue(bp))
-                    data.guestTeamBullpen[playerId] = bp;
+                if (!data.guestTeamBullpen.Contains(playerId))
+                    data.guestTeamBullpen.Add(playerId, bp);
             }
         }
 
@@ -389,21 +390,21 @@ namespace frmScoreCard.Data
     public class Master
     {
         public string? homeTeamName { get; set; }
-        public Dictionary<int, PlayerStats>? homeTeamSelectedPlayers { get; set; }
+        public OrderedDictionary? homeTeamSelectedPlayers { get; set; }
         public SB? homeTeamSB { get; set; }
         public Coaches? homeTeamCoaches { get; set; }
-        public Dictionary<int, BenchStats>? homeTeamBench { get; set; }
-        public Dictionary<int, BullpenStats>? homeTeamBullpen { get; set; }
+        public OrderedDictionary? homeTeamBench { get; set; }
+        public OrderedDictionary? homeTeamBullpen { get; set; }
 
         public LiveData? live { get; set; }
 
 
         public string? guestTeamName { get; set; }
-        public Dictionary<int, PlayerStats>? guestTeamSelectedPlayers { get; set; }
+        public OrderedDictionary? guestTeamSelectedPlayers { get; set; }
         public SB? guestTeamSB { get; set; }
         public Coaches? guestTeamCoaches { get; set; }
-        public Dictionary<int, BenchStats>? guestTeamBench { get; set; }
-        public Dictionary<int, BullpenStats>? guestTeamBullpen { get; set; }
+        public OrderedDictionary? guestTeamBench { get; set; }
+        public OrderedDictionary? guestTeamBullpen { get; set; }
 
 
 
@@ -413,19 +414,19 @@ namespace frmScoreCard.Data
 
         public Master()
         {
-            homeTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
+            homeTeamSelectedPlayers = new OrderedDictionary();
             homeTeamSB = new SB();
             homeTeamCoaches = new Coaches();
-            homeTeamBench = new Dictionary<int, BenchStats>();
-            homeTeamBullpen = new Dictionary<int, BullpenStats>();
+            homeTeamBench = new OrderedDictionary();
+            homeTeamBullpen = new OrderedDictionary();
 
             live = new LiveData();
 
-            guestTeamSelectedPlayers = new Dictionary<int, PlayerStats>();
+            guestTeamSelectedPlayers = new OrderedDictionary();
             guestTeamSB = new SB();
             homeTeamCoaches = new Coaches();
-            guestTeamBench = new Dictionary<int, BenchStats>();
-            guestTeamBullpen = new Dictionary<int, BullpenStats>();
+            guestTeamBench = new OrderedDictionary();
+            guestTeamBullpen = new OrderedDictionary();
 
             umps = new Umpires();
             venue = new Venues();

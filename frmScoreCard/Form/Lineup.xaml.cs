@@ -148,7 +148,17 @@ namespace frmScoreCard.Form
         {
             if (Controller.GetMaster().homeTeamSelectedPlayers.Count != 10)
             {
-                timer.Start();
+                if (timer.IsEnabled)
+                {
+                    timer.Stop();
+                    timer.Start();
+                }
+                else
+                {
+                    timer.Start();
+
+                }
+
                 btnScoreCard.Visibility = Visibility.Hidden;
                 btnScoreCardGuest.Visibility = Visibility.Hidden;
 
@@ -158,7 +168,16 @@ namespace frmScoreCard.Form
 
         private void cBoxHomeBullpen_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            timer.Start();
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+                timer.Start();
+            }
+            else
+            {
+                timer.Start();
+
+            }
             btnScoreCard.Visibility = Visibility.Hidden;
             btnScoreCardGuest.Visibility = Visibility.Hidden;
 
@@ -167,7 +186,16 @@ namespace frmScoreCard.Form
 
         private void cBoxHomeBench_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            timer.Start();
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+                timer.Start();
+            }
+            else
+            {
+                timer.Start();
+
+            }
             btnScoreCard.Visibility = Visibility.Hidden;
             btnScoreCardGuest.Visibility = Visibility.Hidden;
 
@@ -178,7 +206,16 @@ namespace frmScoreCard.Form
         {
             if (Controller.GetMaster().guestTeamSelectedPlayers.Count != 10)
             {
-                timer.Start();
+                if (timer.IsEnabled)
+                {
+                    timer.Stop();
+                    timer.Start();
+                }
+                else
+                {
+                    timer.Start();
+
+                }
                 btnScoreCard.Visibility = Visibility.Hidden;
                 btnScoreCardGuest.Visibility = Visibility.Hidden;
 
@@ -188,7 +225,16 @@ namespace frmScoreCard.Form
 
         private void cBoxGuestBullpen_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            timer.Start();
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+                timer.Start();
+            }
+            else
+            {
+                timer.Start();
+
+            }
             btnScoreCard.Visibility = Visibility.Hidden;
             btnScoreCardGuest.Visibility = Visibility.Hidden;
 
@@ -197,7 +243,16 @@ namespace frmScoreCard.Form
 
         private void cBoxGuestBench_SelectedIndexChanged(object sender, RoutedEventArgs e)
         {
-            timer.Start();
+            if (timer.IsEnabled)
+            {
+                timer.Stop();
+                timer.Start();
+            }
+            else
+            {
+                timer.Start();
+
+            }
             btnScoreCard.Visibility = Visibility.Hidden;
             btnScoreCardGuest.Visibility = Visibility.Hidden;
 

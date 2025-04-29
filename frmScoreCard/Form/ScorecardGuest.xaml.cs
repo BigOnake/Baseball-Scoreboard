@@ -94,7 +94,7 @@ namespace frmScoreCard.Form
 
         private void benchTable()
         {
-            var benchPlayers = stats?.guestTeamBench?.Values.ToList();
+            var benchPlayers = stats?.guestTeamBench?.Values.Cast<BenchStats>().ToList();
             int idx = 0;
 
             BenchName.Text = $"{stats?.guestTeamName ?? string.Empty} Bench";
@@ -170,7 +170,7 @@ namespace frmScoreCard.Form
 
         private void hitterTable()
         {
-            var players = stats?.guestTeamSelectedPlayers?.Values.ToList();
+            var players = stats?.guestTeamSelectedPlayers?.Values.Cast<PlayerStats>().ToList();
             int idx = 0;
 
             // 1,3,5,7,9,11,13,15,17
@@ -568,7 +568,7 @@ namespace frmScoreCard.Form
         {
             if (stats.homeTeamBullpen != null && stats.homeTeamBullpen.Values.Count > 0)
             {
-                var guestBullpenPlayers = stats.homeTeamBullpen.Values.ToList();
+                var guestBullpenPlayers = stats.homeTeamBullpen.Values.Cast<BullpenStats>().ToList();
 
                 int idx = 0;
 
@@ -832,7 +832,7 @@ namespace frmScoreCard.Form
         {
             if (stats.homeTeamSelectedPlayers != null && stats.homeTeamSelectedPlayers.Count >= 10)
             {
-                var startingPitcher = stats.homeTeamSelectedPlayers.Values.ToList();
+                var startingPitcher = stats.homeTeamSelectedPlayers.Values.Cast<PlayerStats>().ToList();
 
                 if (StartingPitcher.Children[0] is Grid colGridName && colGridName.Children[0] is Viewbox viewboxName
                     && viewboxName.Child is TextBlock textblockName)
