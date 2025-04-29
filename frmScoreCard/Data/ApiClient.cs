@@ -245,7 +245,7 @@ namespace frmScoreCard.Data
         public async Task<FirstPitch> GetFirstPitch(int playerId)
         {
             path = BASE_URL + $"stats/search?batterIds={playerId}&" +
-                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"gameTypes=R&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&sitCodes=fip&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,ops,avg,tracking,hitProbability,averageValue";
@@ -256,7 +256,7 @@ namespace frmScoreCard.Data
         public async Task<RISP> GetRISP(int playerId)
         {
             path = BASE_URL + $"stats/search?batterIds={playerId}&" +
-                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"gameTypes=R&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=risp&sportIds=&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
@@ -266,7 +266,7 @@ namespace frmScoreCard.Data
         public async Task<RISP> GetRISP2O(int playerId)
         {
             path = BASE_URL + $"stats/search?batterIds={playerId}&" +
-                $"gameTypes=S&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
+                $"gameTypes=R&group=hitting&groupBy=season,player&hydrate=person(currentTeam),team&" +
                 $"includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=o2,risp&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats";
 
@@ -275,7 +275,7 @@ namespace frmScoreCard.Data
 
         public async Task<VSLeftRight> GetVSLeft(int playerId)
         {
-            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=R&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&pitchHand=L&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
@@ -285,7 +285,7 @@ namespace frmScoreCard.Data
 
         public async Task<VSLeftRight> GetVSRight(int playerId)
         {
-            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=R&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&pitchHand=R&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,homeRuns,hits,avg,atBats,ops";
@@ -295,7 +295,7 @@ namespace frmScoreCard.Data
 
         public async Task<Plus7> Get7Plus(int playerId)
         {
-            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=R&group=hitting&" +
                 $"groupBy=season,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sitCodes=ig07&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,hitting,standard,avg,ops";
@@ -305,7 +305,7 @@ namespace frmScoreCard.Data
 
         public async Task<HitterStats> GetHitterStats(int playerId)
         {
-            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=S&group=hitting&groupBy=season,player&" +
+            path = BASE_URL + $"stats/search?batterIds={playerId}&gameTypes=R&group=hitting&groupBy=season,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,hitting,standard,runs,triples,homeRuns,strikeOuts,baseOnBalls,avg,ops,doubles,caughtStealing,stolenBases,groundIntoDoublePlay,rbi,babip";
@@ -315,7 +315,7 @@ namespace frmScoreCard.Data
 
         public async Task<PitcherStats> GetPitcherStats(int playerId)
         {
-            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=season,team,player&" +
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=R&group=pitching&groupBy=season,team,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&fields=splits,stats,pitching,standard,gamesStarted,groundOuts," +
                 $"homeRuns,strikeOuts,intentionalWalks,hits,avg,groundIntoDoublePlay,era,inningsPitched,wins,losses,saves,saveOpportunities,blownSaves,earnedRuns,whip,gamesPlayed,baseOnBalls,inningsPitched,holds";
@@ -325,7 +325,7 @@ namespace frmScoreCard.Data
 
         public async Task<PitchTypes> GetPitchTypes(int playerId)
         {
-            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&" +
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=R&group=pitching&" +
                 $"groupBy=pitchType,player&hydrate=person(currentTeam),team&includeNullMetrics=true&" +
                 $"limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,pitching,standard,hits,atBats,tracking,exitVelocity,averageValue,pitchType,code";
@@ -335,7 +335,7 @@ namespace frmScoreCard.Data
 
         public async Task<BullpenPitches> GetBullpenPitches(int playerId)
         {
-            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=S&group=pitching&groupBy=pitchType,player&" +
+            path = BASE_URL + $"stats/search?pitcherIds={playerId}&gameTypes=R&group=pitching&groupBy=pitchType,player&" +
                 $"hydrate=person(currentTeam),team&includeNullMetrics=true&limit=50&seasons={DateTime.Now.Year.ToString()}&sportIds=1&" +
                 $"statFields=standard,advanced,expected,tracking&" +
                 $"fields=splits,stats,pitching,standard,hits,atBats,tracking,releaseSpeed,averageValue,pitchType,code";
