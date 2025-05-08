@@ -190,9 +190,9 @@ namespace frmScoreCard.Form
                     if (rowGrid.Children[0] is Grid columnGrid1
                         && columnGrid1.Children[0] is Viewbox viewboxPlayer && viewboxPlayer.Child is TextBlock textBlockPlayer)
                     {
-                        if (players[idx].sides?.people?[0]?.pitchHand?.description == "Left")
+                        if (players[idx].sides?.people?[0]?.batSide?.description == "Left")
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
-                        else if (players[idx].sides?.people?[0]?.pitchHand?.description == "Right")
+                        else if (players[idx].sides?.people?[0]?.batSide?.description == "Right")
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
                         else
                             textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
