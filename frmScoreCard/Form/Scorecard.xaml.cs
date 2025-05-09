@@ -845,18 +845,18 @@ namespace frmScoreCard.Form
                 var startingPitcher = stats.guestTeamSelectedPlayers.Values.Cast<PlayerStats>().ToList();
 
                 if (StartingPitcher.Children[0] is Grid colGridName && colGridName.Children[0] is Viewbox viewboxName
-                    && viewboxName.Child is TextBlock textblockName)
+                    && viewboxName.Child is TextBox textboxName)
                 {
                     if (startingPitcher[9].sides?.people?[0]?.pitchHand?.description == "Left")
                     {
-                        textblockName.Foreground = System.Windows.Media.Brushes.Red;
+                        textboxName.Foreground = System.Windows.Media.Brushes.Red;
                     }                    
                     else
                     {
-                        textblockName.Foreground = System.Windows.Media.Brushes.Black;
+                        textboxName.Foreground = System.Windows.Media.Brushes.Black;
                     }
 
-                    textblockName.Text = startingPitcher[9].name;
+                    textboxName.Text = startingPitcher[9].name;
                 }
                
                 if (startingPitcher[9].pitcherStats?.splits?.Count != null && startingPitcher[9].pitcherStats?.splits?.Count > 0)

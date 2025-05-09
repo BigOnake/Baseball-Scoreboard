@@ -40,8 +40,7 @@
             <Setter Property="MinWidth" Value="130"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-
-
+            
         <!-- Style for Field Players -->
         <Style x:Key="FieldPlayerStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="25"/>
@@ -61,7 +60,17 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
-        
+
+        <!-- Style for Starting Pitcher Name -->
+        <Style x:Key ="SPitcherStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="MinWidth" Value="160"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
         <!-- Border Style for all grids -->
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black"/>
@@ -435,10 +444,11 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-
+                    
+                    <!-- Starting Pitcher Name -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource SPitcherStyle}"/>
                         </Viewbox>
                     </Grid>
 
