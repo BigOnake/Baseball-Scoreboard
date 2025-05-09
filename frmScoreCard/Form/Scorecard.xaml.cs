@@ -567,10 +567,10 @@ namespace frmScoreCard.Form
         private void scoreTable()                                                
         {
             if (stats.homeTeamName != null)
-                HomeTeam.Text = stats.homeTeamName;
+                GuestTeam.Text = stats.homeTeamName;
 
             if (stats.guestTeamName != null)
-                GuestTeam.Text = stats.guestTeamName;
+                HomeTeam.Text = stats.guestTeamName;
         }
 
         private void bullpenTable()                                              

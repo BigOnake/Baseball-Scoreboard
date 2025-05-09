@@ -212,6 +212,19 @@
                             </TextBox>
                             <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
                                   Canvas.Left="236" Canvas.Top="50"/>
+
+                            <!-- Batter -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="255"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="17" Canvas.Top="90"/>
+                            
                         </Canvas>
                     </Viewbox>
 
