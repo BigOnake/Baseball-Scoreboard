@@ -188,16 +188,16 @@ namespace frmScoreCard.Form
                 {
                     // Name 
                     if (rowGrid.Children[0] is Grid columnGrid1
-                        && columnGrid1.Children[0] is Viewbox viewboxPlayer && viewboxPlayer.Child is TextBlock textBlockPlayer)
+                        && columnGrid1.Children[0] is Viewbox viewboxPlayer && viewboxPlayer.Child is TextBox textBoxPlayer)
                     {
                         if (players[idx].sides?.people?[0]?.batSide?.description == "Left")
-                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Red;
+                            textBoxPlayer.Foreground = System.Windows.Media.Brushes.Red;
                         else if (players[idx].sides?.people?[0]?.batSide?.description == "Right")
-                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Black;
+                            textBoxPlayer.Foreground = System.Windows.Media.Brushes.Black;
                         else
-                            textBlockPlayer.Foreground = System.Windows.Media.Brushes.Blue;
+                            textBoxPlayer.Foreground = System.Windows.Media.Brushes.Blue;
 
-                        textBlockPlayer.Text = $"{players[idx].jerseyNumber ?? string.Empty}-{players[idx].name ?? string.Empty}";
+                        textBoxPlayer.Text = $"{players[idx].jerseyNumber ?? string.Empty}-{players[idx].name ?? string.Empty}";
                     }
 
                     // Position

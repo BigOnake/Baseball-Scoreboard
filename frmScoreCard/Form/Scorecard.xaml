@@ -30,7 +30,18 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
-        
+
+        <!-- Style for Hitter Player Names -->
+        <Style x:Key ="HitterStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="MinWidth" Value="130"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+
         <!-- Style for Field Players -->
         <Style x:Key="FieldPlayerStyle" TargetType="TextBox">
             <Setter Property="FontSize" Value="25"/>
@@ -39,6 +50,7 @@
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="MinWidth" Value="240"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
         
         <!-- Style for hitter positions -->
@@ -1786,10 +1798,11 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-
+                
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -2266,14 +2279,15 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
                 </Grid>
-
+                
                 <Grid Grid.Column="1">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
                         <TextBox Style="{StaticResource HitterPositionStyle}" KeyDown="P1_KeyDown">
@@ -2745,9 +2759,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3224,9 +3239,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3703,9 +3719,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4182,9 +4199,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4661,9 +4679,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5140,9 +5159,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5619,9 +5639,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>

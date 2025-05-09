@@ -525,11 +525,11 @@ namespace frmScoreCard.Form
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBench));  
             //MessageBox.Show(JsonSerializer.Serialize(Controller.GetMaster().guestTeamBullpen));  
 
-            PrintDialog printDialog = new PrintDialog();
-            if (printDialog.ShowDialog() == true)
-            {
-                printDialog.PrintVisual(this, "My Form");
-            }
+            //PrintDialog printDialog = new PrintDialog();
+            //if (printDialog.ShowDialog() == true)
+            //{
+            //    printDialog.PrintVisual(this, "My Form");
+            //}
 
             var scorecard = new Scorecard();
             scorecard.Show();
