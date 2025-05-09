@@ -764,63 +764,63 @@ namespace frmScoreCard.Form
 
             // Populate Coaches Table
             if (CoachesGrid.Children[0] is Grid rowGrid && rowGrid.Children[1] is Grid colGrid && colGrid.Children[0] is Viewbox viewbox
-                    && viewbox.Child is TextBlock textblock)
+                    && viewbox.Child is TextBox textblock)
             {
                 if (coachesDict.ContainsKey("MNGR"))
                     textblock.Text = coachesDict["MNGR"];
             }
 
             if (CoachesGrid.Children[1] is Grid rowGridBC && rowGridBC.Children[1] is Grid colGridBC && colGridBC.Children[0] is Viewbox viewboxBC
-                    && viewboxBC.Child is TextBlock textblockBC)
+                    && viewboxBC.Child is TextBox textblockBC)
             {
                 if (coachesDict.ContainsKey("COAB"))
                     textblockBC.Text = coachesDict["COAB"];
             }
 
             if (CoachesGrid.Children[2] is Grid rowGridPC && rowGridPC.Children[1] is Grid colGridPC && colGridPC.Children[0] is Viewbox viewboxPC
-                    && viewboxPC.Child is TextBlock textblockPC)
+                    && viewboxPC.Child is TextBox textblockPC)
             {
                 if (coachesDict.ContainsKey("COAP"))
                     textblockPC.Text = coachesDict["COAP"];
             }
 
             if (CoachesGrid.Children[3] is Grid rowGridAPC && rowGridAPC.Children[1] is Grid colGridAPC && colGridAPC.Children[0] is Viewbox viewboxAPC
-                    && viewboxAPC.Child is TextBlock textblockAPC)
+                    && viewboxAPC.Child is TextBox textblockAPC)
             {
                 if (coachesDict.ContainsKey("COPA"))
                     textblockAPC.Text = coachesDict["COPA"];
             }
 
             if (CoachesGrid.Children[4] is Grid rowGridFBC && rowGridFBC.Children[1] is Grid colGridFBC && colGridFBC.Children[0] is Viewbox viewboxFBC
-                    && viewboxFBC.Child is TextBlock textblockFBC)
+                    && viewboxFBC.Child is TextBox textblockFBC)
             {
                 if (coachesDict.ContainsKey("COA1"))
                     textblockFBC.Text = coachesDict["COA1"];
             }
 
             if (CoachesGrid.Children[5] is Grid rowGridTBC && rowGridTBC.Children[1] is Grid colGridTBC && colGridTBC.Children[0] is Viewbox viewboxTBC
-                    && viewboxTBC.Child is TextBlock textblockTBC)
+                    && viewboxTBC.Child is TextBox textblockTBC)
             {
                 if (coachesDict.ContainsKey("COA3"))
                     textblockTBC.Text = coachesDict["COA3"];
             }
 
             if (CoachesGrid.Children[6] is Grid rowGridHC && rowGridHC.Children[1] is Grid colGridHC && colGridHC.Children[0] is Viewbox viewboxHC
-                    && viewboxHC.Child is TextBlock textblockHC)
+                    && viewboxHC.Child is TextBox textblockHC)
             {
                 if (coachesDict.ContainsKey("COAT"))
                     textblockHC.Text = coachesDict["COAT"];
             }
 
             if (CoachesGrid.Children[7] is Grid rowGridAHC && rowGridAHC.Children[1] is Grid colGridAHC && colGridAHC.Children[0] is Viewbox viewboxAHC
-                    && viewboxAHC.Child is TextBlock textblockAHC)
+                    && viewboxAHC.Child is TextBox textblockAHC)
             {
                 if (coachesDict.ContainsKey("COAA"))
                     textblockAHC.Text = coachesDict["COAA"];
             }
 
             if (CoachesGrid.Children[8] is Grid rowGridBUC && rowGridBUC.Children[1] is Grid colGridBUC && colGridBUC.Children[0] is Viewbox viewboxBUC
-                    && viewboxBUC.Child is TextBlock textblockBUC)
+                    && viewboxBUC.Child is TextBox textblockBUC)
             {
                 if (coachesDict.ContainsKey("BCAT"))
                     textblockBUC.Text = coachesDict["BCAT"];
