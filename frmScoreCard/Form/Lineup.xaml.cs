@@ -5,8 +5,12 @@ using System.Printing;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
+using System.Windows.Media;
 using System.Windows.Threading;
 using frmScoreCard.Data;
+using System.Windows.Documents;
+using System.Windows.Shapes;
 
 namespace frmScoreCard.Form
 {
@@ -527,7 +531,7 @@ namespace frmScoreCard.Form
             //PrintDialog printDialog = new PrintDialog();
             //if (printDialog.ShowDialog() == true)
             //{
-            //    printDialog.PrintVisual(this, "My Form");
+            //    printDialog.PrintVisual(this, "what");
             //}
 
             var scorecard = new Scorecard();
@@ -540,5 +544,6 @@ namespace frmScoreCard.Form
             
             scorecard.Show();
         }
+
     }
 }

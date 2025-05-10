@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,6 +39,53 @@ namespace frmScoreCard.Form
             coachTable();
             startingPitcher();
         }
+
+        private void OnLoad(object sender, RoutedEventArgs e)
+        {
+            SaveScreenshot(this);
+        }
+
+        private void SaveScreenshot(Visual target)
+        {
+            if (target == null)
+            {
+                return;
+            }
+
+            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+            RenderTargetBitmap rtb = new RenderTargetBitmap(
+                (int)bounds.Width,
+                (int)bounds.Height,
+                96, // DPI-X
+                96, // DPI-Y
+                PixelFormats.Pbgra32);
+
+            DrawingVisual dv = new DrawingVisual();
+            using (DrawingContext dc = dv.RenderOpen())
+            {
+                VisualBrush vb = new VisualBrush(target);
+                dc.DrawRectangle(vb, null, new Rect(new Point(), bounds.Size));
+            }
+
+            rtb.Render(dv);
+
+            BitmapEncoder pngEncoder = new PngBitmapEncoder();
+            pngEncoder.Frames.Add(BitmapFrame.Create(rtb));
+
+            try
+            {
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\SCORECARD_GUEST.PNG";
+                using (FileStream fs = new FileStream(path, FileMode.Create))
+                {
+                    pngEncoder.Save(fs);
+                }
+            }
+            catch (IOException ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Error saving screenshot: {ex.Message}");
+            }
+        }
+
 
         private void scoreCardTitle()
         {

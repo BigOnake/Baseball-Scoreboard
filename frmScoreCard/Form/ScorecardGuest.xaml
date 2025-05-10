@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:frmScoreCard.Form"
         mc:Ignorable="d"
+        Loaded="OnLoad"
         Title="Guest" 
         Height="720" Width="1280"
         MinHeight="600" MinWidth="1024"
