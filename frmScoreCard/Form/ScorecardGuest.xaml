@@ -39,15 +39,46 @@
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
             <Setter Property="MinWidth" Value="240"/>
         </Style>
 
+        <!-- Style for Hitter Player Names -->
+        <Style x:Key ="HitterStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="MinWidth" Value="130"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+        
         <!-- Style for hitter positions -->
         <Style x:Key="HitterPositionStyle" TargetType="TextBox">
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="MinWidth" Value="30"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Style for Starting Pitcher Name -->
+        <Style x:Key ="SPitcherStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="MinWidth" Value="160"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <!-- Style for Coach Names -->
+        <Style x:Key ="CoachStyle" TargetType="TextBox">
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="MinWidth" Value="255"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
         </Style>
 
@@ -213,6 +244,19 @@
                             </TextBox>
                             <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
                                   Canvas.Left="236" Canvas.Top="50"/>
+
+                            <!-- Batter -->
+                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="255"
+                                     Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
+
+                                <TextBox.InputBindings>
+                                    <KeyBinding Key="Enter" Command="{Binding EnterKeyCommand}"/>
+                                </TextBox.InputBindings>
+
+                            </TextBox>
+                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="17" Canvas.Top="90"/>
+                            
                         </Canvas>
                     </Viewbox>
 
@@ -413,9 +457,10 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
+                    <!-- Starting Pitcher Name -->
                     <Grid Grid.Column="0">
                         <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource SPitcherStyle}"/>
                         </Viewbox>
                     </Grid>
 
@@ -1776,9 +1821,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -2255,9 +2301,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -2734,9 +2781,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3213,9 +3261,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -3692,9 +3741,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4171,9 +4221,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -4650,9 +4701,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5129,9 +5181,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -5608,9 +5661,10 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
+                <!-- Name -->
                 <Grid Grid.Column="0">
                     <Viewbox Stretch="Uniform" HorizontalAlignment="Center">
-                        <TextBlock Padding="3" Style="{StaticResource TextStyle}"/>
+                        <TextBox Padding="3" Style="{StaticResource HitterStyle}"/>
                     </Viewbox>
 
                     <Border Style="{StaticResource BorderStyle}"/>
@@ -8794,9 +8848,10 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock FontWeight="ExtraBold" Style="{StaticResource TextStyle}"/>
+                            <TextBox FontWeight="ExtraBold" Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
@@ -8818,13 +8873,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Pitching Coach -->
@@ -8842,13 +8899,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Asst Pitch Coach -->
@@ -8866,13 +8925,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- First Base Coach -->
@@ -8890,13 +8951,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Third Base Coach -->
@@ -8914,13 +8977,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Hitting Coach -->
@@ -8938,13 +9003,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Asst Hitting Coach -->
@@ -8962,13 +9029,15 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
 
                 <!-- Bullpen Coach -->
@@ -8986,15 +9055,18 @@
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
 
+                    <!-- Name -->
                     <Grid Grid.Column="1">
                         <Viewbox Stretch="Uniform">
-                            <TextBlock Style="{StaticResource TextStyle}"/>
+                            <TextBox Style="{StaticResource CoachStyle}"/>
                         </Viewbox>
 
                         <Border Style="{StaticResource BorderStyle}"/>
                     </Grid>
+
                 </Grid>
             </Grid>
+            
         </Grid>
 
         <Border Style="{StaticResource BorderStyle}" Grid.RowSpan="6"/>
