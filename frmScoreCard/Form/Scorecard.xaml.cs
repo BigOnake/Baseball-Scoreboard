@@ -51,10 +51,10 @@ namespace frmScoreCard.Form
 
             Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
             RenderTargetBitmap rtb = new RenderTargetBitmap(
-                (int)bounds.Width,
-                (int)bounds.Height,
-                96, // DPI-X
-                96, // DPI-Y
+                (int)(bounds.Width * 2),
+                (int)(bounds.Height * 2),
+                192, // DPI-X
+                192, // DPI-Y
                 PixelFormats.Pbgra32);
 
             DrawingVisual dv = new DrawingVisual();
