@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Loaded="OnLoad"
         Title="Home"
-        Height="720" Width="1280"
+        Height="900" Width="1150"
         MinHeight="600" MinWidth="1024"
         MaxHeight="1080" MaxWidth="1920"
         SizeToContent="Manual">
@@ -134,9 +134,9 @@
                     
                     <!-- Field -->
                     <Viewbox Stretch="Uniform">
-                        <Canvas Width="300" Height="300">
+                        <Canvas Width="300" Height="400">
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="25"
+                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="35"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -145,10 +145,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="50" X2="300" Y2="50" Stroke="Black" StrokeThickness="1" 
-                                  RenderTransformOrigin="0.5,0.5" Canvas.Left="17" Canvas.Top ="15"/>
+                                  RenderTransformOrigin="0.5,0.5" Canvas.Left="17" Canvas.Top ="25"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="350" Canvas.Top="55"
+                            <TextBox Text="XX-Player Name" Canvas.Left="350" Canvas.Top="75"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -157,10 +157,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="75" X2="300" Y2="75" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="320" Canvas.Top="20" RenderTransformOrigin="0.5,0.5"/>
+                                  Canvas.Left="320" Canvas.Top="40" RenderTransformOrigin="0.5,0.5"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="-290" Canvas.Top="55" 
+                            <TextBox Text="XX-Player Name" Canvas.Left="-290" Canvas.Top="75" 
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -169,10 +169,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="100" X2="300" Y2="100" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="-315" Canvas.Top="-5"/>
+                                  Canvas.Left="-315" Canvas.Top="15"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="-220" Canvas.Top="110"
+                            <TextBox Text="XX-Player Name" Canvas.Left="-220" Canvas.Top="165"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -181,10 +181,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="125" X2="300" Y2="125" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="-243" Canvas.Top="25"/>
+                                  Canvas.Left="-243" Canvas.Top="80"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="290" Canvas.Top="110"
+                            <TextBox Text="XX-Player Name" Canvas.Left="290" Canvas.Top="165"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -193,10 +193,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="150" X2="300" Y2="150" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="259"/>
+                                  Canvas.Left="259" Canvas.Top="55"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="-280" Canvas.Top="160"
+                            <TextBox Text="XX-Player Name" Canvas.Left="-280" Canvas.Top="215"
                             Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -205,10 +205,10 @@
 
                             </TextBox>
                             <Line X1="0" Y1="175" X2="300" Y2="175" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="-307" Canvas.Top="25"/>
+                                  Canvas.Left="-307" Canvas.Top="75"/>
 
                             <!-- Player -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="332" Canvas.Top="160"
+                            <TextBox Text="XX-Player Name" Canvas.Left="332" Canvas.Top="215"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -216,11 +216,11 @@
                                 </TextBox.InputBindings>
 
                             </TextBox>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="332"/>
+                            <Line X1="0" Y1="200" X2="280" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="332" Canvas.Top="50"/>
 
                             <!-- Coach -->
-                            <TextBox Text="Coach Name" Canvas.Left="-205" Canvas.Top="205"
+                            <TextBox Text="Coach Name" Canvas.Left="-205" Canvas.Top="265"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown"
                                      Foreground="Red">
 
@@ -229,11 +229,11 @@
                                 </TextBox.InputBindings>
 
                             </TextBox>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="-226" Canvas.Top="45"/>
+                            <Line X1="0" Y1="200" X2="280" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="-226" Canvas.Top="100"/>
                             
                             <!-- Coach -->
-                            <TextBox Text="Coach Name" Canvas.Left="290" Canvas.Top="210"
+                            <TextBox Text="Coach Name" Canvas.Left="290" Canvas.Top="265"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown"
                                      Foreground="Red">
 
@@ -242,11 +242,11 @@
                                 </TextBox.InputBindings>
 
                             </TextBox>
-                            <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="236" Canvas.Top="50"/>
+                            <Line X1="40" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
+                                  Canvas.Left="236" Canvas.Top="100"/>
                             
                             <!-- Batter -->
-                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="255"
+                            <TextBox Text="XX-Player Name" Canvas.Left="50" Canvas.Top="330"
                                      Style="{StaticResource FieldPlayerStyle}" KeyDown="P1_KeyDown">
 
                                 <TextBox.InputBindings>
@@ -255,7 +255,7 @@
 
                             </TextBox>
                             <Line X1="0" Y1="200" X2="300" Y2="200" Stroke="Black" StrokeThickness="1" 
-                                  Canvas.Left="17" Canvas.Top="90"/>
+                                  Canvas.Left="17" Canvas.Top="170"/>
                         </Canvas>
                     </Viewbox>
 
@@ -267,11 +267,11 @@
                                    StrokeThickness="1">
                             <Rectangle.RenderTransform>
                                 <TransformGroup>
-                                    <TranslateTransform X="140" Y="100"/>
+                                    <TranslateTransform X="180" Y="100"/>
                                     <!-- Rotate by 45 degrees (center of the rectangle) -->
                                     <RotateTransform Angle="45" CenterX="50" CenterY="50"/>
                                     <!-- Scale down to 60% of original size -->
-                                    <ScaleTransform ScaleX="0.7" ScaleY="0.3"/>
+                                    <ScaleTransform ScaleX="0.5" ScaleY="0.25"/>
                                 </TransformGroup>
                             </Rectangle.RenderTransform>
                         </Rectangle>
