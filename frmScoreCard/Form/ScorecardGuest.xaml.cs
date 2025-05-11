@@ -42,7 +42,27 @@ namespace frmScoreCard.Form
 
         private void OnLoad(object sender, RoutedEventArgs e)
         {
+            //SaveScreenshot(this);
+        }
+
+        private void TakeScreenshotButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Hide the button
+            Button takeScreenshotButton = sender as Button;
+            if (takeScreenshotButton != null)
+            {
+                takeScreenshotButton.Visibility = Visibility.Collapsed;
+            }
+
             SaveScreenshot(this);
+
+            // Restore the button's visibility
+            if (takeScreenshotButton != null)
+            {
+                takeScreenshotButton.Visibility = Visibility.Visible;
+            }
+
+            MessageBox.Show("Screenshot saved to your desktop.", "Screenshot Taken", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void SaveScreenshot(Visual target)
@@ -52,19 +72,23 @@ namespace frmScoreCard.Form
                 return;
             }
 
-            Rect bounds = VisualTreeHelper.GetDescendantBounds(target);
+            // Use the native size specified in Scorecard.xaml
+            int nativeWidth = 1150;
+            int nativeHeight = 900;
+            double dpi = 192;
+
             RenderTargetBitmap rtb = new RenderTargetBitmap(
-                (int)(bounds.Width * 2),
-                (int)(bounds.Height * 2),
-                192, // DPI-X
-                192, // DPI-Y
+                nativeWidth * 2,
+                nativeHeight * 2,
+                dpi, // DPI-X
+                dpi, // DPI-Y
                 PixelFormats.Pbgra32);
 
             DrawingVisual dv = new DrawingVisual();
             using (DrawingContext dc = dv.RenderOpen())
             {
                 VisualBrush vb = new VisualBrush(target);
-                dc.DrawRectangle(vb, null, new Rect(new Point(), bounds.Size));
+                dc.DrawRectangle(vb, null, new Rect(new Point(), new Size(nativeWidth, nativeHeight)));
             }
 
             rtb.Render(dv);
