@@ -911,7 +911,7 @@ namespace frmScoreCard.Form
             }
         }        
 
-    
+
         private void startingPitcher()
         {
             if(stats.guestTeamSelectedPlayers != null && stats.guestTeamSelectedPlayers.Count >= 10)
